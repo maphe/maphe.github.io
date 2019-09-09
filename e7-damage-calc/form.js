@@ -2,12 +2,14 @@ const elements = {
   target_max_hp: {
     id: 'target-max-hp',
     label: 'Targets\'s Max HP',
+    type: 'slider',
     element: `<input id="target-max-hp" type="range" min="1000" max="200000" class="custom-range" value="10000" onchange="resolve()" oninput="slide('target-max-hp')" />`,
     value: () => Number(document.getElementById('target-max-hp').value)
   },
   target_hp_pc: {
     id: 'target-hp-pc',
     label: 'Targets\'s HP',
+    type: 'slider',
     percent: true,
     element: `<input id="target-hp-pc" type="range" min="1" max="100" class="custom-range" value="100" onchange="resolve()" oninput="slide('target-hp-pc')" />`,
     value: () => Number(document.getElementById('target-hp-pc').value)
@@ -15,30 +17,34 @@ const elements = {
   target_hp: {
     id: 'target-hp',
     label: 'Targets\'s HP',
+    type: 'slider',
     element: `<input id="target-hp" type="range" min="1000" max="200000" class="custom-range" value="10000" onchange="resolve()" oninput="slide('target-hp')" />`,
     value: () => Number(document.getElementById('target-hp').value)
   },
   target_nb_buff: {
     id: 'target-nb-buff',
     label: 'Buffs on Targets',
+    type: 'slider',
     element: `<input id="target-nb-buff" type="range" min="0" max="9" class="custom-range" value="0" onchange="resolve()" oninput="slide('target-nb-buff')" />`,
     value: () => Number(document.getElementById('target-nb-buff').value)
   },
   target_has_buff: {
     id: 'target-has-buff',
     label: 'Target has buffs',
-    element: `<input id="target-has-buff" type="checkbox" onchange="resolve()" class="custom-control-input" />`,
+    type: 'checkbox',
     value: () => document.getElementById('target-has-buff').checked
   },
   caster_max_hp: {
     id: 'caster-max-hp',
     label: 'Caster\'s Max HP',
+    type: 'slider',
     element: `<input id="caster-max-hp" type="range" min="1000" max="50000" class="custom-range" value="10000" onchange="resolve()" oninput="slide('caster-max-hp')" />`,
     value: () => Number(document.getElementById('caster-max-hp').value)
   },
   caster_hp_pc: {
     id: 'caster-hp-pc',
     label: 'Caster\'s HP',
+    type: 'slider',
     percent: true,
     element: `<input id="caster-hp-pc" type="range" min="1" max="100" class="custom-range" value="100" onchange="resolve()" oninput="slide('caster-hp-pc')" />`,
     value: () => Number(document.getElementById('caster-hp-pc').value)
@@ -46,6 +52,7 @@ const elements = {
   caster_hp: {
     id: 'caster-hp',
     label: 'Caster\'s HP',
+    type: 'slider',
     element: `<input id="caster-hp" type="range" min="1000" max="50000" class="custom-range" value="10000" onchange="resolve()" oninput="slide('caster-hp')" />`,
     value: () => Number(document.getElementById('caster-hp').value)
   }
@@ -60,10 +67,19 @@ const build = (hero) => {
     const specificBlock = document.getElementById('custom-block');
     specificBlock.innerHTML = '';
     for (let elem of hero.form) {
-      $(specificBlock).append(`<div class="form-group col-sm-12">
+      if (elem.type === 'slider') {
+        $(specificBlock).append(`<div class="form-group col-sm-12">
                         <label for="${elem.id}">${elem.label}: <span id="${elem.id}-val"></span>${elem.percent ? '%' : ''}</label>
                         ${elem.element}
                     </div>`);
+      } else if (elem.type === 'checkbox') {
+        $(specificBlock).append(`<div class="form-group col-sm-12">
+                              <div class="custom-control custom-checkbox">
+                                  <input class="custom-control-input" type="checkbox" id="${elem.id}" value="1" onchange="resolve()">
+                                  <label class="custom-control-label" for="${elem.id}">${elem.label}</label>
+                              </div>
+                        </div>`);
+      }
     }
   }
 
