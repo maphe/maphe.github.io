@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <title>Epic7 Damage Calculator</title>
+    </head>
+    <body class="container">
+        <div>
+            <form id="stats">
+                <h4>Hero</h4>
+                <div id="hero-block">
+                    <div class="form-group col-sm-12 row">
+                        <label for="hero" class="col-sm-2 col-form-label">Hero</label>
+                        <div class="col-sm-3">
+                            <select id="hero" class="form-control custom-select" onchange="resolve()">
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-sm-12">
+                        <label for="atk">Attack: <span id="atk-val"></span></label>
+                        <input type="range" class="custom-range" id="atk" min="200" max="10000" value="2500" onchange="resolve()" oninput="slide('atk')">
+                    </div>
+
+                    <div class="form-group col-sm-12">
+                        <label for="crit">Critical Damage: <span id="crit-val"></span>%</label>
+                        <input type="range" class="custom-range" id="crit" min="150" max="350" onchange="resolve()" oninput="slide('crit')">
+                    </div>
+
+                    <div class="form-group col-sm-12">
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input class="custom-control-input" type="checkbox" id="elem-adv" value="1.1" onchange="resolve()">
+                            <label class="custom-control-label" for="elem-adv">Elemental Advantage</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input class="custom-control-input" type="checkbox" id="atk-up" value="1.5" onchange="resolve()">
+                            <label class="custom-control-label" for="atk-up">Increased Attack</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input class="custom-control-input" type="checkbox" id="atk-up-great" value="1.75" onchange="resolve()">
+                            <label class="custom-control-label" for="atk-up-great">Increased Attack (Great)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>Target</h4>
+                <div id="target-block">
+                    <div class="form-group col-sm-12">
+                        <label for="def">Defense: <span id="def-val"></span></label>
+                        <input type="range" class="custom-range" id="def" min="200" max="5000" value="750" onchange="resolve()" oninput="slide('def')">
+                    </div>
+
+                    <div class="form-group col-sm-12">
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input class="custom-control-input" type="checkbox" id="def-up" value="1.6" onchange="resolve()">
+                            <label class="custom-control-label" for="def-up">Increased Defense</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input class="custom-control-input" type="checkbox" id="def-down" value="0.3" onchange="resolve()">
+                            <label class="custom-control-label" for="def-down">Decreased Defense</label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox custom-control-inline">
+                            <input class="custom-control-input" type="checkbox" id="target" value="1.15" onchange="resolve()">
+                            <label class="custom-control-label" for="target">Target</label>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>Specific</h4>
+                <div id="custom-block"></div>
+
+                <h4>Skill Enhance (MolaGora)</h4>
+                <div id="molagora-block"></div>
+            </form>
+        </div>
+
+        <h4>Damage</h4>
+        <div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Skill</th>
+                        <th>Critical Hit</th>
+                        <th>Crushing Hit</th>
+                        <th>Normal Hit</th>
+                        <th>Miss</th>
+                    </tr>
+                </thead>
+                <tbody id="damage"></tbody>
+            </table>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script src="form.js"></script>
+        <script src="heroes.js"></script>
+        <script src="calculator.js"></script>
+    </body>
+</html>
