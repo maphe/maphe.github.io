@@ -35,6 +35,13 @@ const elements = {
     element: `<input id="target-nb-buff" type="range" min="0" max="9" class="custom-range" value="0" onchange="resolve()" oninput="slide('target-nb-buff')" />`,
     value: () => Number(document.getElementById('target-nb-buff').value)
   },
+  target_nb_debuff: {
+    id: 'target-nb-debuff',
+    label: 'Debuffs on Targets',
+    type: 'slider',
+    element: `<input id="target-nb-debuff" type="range" min="0" max="9" class="custom-range" value="0" onchange="resolve()" oninput="slide('target-nb-debuff')" />`,
+    value: () => Number(document.getElementById('target-nb-debuff').value)
+  },
   target_has_buff: {
     id: 'target-has-buff',
     label: 'Target has buffs',
