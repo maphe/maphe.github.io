@@ -1,4 +1,11 @@
 const elements = {
+  nb_targets: {
+    id: 'nb-targets',
+    label: 'Number of enemies',
+    type: 'slider',
+    element: `<input id="nb-targets" type="range" min="1" max="9" class="custom-range" value="1" onchange="resolve()" oninput="slide('nb-targets')" />`,
+    value: () => Number(document.getElementById('nb-targets').value)
+  },
   target_max_hp: {
     id: 'target-max-hp',
     label: 'Targets\'s Max HP',
@@ -33,6 +40,18 @@ const elements = {
     label: 'Target has buffs',
     type: 'checkbox',
     value: () => document.getElementById('target-has-buff').checked
+  },
+  target_has_debuff: {
+    id: 'target-has-debuff',
+    label: 'Target has debuffs',
+    type: 'checkbox',
+    value: () => document.getElementById('target-has-debuff').checked
+  },
+  target_is_stunned: {
+    id: 'target-is-stunned',
+    label: 'Target is stunned',
+    type: 'checkbox',
+    value: () => document.getElementById('target-is-stunned').checked
   },
   caster_max_hp: {
     id: 'caster-max-hp',
@@ -88,7 +107,7 @@ const build = (hero) => {
   for (let id of Object.keys(hero.skills)) {
     const skill = hero.skills[id];
     if (skill.enhance) {
-      $(molagoraBlock).append(`<div class="form-group col-sm-6">
+      $(molagoraBlock).append(`<div class="form-group col-sm-${skill.enhance.length}">
                         <label for="molagora-${id}">${id.toUpperCase()}: +<span id="molagora-${id}-val"></span></label>
                         <input id="molagora-${id}" type="range" min="0" max="${skill.enhance.length}" class="custom-range" value="0" onchange="resolve()" oninput="slide('molagora-${id}')" />
                     </div>`);
