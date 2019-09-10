@@ -3,7 +3,7 @@ const elements = {
     id: 'nb-targets',
     label: 'Number of enemies',
     type: 'slider',
-    element: `<input id="nb-targets" type="range" min="1" max="9" class="custom-range" value="1" onchange="resolve()" oninput="slide('nb-targets')" />`,
+    element: `<input id="nb-targets" type="range" min="1" max="9" class="custom-range" value="4" onchange="resolve()" oninput="slide('nb-targets')" />`,
     value: () => Number(document.getElementById('nb-targets').value)
   },
   target_max_hp: {
@@ -60,6 +60,12 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('target-is-stunned').checked
   },
+  target_magic_nailed: {
+    id: 'target-magic-nailed',
+    label: 'Magic Nail on Target',
+    type: 'checkbox',
+    value: () => document.getElementById('target-magic-nailed').checked
+  },
   caster_max_hp: {
     id: 'caster-max-hp',
     label: 'Caster\'s Max HP',
@@ -82,11 +88,25 @@ const elements = {
     element: `<input id="caster-hp" type="range" min="1000" max="50000" class="custom-range" value="10000" onchange="resolve()" oninput="slide('caster-hp')" />`,
     value: () => Number(document.getElementById('caster-hp').value)
   },
+  caster_nb_buff: {
+    id: 'caster-nb-buff',
+    label: 'Buffs on Caster',
+    type: 'slider',
+    element: `<input id="caster-nb-buff" type="range" min="0" max="9" class="custom-range" value="0" onchange="resolve()" oninput="slide('caster-nb-buff')" />`,
+    value: () => Number(document.getElementById('caster-nb-buff').value)
+  },
   caster_full_focus: {
     id: 'caster-full-focus',
     label: 'Full Focus',
     type: 'checkbox',
     value: () => document.getElementById('caster-full-focus').checked
+  },
+  caster_nb_focus: {
+    id: 'caster-nb-focus',
+    label: 'Focus',
+    type: 'slider',
+    element: `<input id="caster-nb-focus" type="range" min="0" max="5" class="custom-range" value="0" onchange="resolve()" oninput="slide('caster-nb-focus')" />`,
+    value: () => Number(document.getElementById('caster-nb-focus').value)
   }
 };
 

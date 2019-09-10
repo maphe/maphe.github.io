@@ -173,6 +173,105 @@ const heroes = {
       }
     }
   },
+  cermia: {
+    name: 'Cermia',
+    skills: {
+      s1: {
+        rate: 1.2,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.65 : 1.15,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        penetrate: () => 0.5
+      },
+    }
+  },
+  charles: {
+    name: 'Charles',
+    form: [elements.caster_nb_buff, elements.nb_targets],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+      },
+      s2: {
+        rate: () => 1.5 + (elements.caster_nb_buff.value() > 1 ? (elements.caster_nb_buff.value()-1)*0.07 : 0),
+        pow: 1,
+        enhance: [0.1, 0, 0.1, 0, 0.1],
+      },
+      s3: {
+        rate: 1.2,
+        pow: 1,
+        mult: () => {
+          switch (elements.nb_targets.value()) {
+            case 3: return 1.534;
+            case 2: return 1.801;
+            case 1: return 2.068;
+            default: return 1;
+          }
+        },
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+      }
+    }
+  },
+  charlotte: {
+    name: 'Charlotte',
+    form: [elements.caster_nb_focus],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+      },
+      s2: {
+        rate: 0.8,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.1, 0, 0.15],
+      },
+      s3: {
+        rate: () => {
+          switch (elements.caster_nb_focus.value()) {
+            case 2: return 1;
+            case 3: return 1.3;
+            case 4: return 1.7;
+            case 5: return 2.4;
+            default: return 0.8;
+          }
+        },
+        pow: 0.8,
+        enhance: [0.1, 0.1, 0, 0.1, 0.1],
+      }
+    }
+  },
+  chloe: {
+    name: 'Chloe',
+    form: [elements.target_magic_nailed],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.9,
+        mult: () => elements.target_magic_nailed.value() ? 1.3 : 1,
+        enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
+      },
+      s2: {
+        rate: 0.9,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 3.5 : 2,
+        pow: 0.8,
+        mult: () => elements.target_magic_nailed.value() ? 1.35 : 1,
+        enhance: [0.1, 0.1, 0, 0.15, 0.15],
+      }
+    }
+  },
   chaos_inquisitor: {
     name: 'Chaos Inquisitor',
     form: [elements.caster_hp_pc],
@@ -188,6 +287,26 @@ const heroes = {
         pow: 0.85,
         mult: () => 1 + (1-(elements.caster_hp_pc.value()/100))/2, // 0.5% increased damage per 1% self Health missing
         enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.15]
+      }
+    }
+  },
+  dark_corvus: {
+    name: 'Dark Corvus',
+    form: [elements.caster_max_hp],
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.07,
+        enhance: [0.05, 0, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        soulburn: true,
+        rate: 0,
+        pow: 0.95,
+        flat: (soulburn) => elements.caster_max_hp.value()*(soulburn ? 0.34 : 0.2),
+        penetrate: () => 1.0,
+        enhance: [0.05, 0.05, 0, 0.05, 0.1, 0.1]
       }
     }
   },
