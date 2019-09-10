@@ -74,6 +74,12 @@ const elements = {
     type: 'slider',
     element: `<input id="caster-hp" type="range" min="1000" max="50000" class="custom-range" value="10000" onchange="resolve()" oninput="slide('caster-hp')" />`,
     value: () => Number(document.getElementById('caster-hp').value)
+  },
+  caster_full_focus: {
+    id: 'caster-full-focus',
+    label: 'Full Focus',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-full-focus').checked
   }
 };
 
@@ -82,8 +88,8 @@ const slide = (fieldId) => {
 };
 
 const build = (hero) => {
+  const specificBlock = document.getElementById('custom-block');
   if (hero.form) {
-    const specificBlock = document.getElementById('custom-block');
     specificBlock.innerHTML = '';
     for (let elem of hero.form) {
       if (elem.type === 'slider') {
@@ -100,6 +106,8 @@ const build = (hero) => {
                         </div>`);
       }
     }
+  } else {
+    specificBlock.innerHTML = '<p class="col-sm-12"><i>Nothing here</i></p>';
   }
 
   const molagoraBlock = document.getElementById('molagora-block');

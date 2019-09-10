@@ -1,4 +1,66 @@
 const heroes = {
+  apocalypse_ravi: {
+    name: 'Apocalypse Ravi',
+    form: [elements.caster_max_hp],
+    skills: {
+      s1: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.8 : 1,
+        pow: 0.95,
+        flat: (soulburn) => elements.caster_max_hp.value() * (soulburn ? 0.2 : 0.12),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s3: {
+        rate: 1.3,
+        pow: 0.95,
+        flat: () => elements.caster_max_hp.value() * 0.2,
+        enhance: [0.05, 0.05, 0, 0.05, 0.1, 0.1]
+      }
+    }
+  },
+  aramintha: {
+    name: 'Aramintha',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1.05,
+        enhance: [0.1, 0, 0, 0.15]
+      },
+      s2: {
+        rate: 0.8,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0.15]
+      },
+      s3: {
+        rate: 0.85,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.1]
+      }
+    }
+  },
+  arbiter_vildred: {
+    name: 'Arbiter Vildred',
+    form: [elements.caster_full_focus],
+    skills: {
+      s1: {
+        rate: 0.975,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0.1]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => {
+          if (elements.caster_full_focus.value()) {
+            return soulburn ? 1.55 : 1.23;
+          } else {
+            return soulburn ? 1.29 : 1.04;
+          }
+        },
+        pow: 0.85,
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1, 0.1]
+      }
+    }
+  },
   bellona: {
     name: 'Bellona',
     form: [elements.target_max_hp, elements.nb_targets],
@@ -16,9 +78,9 @@ const heroes = {
         enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
       },
       s3: {
-        rate: 0.95,
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.2 : 0.95,
         pow: 1,
-        soulburn: 1.2,
         enhance: [0.05, 0, 0, 0, 0.15]
       }
     }
@@ -33,9 +95,9 @@ const heroes = {
         enhance: [0.05, 0, 0.1, 0, 0, 0.15]
       },
       s3: {
-        rate: 1.5,
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2.2 : 1.5,
         pow: 0.85,
-        soulburn:  2.2,
         mult: () => 1 + (1-(elements.caster_hp_pc.value()/100))/2, // 0.5% increased damage per 1% self Health missing
         enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.15]
       }
@@ -138,9 +200,9 @@ const heroes = {
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
       },
       s2: {
-        rate: 0.8,
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.05 : 0.8,
         pow: 1,
-        soulburn: 1.05,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
       },
       s3: {

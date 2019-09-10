@@ -62,9 +62,9 @@ class Hero {
 
     const atkTotal = this.atk * getGlobalAtkMult();
     const powerTotal = 1.871 * skill.pow;
-    const multTotal = (skill.mult ? skill.mult() : 1) * this.getSkillEnhanceMult(skillId)  * powerTotal;
+    const multTotal = (skill.mult ? skill.mult(soulburn) : 1) * this.getSkillEnhanceMult(skillId)  * powerTotal;
 
-    return (atkTotal * (soulburn ? skill.soulburn : skill.rate) + (skill.flat ? skill.flat() : 0)) * multTotal;
+    return (atkTotal * (typeof skill.rate === 'function' ? skill.rate(soulburn) : skill.rate) + (skill.flat ? skill.flat(soulburn) : 0)) * multTotal;
   }
 
   getSkillEnhanceMult(skillId) {
