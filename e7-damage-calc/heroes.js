@@ -460,6 +460,30 @@ const heroes = {
       }
     }
   },
+  kise: {
+    name: 'Kise',
+    form: [elements.caster_stealth, elements.caster_hp_pc],
+    skills: {
+      s1: {
+        rate: (soulburn) => soulburn ? 1.4 : 1.1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.1, 0.1, 0.1]
+      },
+      s2: {
+        rate: 0.8,
+        pow: 1,
+        penetrate: () => elements.caster_stealth.value() ? 0.6 : 0,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      },
+      s3: {
+        rate: 1.6,
+        pow: 1,
+        mult: () => 1 + elements.caster_hp_pc.value()*0.0035,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      }
+    }
+
+  },
   krau: {
     name: 'Krau',
     form: [elements.caster_max_hp, elements.caster_hp],
@@ -481,6 +505,26 @@ const heroes = {
         pow: 1,
         flat: () => 0.53571*(elements.caster_max_hp.value()-elements.caster_hp.value()), // 0.53571 flat per 1 hp missing
         penetrate: () => 1.0,
+      }
+    }
+  },
+  lidica: {
+    name: 'Lidica',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s2: {
+        rate: 0.7,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        rate: 1.6,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
       }
     }
   },
