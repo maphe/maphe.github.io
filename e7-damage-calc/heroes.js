@@ -356,6 +356,29 @@ const heroes = {
       }
     }
   },
+  ludwig: {
+    name: 'Ludwig',
+    form: [elements.caster_invincible],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        rate: 1.65,
+        pow: 1.05,
+        enhance: [0.05, 0, 0, 0, 0.1]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.1 : 0.85,
+        pow: 0.95,
+        penetrate: () => elements.caster_invincible.value() ? 0.5 : 0.2,
+        enhance: [0.05, 0.05, 0, 0.1, 0.15]
+      }
+    }
+  },
   luluca: {
     name: 'Luluca',
     form: [elements.target_hp_pc],

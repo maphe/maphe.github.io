@@ -107,7 +107,13 @@ const elements = {
     type: 'slider',
     element: `<input id="caster-nb-focus" type="range" min="0" max="5" class="custom-range" value="0" onchange="resolve()" oninput="slide('caster-nb-focus')" />`,
     value: () => Number(document.getElementById('caster-nb-focus').value)
-  }
+  },
+  caster_invincible: {
+    id: 'caster-invincible',
+    label: 'Caster is Invincible',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-invincible').checked
+  },
 };
 
 const slide = (fieldId) => {
