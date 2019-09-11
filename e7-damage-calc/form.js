@@ -6,6 +6,13 @@ const elements = {
     element: `<input id="nb-targets" type="range" min="1" max="9" class="custom-range" value="4" onchange="resolve()" oninput="slide('nb-targets')" />`,
     value: () => Number(document.getElementById('nb-targets').value)
   },
+  nb_hits: {
+    id: 'nb-hits',
+    label: 'Number of hits',
+    type: 'slider',
+    element: `<input id="nb-hits" type="range" min="3" max="10" class="custom-range" value="3" onchange="resolve()" oninput="slide('nb-hits')" />`,
+    value: () => Number(document.getElementById('nb-hits').value)
+  },
   target_max_hp: {
     id: 'target-max-hp',
     label: 'Targets\'s Max HP',
@@ -107,6 +114,13 @@ const elements = {
     type: 'slider',
     element: `<input id="caster-nb-focus" type="range" min="0" max="5" class="custom-range" value="0" onchange="resolve()" oninput="slide('caster-nb-focus')" />`,
     value: () => Number(document.getElementById('caster-nb-focus').value)
+  },
+  caster_fighting_spirit: {
+    id: 'caster-fighting-spirit',
+    label: 'Fighting Spirit',
+    type: 'slider',
+    element: `<input id="caster-fighting-spirit" type="range" min="0" max="100" class="custom-range" value="0" step="5" onchange="resolve()" oninput="slide('caster-fighting-spirit')" />`,
+    value: () => Number(document.getElementById('caster-fighting-spirit').value)
   },
   caster_invincible: {
     id: 'caster-invincible',

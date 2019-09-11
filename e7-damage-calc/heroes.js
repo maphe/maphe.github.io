@@ -528,6 +528,29 @@ const heroes = {
       }
     }
   },
+  lilibet: {
+    name: 'Lilibet',
+    form: [elements.target_has_buff],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        rate: 1.5,
+        pow: 1,
+        mult: () => 1 + (elements.target_has_buff.value() ? 0 : 0.2),
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2.6 : 2,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0.1, 0.15]
+      }
+    }
+  },
   ludwig: {
     name: 'Ludwig',
     form: [elements.caster_invincible],
@@ -565,6 +588,65 @@ const heroes = {
         rate: 0.9,
         pow: 1.05,
         enhance: [0.1, 0, 0, 0, 0.15]
+      }
+    }
+  },
+  luna: {
+    name: 'Luna',
+    form: [elements.nb_hits],
+    skills: {
+      s1: {
+        rate: () => elements.nb_hits.value()*0.7,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2.2 : 1.5,
+        pow: 1.05,
+        enhance: [0.05, 0, 0.1, 0, 0.1]
+      }
+    }
+  },
+  martial_artist_ken: {
+    name: 'Martial Artist Ken',
+    form: [elements.caster_hp_pc],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.95,
+        enhance: [0.05, 0.1, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        rate: 1.2,
+        pow: 0.95,
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.04,
+        enhance: [0.05, 0.1, 0.15]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.1 : 0.9,
+        pow: 1,
+        enhance: [0.05, 0, 0, 0.1, 0, 0.15]
+      }
+    }
+  },
+  ravi: {
+    name: 'Ravi',
+    form: [elements.caster_fighting_spirit],
+    skills: {
+      s1: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2.5 : 1,
+        pow: 1,
+        mult: () => 1 + Math.floor(elements.caster_fighting_spirit.value()/20)*0.15,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        rate: 1.2,
+        pow: 0.95,
+        mult: () => 1 + Math.floor(elements.caster_fighting_spirit.value()/20)*0.15,
+        enhance: [0.05, 0.05, 0, 0.05, 0.05]
       }
     }
   },
