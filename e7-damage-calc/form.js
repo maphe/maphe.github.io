@@ -114,6 +114,12 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('caster-invincible').checked
   },
+  caster_vigor: {
+    id: 'caster-vigor',
+    label: 'Caster has Vigor',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-vigor') ? document.getElementById('caster-vigor').checked : undefined
+  },
 };
 
 const slide = (fieldId) => {

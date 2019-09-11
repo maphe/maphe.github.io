@@ -332,6 +332,134 @@ const heroes = {
       }
     }
   },
+  fallen_cecilia: {
+    name: 'Fallen Cecilia',
+    form: [elements.caster_max_hp],
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.07,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        rate: 0.65,
+        pow: 0.95,
+        flat: () => elements.caster_max_hp.value()*0.12,
+        enhance: [0.05, 0.05, 0, 0.1, 0.15]
+      }
+    }
+  },
+  haste: {
+    name: 'Haste',
+    form: [elements.nb_targets],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      },
+      s2: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2 : 1.5,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        rate: 1,
+        pow: 1,
+        mult: () => {
+          switch (elements.nb_targets.value()) {
+            case 1: return 2.5;
+            case 2: return 2.0;
+            default: return 1.0;
+          }
+        },
+        enhance: [0.15, 0, 0, 0, 0.15]
+      }
+    }
+  },
+  iseria: {
+    name: 'Iseria',
+    skills: {
+      s1: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2 : 1,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0, 0.05, 0.1, 0.1]
+      },
+      s3: {
+        rate: 2,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.1]
+      }
+    }
+  },
+  judge_kise: {
+    name: 'Judge Kise',
+    form: [elements.nb_targets],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.15, 0, 0, 0.15]
+      },
+      s2: {
+        rate: 1,
+        pow: 1,
+        mult: () => 1 + (elements.nb_targets.value()-1)*0.1,
+        enhance: [0.05, 0.05, 0.1, 0.1]
+      },
+      s3: {
+        rate: 1,
+        pow: 0.9,
+        enhance: [0.05, 0, 0.1, 0, 0, 0.1, 0.15]
+      }
+    }
+  },
+  kayron: {
+    name: 'Kayron',
+    form: [elements.caster_hp_pc],
+    skills: {
+      s1: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.35 : 0.95,
+        pow: 1,
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0015,
+        enhance: [0.05, 0.05, 0, 0.05, 0, 0.15]
+      },
+      s3: {
+        rate: 1.7,
+        pow: 0.9,
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.003,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.1]
+      }
+    }
+  },
+  ken: {
+    name: 'Ken',
+    form: [elements.caster_max_hp, elements.caster_vigor],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.1,
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1]
+      },
+      s2: {
+        rate: 1.2,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.1,
+        enhance: [0.05, 0.1, 0.15]
+      },
+      s3: {
+        rate: 1.5,
+        pow: 0.9,
+        flat: () => elements.caster_max_hp.value()*0.3,
+        enhance: [0.05, 0.05, 0, 0.05, 0.1, 0.15]
+      }
+    }
+  },
   krau: {
     name: 'Krau',
     form: [elements.caster_max_hp, elements.caster_hp],
@@ -440,6 +568,27 @@ const heroes = {
         pow: 1,
         penetrate: () => elements.target_is_stunned.value() ? 1.0 : 0,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      }
+    }
+  },
+  yufine: {
+    name: 'Yufine',
+    form: [elements.target_has_buff],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.05, 0, 0.15]
+      },
+      s2: {
+        rate: 0.9,
+        pow: 1,
+      },
+      s3: {
+        rate: 2,
+        pow: 0.95,
+        mult: () => elements.target_has_buff.value() ? 1.5 : 1.0,
+        enhance: [0.05, 0.05, 0, 0.05, 0.1, 0.1]
       }
     }
   }

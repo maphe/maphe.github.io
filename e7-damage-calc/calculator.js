@@ -24,6 +24,10 @@ const getGlobalAtkMult = () => {
     mult *= elem.checked ? Number(elem.value) : 1.0;
   }
 
+  if (elements.caster_vigor.value()) {
+    mult *= 1.3;
+  }
+
   return mult;
 };
 
