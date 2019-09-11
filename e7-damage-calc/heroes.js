@@ -717,5 +717,37 @@ const heroes = {
         enhance: [0.05, 0.05, 0, 0.05, 0.1, 0.1]
       }
     }
+  },
+  yuna: {
+    name: 'Yuna',
+    form: [elements.caster_speed, elements.nb_targets],
+    skills: {
+      s1: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 0.85 : 0.6,
+        pow: 0.8,
+        mult: () => {
+          let mult = 1 + elements.caster_speed.value()*0.00075;
+          switch (elements.nb_targets.value()) {
+            case 2: mult += 0.4; break;
+            case 1: mult += 0.6; break;
+          }
+          return mult;
+        },
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1, 0.1]
+      },
+      s3: {
+        rate: 1.5,
+        pow: 0.8,
+        mult: () => {
+          switch (elements.nb_targets.value()) {
+            case 2: return 1.4;
+            case 1: return 1.6;
+            default: return 1;
+          }
+        },
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1, 0.1, 0.1]
+      }
+    }
   }
 };
