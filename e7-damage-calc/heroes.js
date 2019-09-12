@@ -824,6 +824,62 @@ const heroes = {
       }
     }
   },
+  specter_tenebria: {
+    name: 'Specter Tenebria',
+    form: [elements.target_nb_debuff],
+    skills: {
+      s1: {
+        rate: 1.2,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.05, 0.15]
+      },
+      s3: {
+        rate: 1.8,
+        pow: 0.95,
+        mult: () => 1 + elements.target_nb_debuff.value()*0.2,
+        enhance: [0.05, 0.05, 0, 0, 0.1, 0.1]
+      }
+    }
+  },
+  tenebria: {
+    name: 'Tenebria',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        rate: 0.8,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.35 : 1.1,
+        pow: 1.05,
+        enhance: [0.05, 0, 0, 0.1, 0.15]
+      }
+    }
+  },
+  tywin: {
+    name: 'Tywin',
+    form: [elements.caster_max_hp],
+    skills: {
+      s1: {
+        rate: 0.8,
+        pow: 0.95,
+        flat: () => elements.caster_max_hp.value()*0.04,
+        enhance: [0.05, 0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        rate: 0.5,
+        pow: 0.95,
+        flat: () => elements.caster_max_hp.value()*0.1,
+        enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.15]
+      }
+    }
+  },
   yufine: {
     name: 'Yufine',
     form: [elements.target_has_buff],
