@@ -208,6 +208,11 @@ $(() => {
     $('input[type="range"]').each((_, elem) => {
       slide(elem.getAttribute('id'));
     });
+    ga('send', 'event', {
+      eventCategory: 'Hero',
+      eventAction: 'pick',
+      eventValue: heroSelector.value
+    });
   };
 
   build(heroes[heroSelector.value]);
