@@ -172,7 +172,7 @@ const build = (hero) => {
                     </div>`);
       } else if (elem.type === 'checkbox') {
         $(specificBlock).append(`<div class="form-group col-sm-12">
-                              <div class="custom-control custom-checkbox">
+                              <div class="custom-control custom-checkbox custom-control-inline buff-block">
                                   <input class="custom-control-input" type="checkbox" id="${elem.id}" value="1" onchange="resolve()">
                                   <label class="custom-control-label" for="${elem.id}">${elem.label}</label>
                               </div>

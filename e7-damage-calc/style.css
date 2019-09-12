@@ -1,0 +1,28 @@
+.buff-block {
+    border: 1px solid lightgrey;
+    border-radius: 4px;
+}
+
+.buff-block > label {
+    margin: 4px;
+}
+
+.custom-range::-webkit-slider-thumb {
+    width: 1.1rem;
+    height: 1.1rem;
+    margin-top: -0.3rem;
+    background-color: dimgrey;
+}
+
+span[id$="-val"] {
+    font-weight: bold;
+}
+
+.page-footer {
+    border-top: 1px solid lightgrey;
+    font-size: 0.9rem;
+}
+
+.page-footer h5 {
+    font-size: 1.15rem;
+}
