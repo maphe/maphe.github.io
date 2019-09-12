@@ -880,6 +880,63 @@ const heroes = {
       }
     }
   },
+  vildred: {
+    name: 'Vildred',
+    form: [elements.caster_speed],
+    skills: {
+      s1: {
+        rate: 0.85,
+        pow: 0.95,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
+      },
+      s2: {
+        rate: 0.5,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.29 : 1.04,
+        pow: 1,
+        mult: (soulburn) => 1 + elements.caster_speed.value()*(soulburn ? 0.0009 : 0.00075),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      }
+    }
+  },
+  violet: {
+    name: 'Violet',
+    form: [elements.caster_nb_focus],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1, 0.1]
+      },
+      s3: {
+        rate: 1.5,
+        pow: 0.9,
+        mult: () => 1 + elements.caster_nb_focus.value()*0.15,
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1, 0.1]
+      }
+    }
+  },
+  vivian: {
+    name: 'Vivian',
+    skills: {
+      s1: {
+        rate: 1.2,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.05, 0.05, 0.1]
+      },
+      s2: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.3 : 1.05,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1]
+      }
+    }
+  },
   yufine: {
     name: 'Yufine',
     form: [elements.target_has_buff],
