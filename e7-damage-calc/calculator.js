@@ -54,7 +54,7 @@ class Hero {
     const skill = this.skills[skillId];
     const hit = this.offensivePower(skillId, soulburn) / this.target.defensivePower(skill);
     return {
-      crit: Math.round(hit * (this.crit / 100)),
+      crit: Math.round(hit * ((this.crit / 100)+(skill.critDmgBoost ? skill.critDmgBoost : 0))),
       crush: Math.round(hit * 1.3),
       normal: Math.round(hit),
       miss: Math.round(hit * 0.75)

@@ -95,6 +95,13 @@ const elements = {
     element: `<input id="caster-hp" type="range" min="1000" max="50000" class="custom-range" value="10000" onchange="resolve()" oninput="slide('caster-hp')" />`,
     value: () => Number(document.getElementById('caster-hp').value)
   },
+  caster_defense: {
+    id: 'caster-defense',
+    label: 'Caster\'s Defense',
+    type: 'slider',
+    element: `<input id="caster-defense" type="range" min="200" max="5000" class="custom-range" value="750" onchange="resolve()" oninput="slide('caster-defense')" />`,
+    value: () => Number(document.getElementById('caster-defense').value)
+  },
   caster_speed: {
     id: 'caster-speed',
     label: 'Caster\'s Speed',

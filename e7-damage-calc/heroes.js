@@ -460,6 +460,25 @@ const heroes = {
       }
     }
   },
+  kikirat_v2: {
+    name: 'Kikirat v2',
+    form: [elements.caster_defense],
+    skills: {
+      s1: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_defense.value()*0.7,
+        enhance: [0.05, 0, 0.05, 0, 0.05]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 0.5 : 0.4,
+        pow: 1,
+        flat: (soulburn) => elements.caster_defense.value()*(soulburn ? 0.6 : 0.5),
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      }
+    }
+  },
   kise: {
     name: 'Kise',
     form: [elements.caster_stealth, elements.caster_hp_pc],
@@ -648,6 +667,114 @@ const heroes = {
         mult: () => 1 + Math.floor(elements.caster_fighting_spirit.value()/20)*0.15,
         enhance: [0.05, 0.05, 0, 0.05, 0.05]
       }
+    }
+  },
+  sage_baal_and_sezan: {
+    name: 'Sage Baal & Sezan',
+    form: [elements.caster_max_hp, elements.caster_hp],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1.1,
+        enhance: [0.05, 0, 0.05, 0, 0.1]
+      },
+      s2: {
+        rate: 0.85,
+        pow: 1.3,
+      },
+      s3: {
+        rate: 1.2,
+        pow: 1,
+        flat: () => 0.3*(elements.caster_max_hp.value()-elements.caster_hp.value()),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      }
+    }
+  },
+  seaside_bellona: {
+    name: 'Seaside Bellona',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0.1]
+      },
+      s2: {
+        rate: 0.7,
+        pow: 1,
+        enhance: [0.05, 0.1, 0.15]
+      },
+      s3: {
+        rate: 1,
+        pow: 1,
+        critDmgBoost: 0.2,
+        enhance: [0.05, 0, 0, 0, 0.1, 0.15]
+      }
+    }
+  },
+  sez: {
+    name: 'Sez',
+    form: [elements.target_hp_pc],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.95,
+        mult: () => 1 + (100-elements.target_hp_pc.value())*0.002,
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
+      },
+      s2: {
+        rate: 0.5,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 3.2 : 1.8,
+        pow: 0.95,
+        mult: (soulburn) => 1 + (100-elements.target_hp_pc.value())*(soulburn ? 0.007 : 0.003),
+        enhance: [0.05, 0.05, 0, 0.1, 0.15]
+      }
+    }
+  },
+  sigret: {
+    name: 'Sigret',
+    form: [elements.target_nb_debuff],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        rate: 1.25,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        rate: 1.7,
+        pow: 0.8,
+        enhance: [0.1, 0.1, 0, 0.15, 0.15],
+        penetrate: () => 0.3 + elements.target_nb_debuff.value()*0.1
+      },
+    }
+  },
+  silver_blade_aramintha: {
+    name: 'Silver Blade Aramintha',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      },
+      s2: {
+        rate: 0.5,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s3: {
+        rate: 0.9,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      },
     }
   },
   sol: {
