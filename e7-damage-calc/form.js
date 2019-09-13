@@ -228,10 +228,9 @@ $(() => {
     $('input[type="range"]').each((_, elem) => {
       slide(elem.getAttribute('id'));
     });
-    ga('send', 'event', {
-      eventCategory: 'Hero',
-      eventAction: 'pick',
-      eventLabel: heroSelector.value,
+    gtag('event', 'pick', {
+      event_category: 'Hero',
+      event_label: heroSelector.value,
     });
   };
 
