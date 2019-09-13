@@ -658,6 +658,21 @@ const heroes = {
       }
     }
   },
+  dingo: {
+    name: 'Dingo',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0, 0.1, 0.1]
+      },
+      s2: {
+        rate: 0.8,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.1]
+      }
+    }
+  },
   dizzy: {
     name: 'Dizzy',
     form: [elements.target_has_debuff],
@@ -680,6 +695,21 @@ const heroes = {
       }
     }
   },
+  dominiel: {
+    name: 'Dominiel',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0, 0.1, 0.1]
+      },
+      s3: {
+        rate: 0.75,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.15]
+      }
+    }
+  },
   fallen_cecilia: {
     name: 'Fallen Cecilia',
     form: [elements.caster_max_hp],
@@ -695,6 +725,57 @@ const heroes = {
         pow: 0.95,
         flat: () => elements.caster_max_hp.value()*0.12,
         enhance: [0.05, 0.05, 0, 0.1, 0.15]
+      }
+    }
+  },
+  fighter: {
+    name: 'Fighter Maya',
+    form: [elements.caster_defense, elements.target_hp_pc],
+    skills: {
+      s1: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_defense.value()*0.75,
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.15]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.7 : 1,
+        pow: 1,
+        flat: () => elements.caster_defense.value()*1.5,
+        mult: () => elements.target_hp_pc.value() < 30 ? 3 : 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      }
+    }
+  },
+  furious: {
+    name: 'Furious',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0, 0.1]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.95 : 1.65,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0, 0.1, 0, 0.1]
+      }
+    }
+  },
+  general_purgis: {
+    name: 'General Purgis',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        rate: 0.8,
+        pow: 1,
+        enhance: [0.05, 0, 0, 0, 0.1, 0.15]
       }
     }
   },
