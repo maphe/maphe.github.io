@@ -231,7 +231,7 @@ $(() => {
     ga('send', 'event', {
       eventCategory: 'Hero',
       eventAction: 'pick',
-      eventValue: heroSelector.value
+      eventLabel: heroSelector.value,
     });
   };
 
