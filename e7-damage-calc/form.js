@@ -155,6 +155,12 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('caster-vigor') ? document.getElementById('caster-vigor').checked : false
   },
+  caster_enrage: {
+    id: 'caster-enrage',
+    label: 'Caster Enraged',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-enrage') ? document.getElementById('caster-enrage').checked : false
+  },
   caster_stealth: {
     id: 'caster-stealth',
     label: 'Caster has Stealth',

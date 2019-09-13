@@ -30,6 +30,10 @@ const getGlobalAtkMult = () => {
     mult *= 1.3;
   }
 
+  if (elements.caster_enrage.value()) {
+    mult *= 1.1;
+  }
+
   return mult;
 };
 
