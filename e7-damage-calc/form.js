@@ -17,7 +17,7 @@ const elements = {
     id: 'target-max-hp',
     label: 'Targets\'s Max HP',
     type: 'slider',
-    element: `<input id="target-max-hp" type="range" min="1000" max="200000" class="custom-range" value="10000" onchange="resolve()" oninput="slide('target-max-hp')" />`,
+    element: `<input id="target-max-hp" type="range" min="1000" max="50000" class="custom-range" value="10000" onchange="resolve()" oninput="slide('target-max-hp')" />`,
     value: () => Number(document.getElementById('target-max-hp').value)
   },
   target_hp_pc: {
@@ -32,8 +32,15 @@ const elements = {
     id: 'target-hp',
     label: 'Targets\'s HP',
     type: 'slider',
-    element: `<input id="target-hp" type="range" min="1000" max="200000" class="custom-range" value="10000" onchange="resolve()" oninput="slide('target-hp')" />`,
+    element: `<input id="target-hp" type="range" min="1000" max="50000" class="custom-range" value="10000" onchange="resolve()" oninput="slide('target-hp')" />`,
     value: () => Number(document.getElementById('target-hp').value)
+  },
+  target_speed: {
+    id: 'target-speed',
+    label: 'Targets\'s Speed',
+    type: 'slider',
+    element: `<input id="target-speed" type="range" min="70" max="300" class="custom-range" value="150" onchange="resolve()" oninput="slide('target-speed')" />`,
+    value: () => Number(document.getElementById('target-speed').value)
   },
   target_nb_buff: {
     id: 'target-nb-buff',
@@ -154,6 +161,13 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('caster-stealth').checked
   },
+  stack_crit_hit: {
+    id: 'stack-crit-hit',
+    label: 'Crit Hit Stack',
+    type: 'slider',
+    element: `<input id="stack-crit-hit" type="range" min="0" max="50" class="custom-range" value="0" step="1" onchange="resolve()" oninput="slide('stack-crit-hit')" />`,
+    value: () => Number(document.getElementById('stack-crit-hit').value)
+  }
 };
 
 const slide = (fieldId) => {

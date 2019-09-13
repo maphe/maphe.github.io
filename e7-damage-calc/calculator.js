@@ -6,12 +6,14 @@ const resolve = () => {
   for (const skillId of Object.keys(hero.skills)) {
     const skill = hero.skills[skillId];
 
-    const damage = hero.getDamage(skillId);
-    $(table).append(`<tr><td>${skillId.toUpperCase()}</td><td>${damage.crit}</td><td>${damage.crush}</td><td>${damage.normal}</td><td>${damage.miss}</td></tr>`);
+    if (skill.rate !== undefined) {
+      const damage = hero.getDamage(skillId);
+      $(table).append(`<tr><td>${skillId.toUpperCase()}</td><td>${damage.crit}</td><td>${damage.crush}</td><td>${damage.normal}</td><td>${damage.miss}</td></tr>`);
 
-    if (skill.soulburn) {
-      const damage = hero.getDamage(skillId, true);
-      $(table).append(`<tr><td>${skillId.toUpperCase()} Soulburn</td><td>${damage.crit}</td><td>${damage.crush}</td><td>${damage.normal}</td><td>${damage.miss}</td></tr>`);
+      if (skill.soulburn) {
+        const damage = hero.getDamage(skillId, true);
+        $(table).append(`<tr><td>${skillId.toUpperCase()} Soulburn</td><td>${damage.crit}</td><td>${damage.crush}</td><td>${damage.normal}</td><td>${damage.miss}</td></tr>`);
+      }
     }
   }
 };
@@ -54,7 +56,7 @@ class Hero {
     const skill = this.skills[skillId];
     const hit = this.offensivePower(skillId, soulburn) / this.target.defensivePower(skill);
     return {
-      crit: Math.round(hit * ((this.crit / 100)+(skill.critDmgBoost ? skill.critDmgBoost : 0))),
+      crit: Math.round(hit * ((this.crit / 100)+(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0))),
       crush: Math.round(hit * 1.3),
       normal: Math.round(hit),
       miss: Math.round(hit * 0.75)
@@ -65,7 +67,7 @@ class Hero {
     const skill = this.skills[skillId];
 
     const atkTotal = this.atk * getGlobalAtkMult();
-    const powerTotal = 1.871 * skill.pow;
+    const powerTotal = 1.871 * (typeof skill.pow === 'function' ? skill.pow(soulburn) : skill.pow);
     const multTotal = (skill.mult ? skill.mult(soulburn) : 1) * this.getSkillEnhanceMult(skillId)  * powerTotal;
 
     return (atkTotal * (typeof skill.rate === 'function' ? skill.rate(soulburn) : skill.rate) + (skill.flat ? skill.flat(soulburn) : 0)) * multTotal;

@@ -61,6 +61,93 @@ const heroes = {
       }
     }
   },
+  armin: {
+    name: 'Armin',
+    form: [elements.caster_defense],
+    skills: {
+      s1: {
+        rate: 0.8,
+        pow: 0.9,
+        flat: () => elements.caster_defense.value()*0.6,
+        enhance: [0.05, 0.05, 0, 0, 0.1, 0.1, 0.1]
+      },
+      s2: {
+        rate: 0.3,
+        pow: 0.9,
+        flat: () => elements.caster_defense.value()*0.5,
+        enhance: [0.05, 0.1, 0.1, 0, 0, 0.15]
+      }
+    }
+  },
+  assassin_cartuja: {
+    name: 'Assassin Cartuja',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        rate: 1.5,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0.1, 0.15]
+      }
+    }
+  },
+  assassin_cidd: {
+    name: 'Assassin Cidd',
+    form: [elements.caster_speed, elements.target_speed],
+    skills: {
+      s1: {
+        rate: 0.9,
+        pow: 1,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        enhance: [0.05, 0.05, 0.05, 0, 0.1, 0.1]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2: 1.5,
+        pow: 0.95,
+        mult: () => 1 + elements.caster_speed.value()*0.001 + elements.target_speed.value()*0.003,
+        enhance: [0.05, 0.05, 0, 0.05, 0.1, 0.1]
+      }
+    }
+  },
+  assassin_coli: {
+    name: 'Assassin Coli',
+    form: [elements.caster_speed, elements.caster_stealth],
+    skills: {
+      s1: {
+        rate: () => elements.caster_stealth.value() ? 1.2 : 0.9,
+        pow: 1,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        enhance: [0.05, 0.05, 0.1, 0.1]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 3 : 1.5,
+        pow: 0.8,
+        mult: () => 1 + elements.caster_speed.value()*0.001125,
+        enhance: [0.05, 0.05, 0.05, 0, 0.1, 0.1, 0.15]
+      }
+    }
+  },
+  auxiliary_lots: {
+    name: 'Auxiliary Lots',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.8,
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1, 0.15]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1 : 0.8,
+        pow: 1,
+        enhance: [0.05, 0, 0, 0, 0.1, 0.15]
+      }
+    }
+  },
   baal_and_sezan: {
     name: 'Baal & Sezan',
     form: [elements.target_nb_debuff],
@@ -149,6 +236,62 @@ const heroes = {
       }
     }
   },
+  blaze_dingo: {
+    name: 'Blaze Dingo',
+    skills: {
+      s1: {
+        rate: 1.5,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
+      },
+      s2: {
+        rate: 1.2,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
+      }
+    }
+  },
+  blood_blade_karin: {
+    name: 'Blood Blade Karin',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.45 : 1.2,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0.1, 0.15]
+      },
+    }
+  },
+  cartuja: {
+    name: 'Cartuja',
+    form: [elements.caster_max_hp, elements.caster_hp_pc],
+    skills: {
+      s1: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.06,
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0.1]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => (elements.caster_hp_pc.value() < 50 ? 1 : 0.6) + (soulburn ? 0.2 : 0),
+        pow: 1,
+        flat: (soulburn) => {
+          if (soulburn) {
+            return elements.caster_max_hp.value() * (elements.caster_hp_pc.value() < 50 ? 0.1 : 0.08)
+          } else {
+            return elements.caster_max_hp.value() * (elements.caster_hp_pc.value() < 50 ? 0.0625 : 0.05)
+          }
+        },
+        enhance: [0.05, 0, 0, 0.1, 0, 0.15]
+      }
+    }
+  },
   cecilia: {
     name: 'Cecilia',
     form: [elements.caster_max_hp],
@@ -170,6 +313,51 @@ const heroes = {
         pow: 1.5,
         flat: () => elements.caster_max_hp.value()*0.12,
         enhance: [0.05, 0, 0, 0, 0.15],
+      }
+    }
+  },
+  celestial_mercedes: {
+    name: 'Celestial Mercedes',
+    form: [elements.target_max_hp],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.1, 0, 0, 0.15],
+      },
+      s2: {
+        rate: 0.9,
+        pow: 0.9,
+        flat: () => elements.target_max_hp.value()*0.04,
+        enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
+      },
+      s3: {
+        rate: 1.2,
+        pow: 0.8,
+        enhance: [0.1, 0.1, 0, 0.15, 0.15],
+      }
+    }
+  },
+  challenger_dominiel: {
+    name: 'Challenger Dominiel',
+    form: [elements.stack_crit_hit],
+    skills: {
+      s1: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2.5 : 1,
+        pow: (soulburn) => soulburn ? 1 : 0.9,
+        critDmgBoost: () => {
+          let mult = 1.0;
+          for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+            mult += heroes.challenger_dominiel.skills.s2.enhance[i];
+          }
+
+          return 0.2 + elements.stack_crit_hit.value()*(0.54 * mult);
+        },
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.15],
+      },
+      s2: {
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
       }
     }
   },
@@ -706,7 +894,7 @@ const heroes = {
       s3: {
         rate: 1,
         pow: 1,
-        critDmgBoost: 0.2,
+        critDmgBoost: () => 0.2,
         enhance: [0.05, 0, 0, 0, 0.1, 0.15]
       }
     }
