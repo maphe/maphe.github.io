@@ -173,6 +173,13 @@ const elements = {
     type: 'slider',
     element: `<input id="stack-crit-hit" type="range" min="0" max="50" class="custom-range" value="0" step="1" onchange="resolve()" oninput="slide('stack-crit-hit')" />`,
     value: () => Number(document.getElementById('stack-crit-hit').value)
+  },
+  dead_people: {
+    id: 'dead-people',
+    label: 'People who died',
+    type: 'slider',
+    element: `<input id="dead-people" type="range" min="0" max="8" class="custom-range" value="0" step="1" onchange="resolve()" oninput="slide('dead-people')" />`,
+    value: () => Number(document.getElementById('dead-people').value)
   }
 };
 

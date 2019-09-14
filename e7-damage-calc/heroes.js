@@ -1255,17 +1255,18 @@ const heroes = {
   },
   specter_tenebria: {
     name: 'Specter Tenebria',
-    form: [elements.target_nb_debuff],
+    form: [elements.target_nb_debuff, elements.dead_people],
     skills: {
       s1: {
         rate: 1.2,
         pow: 1,
-        enhance: [0.05, 0, 0.05, 0, 0.05, 0.15]
+        enhance: [0.05, 0, 0.05, 0, 0.05, 0.15],
+        mult: () => 1 + Math.min(elements.dead_people.value(), 5)*0.07
       },
       s3: {
         rate: 1.8,
         pow: 0.95,
-        mult: () => 1 + elements.target_nb_debuff.value()*0.2,
+        mult: () => 1 + elements.target_nb_debuff.value()*0.2 + Math.min(elements.dead_people.value(), 5)*0.07,
         enhance: [0.05, 0.05, 0, 0, 0.1, 0.1]
       }
     }
