@@ -1338,6 +1338,21 @@ const heroes = {
       }
     }
   },
+  schuri: {
+    name: 'Schuri',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      },
+      s3: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      }
+    }
+  },
   seaside_bellona: {
     name: 'Seaside Bellona',
     skills: {
@@ -1356,6 +1371,27 @@ const heroes = {
         pow: 1,
         critDmgBoost: () => 0.2,
         enhance: [0.05, 0, 0, 0, 0.1, 0.15]
+      }
+    }
+  },
+  serila: {
+    name: 'Serila',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2 : 1.5,
+        pow: 1.05,
+        enhance: [0.1, 0, 0, 0, 0.15]
+      },
+      s3: {
+        rate: 1.8,
+        pow: 1.05,
+        enhance: [0.1, 0, 0, 0, 0.15]
       }
     }
   },
@@ -1383,6 +1419,27 @@ const heroes = {
       }
     }
   },
+  shadow_rose: {
+    name: 'Shadow Rose',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.1, 0, 0, 0.15]
+      },
+      s2: {
+        rate: 1.5,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.1, 0.1, 0.1]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.05 : 0.8,
+        pow: 0.8,
+        enhance: [0.1, 0.1, 0, 0.15, 0.15]
+      },
+    }
+  },
   sigret: {
     name: 'Sigret',
     form: [elements.target_nb_debuff],
@@ -1403,6 +1460,23 @@ const heroes = {
         enhance: [0.1, 0.1, 0, 0.15, 0.15],
         penetrate: () => 0.3 + elements.target_nb_debuff.value()*0.1
       },
+    }
+  },
+  silk: {
+    name: 'Silk',
+    form: [elements.caster_speed, elements.caster_nb_focus],
+    skills: {
+      s1: {
+        rate: () => elements.caster_nb_focus.value() >= 2 ? 1.25 : 0.9,
+        pow: 0.9,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        enhance: [0.05, 0.05, 0, 0.05, 0, 0.1, 0.15]
+      },
+      s3: {
+        rate: 0.85,
+        pow: 1.05,
+        enhance: [0.1, 0, 0, 0.15]
+      }
     }
   },
   silver_blade_aramintha: {
@@ -1488,6 +1562,28 @@ const heroes = {
         mult: () => 1 + elements.target_nb_debuff.value()*0.2 + Math.min(elements.dead_people.value(), 5)*0.07,
         enhance: [0.05, 0.05, 0, 0, 0.1, 0.1]
       }
+    }
+  },
+  surin: {
+    name: 'Surin',
+    form: [elements.target_nb_bleed],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.1, 0.1, 0.1]
+      },
+      s2: {
+        rate: 1.4,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s3: {
+        rate: 1.8,
+        pow: 0.8,
+        mult: () => elements.target_nb_bleed.value() > 0 ? 1.4 + (Math.min(elements.target_nb_bleed.value(), 5)-1)*0.15 : 1,
+        enhance: [0.1, 0.1, 0, 0.15, 0.15]
+      },
     }
   },
   tenebria: {
@@ -1586,6 +1682,51 @@ const heroes = {
       }
     }
   },
+  wanderer_silk: {
+    name: 'Wanderer Silk',
+    form: [elements.caster_speed],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        enhance: [0.05, 0.1, 0, 0, 0.15]
+      },
+      s2: {
+        rate: 1,
+        pow: 0.9,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        enhance: [0.05, 0.05, 0.1, 0.1, 0.1]
+      },
+      s3: {
+        rate: 1.8,
+        pow: 0.8,
+        mult: () => 1 + elements.caster_speed.value()*0.001125,
+        enhance: [0.1, 0.1, 0, 0, 0.15]
+      }
+    }
+  },
+  watcher_schuri: {
+    name: 'Watcher Schuri',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        rate: 0.7,
+        pow: 1.05,
+        enhance: [0.1, 0, 0, 0, 0.15]
+      },
+      s3: {
+        rate: 0.8,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0.1, 0.15],
+        penetrate: () => 1.0,
+      }
+    }
+  },
   yufine: {
     name: 'Yufine',
     form: [elements.target_has_buff],
@@ -1636,6 +1777,29 @@ const heroes = {
           }
         },
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1, 0.1, 0.1]
+      }
+    }
+  },
+  zerato: {
+    name: 'Zerato',
+    form: [elements.target_has_debuff],
+    skills: {
+      s1: {
+        rate: 1.05,
+        pow: 1,
+        enhance: [0.05, 0.1, 0, 0.15]
+      },
+      s2: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2 : 1.5,
+        pow: 0.95,
+        mult: () => elements.target_has_debuff.value() ? 1.3 : 1,
+        enhance: [0.05, 0.05, 0.1, 0.15]
+      },
+      s3: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.1]
       }
     }
   }

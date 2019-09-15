@@ -80,6 +80,13 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('target-magic-nailed').checked
   },
+  target_nb_bleed: {
+    id: 'target-nb-bleed',
+    label: 'Number of Bleed on target',
+    type: 'slider',
+    element: `<input id="target-nb-bleed" type="range" min="0" max="9" class="custom-range" value="0" onchange="resolve()" oninput="slide('target-nb-bleed')" />`,
+    value: () => Number(document.getElementById('target-nb-bleed').value)
+  },
   caster_max_hp: {
     id: 'caster-max-hp',
     label: 'Caster\'s Max HP',
