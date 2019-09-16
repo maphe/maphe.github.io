@@ -121,7 +121,14 @@ const elements = {
     label: 'Caster\'s Speed',
     type: 'slider',
     element: `<input id="caster-speed" type="range" min="70" max="300" class="custom-range" value="150" onchange="resolve()" oninput="slide('caster-speed')" />`,
-    value: () => Number(document.getElementById('caster-speed').value)
+    value: () => Number(document.getElementById('caster-speed').value)*(elements.caster_speed_up.value() ? 1.3 : 1),
+  },
+  caster_speed_up: {
+    id: 'caster-speed-up',
+    label: 'Increased Speed',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-speed-up').checked,
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_speed_up.png'
   },
   caster_nb_buff: {
     id: 'caster-nb-buff',
@@ -154,25 +161,29 @@ const elements = {
     id: 'caster-invincible',
     label: 'Caster is Invincible',
     type: 'checkbox',
-    value: () => document.getElementById('caster-invincible').checked
+    value: () => document.getElementById('caster-invincible').checked,
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_invincible.png'
   },
   caster_vigor: {
     id: 'caster-vigor',
     label: 'Caster has Vigor',
     type: 'checkbox',
-    value: () => document.getElementById('caster-vigor') ? document.getElementById('caster-vigor').checked : false
+    value: () => document.getElementById('caster-vigor') ? document.getElementById('caster-vigor').checked : false,
+    icon: 'https://epic7x.com/wp-content/uploads/2019/02/vigor.png'
   },
   caster_enrage: {
     id: 'caster-enrage',
     label: 'Caster Enraged',
     type: 'checkbox',
-    value: () => document.getElementById('caster-enrage') ? document.getElementById('caster-enrage').checked : false
+    value: () => document.getElementById('caster-enrage') ? document.getElementById('caster-enrage').checked : false,
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_madness.png'
   },
   caster_stealth: {
     id: 'caster-stealth',
     label: 'Caster has Stealth',
     type: 'checkbox',
-    value: () => document.getElementById('caster-stealth').checked
+    value: () => document.getElementById('caster-stealth').checked,
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_hide.png'
   },
   stack_crit_hit: {
     id: 'stack-crit-hit',
@@ -190,6 +201,8 @@ const elements = {
   }
 };
 
+elements.caster_speed.sub_elements = [elements.caster_speed_up];
+
 const slide = (fieldId) => {
   document.getElementById(`${fieldId}-val`).innerText = document.getElementById(fieldId).value
 };
@@ -199,19 +212,7 @@ const build = (hero) => {
   if (hero.form) {
     specificBlock.innerHTML = '';
     for (let elem of hero.form) {
-      if (elem.type === 'slider') {
-        $(specificBlock).append(`<div class="form-group col-sm-12">
-                        <label for="${elem.id}">${elem.label}: <span id="${elem.id}-val"></span>${elem.percent ? '%' : ''}</label>
-                        ${elem.element}
-                    </div>`);
-      } else if (elem.type === 'checkbox') {
-        $(specificBlock).append(`<div class="form-group col-sm-12">
-                              <div class="custom-control custom-checkbox custom-control-inline buff-block">
-                                  <input class="custom-control-input" type="checkbox" id="${elem.id}" value="1" onchange="resolve()">
-                                  <label class="custom-control-label" for="${elem.id}">${elem.label}</label>
-                              </div>
-                        </div>`);
-      }
+      buildElement(elem, specificBlock);
     }
   } else {
     specificBlock.innerHTML = '<p class="col-sm-12"><i>Nothing here</i></p>';
@@ -226,6 +227,30 @@ const build = (hero) => {
                         <label for="molagora-${id}">${id.toUpperCase()}: +<span id="molagora-${id}-val"></span></label>
                         <input id="molagora-${id}" type="range" min="0" max="${skill.enhance.length}" class="custom-range" value="0" onchange="resolve()" oninput="slide('molagora-${id}')" />
                     </div>`);
+    }
+  }
+};
+
+const buildElement = (elem, parent) => {
+  if (elem.type === 'slider') {
+    $(parent).append(`<div class="form-group col-sm-12">
+                        <label for="${elem.id}">${elem.label}: <span id="${elem.id}-val"></span>${elem.percent ? '%' : ''}</label>
+                        ${elem.element}
+                    </div>`);
+  } else if (elem.type === 'checkbox') {
+    $(parent).append(`<div class="form-group col-sm-12">
+                              <div class="custom-control custom-checkbox custom-control-inline buff-block">
+                                  <input class="custom-control-input" type="checkbox" id="${elem.id}" value="1" onchange="resolve()">
+                                  <label class="custom-control-label" for="${elem.id}">
+                                    ${elem.icon ? '<img src="'+elem.icon+'" width="20" height="20" />' : ''} ${elem.label}
+                                  </label>
+                              </div>
+                        </div>`);
+  }
+
+  if (elem.sub_elements) {
+    for (let sub_elem of elem.sub_elements) {
+      buildElement(sub_elem, parent);
     }
   }
 };
