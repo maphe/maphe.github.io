@@ -72,20 +72,31 @@ const elements = {
     id: 'target-is-stunned',
     label: 'Target is stunned',
     type: 'checkbox',
-    value: () => document.getElementById('target-is-stunned').checked
+    value: () => document.getElementById('target-is-stunned').checked,
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_stun.png'
   },
   target_magic_nailed: {
     id: 'target-magic-nailed',
     label: 'Magic Nail on Target',
     type: 'checkbox',
-    value: () => document.getElementById('target-magic-nailed').checked
+    value: () => document.getElementById('target-magic-nailed').checked,
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_nail.png'
   },
   target_nb_bleed: {
     id: 'target-nb-bleed',
     label: 'Number of Bleed on target',
     type: 'slider',
     element: `<input id="target-nb-bleed" type="range" min="0" max="9" class="custom-range" value="0" onchange="resolve()" oninput="slide('target-nb-bleed')" />`,
-    value: () => Number(document.getElementById('target-nb-bleed').value)
+    value: () => Number(document.getElementById('target-nb-bleed').value),
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blood.png'
+  },
+  target_bleed_detonate: {
+    id: 'target-bleed-detonate',
+    label: 'Total Bleed effects (1 bleed for 2 turns counts 2 bleed effects)',
+    type: 'slider',
+    element: `<input id="target-bleed-detonate" type="range" min="0" max="30" class="custom-range" value="0" onchange="resolve()" oninput="slide('target-bleed-detonate')" />`,
+    value: () => Number(document.getElementById('target-bleed-detonate').value),
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blood.png'
   },
   caster_max_hp: {
     id: 'caster-max-hp',
@@ -234,7 +245,10 @@ const build = (hero) => {
 const buildElement = (elem, parent) => {
   if (elem.type === 'slider') {
     $(parent).append(`<div class="form-group col-sm-12">
-                        <label for="${elem.id}">${elem.label}: <span id="${elem.id}-val"></span>${elem.percent ? '%' : ''}</label>
+                        <label for="${elem.id}">
+                            ${elem.icon ? '<img src="'+elem.icon+'" width="20" height="20" />' : ''}
+                            ${elem.label}: <span id="${elem.id}-val"></span>${elem.percent ? '%' : ''}
+                        </label>
                         ${elem.element}
                     </div>`);
   } else if (elem.type === 'checkbox') {

@@ -1,3 +1,7 @@
+const detonation = {
+  bleed: 'bleed'
+};
+
 const heroes = {
   apocalypse_ravi: {
     name: 'Apocalypse Ravi',
@@ -173,6 +177,7 @@ const heroes = {
   },
   baiken: {
     name: 'Baiken',
+    form: [elements.target_bleed_detonate],
     skills: {
       s1: {
         rate: 1,
@@ -188,7 +193,9 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 1.85 : 1.6,
         pow: 1,
-        enhance: [0.05, 0, 0.1, 0, 0.15]
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        detonate: detonation.bleed,
+        detonation: () => 1.3
       }
     }
   },

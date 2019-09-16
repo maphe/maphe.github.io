@@ -59,11 +59,12 @@ class Hero {
   getDamage(skillId, soulburn = false) {
     const skill = this.skills[skillId];
     const hit = this.offensivePower(skillId, soulburn) / this.target.defensivePower(skill);
+    const detonation = this.getDetonateDamage(skillId);
     return {
-      crit: Math.round(hit * ((this.crit / 100)+(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0))),
-      crush: Math.round(hit * 1.3),
-      normal: Math.round(hit),
-      miss: Math.round(hit * 0.75)
+      crit: Math.round(hit * ((this.crit / 100)+(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0)) + detonation),
+      crush: Math.round(hit*1.3 + detonation),
+      normal: Math.round(hit + detonation),
+      miss: Math.round(hit*0.75 + detonation)
     };
   }
 
@@ -89,6 +90,15 @@ class Hero {
     }
 
     return mult;
+  }
+
+  getDetonateDamage(skillId) {
+    const skill = this.skills[skillId];
+    switch (skill.detonate) {
+      case detonation.bleed:
+        return elements.target_bleed_detonate.value()*skill.detonation()*this.atk*0.3*getGlobalAtkMult()/Math.ceil(this.target.defensivePower(skill)*0.3);
+      default: return 0;
+    }
   }
 }
 
