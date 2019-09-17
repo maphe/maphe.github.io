@@ -274,6 +274,21 @@ const heroes = {
       },
     }
   },
+  carrot: {
+    name: 'Carrot',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0, 0, 0.1, 0, 0.15]
+      }
+    }
+  },
   cartuja: {
     name: 'Cartuja',
     form: [elements.caster_max_hp, elements.caster_hp_pc],
