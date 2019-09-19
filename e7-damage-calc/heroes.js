@@ -1302,11 +1302,15 @@ const heroes = {
   },
   researcher_carrot: {
     name: 'Researcher Carrot',
+    form: [elements.target_burn_detonate],
+    dot: [dot.burn],
     skills: {
       s1: {
         pow: 0.95,
         rate: 1,
-        enhance: [0.05, 0.05, 0, 0.1, 0, 0.15]
+        enhance: [0.05, 0.05, 0, 0.1, 0, 0.15],
+        detonate: dot.burn,
+        detonation: () => 1,
       },
       s2: {
         pow: 1,
