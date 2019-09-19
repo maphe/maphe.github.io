@@ -1,8 +1,17 @@
 const resolve = () => {
   const hero = new Hero(document.getElementById('hero').value);
+
+  for (const dotType of [dot.bleed, dot.burn]) {
+    document.getElementById(`${dotType}-damage-block`).style.display = 'none';
+  }
+
+  for (const dotType of hero.dot || []) {
+    document.getElementById(`${dotType}-damage-block`).style.display = 'inline-block';
+    document.getElementById(`${dotType}-damage`).innerText = Math.round(hero.getDotDamage(dotType)).toString();
+  }
+
   const table = document.getElementById('damage');
   table.innerHTML = '';
-
   for (const skillId of Object.keys(hero.skills)) {
     const skill = hero.skills[skillId];
 
@@ -53,6 +62,7 @@ class Hero {
     this.atk = Number(document.getElementById('atk').value);
     this.crit = Number(document.getElementById('crit').value);
     this.skills = heroes[id].skills;
+    this.dot = heroes[id].dot;
     this.target = new Target();
   }
 
@@ -95,8 +105,20 @@ class Hero {
   getDetonateDamage(skillId) {
     const skill = this.skills[skillId];
     switch (skill.detonate) {
-      case detonation.bleed:
-        return elements.target_bleed_detonate.value()*skill.detonation()*this.atk*0.3*getGlobalAtkMult()/Math.ceil(this.target.defensivePower(skill)*0.3);
+      case dot.bleed:
+        return elements.target_bleed_detonate.value()*skill.detonation()*this.atk*0.3*getGlobalAtkMult()/this.target.defensivePower({penetrate: () => 0.7});
+      case dot.burn:
+        return elements.target_burn_detonate.value()*skill.detonation()*this.atk*0.6*getGlobalAtkMult()/this.target.defensivePower({penetrate: () => 0.7});
+      default: return 0;
+    }
+  }
+
+  getDotDamage(type) {
+    switch (type) {
+      case dot.bleed:
+        return this.atk*0.3*getGlobalAtkMult()/this.target.defensivePower({penetrate: () => 0.7});
+      case dot.burn:
+        return this.atk*0.6*getGlobalAtkMult()/this.target.defensivePower({penetrate: () => 0.7});
       default: return 0;
     }
   }
@@ -108,6 +130,6 @@ class Target {
   }
 
   defensivePower(skill) {
-    return (((this.def * getGlobalDefMult()) / 300)*(skill.penetrate ? 1.0-skill.penetrate() : 1.0)) + 1;
+    return (((this.def * getGlobalDefMult()) / 300)*(skill && skill.penetrate ? 1.0-skill.penetrate() : 1.0)) + 1;
   }
 }

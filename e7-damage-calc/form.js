@@ -98,6 +98,14 @@ const elements = {
     value: () => Number(document.getElementById('target-bleed-detonate').value),
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blood.png'
   },
+  target_burn_detonate: {
+    id: 'target-burn-detonate',
+    label: 'Total Burn effects (1 burn for 2 turns counts 2 burn effects)',
+    type: 'slider',
+    element: `<input id="target-burn-detonate" type="range" min="0" max="30" class="custom-range" value="0" onchange="resolve()" oninput="slide('target-burn-detonate')" />`,
+    value: () => Number(document.getElementById('target-burn-detonate').value),
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blaze.png'
+  },
   caster_max_hp: {
     id: 'caster-max-hp',
     label: 'Caster\'s Max HP',

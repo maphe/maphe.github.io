@@ -109,20 +109,30 @@
 
         <hr />
 
-        <h4>Damage</h4>
+        <h4>
+            Damage
+            <span id="bleed-damage-block" class="badge badge-light float-right">
+                <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_blood.png" width="20" height="20" /> <span id="bleed-damage"></span>
+            </span>
+            <span id="burn-damage-block" class="badge badge-light float-right">
+                <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_blaze.png" width="20" height="20" /> <span id="burn-damage"></span>
+            </span>
+        </h4>
         <div>
-            <table class="table table-bordered">
-                <thead class="table-secondary">
-                    <tr>
-                        <th>Skill</th>
-                        <th>Critical Hit</th>
-                        <th>Crushing Hit</th>
-                        <th>Normal Hit</th>
-                        <th>Miss</th>
-                    </tr>
-                </thead>
-                <tbody id="damage"></tbody>
-            </table>
+            <div class="row">
+                <table class="table table-bordered">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>Skill</th>
+                            <th>Critical Hit</th>
+                            <th>Crushing Hit</th>
+                            <th>Normal Hit</th>
+                            <th>Miss</th>
+                        </tr>
+                    </thead>
+                    <tbody id="damage"></tbody>
+                </table>
+            </div>
         </div>
 
         <footer class="page-footer pt-3 mt-5">

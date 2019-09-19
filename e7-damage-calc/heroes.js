@@ -1,5 +1,6 @@
-const detonation = {
-  bleed: 'bleed'
+const dot = {
+  bleed: 'bleed',
+  burn: 'burn'
 };
 
 const heroes = {
@@ -24,6 +25,7 @@ const heroes = {
   },
   aramintha: {
     name: 'Aramintha',
+    dot: [dot.burn],
     skills: {
       s1: {
         rate: 1,
@@ -85,6 +87,7 @@ const heroes = {
   },
   assassin_cartuja: {
     name: 'Assassin Cartuja',
+    dot: [dot.bleed],
     skills: {
       s1: {
         rate: 1,
@@ -178,6 +181,7 @@ const heroes = {
   baiken: {
     name: 'Baiken',
     form: [elements.target_bleed_detonate],
+    dot: [dot.bleed],
     skills: {
       s1: {
         rate: 1,
@@ -194,7 +198,7 @@ const heroes = {
         rate: (soulburn) => soulburn ? 1.85 : 1.6,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
-        detonate: detonation.bleed,
+        detonate: dot.bleed,
         detonation: () => 1.3
       }
     }
@@ -276,10 +280,14 @@ const heroes = {
   },
   carrot: {
     name: 'Carrot',
+    form: [elements.target_burn_detonate],
+    dot: [dot.burn],
     skills: {
       s1: {
         rate: 1,
         pow: 0.95,
+        detonate: dot.burn,
+        detonation: () => 1,
         enhance: [0.05, 0.05, 0, 0.1, 0, 0.15]
       },
       s3: {
@@ -547,6 +555,7 @@ const heroes = {
   clarissa: {
     name: 'Clarissa',
     form: [elements.caster_enrage],
+    dot: [dot.bleed],
     skills: {
       s1: {
         rate: 1,
@@ -680,8 +689,18 @@ const heroes = {
       }
     }
   },
+  desert_jewel_basar: {
+    name: 'Desert Jewel Basar',
+    skills: {
+      s1: {
+        rate: 1.2,
+        pow: 1
+      }
+    }
+  },
   dingo: {
     name: 'Dingo',
+    dot: [dot.bleed, dot.burn],
     skills: {
       s1: {
         rate: 1,
@@ -772,6 +791,7 @@ const heroes = {
   },
   furious: {
     name: 'Furious',
+    dot: [dot.burn],
     skills: {
       s1: {
         rate: 1,
@@ -846,6 +866,7 @@ const heroes = {
   },
   khawazu: {
     name: 'Khawazu',
+    dot: [dot.burn],
     skills: {
       s1: {
         rate: 1,
@@ -862,6 +883,7 @@ const heroes = {
   haste: {
     name: 'Haste',
     form: [elements.nb_targets],
+    dot: [dot.bleed],
     skills: {
       s1: {
         rate: 1,
@@ -948,6 +970,7 @@ const heroes = {
   ken: {
     name: 'Ken',
     form: [elements.caster_max_hp, elements.caster_vigor],
+    dot: [dot.burn],
     skills: {
       s1: {
         rate: 1,
@@ -1094,9 +1117,22 @@ const heroes = {
       }
     }
   },
+  lilias: {
+    name: 'Lilias',
+    form: [elements.caster_max_hp],
+    skills: {
+      s1: {
+        rate: 0.8,
+        pow: 0.95,
+        flat: () => elements.caster_max_hp.value()*0.12,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1]
+      }
+    }
+  },
   lilibet: {
     name: 'Lilibet',
     form: [elements.target_has_buff],
+    dot: [[dot.bleed]],
     skills: {
       s1: {
         rate: 1,
@@ -1264,6 +1300,21 @@ const heroes = {
       }
     }
   },
+  researcher_carrot: {
+    name: 'Researcher Carrot',
+    skills: {
+      s1: {
+        pow: 0.95,
+        rate: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        pow: 1,
+        rate: 1,
+        enhance: [0.05, 0, 0, 0, 0.1, 0, 0.15]
+      }
+    }
+  },
   ravi: {
     name: 'Ravi',
     form: [elements.caster_fighting_spirit],
@@ -1398,6 +1449,7 @@ const heroes = {
   },
   serila: {
     name: 'Serila',
+    dot: [dot.burn],
     skills: {
       s1: {
         rate: 1,
@@ -1465,6 +1517,7 @@ const heroes = {
   sigret: {
     name: 'Sigret',
     form: [elements.target_nb_debuff],
+    dot: [dot.bleed],
     skills: {
       s1: {
         rate: 1,
@@ -1503,6 +1556,7 @@ const heroes = {
   },
   silver_blade_aramintha: {
     name: 'Silver Blade Aramintha',
+    dot: [dot.burn],
     skills: {
       s1: {
         rate: 1,
@@ -1589,6 +1643,7 @@ const heroes = {
   surin: {
     name: 'Surin',
     form: [elements.target_nb_bleed],
+    dot: [dot.bleed],
     skills: {
       s1: {
         rate: 1,
@@ -1707,6 +1762,7 @@ const heroes = {
   wanderer_silk: {
     name: 'Wanderer Silk',
     form: [elements.caster_speed],
+    dot: [dot.bleed],
     skills: {
       s1: {
         rate: 1,
