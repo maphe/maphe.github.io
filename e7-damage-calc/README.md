@@ -1,8 +1,8 @@
 ## Todo List/Roadmap
 
-- Add DoT effect (burn, bleed)
 - Add artifacts (Portrait of the Saviors, Elyha's Knife)
 - Preset values
+- Extra-attack (Sven)
 
 ### Disclaimer
 

@@ -68,6 +68,23 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('target-has-debuff').checked
   },
+  target_has_bleed: {
+    id: 'target-has-bleed',
+    label: 'Target has Bleed',
+    type: 'checkbox',
+    value: () => document.getElementById('target-has-bleed').checked,
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blood.png'
+  },
+  target_has_sleep: {
+    id: 'target-has-sleep',
+    label: 'Target has Sleep',
+    type: 'checkbox',
+    value: () => document.getElementById('target-has-sleep').checked,
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_sleep.png'
+  },
+  target_has_target: {
+    value: () => document.getElementById('target').checked,
+  },
   target_is_stunned: {
     id: 'target-is-stunned',
     label: 'Target is stunned',
@@ -133,7 +150,14 @@ const elements = {
     label: 'Caster\'s Defense',
     type: 'slider',
     element: `<input id="caster-defense" type="range" min="200" max="5000" class="custom-range" value="750" onchange="resolve()" oninput="slide('caster-defense')" />`,
-    value: () => Number(document.getElementById('caster-defense').value)
+    value: () => Number(document.getElementById('caster-defense').value)*(elements.caster_defense_up.value() ? 1.6 : 1)
+  },
+  caster_defense_up: {
+    id: 'caster-defense-up',
+    label: 'Increased Defense',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-defense-up').checked,
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_def_up.png'
   },
   caster_speed: {
     id: 'caster-speed',
@@ -221,6 +245,7 @@ const elements = {
 };
 
 elements.caster_speed.sub_elements = [elements.caster_speed_up];
+elements.caster_defense.sub_elements = [elements.caster_defense_up];
 
 const slide = (fieldId) => {
   document.getElementById(`${fieldId}-val`).innerText = document.getElementById(fieldId).value
