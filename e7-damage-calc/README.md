@@ -2,7 +2,7 @@
 
 - Add artifacts (Portrait of the Saviors, Elyha's Knife)
 - Preset values
-- Extra-attack (Sven)
+- Extra-attack (Sven, Clarissa, Vivian)
 
 ### Disclaimer
 
