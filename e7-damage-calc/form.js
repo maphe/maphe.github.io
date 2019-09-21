@@ -275,6 +275,15 @@ const build = (hero) => {
   }
 };
 
+const buildArtifact = (artifact) => {
+  if (artifact === undefined) {
+    document.getElementById('artifact-lvl-block').style.display = 'none';
+    return;
+  }
+
+  document.getElementById('artifact-lvl-block').style.display = 'block';
+};
+
 const buildElement = (elem, parent) => {
   if (elem.type === 'slider') {
     $(parent).append(`<div class="form-group col-sm-12">
@@ -304,8 +313,14 @@ const buildElement = (elem, parent) => {
 
 $(() => {
   const heroSelector = document.getElementById('hero');
+  const artiSelector = document.getElementById('artifact');
   Object.keys(heroes).map((id => {
     $(heroSelector).append(`<option value="${id}">${heroes[id].name}</option>`)
+  }));
+  $(artiSelector).append(`<option value="">No Artifact Proc</option>`);
+  $(artiSelector).append(`<option data-divider="true"></option>`);
+  Object.keys(artifacts).map((id => {
+    $(artiSelector).append(`<option value="${id}">${artifacts[id].name}</option>`)
   }));
 
   heroSelector.onchange = () => {
@@ -320,7 +335,13 @@ $(() => {
     });
   };
 
+  artiSelector.onchange = () => {
+    buildArtifact(artifacts[artiSelector.value]);
+    resolve();
+  };
+
   build(heroes[heroSelector.value]);
+  buildArtifact(artifacts[artiSelector.value]);
   resolve();
   $('input[type="range"]').each((_, elem) => {
     slide(elem.getAttribute('id'));

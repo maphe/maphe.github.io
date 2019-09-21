@@ -1,5 +1,6 @@
 const resolve = () => {
-  const hero = new Hero(document.getElementById('hero').value);
+  const artifact = new Artifact(document.getElementById('artifact').value);
+  const hero = new Hero(document.getElementById('hero').value, artifact);
 
   for (const dotType of [dot.bleed, dot.burn]) {
     document.getElementById(`${dotType}-damage-block`).style.display = 'none';
@@ -58,12 +59,13 @@ const getGlobalDefMult = () => {
 };
 
 class Hero {
-  constructor(id) {
+  constructor(id, artifact) {
     this.atk = Number(document.getElementById('atk').value);
     this.crit = Number(document.getElementById('crit').value);
     this.skills = heroes[id].skills;
     this.dot = heroes[id].dot;
-    this.target = new Target();
+    this.artifact = artifact;
+    this.target = new Target(artifact);
   }
 
   getDamage(skillId, soulburn = false) {
@@ -82,8 +84,9 @@ class Hero {
     const skill = this.skills[skillId];
 
     const atkTotal = this.atk * getGlobalAtkMult();
+
     const powerTotal = 1.871 * (typeof skill.pow === 'function' ? skill.pow(soulburn) : skill.pow);
-    const multTotal = (skill.mult ? skill.mult(soulburn) : 1) * this.getSkillEnhanceMult(skillId)  * powerTotal;
+    const multTotal = (skill.mult ? skill.mult(soulburn) : 1) * this.getSkillEnhanceMult(skillId) * powerTotal * this.artifact.getDamageMultiplier();
 
     return (atkTotal * (typeof skill.rate === 'function' ? skill.rate(soulburn) : skill.rate) + (skill.flat ? skill.flat(soulburn) : 0)) * multTotal;
   }
@@ -125,11 +128,36 @@ class Hero {
 }
 
 class Target {
-  constructor() {
+  constructor(casterArtifact) {
     this.def = Number(document.getElementById('def').value);
+    this.casterArtifact = casterArtifact;
   }
 
   defensivePower(skill) {
-    return (((this.def * getGlobalDefMult()) / 300)*(skill && skill.penetrate ? 1.0-skill.penetrate() : 1.0)) + 1;
+    return (((this.def * getGlobalDefMult()) / 300)*(1-(skill && skill.penetrate ? skill.penetrate() : 0)-this.casterArtifact.getDefensePenetration())) + 1;
+  }
+}
+
+class Artifact {
+  constructor(id) {
+    this.id = id ? id : undefined;
+  }
+
+  getValue() {
+    return artifacts[this.id].scale[Math.floor(document.getElementById('artifact-lvl').value/3)]
+  }
+
+  getDamageMultiplier() {
+    if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.damage) {
+      return 1;
+    }
+    return this.getValue();
+  }
+
+  getDefensePenetration() {
+    if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.penetrate) {
+      return 0;
+    }
+    return this.getValue();
   }
 }
