@@ -34,14 +34,40 @@
                         </div>
                     </div>
 
-                    <div class="form-group col-sm-12">
-                        <label for="atk">Attack: <span id="atk-val"></span></label>
-                        <input type="range" class="custom-range" id="atk" min="200" max="10000" value="2500" onchange="resolve()" oninput="slide('atk')">
+                    <div class="stat-block">
+                        <div class="form-group row col-sm-12">
+                            <label for="atk" class="col-md-9 col-form-label form-control-sm"><h5>Attack</h5></label>
+                            <div class="input-group input-group-sm col-md-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary" type="button" id="atk-minus" onclick="minus('atk')">&minus;</button>
+                                </div>
+                                <input type="number" class="form-control text-center" id="atk" value="2500" onkeyup="update('atk')">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="atk-plus" onclick="plus('atk')">&plus;</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row col-sm-12 mb-4">
+                            <input type="range" class="custom-range" id="atk-slide" min="200" max="10000" value="2500" oninput="slide('atk')" data-for="atk">
+                        </div>
                     </div>
 
-                    <div class="form-group col-sm-12">
-                        <label for="crit">Critical Damage: <span id="crit-val"></span>%</label>
-                        <input type="range" class="custom-range" id="crit" min="150" max="350" onchange="resolve()" oninput="slide('crit')">
+                    <div class="stat-block">
+                        <div class="form-group row col-sm-12">
+                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>Critical Damage (%)</h5></label>
+                            <div class="input-group input-group-sm col-md-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary" type="button" id="crit-minus" onclick="minus('crit')">&minus;</button>
+                                </div>
+                                <input type="number" class="form-control text-center" id="crit" value="250" onkeyup="update('crit')">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="crit-plus" onclick="plus('crit')">&plus;</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row col-sm-12">
+                            <input type="range" class="custom-range" id="crit-slide" min="150" max="350" value="250" oninput="slide('crit')">
+                        </div>
                     </div>
 
                     <div class="form-group col-sm-12">
@@ -65,9 +91,22 @@
                         </div>
                     </div>
 
-                    <div id="artifact-lvl-block" class="form-group col-sm-12">
-                        <label for="atk">Artifact Enhance: +<span id="artifact-lvl-val"></span></label>
-                        <input type="range" class="custom-range" id="artifact-lvl" min="0" max="30" value="0" onchange="resolve()" oninput="slide('artifact-lvl')">
+                    <div id="artifact-lvl-block" class="stat-block">
+                        <div class="form-group row col-sm-12">
+                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>Artifact Enhance</h5></label>
+                            <div class="input-group input-group-sm col-md-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary" type="button" id="artifact-lvl-minus" onclick="minus('artifact-lvl')">&minus;</button>
+                                </div>
+                                <input type="number" class="form-control text-center" id="artifact-lvl" min="0" max="30" value="0" readonly onkeyup="update('artifact-lvl')">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="artifact-lvl-plus" onclick="plus('artifact-lvl')">&plus;</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row col-sm-12">
+                            <input type="range" class="custom-range" id="artifact-lvl-slide" min="0" max="30" value="0" oninput="slide('artifact-lvl')">
+                        </div>
                     </div>
                 </div>
 
@@ -75,9 +114,22 @@
 
                 <h4>Target</h4>
                 <div id="target-block">
-                    <div class="form-group col-sm-12">
-                        <label for="def">Defense: <span id="def-val"></span></label>
-                        <input type="range" class="custom-range" id="def" min="200" max="5000" value="750" onchange="resolve()" oninput="slide('def')">
+                    <div class="stat-block">
+                        <div class="form-group row col-sm-12">
+                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>Defense</h5></label>
+                            <div class="input-group input-group-sm col-md-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary" type="button" id="def-minus" onclick="minus('def')">&minus;</button>
+                                </div>
+                                <input type="number" class="form-control text-center" id="def" value="750" onkeyup="update('def')">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="def-plus" onclick="plus('def')">&plus;</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row col-sm-12">
+                            <input type="range" class="custom-range" id="def-slide" min="200" max="5000" value="750" oninput="slide('def')">
+                        </div>
                     </div>
 
                     <div class="form-group col-sm-12">
@@ -116,31 +168,29 @@
             </form>
         </div>
 
-        <hr />
-
-        <h4>
-            Damage
-            <span id="bleed-damage-block" class="badge badge-light float-right">
-                <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_blood.png" width="20" height="20" /> <span id="bleed-damage"></span>
-            </span>
-            <span id="burn-damage-block" class="badge badge-light float-right">
-                <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_blaze.png" width="20" height="20" /> <span id="burn-damage"></span>
-            </span>
-        </h4>
-        <div>
-            <div class="row">
-                <table class="table table-bordered">
-                    <thead class="table-secondary">
-                        <tr>
-                            <th>Skill</th>
-                            <th>Critical Hit</th>
-                            <th>Crushing Hit</th>
-                            <th>Normal Hit</th>
-                            <th>Miss</th>
-                        </tr>
-                    </thead>
-                    <tbody id="damage"></tbody>
-                </table>
+        <div id="damage-block">
+            <h4>
+                Damage
+                <span id="bleed-damage-block" class="badge badge-light float-right">
+                    <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_blood.png" width="20" height="20" /> <span id="bleed-damage"></span>
+                </span>
+                <span id="burn-damage-block" class="badge badge-light float-right">
+                    <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_blaze.png" width="20" height="20" /> <span id="burn-damage"></span>
+                </span>
+            </h4>
+            <div>
+                    <table class="table table-bordered table-sm col-sm-12">
+                        <thead class="table-secondary">
+                            <tr>
+                                <th>Skill</th>
+                                <th>Critical Hit</th>
+                                <th>Crushing Hit</th>
+                                <th>Normal Hit</th>
+                                <th>Miss</th>
+                            </tr>
+                        </thead>
+                        <tbody id="damage"></tbody>
+                    </table>
             </div>
         </div>
 

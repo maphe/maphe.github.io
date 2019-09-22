@@ -1,7 +1,8 @@
 ## Todo List/Roadmap
 
-- Add offensive artifacts (Portrait of the Saviors, Elyha's Knife)
-- Improve sliders (easier, more accurate inputs)
+- DONE: Add offensive artifacts (Portrait of the Saviors, Elyha's Knife)
+- Add even more offensive artifacts
+- DONE: Improve sliders (easier, more accurate inputs)
 - Add Passive Skill boosts (Luna)
 - Add defensive artifacts (Noble Oath, Adamant Shield)
 - Preset gear values (atk, crit dmg)
@@ -16,3 +17,4 @@
 Heroes that might need a rework/double-check:
 - Challenger Dominiel
 - Cidd
+- Luna (3-10 hits)

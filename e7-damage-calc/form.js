@@ -3,21 +3,29 @@ const elements = {
     id: 'nb-targets',
     label: 'Number of enemies',
     type: 'slider',
-    element: `<input id="nb-targets" type="range" min="1" max="9" class="custom-range" value="4" onchange="resolve()" oninput="slide('nb-targets')" />`,
+    min: 1,
+    max: 9,
+    default: 4,
+    readonly: true,
     value: () => Number(document.getElementById('nb-targets').value)
   },
   nb_hits: {
     id: 'nb-hits',
     label: 'Number of hits',
     type: 'slider',
-    element: `<input id="nb-hits" type="range" min="3" max="10" class="custom-range" value="3" onchange="resolve()" oninput="slide('nb-hits')" />`,
+    min: 3,
+    max: 10,
+    default: 3,
+    readonly: true,
     value: () => Number(document.getElementById('nb-hits').value)
   },
   target_max_hp: {
     id: 'target-max-hp',
     label: 'Targets\'s Max HP',
     type: 'slider',
-    element: `<input id="target-max-hp" type="range" min="1000" max="50000" class="custom-range" value="10000" onchange="resolve()" oninput="slide('target-max-hp')" />`,
+    min: 1000,
+    max: 50000,
+    default: 10000,
     value: () => Number(document.getElementById('target-max-hp').value)
   },
   target_hp_pc: {
@@ -25,35 +33,48 @@ const elements = {
     label: 'Targets\'s HP',
     type: 'slider',
     percent: true,
-    element: `<input id="target-hp-pc" type="range" min="1" max="100" class="custom-range" value="100" onchange="resolve()" oninput="slide('target-hp-pc')" />`,
+    min: 1,
+    max: 100,
+    default: 100,
+    readonly: true,
     value: () => Number(document.getElementById('target-hp-pc').value)
   },
   target_hp: {
     id: 'target-hp',
     label: 'Targets\'s HP',
     type: 'slider',
-    element: `<input id="target-hp" type="range" min="1000" max="50000" class="custom-range" value="10000" onchange="resolve()" oninput="slide('target-hp')" />`,
+    min: 1000,
+    max: 50000,
+    default: 10000,
     value: () => Number(document.getElementById('target-hp').value)
   },
   target_speed: {
     id: 'target-speed',
     label: 'Targets\'s Speed',
     type: 'slider',
-    element: `<input id="target-speed" type="range" min="70" max="300" class="custom-range" value="150" onchange="resolve()" oninput="slide('target-speed')" />`,
+    min: 70,
+    max: 300,
+    default: 150,
     value: () => Number(document.getElementById('target-speed').value)
   },
   target_nb_buff: {
     id: 'target-nb-buff',
     label: 'Buffs on Targets',
     type: 'slider',
-    element: `<input id="target-nb-buff" type="range" min="0" max="9" class="custom-range" value="0" onchange="resolve()" oninput="slide('target-nb-buff')" />`,
+    min: 0,
+    max: 9,
+    default: 0,
+    readonly: true,
     value: () => Number(document.getElementById('target-nb-buff').value)
   },
   target_nb_debuff: {
     id: 'target-nb-debuff',
     label: 'Debuffs on Targets',
     type: 'slider',
-    element: `<input id="target-nb-debuff" type="range" min="0" max="9" class="custom-range" value="0" onchange="resolve()" oninput="slide('target-nb-debuff')" />`,
+    min: 0,
+    max: 9,
+    default: 0,
+    readonly: true,
     value: () => Number(document.getElementById('target-nb-debuff').value)
   },
   target_has_buff: {
@@ -103,23 +124,32 @@ const elements = {
     id: 'target-nb-bleed',
     label: 'Number of Bleed on target',
     type: 'slider',
-    element: `<input id="target-nb-bleed" type="range" min="0" max="9" class="custom-range" value="0" onchange="resolve()" oninput="slide('target-nb-bleed')" />`,
+    min: 0,
+    max: 9,
+    default: 0,
+    readonly: true,
     value: () => Number(document.getElementById('target-nb-bleed').value),
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blood.png'
   },
   target_bleed_detonate: {
     id: 'target-bleed-detonate',
-    label: 'Total Bleed effects (1 bleed for 2 turns counts 2 bleed effects)',
+    label: 'Bleed effects to Detonate',
     type: 'slider',
-    element: `<input id="target-bleed-detonate" type="range" min="0" max="30" class="custom-range" value="0" onchange="resolve()" oninput="slide('target-bleed-detonate')" />`,
+    min: 0,
+    max: 30,
+    default: 0,
+    readonly: true,
     value: () => Number(document.getElementById('target-bleed-detonate').value),
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blood.png'
   },
   target_burn_detonate: {
     id: 'target-burn-detonate',
-    label: 'Total Burn effects (1 burn for 2 turns counts 2 burn effects)',
+    label: 'Burn effects to Detonate',
     type: 'slider',
-    element: `<input id="target-burn-detonate" type="range" min="0" max="30" class="custom-range" value="0" onchange="resolve()" oninput="slide('target-burn-detonate')" />`,
+    min: 0,
+    max: 30,
+    default: 0,
+    readonly: true,
     value: () => Number(document.getElementById('target-burn-detonate').value),
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blaze.png'
   },
@@ -127,7 +157,9 @@ const elements = {
     id: 'caster-max-hp',
     label: 'Caster\'s Max HP',
     type: 'slider',
-    element: `<input id="caster-max-hp" type="range" min="1000" max="50000" class="custom-range" value="10000" onchange="resolve()" oninput="slide('caster-max-hp')" />`,
+    min: 1000,
+    max: 50000,
+    default: 10000,
     value: () => Number(document.getElementById('caster-max-hp').value)
   },
   caster_hp_pc: {
@@ -135,21 +167,28 @@ const elements = {
     label: 'Caster\'s HP',
     type: 'slider',
     percent: true,
-    element: `<input id="caster-hp-pc" type="range" min="1" max="100" class="custom-range" value="100" onchange="resolve()" oninput="slide('caster-hp-pc')" />`,
+    min: 1,
+    max: 100,
+    default: 100,
+    readonly: true,
     value: () => Number(document.getElementById('caster-hp-pc').value)
   },
   caster_hp: {
     id: 'caster-hp',
     label: 'Caster\'s HP',
     type: 'slider',
-    element: `<input id="caster-hp" type="range" min="1000" max="50000" class="custom-range" value="10000" onchange="resolve()" oninput="slide('caster-hp')" />`,
+    min: 1000,
+    max: 50000,
+    default: 10000,
     value: () => Number(document.getElementById('caster-hp').value)
   },
   caster_defense: {
     id: 'caster-defense',
     label: 'Caster\'s Defense',
     type: 'slider',
-    element: `<input id="caster-defense" type="range" min="200" max="5000" class="custom-range" value="750" onchange="resolve()" oninput="slide('caster-defense')" />`,
+    min: 200,
+    max: 5000,
+    default: 750,
     value: () => Number(document.getElementById('caster-defense').value)*(elements.caster_defense_up.value() ? 1.6 : 1)
   },
   caster_defense_up: {
@@ -163,7 +202,9 @@ const elements = {
     id: 'caster-speed',
     label: 'Caster\'s Speed',
     type: 'slider',
-    element: `<input id="caster-speed" type="range" min="70" max="300" class="custom-range" value="150" onchange="resolve()" oninput="slide('caster-speed')" />`,
+    min: 70,
+    max: 300,
+    default: 150,
     value: () => Number(document.getElementById('caster-speed').value)*(elements.caster_speed_up.value() ? 1.3 : 1),
   },
   caster_speed_up: {
@@ -177,7 +218,10 @@ const elements = {
     id: 'caster-nb-buff',
     label: 'Buffs on Caster',
     type: 'slider',
-    element: `<input id="caster-nb-buff" type="range" min="0" max="9" class="custom-range" value="0" onchange="resolve()" oninput="slide('caster-nb-buff')" />`,
+    min: 0,
+    max: 9,
+    default: 0,
+    readonly: true,
     value: () => Number(document.getElementById('caster-nb-buff').value)
   },
   caster_full_focus: {
@@ -190,14 +234,21 @@ const elements = {
     id: 'caster-nb-focus',
     label: 'Focus',
     type: 'slider',
-    element: `<input id="caster-nb-focus" type="range" min="0" max="5" class="custom-range" value="0" onchange="resolve()" oninput="slide('caster-nb-focus')" />`,
+    min: 0,
+    max: 5,
+    default: 0,
+    readonly: true,
     value: () => Number(document.getElementById('caster-nb-focus').value)
   },
   caster_fighting_spirit: {
     id: 'caster-fighting-spirit',
     label: 'Fighting Spirit',
     type: 'slider',
-    element: `<input id="caster-fighting-spirit" type="range" min="0" max="100" class="custom-range" value="0" step="5" onchange="resolve()" oninput="slide('caster-fighting-spirit')" />`,
+    min: 0,
+    max: 100,
+    default: 0,
+    step: 5,
+    readonly: true,
     value: () => Number(document.getElementById('caster-fighting-spirit').value)
   },
   caster_invincible: {
@@ -232,14 +283,19 @@ const elements = {
     id: 'stack-crit-hit',
     label: 'Crit Hit Stack',
     type: 'slider',
-    element: `<input id="stack-crit-hit" type="range" min="0" max="50" class="custom-range" value="0" step="1" onchange="resolve()" oninput="slide('stack-crit-hit')" />`,
+    min: 0,
+    max: 50,
+    default: 0,
     value: () => Number(document.getElementById('stack-crit-hit').value)
   },
   dead_people: {
     id: 'dead-people',
     label: 'People who died',
     type: 'slider',
-    element: `<input id="dead-people" type="range" min="0" max="8" class="custom-range" value="0" step="1" onchange="resolve()" oninput="slide('dead-people')" />`,
+    min: 0,
+    max: 8,
+    default: 0,
+    readonly: true,
     value: () => Number(document.getElementById('dead-people').value)
   }
 };
@@ -248,7 +304,43 @@ elements.caster_speed.sub_elements = [elements.caster_speed_up];
 elements.caster_defense.sub_elements = [elements.caster_defense_up];
 
 const slide = (fieldId) => {
-  document.getElementById(`${fieldId}-val`).innerText = document.getElementById(fieldId).value
+  document.getElementById(fieldId).value = document.getElementById(`${fieldId}-slide`).value;
+  resolve();
+};
+
+const update = (fieldId) => {
+  const slider = document.getElementById(`${fieldId}-slide`);
+  const inputValue = Number(document.getElementById(fieldId).value);
+  const sliderMin = Number(slider.getAttribute('min'));
+  const sliderMax = Number(slider.getAttribute('max'));
+  if (inputValue < sliderMin) {
+    slider.value = sliderMin;
+  } else if (inputValue > sliderMax) {
+    slider.value = sliderMax;
+  } else {
+    slider.value = inputValue;
+  }
+  resolve();
+};
+
+const plus = (fieldId) => {
+  const input = document.getElementById(fieldId);
+  const max = input.getAttribute('max');
+  const inc = Number(document.getElementById(`${fieldId}-slide`).getAttribute('step') || 1);
+  if (max === null || Number(max) > input.value) {
+    input.value = Number(input.value)+inc;
+    update(fieldId);
+  }
+};
+
+const minus = (fieldId) => {
+  const input = document.getElementById(fieldId);
+  const min = input.getAttribute('min');
+  const inc = Number(document.getElementById(`${fieldId}-slide`).getAttribute('step') || 1);
+  if (min === null || Number(min) < input.value) {
+    input.value = Number(input.value)-inc;
+    update(fieldId);
+  }
 };
 
 const build = (hero) => {
@@ -267,9 +359,18 @@ const build = (hero) => {
   for (let id of Object.keys(hero.skills)) {
     const skill = hero.skills[id];
     if (skill.enhance) {
-      $(molagoraBlock).append(`<div class="form-group col-sm-${skill.enhance.length}">
-                        <label for="molagora-${id}">${id.toUpperCase()}: +<span id="molagora-${id}-val"></span></label>
-                        <input id="molagora-${id}" type="range" min="0" max="${skill.enhance.length}" class="custom-range" value="0" onchange="resolve()" oninput="slide('molagora-${id}')" />
+      $(molagoraBlock).append(`<div class="form-group row col-sm-12">
+                        <label for="molagora-s0" class="col-sm-12 col-md-1 col-form-label form-control-sm text-center"><h5>${id.toUpperCase()}</h5></label>
+                        <div class="input-group input-group-sm col-md-2 col-sm-12">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" type="button" id="molagora-${id}-minus" onclick="minus('molagora-${id}')">&minus;</button>
+                            </div>
+                            <input type="number" class="form-control text-center" id="molagora-${id}" min="0" max="${skill.enhance.length}" value="0" readonly onkeyup="update('molagora-${id}')">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="molagora-${id}-plus" onclick="plus('molagora-${id}')">&plus;</button>
+                            </div>
+                        </div>
+                        <input id="molagora-${id}-slide" type="range" min="0" max="${skill.enhance.length}" class="custom-range col-md-${skill.enhance.length} col-sm-12 mt-3 mt-md-0 ml-2 ml-md-0" value="0" oninput="slide('molagora-${id}')" />
                     </div>`);
     }
   }
@@ -286,12 +387,24 @@ const buildArtifact = (artifact) => {
 
 const buildElement = (elem, parent) => {
   if (elem.type === 'slider') {
-    $(parent).append(`<div class="form-group col-sm-12">
-                        <label for="${elem.id}">
-                            ${elem.icon ? '<img src="'+elem.icon+'" width="20" height="20" />' : ''}
-                            ${elem.label}: <span id="${elem.id}-val"></span>${elem.percent ? '%' : ''}
-                        </label>
-                        ${elem.element}
+    $(parent).append(`<div id="artifact-lvl-block" class="stat-block">
+                        <div class="form-group row col-sm-12">
+                            <label for="crit" class="col-md-9 col-form-label form-control-sm">
+                                <h5>${elem.icon ? '<img src="'+elem.icon+'" width="20" height="20" /> ' : ''}${elem.label}</h5>
+                            </label>
+                            <div class="input-group input-group-sm col-md-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary" type="button" id="${elem.id}-minus" onclick="minus('${elem.id}')">&minus;</button>
+                                </div>
+                                <input type="number" class="form-control text-center" id="${elem.id}" min="${elem.min}" max="${elem.max}" value="${elem.default}" ${elem.readonly ? 'readonly' : ''} onkeyup="update('${elem.id}')">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="${elem.id}-plus" onclick="plus('${elem.id}')">&plus;</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row col-sm-12">
+                            <input type="range" class="custom-range" id="${elem.id}-slide" min="${elem.min}" max="${elem.max}" value="${elem.default}" step="${elem.step || 1}" oninput="slide('${elem.id}')">
+                        </div>
                     </div>`);
   } else if (elem.type === 'checkbox') {
     $(parent).append(`<div class="form-group col-sm-12">
@@ -326,9 +439,6 @@ $(() => {
   heroSelector.onchange = () => {
     build(heroes[heroSelector.value]);
     resolve();
-    $('input[type="range"]').each((_, elem) => {
-      slide(elem.getAttribute('id'));
-    });
     gtag('event', 'pick', {
       event_category: 'Hero',
       event_label: heroSelector.value,
@@ -343,7 +453,4 @@ $(() => {
   build(heroes[heroSelector.value]);
   buildArtifact(artifacts[artiSelector.value]);
   resolve();
-  $('input[type="range"]').each((_, elem) => {
-    slide(elem.getAttribute('id'));
-  });
 });

@@ -1,3 +1,28 @@
+.stat-block {
+    padding: 7px 0 1px 10px;
+    background-color: whitesmoke;
+    margin-bottom: 7px;
+    border-radius: 8px;
+}
+
+#molagora-block {
+    padding: 18px 0 1px 0px;
+    background-color: whitesmoke;
+    margin-bottom: 7px;
+    border-radius: 8px;
+}
+
+#damage-block {
+    position: -webkit-sticky;
+    position: sticky;
+    bottom: 0;
+    background-color: white;
+    z-index: 1000;
+    padding: 5px 5px 0 5px;
+    border: 1px solid darkgrey;
+    border-radius: 5px;
+}
+
 .buff-block {
     border: 1px solid lightgrey;
     border-radius: 4px;
