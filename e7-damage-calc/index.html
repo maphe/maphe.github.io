@@ -112,7 +112,16 @@
 
                 <hr />
 
-                <h4>Target</h4>
+                <div class="row">
+                    <h4 class="col-md-8">Target</h4>
+                    <div class="form-group col-md-4 col-sm-12">
+                        <select id="def-preset" name="def-preset" class="form-control custom-select selectpicker" data-live-search="true" data-size="12" data-show-subtext="true">
+                            <option value="">Manual</option>
+                            <option data-divider="true"></option>
+                            <option value="wyvern11" data-def="1260" data-subtext="(139 308 hp)">Wyvern 11</option>
+                        </select>
+                    </div>
+                </div>
                 <div id="target-block">
                     <div class="stat-block">
                         <div class="form-group row col-sm-12">
@@ -163,7 +172,7 @@
 
                 <hr />
 
-                <h4>Skill Enhance (MolaGora)</h4>
+                <h4>Skill Enhance</h4>
                 <div id="molagora-block"></div>
             </form>
         </div>
@@ -179,18 +188,18 @@
                 </span>
             </h4>
             <div>
-                    <table class="table table-bordered table-sm col-sm-12">
-                        <thead class="table-secondary">
-                            <tr>
-                                <th>Skill</th>
-                                <th>Critical Hit</th>
-                                <th>Crushing Hit</th>
-                                <th>Normal Hit</th>
-                                <th>Miss</th>
-                            </tr>
-                        </thead>
-                        <tbody id="damage"></tbody>
-                    </table>
+                <table class="table table-bordered table-sm col-sm-12">
+                    <thead class="table-secondary">
+                        <tr>
+                            <th>Skill</th>
+                            <th>Critical Hit</th>
+                            <th>Crushing Hit</th>
+                            <th>Normal Hit</th>
+                            <th>Miss</th>
+                        </tr>
+                    </thead>
+                    <tbody id="damage"></tbody>
+                </table>
             </div>
         </div>
 

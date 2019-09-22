@@ -306,6 +306,7 @@ elements.caster_defense.sub_elements = [elements.caster_defense_up];
 const slide = (fieldId) => {
   document.getElementById(fieldId).value = document.getElementById(`${fieldId}-slide`).value;
   resolve();
+  resetPreset(fieldId);
 };
 
 const update = (fieldId) => {
@@ -330,6 +331,7 @@ const plus = (fieldId) => {
   if (max === null || Number(max) > input.value) {
     input.value = Number(input.value)+inc;
     update(fieldId);
+    resetPreset(fieldId);
   }
 };
 
@@ -340,6 +342,13 @@ const minus = (fieldId) => {
   if (min === null || Number(min) < input.value) {
     input.value = Number(input.value)-inc;
     update(fieldId);
+    resetPreset(fieldId);
+  }
+};
+
+const resetPreset = (fieldId) => {
+  if (fieldId === 'def') {
+    $('#def-preset').selectpicker('val', '');
   }
 };
 
@@ -443,6 +452,15 @@ $(() => {
       event_category: 'Hero',
       event_label: heroSelector.value,
     });
+  };
+
+  const defPresetSelector = document.getElementById('def-preset');
+  defPresetSelector.onchange = () => {
+    const selected = defPresetSelector.options[defPresetSelector.selectedIndex];
+    if (selected.value) {
+      document.getElementById('def').value = selected.dataset.def;
+      update('def');
+    }
   };
 
   artiSelector.onchange = () => {
