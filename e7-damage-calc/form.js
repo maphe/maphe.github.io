@@ -350,6 +350,9 @@ const resetPreset = (fieldId) => {
   if (fieldId === 'def') {
     $('#def-preset').selectpicker('val', '');
   }
+  if (fieldId === 'atk' || fieldId === 'crit') {
+    $('#atk-preset').selectpicker('val', '');
+  }
 };
 
 const build = (hero) => {
@@ -460,6 +463,17 @@ $(() => {
     if (selected.value) {
       document.getElementById('def').value = selected.dataset.def;
       update('def');
+    }
+  };
+
+  const atkPresetSelector = document.getElementById('atk-preset');
+  atkPresetSelector.onchange = () => {
+    const selected = atkPresetSelector.options[atkPresetSelector.selectedIndex];
+    if (selected.value) {
+      document.getElementById('atk').value = selected.dataset.atk;
+      document.getElementById('crit').value = selected.dataset.crit;
+      update('atk');
+      update('crit');
     }
   };
 

@@ -32,6 +32,16 @@
                             <select id="artifact" name="artifact" class="form-control custom-select selectpicker" data-live-search="true" data-size="12" data-none-selected-text="Artifact">
                             </select>
                         </div>
+                        <div class="form-group col-md-4 col-sm-12">
+                            <select id="atk-preset" name="atk-preset" class="form-control custom-select selectpicker" data-size="12" data-show-subtext="true">
+                                <option value="">Manual</option>
+                                <option data-divider="true"></option>
+                                <option value="starter" data-atk="2500" data-crit="175" data-subtext="(2500/175%)">Starter gear</option>
+                                <option value="attack" data-atk="6500" data-crit="150" data-subtext="(6500/150%)">All in Attack</option>
+                                <option value="crit" data-atk="2500" data-crit="380" data-subtext="(2500/380%)">All in Crit Dmg</option>
+                                <option value="elite" data-atk="5000" data-crit="300" data-subtext="(5000/300%)">Elite balanced</option>
+                            </select>
+                        </div>
                     </div>
 
                     <div class="stat-block">
@@ -66,7 +76,7 @@
                             </div>
                         </div>
                         <div class="form-group row col-sm-12">
-                            <input type="range" class="custom-range" id="crit-slide" min="150" max="350" value="250" oninput="slide('crit')">
+                            <input type="range" class="custom-range" id="crit-slide" min="150" max="450" value="250" oninput="slide('crit')">
                         </div>
                     </div>
 
@@ -115,7 +125,7 @@
                 <div class="row">
                     <h4 class="col-md-8">Target</h4>
                     <div class="form-group col-md-4 col-sm-12">
-                        <select id="def-preset" name="def-preset" class="form-control custom-select selectpicker" data-live-search="true" data-size="12" data-show-subtext="true">
+                        <select id="def-preset" name="def-preset" class="form-control custom-select selectpicker" data-size="12" data-show-subtext="true">
                             <option value="">Manual</option>
                             <option data-divider="true"></option>
                             <option value="wyvern11" data-def="1260" data-subtext="(139 308 hp)">Wyvern 11</option>

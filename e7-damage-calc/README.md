@@ -5,7 +5,7 @@
 - ~~Improve sliders (easier, more accurate inputs)~~
 - Add Passive Skill boosts (Luna)
 - Add defensive artifacts (Noble Oath, Adamant Shield)
-- Preset gear values (atk, crit dmg)
+- ~~Preset gear values (atk, crit dmg)~~
 - ~~Preset Defense values (eg. hunts)~~
   - Add more
 - Extra-attack (Sven, Clarissa, Vivian)
