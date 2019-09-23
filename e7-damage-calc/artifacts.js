@@ -2,7 +2,8 @@ const scaleValue = (scale) => scale[Math.floor((((4)))/3)];
 
 const artifactDmgType = {
   damage: 'damage',
-  penetrate: 'penetrate'
+  penetrate: 'penetrate',
+  aftermath: 'aftermath'
 };
 
 const artifacts = {
@@ -35,5 +36,17 @@ const artifacts = {
     name: 'Otherworldly Machinery',
     scale: [1.08, 1.088, 1.096, 1.104, 1.112, 1.12, 1.128, 1.136, 1.144, 1.152, 1.16],
     type: artifactDmgType.damage
-  }
+  },
+  reingar_special_drink: {
+    name: 'Reingar’s Special Drink',
+    type: artifactDmgType.aftermath,
+    atkPercent: 0.3,
+    penetrate: 0.7
+  },
+  uberius_tooth: {
+    name: 'Uberius’s Tooth',
+    type: artifactDmgType.aftermath,
+    atkPercent: 0.3,
+    penetrate: 0.7
+  },
 };

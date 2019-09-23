@@ -71,12 +71,12 @@ class Hero {
   getDamage(skillId, soulburn = false) {
     const skill = this.skills[skillId];
     const hit = this.offensivePower(skillId, soulburn) / this.target.defensivePower(skill);
-    const detonation = this.getDetonateDamage(skillId);
+    const critDmg = (this.crit / 100)+(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0);
     return {
-      crit: Math.round(hit * ((this.crit / 100)+(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0)) + detonation),
-      crush: Math.round(hit*1.3 + detonation),
-      normal: Math.round(hit + detonation),
-      miss: Math.round(hit*0.75 + detonation)
+      crit: Math.round(hit*critDmg + this.getAfterMathDamage(skillId, critDmg)),
+      crush: Math.round(hit*1.3 + this.getAfterMathDamage(skillId, 1.3)),
+      normal: Math.round(hit + this.getAfterMathDamage(skillId, 1)),
+      miss: Math.round(hit*0.75 + this.getAfterMathDamage(skillId, 0.75))
     };
   }
 
@@ -103,6 +103,18 @@ class Hero {
     }
 
     return mult;
+  }
+
+  getAfterMathDamage(skillId, multiplier) {
+    const detonation = this.getDetonateDamage(skillId);
+
+    let artiDamage = 0;
+    const artiMultipliers = this.artifact.getAfterMathMultipliers();
+    if (artiMultipliers !== null) {
+      artiDamage = this.atk*artiMultipliers.atkPercent*getGlobalAtkMult()/this.target.defensivePower({penetrate: () => artiMultipliers.penetrate})*multiplier;
+    }
+
+    return detonation + artiDamage;
   }
 
   getDetonateDamage(skillId) {
@@ -159,5 +171,15 @@ class Artifact {
       return 0;
     }
     return this.getValue();
+  }
+
+  getAfterMathMultipliers() {
+    if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.aftermath) {
+      return null;
+    }
+    return {
+      atkPercent: artifacts[this.id].atkPercent,
+      penetrate: artifacts[this.id].penetrate,
+    }
   }
 }

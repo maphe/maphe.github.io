@@ -389,12 +389,12 @@ const build = (hero) => {
 };
 
 const buildArtifact = (artifact) => {
-  if (artifact === undefined) {
+  if (artifact === undefined || artifact.scale === undefined) {
     document.getElementById('artifact-lvl-block').style.display = 'none';
-    return;
+  } else {
+    document.getElementById('artifact-lvl-block').style.display = 'block';
   }
 
-  document.getElementById('artifact-lvl-block').style.display = 'block';
 };
 
 const buildElement = (elem, parent) => {
