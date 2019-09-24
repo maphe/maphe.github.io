@@ -11,7 +11,7 @@
 - Extra-attack (Sven, Clarissa, Vivian)
 - Display increased damage % from molas
 - Display multipliers
-- Rage Set multiplier
+- ~~Rage Set multiplier~~
 
 ### Disclaimer
 
