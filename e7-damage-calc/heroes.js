@@ -4,6 +4,16 @@ const dot = {
 };
 
 const heroes = {
+  achates: {
+    name: 'Achates',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.95,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+    }
+  },
   adlay: {
     name: 'Adlay',
     skills: {
@@ -17,6 +27,16 @@ const heroes = {
         rate: (soulburn) => soulburn ? 1.25 : 1,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15]
+      }
+    }
+  },
+  aither: {
+    name: 'Aither',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1.05,
+        enhance: [0.1, 0, 0, 0.15]
       }
     }
   },
@@ -39,6 +59,26 @@ const heroes = {
         pow: 0.9,
         mult: () => 1 + elements.target_nb_debuff.value()*0.15,
         enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.15]
+      }
+    }
+  },
+  angelic_montmorancy: {
+    name: 'Angelic Montmorancy',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.1, 0, 0, 0.15]
+      }
+    }
+  },
+  angelica: {
+    name: 'Angelica',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
       }
     }
   },
@@ -928,6 +968,26 @@ const heroes = {
       }
     }
   },
+  destina: {
+    name: 'Destina',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.05, 0, 0.15]
+      }
+    }
+  },
+  diene: {
+    name: 'Diene',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.95,
+        enhance: [0.05, 0, 0.05, 0.05, 0, 0.1, 0.1]
+      }
+    }
+  },
   dingo: {
     name: 'Dingo',
     dot: [dot.bleed, dot.burn],
@@ -978,6 +1038,31 @@ const heroes = {
         rate: 0.75,
         pow: 0.95,
         enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.15]
+      }
+    }
+  },
+  doris: {
+    name: 'Doris',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.1, 0, 0, 0.15]
+      }
+    }
+  },
+  elson: {
+    name: 'Elson',
+    skills: {
+      s1: {
+        rate: 0.9,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0, 0.1]
+      },
+      s2: {
+        rate: 0.7,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0, 0, 0.1, 0.15]
       }
     }
   },
@@ -1137,6 +1222,46 @@ const heroes = {
       }
     }
   },
+  haste: {
+    name: 'Haste',
+    form: [elements.nb_targets],
+    dot: [dot.bleed],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      },
+      s2: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2 : 1.5,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        rate: 1,
+        pow: 1,
+        mult: () => {
+          switch (elements.nb_targets.value()) {
+            case 1: return 2.5;
+            case 2: return 2.0;
+            default: return 1.0;
+          }
+        },
+        enhance: [0.15, 0, 0, 0, 0.15]
+      }
+    }
+  },
+  hazel: {
+    name: 'Hazel',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1.05,
+        enhance: [0.1, 0, 0, 0.15]
+      }
+    }
+  },
   helga: {
     name: 'Helga',
     skills: {
@@ -1167,6 +1292,37 @@ const heroes = {
       }
     }
   },
+  iseria: {
+    name: 'Iseria',
+    skills: {
+      s1: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2 : 1,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0, 0.05, 0.1, 0.1]
+      },
+      s3: {
+        rate: 2,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.1]
+      }
+    }
+  },
+  jecht: {
+    name: 'Jecht',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1.05,
+        enhance: [0.1, 0, 0, 0.15]
+      },
+      s3: {
+        rate: 0.9,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0, 0.05, 0.1, 0.1]
+      }
+    }
+  },
   jena: {
     name: 'Jena',
     form: [elements.target_nb_debuff],
@@ -1181,6 +1337,28 @@ const heroes = {
         rate: (soulburn) => soulburn ? 1.1 : 0.85,
         pow: 0.95,
         enhance: [0.05, 0.05, 0, 0, 0.1, 0, 0.15]
+      }
+    }
+  },
+  judge_kise: {
+    name: 'Judge Kise',
+    form: [elements.nb_targets],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.15, 0, 0, 0.15]
+      },
+      s2: {
+        rate: 1,
+        pow: 1,
+        mult: () => 1 + (elements.nb_targets.value()-1)*0.1,
+        enhance: [0.05, 0.05, 0.1, 0.1]
+      },
+      s3: {
+        rate: 1,
+        pow: 0.9,
+        enhance: [0.05, 0, 0.1, 0, 0, 0.1, 0.15]
       }
     }
   },
@@ -1213,117 +1391,6 @@ const heroes = {
         pow: 0.85,
         critDmgBoost: () => 0.5,
         enhance: [0.05, 0.05, 0.05, 0, 0.1, 0.1, 0.1]
-      }
-    }
-  },
-  khawazu: {
-    name: 'Khawazu',
-    dot: [dot.burn],
-    skills: {
-      s1: {
-        rate: 1,
-        pow: 1,
-        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1]
-      },
-      s3: {
-        rate: 1.5,
-        pow: 0.9,
-        enhance: [0.05, 0.05, 0.05, 0, 0.05, 0.1, 0.1]
-      }
-    }
-  },
-  kiris: {
-    name: 'Kiris',
-    skills: {
-      s1: {
-        rate: 1,
-        pow: 0.9,
-        enhance: [0.05, 0.05, 0, 0.05, 0, 0.1, 0.15]
-      },
-      s2: {
-        rate: 0.7,
-        pow: 1,
-        enhance: [0.05, 0.05, 0, 0.1, 0.05, 0.05]
-      }
-    }
-  },
-  kluri: {
-    name: 'Kluri',
-    form: [elements.caster_defense],
-    skills: {
-      s1: {
-        rate: 0.5,
-        pow: 0.9,
-        flat: () => elements.caster_defense.value()*0.7,
-        enhance: [0.05, 0.05, 0, 0.05, 0.1, 0.15]
-      }
-    }
-  },
-  haste: {
-    name: 'Haste',
-    form: [elements.nb_targets],
-    dot: [dot.bleed],
-    skills: {
-      s1: {
-        rate: 1,
-        pow: 1,
-        enhance: [0.05, 0.05, 0, 0.1, 0.1]
-      },
-      s2: {
-        soulburn: true,
-        rate: (soulburn) => soulburn ? 2 : 1.5,
-        pow: 1,
-        enhance: [0.05, 0, 0.1, 0, 0.15]
-      },
-      s3: {
-        rate: 1,
-        pow: 1,
-        mult: () => {
-          switch (elements.nb_targets.value()) {
-            case 1: return 2.5;
-            case 2: return 2.0;
-            default: return 1.0;
-          }
-        },
-        enhance: [0.15, 0, 0, 0, 0.15]
-      }
-    }
-  },
-  iseria: {
-    name: 'Iseria',
-    skills: {
-      s1: {
-        soulburn: true,
-        rate: (soulburn) => soulburn ? 2 : 1,
-        pow: 0.95,
-        enhance: [0.05, 0.05, 0, 0, 0.05, 0.1, 0.1]
-      },
-      s3: {
-        rate: 2,
-        pow: 0.9,
-        enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.1]
-      }
-    }
-  },
-  judge_kise: {
-    name: 'Judge Kise',
-    form: [elements.nb_targets],
-    skills: {
-      s1: {
-        rate: 1,
-        pow: 1,
-        enhance: [0.15, 0, 0, 0.15]
-      },
-      s2: {
-        rate: 1,
-        pow: 1,
-        mult: () => 1 + (elements.nb_targets.value()-1)*0.1,
-        enhance: [0.05, 0.05, 0.1, 0.1]
-      },
-      s3: {
-        rate: 1,
-        pow: 0.9,
-        enhance: [0.05, 0, 0.1, 0, 0, 0.1, 0.15]
       }
     }
   },
@@ -1371,6 +1438,22 @@ const heroes = {
       }
     }
   },
+  khawazu: {
+    name: 'Khawazu',
+    dot: [dot.burn],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1]
+      },
+      s3: {
+        rate: 1.5,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0, 0.05, 0.1, 0.1]
+      }
+    }
+  },
   kikirat_v2: {
     name: 'Kikirat v2',
     form: [elements.caster_defense],
@@ -1387,6 +1470,21 @@ const heroes = {
         pow: 1,
         flat: (soulburn) => elements.caster_defense.value()*(soulburn ? 0.6 : 0.5),
         enhance: [0.05, 0, 0.1, 0, 0.15]
+      }
+    }
+  },
+  kiris: {
+    name: 'Kiris',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0, 0.05, 0, 0.1, 0.15]
+      },
+      s2: {
+        rate: 0.7,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.05, 0.05]
       }
     }
   },
@@ -1429,6 +1527,18 @@ const heroes = {
         rate: (soulburn) => soulburn ? 1.05 : 0.8,
         pow: 0.95,
         enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.15]
+      }
+    }
+  },
+  kluri: {
+    name: 'Kluri',
+    form: [elements.caster_defense],
+    skills: {
+      s1: {
+        rate: 0.5,
+        pow: 0.9,
+        flat: () => elements.caster_defense.value()*0.7,
+        enhance: [0.05, 0.05, 0, 0.05, 0.1, 0.15]
       }
     }
   },
@@ -1549,6 +1659,16 @@ const heroes = {
       }
     }
   },
+  lots: {
+    name: 'Lots',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0, 0.1, 0.15]
+      }
+    }
+  },
   ludwig: {
     name: 'Ludwig',
     form: [elements.caster_invincible],
@@ -1606,6 +1726,16 @@ const heroes = {
       }
     }
   },
+  maid_chloe: {
+    name: 'Maid Chloe',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1]
+      }
+    }
+  },
   martial_artist_ken: {
     name: 'Martial Artist Ken',
     form: [elements.caster_hp_pc],
@@ -1626,6 +1756,16 @@ const heroes = {
         rate: (soulburn) => soulburn ? 1.1 : 0.9,
         pow: 1,
         enhance: [0.05, 0, 0, 0.1, 0, 0.15]
+      }
+    }
+  },
+  mascot_hazel: {
+    name: 'Mascot Hazel',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1.05,
+        enhance: [0.1, 0, 0, 0.15]
       }
     }
   },
@@ -1712,6 +1852,16 @@ const heroes = {
       s3: {
         soulburn: true,
         rate: (soulburn) => soulburn ? 2.2 : 1.5,
+        pow: 1,
+        enhance: [0.05, 0.1, 0, 0, 0.15]
+      }
+    }
+  },
+  montmorancy: {
+    name: 'Montmorancy',
+    skills: {
+      s1: {
+        rate: 1,
         pow: 1,
         enhance: [0.05, 0.1, 0, 0, 0.15]
       }
@@ -1951,6 +2101,24 @@ const heroes = {
       }
     }
   },
+  rin: {
+    name: 'Rin',
+    form: [elements.caster_max_hp],
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 0.9,
+        flat: () => elements.caster_max_hp.value()*0.05,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1, 0.1]
+      },
+      s2: {
+        rate: 0.7,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.07,
+        enhance: [0.05, 0.05, 0, 0, 0.1, 0.1]
+      }
+    }
+  },
   roaming_warrior_leo: {
     name: 'Roaming Warrior Leo',
     form: [elements.target_has_debuff],
@@ -2025,6 +2193,18 @@ const heroes = {
       }
     }
   },
+  ruele_of_light: {
+    name: 'Ruele of Light',
+    form: [elements.caster_max_hp],
+    skills: {
+      s1: {
+        rate: 0.81,
+        pow: 0.95,
+        flat: () => elements.caster_max_hp.value()*0.07,
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0.15]
+      }
+    }
+  },
   sage_baal_and_sezan: {
     name: 'Sage Baal & Sezan',
     form: [elements.caster_max_hp, elements.caster_hp],
@@ -2058,6 +2238,16 @@ const heroes = {
         rate: 1,
         pow: 1,
         enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      }
+    }
+  },
+  shooting_star_achates: {
+    name: 'Shooting Star Achates',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.95,
+        enhance: [0.05, 0.1, 0, 0, 0.1, 0.1]
       }
     }
   },
@@ -2312,6 +2502,16 @@ const heroes = {
         pow: 0.8,
         mult: () => 1 + (100-elements.caster_hp_pc.value())*0.005 + (100-elements.target_hp_pc.value())*0.0015,
         enhance: [0.05, 0.05, 0.1, 0, 0.1, 0.1, 0.1]
+      }
+    }
+  },
+  tamarinne: {
+    name: 'Tamarinne',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.75,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1, 0.1, 0.15]
       }
     }
   },
