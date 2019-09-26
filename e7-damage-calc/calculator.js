@@ -80,10 +80,20 @@ class Hero {
     };
   }
 
+  getAttack(skillId) {
+    const skill = this.skills[skillId];
+
+    if (skill.atk !== undefined) {
+      return skill.atk();
+    } else {
+      return this.atk * getGlobalAtkMult()
+    }
+  }
+
   offensivePower(skillId, soulburn) {
     const skill = this.skills[skillId];
 
-    const atkTotal = this.atk * getGlobalAtkMult();
+    const atkTotal = this.getAttack(skillId);
 
     const powerTotal = 1.871 * (typeof skill.pow === 'function' ? skill.pow(soulburn) : skill.pow);
     const multTotal = (skill.mult ? skill.mult(soulburn) : 1) * this.getSkillEnhanceMult(skillId) * powerTotal * this.artifact.getDamageMultiplier();

@@ -297,11 +297,35 @@ const elements = {
     default: 0,
     readonly: true,
     value: () => Number(document.getElementById('dead-people').value)
+  },
+  highest_ally_attack: {
+    id: 'highest-ally-attack',
+    label: 'Highest Ally Attack',
+    type: 'slider',
+    min: 200,
+    max: 10000,
+    default: 4000,
+    value: () => Number(document.getElementById('highest-ally-attack').value)
+  },
+  ally_atk_up: {
+    id: 'ally-atk-up',
+    label: 'Ally has Increased Attack',
+    type: 'checkbox',
+    value: () => document.getElementById('ally-atk-up').checked,
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_att_up.png'
+  },
+  ally_atk_up_great: {
+    id: 'ally-atk-up-great',
+    label: 'Ally has Increased Attack (Great)',
+    type: 'checkbox',
+    value: () => document.getElementById('ally-atk-up-great').checked,
+    icon: 'https://epic7x.com/wp-content/uploads/2019/01/greater-attack-icon.png'
   }
 };
 
 elements.caster_speed.sub_elements = [elements.caster_speed_up];
 elements.caster_defense.sub_elements = [elements.caster_defense_up];
+elements.highest_ally_attack.sub_elements = [elements.ally_atk_up, elements.ally_atk_up_great];
 
 const slide = (fieldId) => {
   document.getElementById(fieldId).value = document.getElementById(`${fieldId}-slide`).value;

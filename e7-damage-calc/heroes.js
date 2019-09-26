@@ -1608,13 +1608,19 @@ const heroes = {
   },
   lilias: {
     name: 'Lilias',
-    form: [elements.caster_max_hp],
+    form: [elements.caster_max_hp, elements.highest_ally_attack],
     skills: {
       s1: {
         rate: 0.8,
         pow: 0.95,
         flat: () => elements.caster_max_hp.value()*0.12,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s3: {
+        rate: 0.9,
+        pow: 1,
+        atk: () =>  elements.highest_ally_attack.value() * (elements.ally_atk_up.value() ? 1.5 : 1) * (elements.ally_atk_up_great.value() ? 1.75 : 1),
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1]
       }
     }
   },
