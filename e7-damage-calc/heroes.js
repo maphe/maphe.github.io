@@ -1754,7 +1754,7 @@ const heroes = {
       s2: {
         rate: 1.2,
         pow: 0.95,
-        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.04,
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.004,
         enhance: [0.05, 0.1, 0.15]
       },
       s3: {
