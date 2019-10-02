@@ -267,7 +267,7 @@ const elements = {
   },
   caster_enrage: {
     id: 'caster-enrage',
-    label: 'Caster Enraged',
+    label: 'Caster has Rage',
     type: 'checkbox',
     value: () => document.getElementById('caster-enrage') ? document.getElementById('caster-enrage').checked : false,
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_madness.png'
