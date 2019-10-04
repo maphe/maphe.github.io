@@ -51,3 +51,7 @@ span[id$="-val"] {
 .page-footer h5 {
     font-size: 1.15rem;
 }
+
+.molagora-badge > .badge {
+    margin-top: 4px;
+}

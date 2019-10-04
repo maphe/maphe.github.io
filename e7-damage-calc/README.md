@@ -9,7 +9,7 @@
 - ~~Preset Defense values (eg. hunts)~~
   - Add more
 - Extra-attack (Sven, Clarissa, Vivian)
-- Display increased damage % from molas
+- ~~Display increased damage % from molas~~
 - Display multipliers
 - ~~Rage Set multiplier~~
 

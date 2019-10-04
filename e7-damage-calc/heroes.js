@@ -2413,7 +2413,7 @@ const heroes = {
       s1: {
         rate: 1,
         pow: 1,
-        mult: () => elements.target_has_buff.value() ? 1.2 : 1, // 20% increased damage if target has no buffs
+        mult: () => elements.target_has_buff.value() ? 1 : 1.2, // 20% increased damage if target has no buffs
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
       },
       s2: {

@@ -333,6 +333,11 @@ const slide = (fieldId) => {
   resetPreset(fieldId);
 };
 
+const slideMola = (skillId) => {
+  slide(`molagora-${skillId}`);
+  updateMolaBonus(skillId);
+};
+
 const update = (fieldId) => {
   const slider = document.getElementById(`${fieldId}-slide`);
   const inputValue = Number(document.getElementById(fieldId).value);
@@ -348,6 +353,17 @@ const update = (fieldId) => {
   resolve();
 };
 
+const updateMolaBonus = (skillId) => {
+  const hero = document.getElementById('hero').value;
+  const skill = heroes[hero].skills[skillId];
+  const enhancement = Number(document.getElementById(`molagora-${skillId}`).value);
+  let val = 0;
+  for (let i = 0; i < enhancement; i++) {
+    val += skill.enhance[i]*100;
+  }
+  document.getElementById(`molagora-${skillId}-percent`).textContent = val.toString();
+};
+
 const plus = (fieldId) => {
   const input = document.getElementById(fieldId);
   const max = input.getAttribute('max');
@@ -359,6 +375,11 @@ const plus = (fieldId) => {
   }
 };
 
+const plusMola = (skillId) => {
+  plus(`molagora-${skillId}`);
+  updateMolaBonus(skillId);
+};
+
 const minus = (fieldId) => {
   const input = document.getElementById(fieldId);
   const min = input.getAttribute('min');
@@ -368,6 +389,11 @@ const minus = (fieldId) => {
     update(fieldId);
     resetPreset(fieldId);
   }
+};
+
+const minusMola = (skillId) => {
+  minus(`molagora-${skillId}`);
+  updateMolaBonus(skillId);
 };
 
 const resetPreset = (fieldId) => {
@@ -396,17 +422,20 @@ const build = (hero) => {
     const skill = hero.skills[id];
     if (skill.enhance) {
       $(molagoraBlock).append(`<div class="form-group row col-sm-12">
-                        <label for="molagora-s0" class="col-sm-12 col-md-1 col-form-label form-control-sm text-center"><h5>${id.toUpperCase()}</h5></label>
+                        <label for="molagora-${id}" class="col-sm-12 col-md-1 col-form-label form-control-sm text-center"><h5>${id.toUpperCase()}</h5></label>
                         <div class="input-group input-group-sm col-md-2 col-sm-12">
                             <div class="input-group-prepend">
-                                <button class="btn btn-outline-secondary" type="button" id="molagora-${id}-minus" onclick="minus('molagora-${id}')">&minus;</button>
+                                <button class="btn btn-outline-secondary" type="button" id="molagora-${id}-minus" onclick="minusMola('${id}')">&minus;</button>
                             </div>
                             <input type="number" class="form-control text-center" id="molagora-${id}" min="0" max="${skill.enhance.length}" value="0" readonly onkeyup="update('molagora-${id}')">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button" id="molagora-${id}-plus" onclick="plus('molagora-${id}')">&plus;</button>
+                                <button class="btn btn-outline-secondary" type="button" id="molagora-${id}-plus" onclick="plusMola('${id}')">&plus;</button>
                             </div>
                         </div>
-                        <input id="molagora-${id}-slide" type="range" min="0" max="${skill.enhance.length}" class="custom-range col-md-${skill.enhance.length} col-sm-12 mt-3 mt-md-0 ml-2 ml-md-0" value="0" oninput="slide('molagora-${id}')" />
+                        <input id="molagora-${id}-slide" type="range" min="0" max="${skill.enhance.length}" class="custom-range col-md-${skill.enhance.length} col-sm-12 mt-3 mt-md-0 ml-2 ml-md-0" value="0" oninput="slideMola('${id}')" />
+                        <div class="col text-right molagora-badge">
+                            <span class="badge badge-pill badge-dark">+<span id="molagora-${id}-percent">0</span>%</span>
+                        </div>
                     </div>`);
     }
   }
