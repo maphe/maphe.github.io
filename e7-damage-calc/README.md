@@ -12,6 +12,8 @@
 - ~~Display increased damage % from molas~~
 - Display multipliers
 - ~~Rage Set multiplier~~
+- Make Reingard's Drink only apply to AoE attacks
+- Filter artifacts list by Hero type
 
 ### Disclaimer
 

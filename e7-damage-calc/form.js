@@ -13,8 +13,8 @@ const elements = {
     id: 'nb-hits',
     label: 'Number of hits',
     type: 'slider',
-    min: 3,
-    max: 10,
+    min: 1,
+    max: 3,
     default: 3,
     readonly: true,
     value: () => Number(document.getElementById('nb-hits').value)
