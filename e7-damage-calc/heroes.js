@@ -47,7 +47,7 @@ const heroes = {
       s1: {
         rate: 1,
         pow: 1,
-        enhance: [0.05, 0.1, 0.1],
+        enhance: [0.05, 0.1, 0.15],
       },
       s2: {
         rate: 1,
@@ -58,7 +58,7 @@ const heroes = {
         rate: 1.5,
         pow: 0.9,
         mult: () => 1 + elements.target_nb_debuff.value()*0.15,
-        enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.15]
+        enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.1]
       }
     }
   },
