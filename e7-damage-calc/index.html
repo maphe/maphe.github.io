@@ -19,12 +19,12 @@
     </head>
     <body class="container">
         <h1 class="mt-3">Epic7 Damage Calculator</h1>
-<!--        <div class="alert alert-warning alert-dismissible fade show" role="alert">-->
-<!--            <strong>Sep 25, Update:</strong> Completed Lilias (added her S3)-->
-<!--            <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
-<!--                <span aria-hidden="true">&times;</span>-->
-<!--            </button>-->
-<!--        </div>-->
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Oct 7, Update:</strong> Tentatively added Daydream Joker
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <div>
             <form id="stats">
                 <h4>Hero</h4>
@@ -111,10 +111,14 @@
                             <label class="custom-control-label" for="rage-set">Rage Set Proc</label>
                         </div>
                     </div>
+                    <hr />
+                </div>
 
+                <div id="artifact-block">
+                    <h4>Artifact</h4>
                     <div id="artifact-lvl-block" class="stat-block">
                         <div class="form-group row col-sm-12">
-                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>Artifact Enhance</h5></label>
+                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>Level</h5></label>
                             <div class="input-group input-group-sm col-md-3">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" type="button" id="artifact-lvl-minus" onclick="minus('artifact-lvl')">&minus;</button>
@@ -129,9 +133,9 @@
                             <input type="range" class="custom-range" id="artifact-lvl-slide" min="0" max="30" value="0" oninput="slide('artifact-lvl')">
                         </div>
                     </div>
+                    <div id="artifact-custom-block"></div>
+                    <hr />
                 </div>
-
-                <hr />
 
                 <div class="row">
                     <h4 class="col-md-8">Target</h4>
@@ -188,10 +192,12 @@
 
                 <hr />
 
-                <h4>Hero Specific</h4>
-                <div id="custom-block"></div>
+                <div>
+                    <h4>Hero Specific</h4>
+                    <div id="custom-block"></div>
+                    <hr />
+                </div>
 
-                <hr />
 
                 <h4>Skill Enhance</h4>
                 <div id="molagora-block"></div>

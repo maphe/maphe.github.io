@@ -124,6 +124,11 @@ class Hero {
       artiDamage = this.atk*artiMultipliers.atkPercent*getGlobalAtkMult()/this.target.defensivePower({penetrate: () => artiMultipliers.penetrate})*multiplier;
     }
 
+    const artiFlatDmg = this.artifact.getAfterMathDamage();
+    if (artiFlatDmg > 0) {
+      artiDamage = artiFlatDmg/this.target.defensivePower()*multiplier
+    }
+
     return detonation + artiDamage;
   }
 
@@ -184,12 +189,19 @@ class Artifact {
   }
 
   getAfterMathMultipliers() {
-    if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.aftermath) {
+    if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.aftermath || artifacts[this.id].atkPercent === undefined || artifacts[this.id].penetrate === undefined) {
       return null;
     }
     return {
       atkPercent: artifacts[this.id].atkPercent,
       penetrate: artifacts[this.id].penetrate,
     }
+  }
+
+  getAfterMathDamage() {
+    if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.aftermath || artifacts[this.id].damage === undefined) {
+      return 0;
+    }
+    return artifacts[this.id].damage(this.getValue());
   }
 }

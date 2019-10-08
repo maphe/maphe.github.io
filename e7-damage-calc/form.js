@@ -412,8 +412,9 @@ const build = (hero) => {
     for (let elem of hero.form) {
       buildElement(elem, specificBlock);
     }
+    specificBlock.parentElement.style.display = 'block';
   } else {
-    specificBlock.innerHTML = '<p class="col-sm-12"><i>Nothing here</i></p>';
+    specificBlock.parentElement.style.display = 'none';
   }
 
   const molagoraBlock = document.getElementById('molagora-block');
@@ -442,17 +443,36 @@ const build = (hero) => {
 };
 
 const buildArtifact = (artifact) => {
-  if (artifact === undefined || artifact.scale === undefined) {
-    document.getElementById('artifact-lvl-block').style.display = 'none';
-  } else {
-    document.getElementById('artifact-lvl-block').style.display = 'block';
+  const specificBlock = document.getElementById('artifact-custom-block');
+  if (artifact && !artifact.form) {
+    specificBlock.innerHTML = '';
   }
 
+  if (!artifact || (!artifact.scale && !artifact.form)) {
+    document.getElementById('artifact-block').style.display = 'none';
+    return;
+  }
+  document.getElementById('artifact-block').style.display = 'block';
+  document.getElementById('artifact-lvl-block').style.display = (artifact.scale !== undefined) ? 'block' : 'none';
+
+  if (artifact.form) {
+    specificBlock.innerHTML = '';
+    for (let elem of artifact.form) {
+      buildElement(elem, specificBlock);
+    }
+    specificBlock.style.display = 'block';
+  } else {
+    specificBlock.style.display = 'none';
+  }
 };
 
 const buildElement = (elem, parent) => {
+  if (document.getElementById(elem.id) !== null) {
+    return;
+  }
+
   if (elem.type === 'slider') {
-    $(parent).append(`<div id="artifact-lvl-block" class="stat-block">
+    $(parent).append(`<div id="${elem.id}-block" class="stat-block">
                         <div class="form-group row col-sm-12">
                             <label for="crit" class="col-md-9 col-form-label form-control-sm">
                                 <h5>${elem.icon ? '<img src="'+elem.icon+'" width="20" height="20" /> ' : ''}${elem.label}</h5>
@@ -503,6 +523,7 @@ $(() => {
 
   heroSelector.onchange = () => {
     build(heroes[heroSelector.value]);
+    buildArtifact(artifacts[artiSelector.value]);
     resolve();
     gtag('event', 'pick', {
       event_category: 'Hero',
@@ -532,6 +553,7 @@ $(() => {
 
   artiSelector.onchange = () => {
     buildArtifact(artifacts[artiSelector.value]);
+    build(heroes[heroSelector.value]);
     resolve();
   };
 

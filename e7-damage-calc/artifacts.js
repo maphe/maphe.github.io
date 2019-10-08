@@ -7,6 +7,13 @@ const artifactDmgType = {
 };
 
 const artifacts = {
+  daydream_joker: {
+    name: 'Daydream Joker',
+    scale: [0.015, 0.0165, 0.018, 0.0195, 0.021, 0.0225, 0.024, 0.0255, 0.027, 0.0285, 0.03],
+    type: artifactDmgType.aftermath,
+    form: [elements.target_max_hp],
+    damage: (artiMult) => elements.target_max_hp.value()*artiMult
+  },
   exorcist_tonfa: {
     name: 'Exorcist\'s Tonfa',
     scale: [1.08, 1.088, 1.096, 1.104, 1.112, 1.12, 1.128, 1.136, 1.144, 1.152, 1.16],
