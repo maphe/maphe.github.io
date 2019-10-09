@@ -19,4 +19,4 @@
 
 Heroes that might need a rework/double-check:
 - Cidd
-- Luna (3-10 hits)
+- Luna (3-10 hits) + permanent elemental adv on S3

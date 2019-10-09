@@ -597,13 +597,13 @@ const heroes = {
         rate: (soulburn) => soulburn ? 2.5 : 1,
         pow: (soulburn) => soulburn ? 1 : 0.9,
         critDmgBoost: () => 0.2,
-        mult: () => {
-          let mult = 1.0;
+        flat: () => {
+          let mult = 0;
           for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
             mult += heroes.challenger_dominiel.skills.s2.enhance[i];
           }
 
-          return 1 + elements.stack_crit_hit.value()*(0.054 * mult);
+          return Number(document.getElementById(`atk`).value) * elements.stack_crit_hit.value()*(0.054 + (0.054*mult));
         },
         enhance: [0.05, 0.05, 0.05, 0.1, 0.15],
       },
