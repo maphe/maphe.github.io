@@ -18,6 +18,5 @@
 ### Disclaimer
 
 Heroes that might need a rework/double-check:
-- Challenger Dominiel
 - Cidd
 - Luna (3-10 hits)
