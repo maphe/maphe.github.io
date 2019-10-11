@@ -377,7 +377,7 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 1.2 : 0.95,
         pow: 1,
-        enhance: [0.05, 0, 0, 0, 0.15]
+        enhance: [0.15, 0, 0, 0, 0.15]
       }
     }
   },
@@ -1194,7 +1194,7 @@ const heroes = {
       s2: {
         rate: 1.5,
         pow: 0.9,
-        enhance: [0.05, 0.05, 0.1, 0.1, 0.15]
+        enhance: [0.05, 0.05, 0.1, 0.1, 0.1]
       },
       s3: {
         soulburn: true,
@@ -1750,7 +1750,7 @@ const heroes = {
       s1: {
         rate: 1,
         pow: 0.95,
-        enhance: [0.05, 0.1, 0, 0.1, 0, 0.15]
+        enhance: [0.05, 0.05, 0, 0.1, 0, 0.15]
       },
       s2: {
         rate: 1.2,
@@ -2002,7 +2002,7 @@ const heroes = {
         rate: 0.9,
         pow: 1,
         flat: () => elements.caster_max_hp.value()*0.04,
-        enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
       },
     }
   },
