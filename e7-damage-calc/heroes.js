@@ -2630,7 +2630,7 @@ const heroes = {
       },
       s3: {
         soulburn: true,
-        rate: (soulburn) => soulburn ? 1.29 : 1.04,
+        rate: (soulburn) => soulburn ? 1.1 : 0.85,
         pow: 1,
         mult: (soulburn) => 1 + elements.caster_speed.value()*(soulburn ? 0.0009 : 0.00075),
         enhance: [0.05, 0.05, 0, 0.1, 0.1]
