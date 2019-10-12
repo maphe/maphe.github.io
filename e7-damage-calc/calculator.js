@@ -31,7 +31,7 @@ const resolve = () => {
 const getGlobalAtkMult = () => {
   let mult = 1.0;
 
-  for (let checkboxId of ['elem-adv', 'atk-up', 'atk-up-great', 'target', 'rage-set']) {
+  for (let checkboxId of ['elem-adv', 'atk-up', 'atk-up-great', 'target']) {
     const elem = document.getElementById(checkboxId);
     mult *= elem.checked ? Number(elem.value) : 1.0;
   }
@@ -42,6 +42,17 @@ const getGlobalAtkMult = () => {
 
   if (elements.caster_enrage.value()) {
     mult *= 1.1;
+  }
+
+  return mult;
+};
+
+const getGlobalPowerMult = () => {
+  let mult = 1.0;
+
+  for (let checkboxId of ['target', 'rage-set']) {
+    const elem = document.getElementById(checkboxId);
+    mult *= elem.checked ? Number(elem.value) : 1.0;
   }
 
   return mult;
@@ -96,7 +107,7 @@ class Hero {
     const atkTotal = this.getAttack(skillId);
 
     const powerTotal = 1.871 * (typeof skill.pow === 'function' ? skill.pow(soulburn) : skill.pow);
-    const multTotal = (skill.mult ? skill.mult(soulburn) : 1) * this.getSkillEnhanceMult(skillId) * powerTotal * this.artifact.getDamageMultiplier();
+    const multTotal = (skill.mult ? skill.mult(soulburn) : 1) * this.getSkillEnhanceMult(skillId) * powerTotal * this.artifact.getDamageMultiplier() * getGlobalPowerMult();
 
     return (atkTotal * (typeof skill.rate === 'function' ? skill.rate(soulburn) : skill.rate) + (skill.flat ? skill.flat(soulburn) : 0)) * multTotal;
   }
@@ -126,7 +137,7 @@ class Hero {
 
     const artiFlatDmg = this.artifact.getAfterMathDamage();
     if (artiFlatDmg > 0) {
-      artiDamage = artiFlatDmg/this.target.defensivePower()*multiplier
+      artiDamage = (artiFlatDmg*this.getSkillEnhanceMult())/this.target.defensivePower()*multiplier
     }
 
     return detonation + artiDamage;
