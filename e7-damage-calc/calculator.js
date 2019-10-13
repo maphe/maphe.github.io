@@ -31,7 +31,7 @@ const resolve = () => {
 const getGlobalAtkMult = () => {
   let mult = 1.0;
 
-  for (let checkboxId of ['elem-adv', 'atk-up', 'atk-up-great', 'target']) {
+  for (let checkboxId of ['elem-adv', 'atk-up', 'atk-up-great']) {
     const elem = document.getElementById(checkboxId);
     mult *= elem.checked ? Number(elem.value) : 1.0;
   }
