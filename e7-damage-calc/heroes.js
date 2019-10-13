@@ -2365,7 +2365,7 @@ const heroes = {
         rate: 1.7,
         pow: 0.8,
         enhance: [0.1, 0.1, 0, 0.15, 0.15],
-        penetrate: () => 0.3 + elements.target_nb_debuff.value()*0.1
+        penetrate: () => Math.min(0.3 + elements.target_nb_debuff.value()*0.1, 1.0)
       },
     }
   },
