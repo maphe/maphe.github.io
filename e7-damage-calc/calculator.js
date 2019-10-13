@@ -31,7 +31,7 @@ const resolve = () => {
 const getGlobalAtkMult = () => {
   let mult = 1.0;
 
-  for (let checkboxId of ['elem-adv', 'atk-up', 'atk-up-great']) {
+  for (let checkboxId of ['atk-up', 'atk-up-great']) {
     const elem = document.getElementById(checkboxId);
     mult *= elem.checked ? Number(elem.value) : 1.0;
   }
@@ -50,7 +50,7 @@ const getGlobalAtkMult = () => {
 const getGlobalPowerMult = () => {
   let mult = 1.0;
 
-  for (let checkboxId of ['target', 'rage-set']) {
+  for (let checkboxId of ['elem-adv', 'target', 'rage-set']) {
     const elem = document.getElementById(checkboxId);
     mult *= elem.checked ? Number(elem.value) : 1.0;
   }
