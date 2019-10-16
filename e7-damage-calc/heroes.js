@@ -3,6 +3,23 @@ const dot = {
   burn: 'burn'
 };
 
+const classType = {
+  knight: 'knight',
+  mage: 'mage',
+  ranger: 'ranger',
+  soul_weaver: 'soul-weaver',
+  thief: 'thief',
+  warrior: 'warrior',
+};
+
+const element = {
+  ice: 'ice',
+  fire: 'fire',
+  earth: 'earth',
+  dark: 'dark',
+  light: 'light',
+};
+
 const heroes = {
   achates: {
     name: 'Achates',
@@ -2782,6 +2799,35 @@ const heroes = {
           }
         },
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1, 0.1, 0.1]
+      }
+    }
+  },
+  zeno: {
+    name: 'Zeno',
+    form: [elements.caster_max_hp, elements.non_attack_skill_stack],
+    skills: {
+      s1: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+      },
+      s2: {
+        enhance: [0.005, 0.005, 0.005, 0.005, 0.01],
+      },
+      s3: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.12,
+        mult: () => {
+          let extra = 0;
+          for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+            extra += heroes.zeno.skills.s2.enhance[i];
+          }
+
+          return 1 + elements.non_attack_skill_stack.value()*(0.05+extra)
+        },
+        enhance: [0.05, 0, 0.1, 0, 0.15],
       }
     }
   },

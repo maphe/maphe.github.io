@@ -288,6 +288,15 @@ const elements = {
     default: 0,
     value: () => Number(document.getElementById('stack-crit-hit').value)
   },
+  non_attack_skill_stack: {
+    id: 'stack-non-attack-skill',
+    label: 'Non-Attack Skill Stack',
+    type: 'slider',
+    min: 0,
+    max: 10,
+    default: 0,
+    value: () => Number(document.getElementById('stack-non-attack-skill').value)
+  },
   dead_people: {
     id: 'dead-people',
     label: 'People who died',

@@ -47,7 +47,7 @@ const getGlobalAtkMult = () => {
   return mult;
 };
 
-const getGlobalPowerMult = () => {
+const getGlobalDamageMult = () => {
   let mult = 1.0;
 
   for (let checkboxId of ['elem-adv', 'target', 'rage-set']) {
@@ -107,7 +107,7 @@ class Hero {
     const atkTotal = this.getAttack(skillId);
 
     const powerTotal = 1.871 * (typeof skill.pow === 'function' ? skill.pow(soulburn) : skill.pow);
-    const multTotal = (skill.mult ? skill.mult(soulburn) : 1) * this.getSkillEnhanceMult(skillId) * powerTotal * this.artifact.getDamageMultiplier() * getGlobalPowerMult();
+    const multTotal = (skill.mult ? skill.mult(soulburn) : 1) * this.getSkillEnhanceMult(skillId) * powerTotal * this.artifact.getDamageMultiplier() * getGlobalDamageMult();
 
     return (atkTotal * (typeof skill.rate === 'function' ? skill.rate(soulburn) : skill.rate) + (skill.flat ? skill.flat(soulburn) : 0)) * multTotal;
   }
