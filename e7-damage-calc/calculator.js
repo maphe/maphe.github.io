@@ -137,7 +137,7 @@ class Hero {
 
     const artiFlatDmg = this.artifact.getAfterMathDamage();
     if (artiFlatDmg > 0) {
-      artiDamage = (artiFlatDmg*this.getSkillEnhanceMult())/this.target.defensivePower()*multiplier
+      artiDamage = (artiFlatDmg*this.getSkillEnhanceMult(skillId))/this.target.defensivePower()*multiplier
     }
 
     return detonation + artiDamage;
