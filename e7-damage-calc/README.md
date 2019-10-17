@@ -8,7 +8,7 @@
 - ~~Preset gear values (atk, crit dmg)~~
 - ~~Preset Defense values (eg. hunts)~~
   - Add more
-- Extra-attack (Sven, Clarissa, Vivian, Alexa)
+- ~~Extra-attack (Sven, Clarissa, Vivian, Alexa)~~
 - ~~Display increased damage % from molas~~
 - Display multipliers
 - ~~Rage Set multiplier~~

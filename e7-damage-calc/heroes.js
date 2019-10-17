@@ -2527,6 +2527,13 @@ const heroes = {
         pow: 0.95,
         enhance: [0.05, 0.05, 0.1, 0.15]
       },
+      s1_extra: {
+        name: 'S1 Extra Attack',
+        rate: 0.7,
+        pow: 1,
+        enhance_from: 's1',
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.003,
+      },
       s3: {
         rate: 0.8,
         pow: 0.8,
@@ -2690,6 +2697,18 @@ const heroes = {
         rate: (soulburn) => soulburn ? 1.3 : 1.05,
         pow: 0.9,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s2_wave_2: {
+        name: 'S2 Wave 2',
+        rate: 0.55,
+        pow: 0.9,
+        enhance_from: 's2'
+      },
+      s2_wave_3: {
+        name: 'S2 Wave 3',
+        rate: 0.3,
+        pow: 0.9,
+        enhance_from: 's2'
       }
     }
   },
