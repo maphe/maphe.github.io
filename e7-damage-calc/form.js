@@ -30,7 +30,7 @@ const elements = {
   },
   target_hp_pc: {
     id: 'target-hp-pc',
-    label: 'Targets\'s HP',
+    label: 'Targets\'s HP %',
     type: 'slider',
     percent: true,
     min: 1,
@@ -164,7 +164,7 @@ const elements = {
   },
   caster_hp_pc: {
     id: 'caster-hp-pc',
-    label: 'Caster\'s HP',
+    label: 'Caster\'s HP %',
     type: 'slider',
     percent: true,
     min: 1,

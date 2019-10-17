@@ -47,6 +47,28 @@ const heroes = {
       }
     }
   },
+  ains: {
+    name: 'Ains',
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s1_crit: {
+        name: 'S1 Satisfying Strike',
+        rate: 1,
+        pow: 1,
+        enhance_from: 's1'
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.8 : 1.5,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      }
+    }
+  },
   aither: {
     name: 'Aither',
     skills: {
@@ -377,6 +399,27 @@ const heroes = {
         pow: 1,
         flat: () => elements.caster_max_hp.value()*0.12,
         enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.1]
+      }
+    }
+  },
+  batisse: {
+    name: 'Batisse',
+    skills: {
+      s1: {
+        rate: 0.8,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
+      },
+      s1_rock_smash: {
+        name: 'S1 Rock Smash',
+        rate: 0.5,
+        pow: 0.95,
+        enhance_from: 's1',
+      },
+      s3: {
+        rate: 1.5,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
       }
     }
   },
@@ -1075,6 +1118,18 @@ const heroes = {
       }
     }
   },
+  eaton: {
+    name: 'Eaton',
+    form: [elements.caster_max_hp],
+    skills: {
+      s1: {
+        rate: 1.2,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.05,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      }
+    }
+  },
   elson: {
     name: 'Elson',
     skills: {
@@ -1243,6 +1298,24 @@ const heroes = {
         pow: 0.85,
         mult: () => elements.target_has_bleed.value() ? 1.3 : 1,
         enhance: [0.05, 0.05, 0, 0.1, 0.15]
+      }
+    }
+  },
+  hataan: {
+    name: 'Hataan',
+    form: [elements.caster_speed],
+    skills: {
+      s1: {
+        rate: 0.95,
+        pow: 0.95,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        rate: 1.3,
+        pow: 0.85,
+        mult: () => 1 + elements.caster_speed.value()*0.00125,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1, 0.1]
       }
     }
   },
@@ -1588,6 +1661,24 @@ const heroes = {
         flat: () => 0.53571*(elements.caster_max_hp.value()-elements.caster_hp.value()), // 0.53571 flat per 1 hp missing
         penetrate: () => 1.0,
       }
+    }
+  },
+  lena: {
+    name: 'Lena',
+    form: [elements.target_hp_pc],
+    skills: {
+      s1: {
+        rate: 1.15,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.2 : 1,
+        pow: 1,
+        mult: () => 1 + (100-elements.target_hp_pc.value())*0.002,
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1]
+      },
     }
   },
   leo: {
@@ -2624,6 +2715,18 @@ const heroes = {
         enhance: [0.05, 0.05, 0.05, 0, 0.05, 0.1, 0.1]
       },
     }
+  },
+  troublemaker_crozet: {
+    name: 'Troublemaker Crozet',
+    form: [elements.caster_max_hp],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.95,
+        flat: () => elements.caster_max_hp.value()*0.04
+      }
+    }
+
   },
   tywin: {
     name: 'Tywin',
