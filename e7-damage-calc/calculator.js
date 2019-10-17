@@ -18,11 +18,11 @@ const resolve = () => {
 
     if (skill.rate !== undefined) {
       const damage = hero.getDamage(skillId);
-      $(table).append(`<tr><td>${skillId.toUpperCase()}</td><td>${damage.crit}</td><td>${damage.crush}</td><td>${damage.normal}</td><td>${damage.miss}</td></tr>`);
+      $(table).append(`<tr><td>${skill.name ? skill.name : skillId.toUpperCase()}</td><td>${damage.crit}</td><td>${damage.crush}</td><td>${damage.normal}</td><td>${damage.miss}</td></tr>`);
 
       if (skill.soulburn) {
         const damage = hero.getDamage(skillId, true);
-        $(table).append(`<tr><td>${skillId.toUpperCase()} Soulburn</td><td>${damage.crit}</td><td>${damage.crush}</td><td>${damage.normal}</td><td>${damage.miss}</td></tr>`);
+        $(table).append(`<tr><td>${skill.name ? skill.name : skillId.toUpperCase()} Soulburn</td><td>${damage.crit}</td><td>${damage.crush}</td><td>${damage.normal}</td><td>${damage.miss}</td></tr>`);
       }
     }
   }
@@ -116,10 +116,18 @@ class Hero {
     const skill = this.skills[skillId];
     let mult = 1.0;
 
-    if (skill.enhance) {
-      const enhancement = Number(document.getElementById(`molagora-${skillId}`).value);
-      for (let i = 0; i < enhancement; i++) {
-        mult += skill.enhance[i];
+    let enhancementSkillId = skillId;
+    let enhancement = skill.enhance;
+
+    if (!enhancement && skill.enhance_from) {
+      enhancementSkillId = skill.enhance_from;
+      enhancement = this.skills[skill.enhance_from].enhance;
+    }
+
+    if (enhancement) {
+      const enhanceLevel = Number(document.getElementById(`molagora-${enhancementSkillId}`).value);
+      for (let i = 0; i < enhanceLevel; i++) {
+        mult += enhancement[i];
       }
     }
 
