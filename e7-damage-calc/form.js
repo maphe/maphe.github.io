@@ -329,6 +329,13 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('ally-atk-up-great').checked,
     icon: 'https://epic7x.com/wp-content/uploads/2019/01/greater-attack-icon.png'
+  },
+  skill_tree_completed: {
+    id: 'skill-tree-completed',
+    label: 'Skill Tree Completed',
+    type: 'checkbox',
+    default: true,
+    value: () => document.getElementById('skill-tree-completed').checked,
   }
 };
 
@@ -503,7 +510,7 @@ const buildElement = (elem, parent) => {
   } else if (elem.type === 'checkbox') {
     $(parent).append(`<div class="form-group col-sm-12">
                               <div class="custom-control custom-checkbox custom-control-inline buff-block">
-                                  <input class="custom-control-input" type="checkbox" id="${elem.id}" value="1" onchange="resolve()">
+                                  <input class="custom-control-input" type="checkbox" id="${elem.id}" value="1" onchange="resolve()" ${elem.default === true ? 'checked' : ''}>
                                   <label class="custom-control-label" for="${elem.id}">
                                     ${elem.icon ? '<img src="'+elem.icon+'" width="20" height="20" />' : ''} ${elem.label}
                                   </label>

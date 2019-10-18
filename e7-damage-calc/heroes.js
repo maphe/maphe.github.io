@@ -2157,7 +2157,7 @@ const heroes = {
   },
   researcher_carrot: {
     name: 'Researcher Carrot',
-    form: [elements.target_burn_detonate],
+    form: [elements.target_burn_detonate, elements.skill_tree_completed],
     dot: [dot.burn],
     skills: {
       s1: {
@@ -2170,7 +2170,8 @@ const heroes = {
       s3: {
         pow: 1,
         rate: 1,
-        enhance: [0.05, 0, 0, 0, 0.1, 0, 0.15]
+        enhance: [0.05, 0, 0, 0, 0.1, 0, 0.15],
+        mult: () => elements.skill_tree_completed.value() ? 1.1 : 1
       }
     }
   },
