@@ -2167,7 +2167,7 @@ const heroes = {
         detonate: dot.burn,
         detonation: () => 1,
       },
-      s2: {
+      s3: {
         pow: 1,
         rate: 1,
         enhance: [0.05, 0, 0, 0, 0.1, 0, 0.15]
