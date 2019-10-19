@@ -56,6 +56,7 @@ const heroes = {
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
       },
       s1_crit: {
+        onlyCrit: true,
         name: 'S1 Satisfying Strike',
         rate: 1,
         pow: 1,
