@@ -1017,6 +1017,7 @@ const heroes = {
         enhance: [0.05, 0, 0, 0.1, 0, 0.15]
       },
       s3: {
+        noCrit: true,
         soulburn: true,
         rate: 0,
         pow: 0.95,
@@ -1288,11 +1289,13 @@ const heroes = {
     dot: [dot.bleed],
     skills: {
       s1: {
+        noCrit: true,
         rate: 1,
         pow: 0.85,
         enhance: [0.05, 0.05, 0.1, 0.1, 0.15]
       },
       s3: {
+        noCrit: true,
         soulburn: true,
         rate: (soulburn) => soulburn ? 2.9 : 2.2,
         pow: 0.85,
@@ -1646,19 +1649,20 @@ const heroes = {
       s1: {
         rate: 0.7,
         pow: 1,
-        flat: () => 0.085*elements.caster_max_hp.value(), // 8.5% self max Health
+        flat: () => 0.085*elements.caster_max_hp.value(),
         enhance: [0.05, 0, 0, 0.1, 0, 0.15]
       },
       s2: {
         rate: 0.8,
         pow: 1,
-        flat: () => 0.13*elements.caster_max_hp.value(), // 13% self max Health
+        flat: () => 0.13*elements.caster_max_hp.value(),
         enhance: [0.05, 0, 0.05, 0, 0, 0.1, 0.1]
       },
       s3: {
+        noCrit: true,
         rate: 0.3,
         pow: 1,
-        flat: () => 0.53571*(elements.caster_max_hp.value()-elements.caster_hp.value()), // 0.53571 flat per 1 hp missing
+        flat: () => 0.53571*(elements.caster_max_hp.value()-elements.caster_hp.value()),
         penetrate: () => 1.0,
       }
     }
@@ -1867,6 +1871,7 @@ const heroes = {
         enhance: [0.05, 0.05, 0, 0.1, 0, 0.15]
       },
       s2: {
+        onlyCrit: true,
         rate: 1.2,
         pow: 0.95,
         mult: () => 1 + (100-elements.caster_hp_pc.value())*0.004,
@@ -2918,6 +2923,7 @@ const heroes = {
         enhance: [0.05, 0.05, 0.05, 0.1, 0.1, 0.1]
       },
       s3: {
+        onlyCrit: true,
         rate: 1.5,
         pow: 0.8,
         mult: () => {

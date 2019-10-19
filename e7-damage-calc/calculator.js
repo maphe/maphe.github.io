@@ -18,14 +18,30 @@ const resolve = () => {
 
     if (skill.rate !== undefined) {
       const damage = hero.getDamage(skillId);
-      $(table).append(`<tr><td>${skill.name ? skill.name : skillId.toUpperCase()}</td><td>${damage.crit}</td><td>${damage.crush}</td><td>${damage.normal}</td><td>${damage.miss}</td></tr>`);
+      $(table).append(`<tr>
+            <td>${skill.name ? skill.name : skillId.toUpperCase()}</td>
+            <td>${displayDmg(damage, 'crit')}</td>
+            <td>${displayDmg(damage, 'crush')}</td>
+            <td>${displayDmg(damage, 'normal')}</td>
+            <td>${displayDmg(damage, 'miss')}</td>
+      </tr>`);
 
       if (skill.soulburn) {
         const damage = hero.getDamage(skillId, true);
-        $(table).append(`<tr><td>${skill.name ? skill.name : skillId.toUpperCase()} Soulburn</td><td>${damage.crit}</td><td>${damage.crush}</td><td>${damage.normal}</td><td>${damage.miss}</td></tr>`);
+        $(table).append(`<tr>
+            <td>${skill.name ? skill.name : skillId.toUpperCase()} Soulburn</td>
+            <td>${displayDmg(damage, 'crit')}</td>
+            <td>${displayDmg(damage, 'crush')}</td>
+            <td>${displayDmg(damage, 'normal')}</td>
+            <td>${displayDmg(damage, 'miss')}</td>
+        </tr>`);
       }
     }
   }
+};
+
+const displayDmg = (damage, type) => {
+  return damage[type] !== null ? damage[type] : '<i>n/a</i>'
 };
 
 const getGlobalAtkMult = () => {
@@ -84,9 +100,9 @@ class Hero {
     const hit = this.offensivePower(skillId, soulburn) / this.target.defensivePower(skill);
     const critDmg = (this.crit / 100)+(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0);
     return {
-      crit: Math.round(hit*critDmg + this.getAfterMathDamage(skillId, critDmg)),
-      crush: Math.round(hit*1.3 + this.getAfterMathDamage(skillId, 1.3)),
-      normal: Math.round(hit + this.getAfterMathDamage(skillId, 1)),
+      crit: skill.noCrit ? null : Math.round(hit*critDmg + this.getAfterMathDamage(skillId, critDmg)),
+      crush: skill.noCrit || skill.onlyCrit ? null : Math.round(hit*1.3 + this.getAfterMathDamage(skillId, 1.3)),
+      normal: skill.onlyCrit ? null : Math.round(hit + this.getAfterMathDamage(skillId, 1)),
       miss: Math.round(hit*0.75 + this.getAfterMathDamage(skillId, 0.75))
     };
   }
