@@ -2598,6 +2598,7 @@ const heroes = {
   specimen_sez: {
     name: 'Specimen Sez',
     form: [elements.target_is_stunned],
+    info: '10/31 Hero Balance added, penetrates defense 30% without the stun',
     skills: {
       s1: {
         rate: 1,
@@ -2613,7 +2614,7 @@ const heroes = {
       s3: {
         rate: 1.5,
         pow: 1,
-        penetrate: () => elements.target_is_stunned.value() ? 1.0 : 0,
+        penetrate: () => elements.target_is_stunned.value() ? 1.0 : 0.3,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
       }
     }

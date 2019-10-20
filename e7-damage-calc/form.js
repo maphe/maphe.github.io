@@ -421,7 +421,22 @@ const resetPreset = (fieldId) => {
   }
 };
 
+const showHeroInfo = (hero) => {
+  const block = document.getElementById('hero-info');
+  block.innerHTML = '';
+
+  if (hero.info) {
+    block.innerHTML = `<div class="alert alert-info alert-dismissible fade show" role="alert">
+                      ${hero.info}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                   </div>`;
+  }
+};
+
 const build = (hero) => {
+  showHeroInfo(hero);
   const specificBlock = document.getElementById('custom-block');
   if (hero.form) {
     specificBlock.innerHTML = '';
