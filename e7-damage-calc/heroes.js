@@ -72,6 +72,7 @@ const heroes = {
   },
   aither: {
     name: 'Aither',
+    barrier: () => Number(document.getElementById(`atk`).value),
     skills: {
       s1: {
         rate: 1,
@@ -120,6 +121,8 @@ const heroes = {
   },
   angelica: {
     name: 'Angelica',
+    form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value()*0.15,
     skills: {
       s1: {
         rate: 1,
@@ -212,12 +215,17 @@ const heroes = {
   arowell: {
     name: 'Arowell',
     form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value()*0.09,
+    barrierEnhance: 's2',
     skills: {
       s1: {
         rate: 0.7,
         pow: 0.95,
         flat: () => elements.caster_max_hp.value()*0.02,
         enhance: [0.05, 0.05, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        enhance: [0.02, 0.02, 0.02]
       },
       s3: {
         rate: 1.5,
@@ -536,6 +544,8 @@ const heroes = {
     name: 'Carrot',
     form: [elements.target_burn_detonate],
     dot: [dot.burn],
+    barrier: () => Number(document.getElementById(`atk`).value)*0.6,
+    barrierEnhance: 's2',
     skills: {
       s1: {
         rate: 1,
@@ -543,6 +553,9 @@ const heroes = {
         detonate: dot.burn,
         detonation: () => 1,
         enhance: [0.05, 0.05, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        enhance: [0.15, 0.15]
       },
       s3: {
         rate: 1,
@@ -990,13 +1003,18 @@ const heroes = {
   },
   crozet: {
     name: 'Crozet',
-    form: [elements.caster_defense],
+    form: [elements.caster_max_hp, elements.caster_defense],
+    barrier: () => elements.caster_max_hp.value()*0.15,
+    barrierEnhance: 's2',
     skills: {
       s1: {
         rate: 0.6,
         pow: 1.05,
         flat: () => elements.caster_defense.value()*0.7,
         enhance: [0.1, 0, 0, 0.15]
+      },
+      s2: {
+        enhance: [0.05, 0.05, 0.1, 0.1]
       },
       s3: {
         soulburn: true,
@@ -1097,6 +1115,7 @@ const heroes = {
   },
   dominiel: {
     name: 'Dominiel',
+    barrier: () => Number(document.getElementById(`atk`).value),
     skills: {
       s1: {
         rate: 1,
@@ -1123,12 +1142,17 @@ const heroes = {
   eaton: {
     name: 'Eaton',
     form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value()*0.25,
+    barrierEnhance: 's3',
     skills: {
       s1: {
         rate: 1.2,
         pow: 1,
         flat: () => elements.caster_max_hp.value()*0.05,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s3: {
+        enhance: [0.05, 0.1, 0, 0.1, 0.15]
       }
     }
   },
@@ -1180,12 +1204,17 @@ const heroes = {
   fallen_cecilia: {
     name: 'Fallen Cecilia',
     form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value()*0.1,
+    barrierEnhance: 's2',
     skills: {
       s1: {
         rate: 0.7,
         pow: 1,
         flat: () => elements.caster_max_hp.value()*0.07,
         enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        enhance: [0.05, 0.1, 0.1, 0.1, 0.15]
       },
       s3: {
         rate: 0.65,
@@ -1265,6 +1294,7 @@ const heroes = {
   },
   guider_aither: {
     name: 'Guider Aither',
+    barrier: () => Number(document.getElementById(`atk`).value),
     skills: {
       s1: {
         rate: 1,
@@ -1821,12 +1851,17 @@ const heroes = {
   luluca: {
     name: 'Luluca',
     form: [elements.target_hp_pc],
+    barrier: () => Number(document.getElementById(`atk`).value)*0.375,
+    barrierEnhance: 's2',
     skills: {
       s1: {
         rate: 1,
         pow: 1,
-        mult: () => 1 + (1-(elements.target_hp_pc.value()/100))*0.2, // increased damage equal to 20% of enemies missing health percent (ie 50% hp enemy = 10% dmg boost)
+        mult: () => 1 + (1-(elements.target_hp_pc.value()/100))*0.2,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s2: {
+        enhance: [0.05, 0.05, 0, 0.05, 0.1]
       },
       s3: {
         rate: 0.9,
@@ -2088,6 +2123,7 @@ const heroes = {
   pyllis: {
     name: 'Pyllis',
     form: [elements.caster_defense],
+    barrier: () => elements.caster_defense.value()*0.6,
     skills: {
       s1: {
         rate: 0.7,
@@ -2165,6 +2201,8 @@ const heroes = {
     name: 'Researcher Carrot',
     form: [elements.target_burn_detonate, elements.skill_tree_completed],
     dot: [dot.burn],
+    barrier: () => Number(document.getElementById(`atk`).value)*0.6,
+    barrierEnhance: 's2',
     skills: {
       s1: {
         pow: 0.95,
@@ -2172,6 +2210,9 @@ const heroes = {
         enhance: [0.05, 0.05, 0, 0.1, 0, 0.15],
         detonate: dot.burn,
         detonation: () => 1,
+      },
+      s2: {
+        enhance: [0.15, 0.15]
       },
       s3: {
         pow: 1,
@@ -2312,6 +2353,7 @@ const heroes = {
   rose: {
     name: 'Rose',
     form: [elements.caster_defense],
+    barrier: () => elements.caster_defense.value(),
     skills: {
       s1: {
         rate: 0.5,
@@ -2324,6 +2366,7 @@ const heroes = {
   ruele_of_light: {
     name: 'Ruele of Light',
     form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value()*0.2,
     skills: {
       s1: {
         rate: 0.81,
@@ -2726,11 +2769,13 @@ const heroes = {
   troublemaker_crozet: {
     name: 'Troublemaker Crozet',
     form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value()*0.2,
     skills: {
       s1: {
         rate: 1,
         pow: 0.95,
-        flat: () => elements.caster_max_hp.value()*0.04
+        flat: () => elements.caster_max_hp.value()*0.04,
+        enhance: [0, 0.05, 0, 0.05, 0, 0.1, 0.15]
       }
     }
 

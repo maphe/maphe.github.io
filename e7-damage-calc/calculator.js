@@ -2,6 +2,7 @@ const resolve = () => {
   const artifact = new Artifact(document.getElementById('artifact').value);
   const hero = new Hero(document.getElementById('hero').value, artifact);
 
+  document.getElementById(`barrier-block`).style.display = 'none';
   for (const dotType of [dot.bleed, dot.burn]) {
     document.getElementById(`${dotType}-damage-block`).style.display = 'none';
   }
@@ -9,6 +10,11 @@ const resolve = () => {
   for (const dotType of hero.dot || []) {
     document.getElementById(`${dotType}-damage-block`).style.display = 'inline-block';
     document.getElementById(`${dotType}-damage`).innerText = Math.round(hero.getDotDamage(dotType)).toString();
+  }
+
+  if (hero.barrier) {
+    document.getElementById(`barrier-block`).style.display = 'inline-block';
+    document.getElementById(`barrier`).innerText = Math.round(hero.getBarrierStrength()).toString();
   }
 
   const table = document.getElementById('damage');
@@ -91,6 +97,8 @@ class Hero {
     this.crit = Number(document.getElementById('crit').value);
     this.skills = heroes[id].skills;
     this.dot = heroes[id].dot;
+    this.barrier = heroes[id].barrier;
+    this.barrierEnhance = heroes[id].barrierEnhance;
     this.artifact = artifact;
     this.target = new Target(artifact);
   }
@@ -186,6 +194,10 @@ class Hero {
         return this.atk*0.6*getGlobalAtkMult()/this.target.defensivePower({penetrate: () => 0.7});
       default: return 0;
     }
+  }
+
+  getBarrierStrength() {
+    return this.barrier()*(this.barrierEnhance ? this.getSkillEnhanceMult(this.barrierEnhance) : 1);
   }
 }
 
