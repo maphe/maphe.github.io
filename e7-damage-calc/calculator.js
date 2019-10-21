@@ -164,7 +164,7 @@ class Hero {
     let artiDamage = 0;
     const artiMultipliers = this.artifact.getAfterMathMultipliers();
     if (artiMultipliers !== null) {
-      artiDamage = this.atk*artiMultipliers.atkPercent*getGlobalAtkMult()/this.target.defensivePower({penetrate: () => artiMultipliers.penetrate})*multiplier;
+      artiDamage = this.atk*artiMultipliers.atkPercent*getGlobalAtkMult()/this.target.defensivePower({penetrate: () => artiMultipliers.penetrate});
     }
 
     const artiFlatDmg = this.artifact.getAfterMathDamage();
