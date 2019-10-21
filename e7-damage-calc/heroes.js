@@ -1107,6 +1107,8 @@ const heroes = {
         enhance: [0.05, 0.05, 0, 0.1, 0.1]
       },
       s3: {
+        onlyCrit: true,
+        noCrit: true,
         rate: 2.5,
         pow: 1,
         enhance: [0.05, 0.05, 0, 0.1, 0.1]
