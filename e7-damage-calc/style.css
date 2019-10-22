@@ -55,3 +55,7 @@ span[id$="-val"] {
 .molagora-badge > .badge {
     margin-top: 4px;
 }
+
+div.dropdown-menu.show {
+    z-index: 1200;
+}
