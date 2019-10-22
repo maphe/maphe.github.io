@@ -25,7 +25,10 @@ const elements = {
     type: 'slider',
     min: 1000,
     max: 50000,
-    default: 10000,
+    default: () => {
+      const defPreset = document.getElementById('def-preset');
+      return defPreset.value ? defPreset.options[defPreset.selectedIndex].dataset.hp : 10000
+    },
     value: () => Number(document.getElementById('target-max-hp').value)
   },
   target_hp_pc: {
@@ -512,14 +515,14 @@ const buildElement = (elem, parent) => {
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" type="button" id="${elem.id}-minus" onclick="minus('${elem.id}')">&minus;</button>
                                 </div>
-                                <input type="number" class="form-control text-center" id="${elem.id}" min="${elem.min}" max="${elem.max}" value="${elem.default}" ${elem.readonly ? 'readonly' : ''} onkeyup="update('${elem.id}')">
+                                <input type="number" class="form-control text-center" id="${elem.id}" min="${elem.min}" max="${elem.max}" value="${typeof elem.default === 'function' ? elem.default() : elem.default}" ${elem.readonly ? 'readonly' : ''} onkeyup="update('${elem.id}')">
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-secondary" type="button" id="${elem.id}-plus" onclick="plus('${elem.id}')">&plus;</button>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group row col-sm-12">
-                            <input type="range" class="custom-range" id="${elem.id}-slide" min="${elem.min}" max="${elem.max}" value="${elem.default}" step="${elem.step || 1}" oninput="slide('${elem.id}')">
+                            <input type="range" class="custom-range" id="${elem.id}-slide" min="${elem.min}" max="${elem.max}" value="${typeof elem.default === 'function' ? elem.default() : elem.default}" step="${elem.step || 1}" oninput="slide('${elem.id}')">
                         </div>
                     </div>`);
   } else if (elem.type === 'checkbox') {
@@ -568,6 +571,11 @@ $(() => {
     if (selected.value) {
       document.getElementById('def').value = selected.dataset.def;
       update('def');
+      const hpInput = document.getElementById(elements.target_max_hp.id)
+      if (hpInput) {
+        hpInput.value = selected.dataset.hp;
+        update(elements.target_max_hp.id)
+      }
     }
   };
 
