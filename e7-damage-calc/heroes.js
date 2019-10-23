@@ -94,7 +94,6 @@ const heroes = {
         name: 'S1 Extra Attack',
         rate: 0.75,
         pow: 1,
-        enhance_from: 's1'
       },
       s2: {
         rate: 1,
