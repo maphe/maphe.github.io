@@ -1,5 +1,3 @@
-const scaleValue = (scale) => scale[Math.floor((((4)))/3)];
-
 const artifactDmgType = {
   damage: 'damage',
   penetrate: 'penetrate',
@@ -22,17 +20,20 @@ const artifacts = {
   elyha_knife: {
     name: 'Elyha\'s Knife',
     scale: [0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2],
-    type: artifactDmgType.penetrate
+    type: artifactDmgType.penetrate,
+    exclusive: classType.thief
   },
   iron_fan: {
     name: 'Iron Fan',
     scale: [1.16, 1.176, 1.192, 1.208, 1.224, 1.24, 1.256, 1.272, 1.288, 1.304, 1.32],
-    type: artifactDmgType.damage
+    type: artifactDmgType.damage,
+    exclusive: classType.ranger,
   },
   kaladra: {
     name: 'Kal\'adra',
     scale: [1.15, 1.17, 1.18, 1.2, 1.21, 1.23, 1.24, 1.26, 1.27, 1.29, 1.3],
-    type: artifactDmgType.damage
+    type: artifactDmgType.damage,
+    exclusive: classType.mage
   },
   portrait_of_the_saviors: {
     name: 'Portrait of the Saviors',
@@ -42,18 +43,21 @@ const artifacts = {
   otherworldly_machinery: {
     name: 'Otherworldly Machinery',
     scale: [1.08, 1.088, 1.096, 1.104, 1.112, 1.12, 1.128, 1.136, 1.144, 1.152, 1.16],
-    type: artifactDmgType.damage
+    type: artifactDmgType.damage,
+    exclusive: classType.ranger
   },
   reingar_special_drink: {
     name: 'Reingar’s Special Drink',
     type: artifactDmgType.aftermath,
     atkPercent: 0.3,
-    penetrate: 0.7
+    penetrate: 0.7,
+    exclusive: classType.ranger
   },
   uberius_tooth: {
     name: 'Uberius’s Tooth',
     type: artifactDmgType.aftermath,
     atkPercent: 0.3,
-    penetrate: 0.7
+    penetrate: 0.7,
+    exclusive: classType.warrior
   },
 };

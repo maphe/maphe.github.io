@@ -23,6 +23,8 @@ const element = {
 const heroes = {
   achates: {
     name: 'Achates',
+    element: element.fire,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1,
@@ -33,6 +35,8 @@ const heroes = {
   },
   adlay: {
     name: 'Adlay',
+    element: element.earth,
+    classType: classType.mage,
     skills: {
       s1: {
         rate: 1,
@@ -49,6 +53,8 @@ const heroes = {
   },
   ains: {
     name: 'Ains',
+    element: element.earth,
+    classType: classType.warrior,
     skills: {
       s1: {
         rate: 0.7,
@@ -72,6 +78,8 @@ const heroes = {
   },
   aither: {
     name: 'Aither',
+    element: element.ice,
+    classType: classType.soul_weaver,
     barrier: () => Number(document.getElementById(`atk`).value),
     skills: {
       s1: {
@@ -83,6 +91,8 @@ const heroes = {
   },
   alexa: {
     name: 'Alexa',
+    element: element.ice,
+    classType: classType.thief,
     form: [elements.target_nb_debuff],
     skills: {
       s1: {
@@ -110,6 +120,8 @@ const heroes = {
   },
   angelic_montmorancy: {
     name: 'Angelic Montmorancy',
+    element: element.ice,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1,
@@ -120,6 +132,8 @@ const heroes = {
   },
   angelica: {
     name: 'Angelica',
+    element: element.ice,
+    classType: classType.soul_weaver,
     form: [elements.caster_max_hp],
     barrier: () => elements.caster_max_hp.value()*0.15,
     skills: {
@@ -132,6 +146,8 @@ const heroes = {
   },
   apocalypse_ravi: {
     name: 'Apocalypse Ravi',
+    element: element.dark,
+    classType: classType.warrior,
     form: [elements.caster_max_hp],
     skills: {
       s1: {
@@ -151,6 +167,8 @@ const heroes = {
   },
   aramintha: {
     name: 'Aramintha',
+    element: element.fire,
+    classType: classType.mage,
     dot: [dot.burn],
     skills: {
       s1: {
@@ -172,6 +190,8 @@ const heroes = {
   },
   arbiter_vildred: {
     name: 'Arbiter Vildred',
+    element: element.dark,
+    classType: classType.thief,
     form: [elements.caster_full_focus],
     skills: {
       s1: {
@@ -195,6 +215,8 @@ const heroes = {
   },
   armin: {
     name: 'Armin',
+    element: element.earth,
+    classType: classType.knight,
     form: [elements.caster_defense],
     skills: {
       s1: {
@@ -213,6 +235,8 @@ const heroes = {
   },
   arowell: {
     name: 'Arowell',
+    element: element.light,
+    classType: classType.knight,
     form: [elements.caster_max_hp],
     barrier: () => elements.caster_max_hp.value()*0.09,
     barrierEnhance: 's2',
@@ -236,6 +260,8 @@ const heroes = {
   },
   assassin_cartuja: {
     name: 'Assassin Cartuja',
+    element: element.dark,
+    classType: classType.warrior,
     dot: [dot.bleed],
     skills: {
       s1: {
@@ -252,6 +278,8 @@ const heroes = {
   },
   assassin_cidd: {
     name: 'Assassin Cidd',
+    element: element.dark,
+    classType: classType.thief,
     form: [elements.caster_speed, elements.target_speed],
     skills: {
       s1: {
@@ -271,6 +299,8 @@ const heroes = {
   },
   assassin_coli: {
     name: 'Assassin Coli',
+    element: element.dark,
+    classType: classType.thief,
     form: [elements.caster_speed, elements.caster_stealth],
     skills: {
       s1: {
@@ -290,6 +320,8 @@ const heroes = {
   },
   auxiliary_lots: {
     name: 'Auxiliary Lots',
+    element: element.dark,
+    classType: classType.mage,
     skills: {
       s1: {
         rate: 1,
@@ -306,6 +338,8 @@ const heroes = {
   },
   azalea: {
     name: 'Azalea',
+    element: element.fire,
+    classType: classType.warrior,
     skills: {
       s1: {
         rate: 1,
@@ -326,6 +360,8 @@ const heroes = {
   },
   baal_and_sezan: {
     name: 'Baal & Sezan',
+    element: element.fire,
+    classType: classType.mage,
     form: [elements.target_nb_debuff],
     skills: {
       s1: {
@@ -349,6 +385,8 @@ const heroes = {
   },
   baiken: {
     name: 'Baiken',
+    element: element.earth,
+    classType: classType.thief,
     form: [elements.target_bleed_detonate],
     dot: [dot.bleed],
     skills: {
@@ -374,6 +412,8 @@ const heroes = {
   },
   basar: {
     name: 'Basar',
+    element: element.earth,
+    classType: classType.mage,
     skills: {
       s1: {
         rate: 1,
@@ -394,6 +434,8 @@ const heroes = {
   },
   bask: {
     name: 'Bask',
+    element: element.ice,
+    classType: classType.knight,
     form: [elements.caster_max_hp],
     skills: {
       s1: {
@@ -412,6 +454,8 @@ const heroes = {
   },
   batisse: {
     name: 'Batisse',
+    element: element.dark,
+    classType: classType.warrior,
     skills: {
       s1: {
         rate: 0.8,
@@ -433,6 +477,8 @@ const heroes = {
   },
   bellona: {
     name: 'Bellona',
+    element: element.earth,
+    classType: classType.ranger,
     form: [elements.target_max_hp, elements.nb_targets],
     skills: {
       s1: {
@@ -457,6 +503,8 @@ const heroes = {
   },
   blaze_dingo: {
     name: 'Blaze Dingo',
+    element: element.light,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1.5,
@@ -472,6 +520,8 @@ const heroes = {
   },
   blood_blade_karin: {
     name: 'Blood Blade Karin',
+    element: element.dark,
+    classType: classType.thief,
     skills: {
       s1: {
         rate: 1,
@@ -488,6 +538,8 @@ const heroes = {
   },
   butcher_corps_inquisitor: {
     name: 'Butcher Corps Inquisitor',
+    element: element.fire,
+    classType: classType.knight,
     form: [elements.caster_hp_pc],
     skills: {
       s1: {
@@ -506,6 +558,8 @@ const heroes = {
   },
   captain_rikoris: {
     name: 'Captain Rikoris',
+    element: element.light,
+    classType: classType.warrior,
     skills: {
       s1: {
         rate: 1,
@@ -521,6 +575,8 @@ const heroes = {
   },
   carmainerose: {
     name: 'Carmainerose',
+    element: element.fire,
+    classType: classType.mage,
     skills: {
       s1: {
         rate: 1,
@@ -541,6 +597,8 @@ const heroes = {
   },
   carrot: {
     name: 'Carrot',
+    element: element.fire,
+    classType: classType.mage,
     form: [elements.target_burn_detonate],
     dot: [dot.burn],
     barrier: () => Number(document.getElementById(`atk`).value)*0.6,
@@ -565,6 +623,8 @@ const heroes = {
   },
   cartuja: {
     name: 'Cartuja',
+    element: element.earth,
+    classType: classType.warrior,
     form: [elements.caster_max_hp, elements.caster_hp_pc],
     skills: {
       s1: {
@@ -590,6 +650,8 @@ const heroes = {
   },
   cecilia: {
     name: 'Cecilia',
+    element: element.fire,
+    classType: classType.knight,
     form: [elements.caster_max_hp],
     skills: {
       s1: {
@@ -614,6 +676,8 @@ const heroes = {
   },
   celeste: {
     name: 'Celeste',
+    element: element.light,
+    classType: classType.ranger,
     skills: {
       s1: {
         rate: 1,
@@ -630,6 +694,8 @@ const heroes = {
   },
   celestial_mercedes: {
     name: 'Celestial Mercedes',
+    element: element.dark,
+    classType: classType.mage,
     form: [elements.target_max_hp],
     skills: {
       s1: {
@@ -652,6 +718,8 @@ const heroes = {
   },
   cermia: {
     name: 'Cermia',
+    element: element.fire,
+    classType: classType.warrior,
     skills: {
       s1: {
         rate: 1.2,
@@ -669,6 +737,8 @@ const heroes = {
   },
   challenger_dominiel: {
     name: 'Challenger Dominiel',
+    element: element.dark,
+    classType: classType.mage,
     form: [elements.stack_crit_hit],
     skills: {
       s1: {
@@ -693,6 +763,8 @@ const heroes = {
   },
   champion_zerato: {
     name: 'Champion Zerato',
+    element: element.dark,
+    classType: classType.mage,
     skills: {
       s1: {
         rate: 1,
@@ -708,6 +780,8 @@ const heroes = {
   },
   chaos_inquisitor: {
     name: 'Chaos Inquisitor',
+    element: element.fire,
+    classType: classType.knight,
     form: [elements.caster_hp_pc],
     skills: {
       s1: {
@@ -726,6 +800,8 @@ const heroes = {
   },
   chaos_sect_axe: {
     name: 'Chaos Sect Axe',
+    element: element.dark,
+    classType: classType.warrior,
     form: [elements.target_hp_pc, elements.caster_max_hp],
     dot: [dot.bleed],
     skills: {
@@ -752,6 +828,8 @@ const heroes = {
   },
   charles: {
     name: 'Charles',
+    element: element.earth,
+    classType: classType.knight,
     form: [elements.caster_nb_buff, elements.nb_targets],
     skills: {
       s1: {
@@ -781,6 +859,8 @@ const heroes = {
   },
   charlotte: {
     name: 'Charlotte',
+    element: element.fire,
+    classType: classType.knight,
     form: [elements.caster_nb_focus],
     skills: {
       s1: {
@@ -810,6 +890,8 @@ const heroes = {
   },
   chloe: {
     name: 'Chloe',
+    element: element.ice,
+    classType: classType.warrior,
     form: [elements.target_magic_nailed],
     skills: {
       s1: {
@@ -834,6 +916,8 @@ const heroes = {
   },
   church_of_ilryos_axe: {
     name: 'Church of Ilryos Axe',
+    element: element.dark,
+    classType: classType.warrior,
     form: [elements.target_hp_pc],
     dot: [dot.bleed],
     skills: {
@@ -858,6 +942,8 @@ const heroes = {
   },
   cidd: {
     name: 'Cidd',
+    element: element.earth,
+    classType: classType.thief,
     form: [elements.caster_speed],
     skills: {
       s1: {
@@ -887,6 +973,8 @@ const heroes = {
   },
   clarissa: {
     name: 'Clarissa',
+    element: element.ice,
+    classType: classType.warrior,
     form: [elements.caster_enrage],
     dot: [dot.bleed],
     skills: {
@@ -911,6 +999,8 @@ const heroes = {
   },
   coli: {
     name: 'Coli',
+    element: element.ice,
+    classType: classType.thief,
     form: [elements.caster_speed],
     skills: {
       s1: {
@@ -935,6 +1025,8 @@ const heroes = {
   },
   commander_lorina: {
     name: 'Commander Lorina',
+    element: element.dark,
+    classType: classType.warrior,
     form: [elements.target_hp_pc],
     skills: {
       s1: {
@@ -952,6 +1044,8 @@ const heroes = {
   },
   corvus: {
     name: 'Corvus',
+    element: element.fire,
+    classType: classType.warrior,
     form: [elements.caster_defense, elements.caster_enrage],
     skills: {
       s1: {
@@ -970,6 +1064,8 @@ const heroes = {
   },
   crescent_moon_rin: {
     name:  'Crescent Moon Rin',
+    element: element.dark,
+    classType: classType.thief,
     skills: {
       s1: {
         rate: 1,
@@ -990,6 +1086,8 @@ const heroes = {
   },
   crimson_armin: {
     name: 'Crimson Armin',
+    element: element.light,
+    classType: classType.knight,
     form: [elements.caster_defense],
     skills: {
       s1: {
@@ -1002,6 +1100,8 @@ const heroes = {
   },
   crozet: {
     name: 'Crozet',
+    element: element.ice,
+    classType: classType.knight,
     form: [elements.caster_max_hp, elements.caster_defense],
     barrier: () => elements.caster_max_hp.value()*0.15,
     barrierEnhance: 's2',
@@ -1026,6 +1126,8 @@ const heroes = {
   },
   dark_corvus: {
     name: 'Dark Corvus',
+    element: element.dark,
+    classType: classType.warrior,
     form: [elements.caster_max_hp],
     skills: {
       s1: {
@@ -1047,6 +1149,8 @@ const heroes = {
   },
   desert_jewel_basar: {
     name: 'Desert Jewel Basar',
+    element: element.light,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1.2,
@@ -1056,6 +1160,8 @@ const heroes = {
   },
   destina: {
     name: 'Destina',
+    element: element.earth,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1,
@@ -1066,6 +1172,8 @@ const heroes = {
   },
   diene: {
     name: 'Diene',
+    element: element.ice,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1,
@@ -1076,6 +1184,8 @@ const heroes = {
   },
   dingo: {
     name: 'Dingo',
+    element: element.fire,
+    classType: classType.warrior,
     dot: [dot.bleed, dot.burn],
     skills: {
       s1: {
@@ -1092,6 +1202,8 @@ const heroes = {
   },
   dizzy: {
     name: 'Dizzy',
+    element: element.ice,
+    classType: classType.mage,
     form: [elements.target_has_debuff],
     skills: {
       s1: {
@@ -1116,6 +1228,8 @@ const heroes = {
   },
   dominiel: {
     name: 'Dominiel',
+    element: element.ice,
+    classType: classType.mage,
     barrier: () => Number(document.getElementById(`atk`).value),
     skills: {
       s1: {
@@ -1132,6 +1246,8 @@ const heroes = {
   },
   doris: {
     name: 'Doris',
+    element: element.light,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1,
@@ -1142,6 +1258,8 @@ const heroes = {
   },
   eaton: {
     name: 'Eaton',
+    element: element.light,
+    classType: classType.knight,
     form: [elements.caster_max_hp],
     barrier: () => elements.caster_max_hp.value()*0.25,
     barrierEnhance: 's3',
@@ -1159,6 +1277,8 @@ const heroes = {
   },
   elson: {
     name: 'Elson',
+    element: element.light,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 0.9,
@@ -1174,6 +1294,8 @@ const heroes = {
   },
   enott: {
     name: 'Enott',
+    element: element.ice,
+    classType: classType.warrior,
     form: [elements.target_hp_pc],
     dot: [dot.bleed],
     skills: {
@@ -1192,6 +1314,8 @@ const heroes = {
   },
   falconer_kluri: {
     name: 'Falconer Kluri',
+    element: element.earth,
+    classType: classType.knight,
     form: [elements.caster_defense],
     skills: {
       s1: {
@@ -1204,6 +1328,8 @@ const heroes = {
   },
   fallen_cecilia: {
     name: 'Fallen Cecilia',
+    element: element.dark,
+    classType: classType.knight,
     form: [elements.caster_max_hp],
     barrier: () => elements.caster_max_hp.value()*0.1,
     barrierEnhance: 's2',
@@ -1225,8 +1351,10 @@ const heroes = {
       }
     }
   },
-  fighter: {
+  fighter_maya: {
     name: 'Fighter Maya',
+    element: element.light,
+    classType: classType.knight,
     form: [elements.caster_defense, elements.target_hp_pc],
     skills: {
       s1: {
@@ -1247,6 +1375,8 @@ const heroes = {
   },
   furious: {
     name: 'Furious',
+    element: element.ice,
+    classType: classType.ranger,
     dot: [dot.burn],
     skills: {
       s1: {
@@ -1264,6 +1394,8 @@ const heroes = {
   },
   general_purrgis: {
     name: 'General Purrgis',
+    element: element.light,
+    classType: classType.warrior,
     skills: {
       s1: {
         rate: 1,
@@ -1279,6 +1411,8 @@ const heroes = {
   },
   gloomyrain: {
     name: 'Gloomyrain',
+    element: element.light,
+    classType: classType.mage,
     skills: {
       s1: {
         rate: 1,
@@ -1295,6 +1429,8 @@ const heroes = {
   },
   guider_aither: {
     name: 'Guider Aither',
+    element: element.light,
+    classType: classType.mage,
     barrier: () => Number(document.getElementById(`atk`).value),
     skills: {
       s1: {
@@ -1317,6 +1453,8 @@ const heroes = {
   },
   gunther: {
     name: 'Gunther',
+    element: element.light,
+    classType: classType.warrior,
     form: [elements.target_has_bleed],
     dot: [dot.bleed],
     skills: {
@@ -1338,6 +1476,8 @@ const heroes = {
   },
   hataan: {
     name: 'Hataan',
+    element: element.fire,
+    classType: classType.thief,
     form: [elements.caster_speed],
     skills: {
       s1: {
@@ -1356,6 +1496,8 @@ const heroes = {
   },
   haste: {
     name: 'Haste',
+    element: element.fire,
+    classType: classType.thief,
     form: [elements.nb_targets],
     dot: [dot.bleed],
     skills: {
@@ -1386,6 +1528,8 @@ const heroes = {
   },
   hazel: {
     name: 'Hazel',
+    element: element.fire,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1,
@@ -1396,6 +1540,8 @@ const heroes = {
   },
   helga: {
     name: 'Helga',
+    element: element.earth,
+    classType: classType.warrior,
     skills: {
       s1: {
         rate: 1,
@@ -1411,6 +1557,8 @@ const heroes = {
   },
   hurado: {
     name: 'Hurado',
+    element: element.dark,
+    classType: classType.mage,
     skills: {
       s1: {
         rate: 1,
@@ -1426,6 +1574,8 @@ const heroes = {
   },
   iseria: {
     name: 'Iseria',
+    element: element.earth,
+    classType: classType.ranger,
     skills: {
       s1: {
         soulburn: true,
@@ -1442,6 +1592,8 @@ const heroes = {
   },
   jecht: {
     name: 'Jecht',
+    element: element.earth,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1,
@@ -1457,6 +1609,8 @@ const heroes = {
   },
   jena: {
     name: 'Jena',
+    element: element.ice,
+    classType: classType.mage,
     form: [elements.target_nb_debuff],
     skills: {
       s1: {
@@ -1474,6 +1628,8 @@ const heroes = {
   },
   judge_kise: {
     name: 'Judge Kise',
+    element: element.light,
+    classType: classType.warrior,
     form: [elements.nb_targets],
     skills: {
       s1: {
@@ -1496,6 +1652,8 @@ const heroes = {
   },
   judith: {
     name: 'Judith',
+    element: element.fire,
+    classType: classType.thief,
     skills: {
       s1: {
         rate: 1,
@@ -1506,6 +1664,8 @@ const heroes = {
   },
   karin: {
     name: 'Karin',
+    element: element.ice,
+    classType: classType.thief,
     skills: {
       s1: {
         rate: 1,
@@ -1528,6 +1688,8 @@ const heroes = {
   },
   kayron: {
     name: 'Kayron',
+    element: element.fire,
+    classType: classType.thief,
     form: [elements.caster_hp_pc],
     skills: {
       s1: {
@@ -1547,6 +1709,8 @@ const heroes = {
   },
   ken: {
     name: 'Ken',
+    element: element.fire,
+    classType: classType.warrior,
     form: [elements.caster_max_hp, elements.caster_vigor],
     dot: [dot.burn],
     skills: {
@@ -1572,6 +1736,8 @@ const heroes = {
   },
   khawazu: {
     name: 'Khawazu',
+    element: element.fire,
+    classType: classType.warrior,
     dot: [dot.burn],
     skills: {
       s1: {
@@ -1588,6 +1754,8 @@ const heroes = {
   },
   kikirat_v2: {
     name: 'Kikirat v2',
+    element: element.light,
+    classType: classType.knight,
     form: [elements.caster_defense],
     skills: {
       s1: {
@@ -1607,6 +1775,8 @@ const heroes = {
   },
   kiris: {
     name: 'Kiris',
+    element: element.earth,
+    classType: classType.ranger,
     skills: {
       s1: {
         rate: 1,
@@ -1622,6 +1792,8 @@ const heroes = {
   },
   kise: {
     name: 'Kise',
+    element: element.ice,
+    classType: classType.thief,
     form: [elements.caster_stealth, elements.caster_hp_pc],
     skills: {
       s1: {
@@ -1645,6 +1817,8 @@ const heroes = {
   },
   kitty_clarissa: {
     name: 'Kitty Clarissa',
+    element: element.dark,
+    classType: classType.warrior,
     form: [elements.caster_max_hp],
     skills: {
       s1: {
@@ -1664,6 +1838,8 @@ const heroes = {
   },
   kluri: {
     name: 'Kluri',
+    element: element.earth,
+    classType: classType.knight,
     form: [elements.caster_defense],
     skills: {
       s1: {
@@ -1676,6 +1852,8 @@ const heroes = {
   },
   krau: {
     name: 'Krau',
+    element: element.ice,
+    classType: classType.knight,
     form: [elements.caster_max_hp, elements.caster_hp],
     skills: {
       s1: {
@@ -1701,6 +1879,8 @@ const heroes = {
   },
   lena: {
     name: 'Lena',
+    element: element.ice,
+    classType: classType.warrior,
     form: [elements.target_hp_pc],
     skills: {
       s1: {
@@ -1719,6 +1899,8 @@ const heroes = {
   },
   leo: {
     name: 'Leo',
+    element: element.earth,
+    classType: classType.ranger,
     skills: {
       s1: {
         rate: 0.9,
@@ -1739,6 +1921,8 @@ const heroes = {
   },
   lidica: {
     name: 'Lidica',
+    element: element.fire,
+    classType: classType.ranger,
     skills: {
       s1: {
         rate: 1,
@@ -1759,6 +1943,8 @@ const heroes = {
   },
   lilias: {
     name: 'Lilias',
+    element: element.fire,
+    classType: classType.knight,
     form: [elements.caster_max_hp, elements.highest_ally_attack],
     skills: {
       s1: {
@@ -1777,6 +1963,8 @@ const heroes = {
   },
   lilibet: {
     name: 'Lilibet',
+    element: element.earth,
+    classType: classType.warrior,
     form: [elements.target_has_buff],
     dot: [dot.bleed],
     skills: {
@@ -1801,6 +1989,8 @@ const heroes = {
   },
   lorina: {
     name: 'Lorina',
+    element: element.dark,
+    classType: classType.warrior,
     form: [elements.target_hp_pc],
     skills: {
       s1: {
@@ -1818,6 +2008,8 @@ const heroes = {
   },
   lots: {
     name: 'Lots',
+    element: element.earth,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1,
@@ -1828,6 +2020,8 @@ const heroes = {
   },
   ludwig: {
     name: 'Ludwig',
+    element: element.earth,
+    classType: classType.mage,
     form: [elements.caster_invincible],
     skills: {
       s1: {
@@ -1851,6 +2045,8 @@ const heroes = {
   },
   luluca: {
     name: 'Luluca',
+    element: element.ice,
+    classType: classType.mage,
     form: [elements.target_hp_pc, elements.s3_stack],
     barrier: () => Number(document.getElementById('atk').value)*(1+elements.s3_stack.value()*0.2)*0.375,
     barrierEnhance: 's2',
@@ -1875,6 +2071,8 @@ const heroes = {
   },
   luna: {
     name: 'Luna',
+    element: element.ice,
+    classType: classType.warrior,
     form: [elements.nb_hits],
     skills: {
       s1: {
@@ -1892,6 +2090,8 @@ const heroes = {
   },
   maid_chloe: {
     name: 'Maid Chloe',
+    element: element.light,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1,
@@ -1902,6 +2102,8 @@ const heroes = {
   },
   martial_artist_ken: {
     name: 'Martial Artist Ken',
+    element: element.dark,
+    classType: classType.warrior,
     form: [elements.caster_hp_pc],
     skills: {
       s1: {
@@ -1926,6 +2128,8 @@ const heroes = {
   },
   mascot_hazel: {
     name: 'Mascot Hazel',
+    element: element.fire,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1,
@@ -1936,6 +2140,8 @@ const heroes = {
   },
   maya: {
     name: 'Maya',
+    element: element.fire,
+    classType: classType.knight,
     form: [elements.caster_defense],
     skills: {
       s1: {
@@ -1954,6 +2160,8 @@ const heroes = {
   },
   mercedes: {
     name: 'Mercedes',
+    element: element.fire,
+    classType: classType.mage,
     form: [elements.nb_targets, elements.target_hp_pc],
     skills: {
       s1: {
@@ -1984,6 +2192,8 @@ const heroes = {
   },
   mirsa: {
     name: 'Mirsa',
+    element: element.light,
+    classType: classType.thief,
     form: [elements.caster_speed],
     skills: {
       s1: {
@@ -2003,6 +2213,8 @@ const heroes = {
   },
   mistychain: {
     name: 'Mistychain',
+    element: element.ice,
+    classType: classType.mage,
     skills: {
       s1: {
         rate: 1,
@@ -2024,6 +2236,8 @@ const heroes = {
   },
   montmorancy: {
     name: 'Montmorancy',
+    element: element.ice,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1,
@@ -2034,6 +2248,8 @@ const heroes = {
   },
   mucacha: {
     name: 'Mucacha',
+    element: element.earth,
+    classType: classType.warrior,
     form: [elements.caster_speed],
     skills: {
       s1: {
@@ -2052,6 +2268,8 @@ const heroes = {
   },
   nemunas: {
     name: 'Nemunas',
+    element: element.fire,
+    classType: classType.ranger,
     form: [elements.target_max_hp],
     skills: {
       s1: {
@@ -2070,6 +2288,8 @@ const heroes = {
   },
   otillie: {
     name: 'Otillie',
+    element: element.dark,
+    classType: classType.mage,
     skills: {
       s1: {
         rate: 1,
@@ -2085,6 +2305,8 @@ const heroes = {
   },
   pearlhorizon: {
     name: 'Pearlhorizon',
+    element: element.earth,
+    classType: classType.mage,
     form: [elements.target_max_hp, elements.target_has_sleep],
     skills: {
       s1: {
@@ -2106,6 +2328,8 @@ const heroes = {
   },
   purrgis: {
     name: 'Purrgis',
+    element: element.earth,
+    classType: classType.warrior,
     form: [elements.caster_max_hp],
     skills: {
       s1: {
@@ -2125,6 +2349,8 @@ const heroes = {
   },
   pyllis: {
     name: 'Pyllis',
+    element: element.dark,
+    classType: classType.knight,
     form: [elements.caster_defense],
     barrier: () => elements.caster_defense.value()*0.6,
     skills: {
@@ -2144,6 +2370,8 @@ const heroes = {
   },
   ras: {
     name: 'Ras',
+    element: element.fire,
+    classType: classType.knight,
     form: [elements.caster_max_hp],
     skills: {
       s1: {
@@ -2167,6 +2395,8 @@ const heroes = {
   },
   ravi: {
     name: 'Ravi',
+    element: element.fire,
+    classType: classType.warrior,
     form: [elements.caster_fighting_spirit],
     skills: {
       s1: {
@@ -2186,6 +2416,8 @@ const heroes = {
   },
   requiemroar: {
     name: 'Requiemroar',
+    element: element.dark,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1,
@@ -2202,6 +2434,8 @@ const heroes = {
   },
   researcher_carrot: {
     name: 'Researcher Carrot',
+    element: element.fire,
+    classType: classType.mage,
     form: [elements.target_burn_detonate, elements.skill_tree_completed],
     dot: [dot.burn],
     barrier: () => Number(document.getElementById(`atk`).value)*0.6,
@@ -2227,6 +2461,8 @@ const heroes = {
   },
   righteous_thief_roozid: {
     name: 'Righteous Thief Roozid',
+    element: element.earth,
+    classType: classType.thief,
     form: [elements.caster_speed],
     skills: {
       s1: {
@@ -2245,6 +2481,8 @@ const heroes = {
   },
   rikoris: {
     name: 'Rikoris',
+    element: element.light,
+    classType: classType.warrior,
     skills: {
       s1: {
         rate: 1,
@@ -2260,6 +2498,8 @@ const heroes = {
   },
   rima: {
     name: 'Rima',
+    element: element.ice,
+    classType: classType.ranger,
     skills: {
       s1: {
         rate: 1,
@@ -2275,6 +2515,8 @@ const heroes = {
   },
   rin: {
     name: 'Rin',
+    element: element.earth,
+    classType: classType.soul_weaver,
     form: [elements.caster_max_hp],
     skills: {
       s1: {
@@ -2293,6 +2535,8 @@ const heroes = {
   },
   roaming_warrior_leo: {
     name: 'Roaming Warrior Leo',
+    element: element.dark,
+    classType: classType.ranger,
     form: [elements.target_has_debuff],
     skills: {
       s1: {
@@ -2315,6 +2559,8 @@ const heroes = {
   },
   romann: {
     name: 'Romann',
+    element: element.ice,
+    classType: classType.mage,
     form: [elements.target_has_buff],
     skills: {
       s1: {
@@ -2337,6 +2583,8 @@ const heroes = {
   },
   roozid: {
     name: 'Roozid',
+    element: element.earth,
+    classType: classType.thief,
     form: [elements.caster_speed],
     skills: {
       s1: {
@@ -2355,6 +2603,8 @@ const heroes = {
   },
   rose: {
     name: 'Rose',
+    element: element.ice,
+    classType: classType.knight,
     form: [elements.caster_defense],
     barrier: () => elements.caster_defense.value(),
     skills: {
@@ -2368,6 +2618,8 @@ const heroes = {
   },
   ruele_of_light: {
     name: 'Ruele of Light',
+    element: element.light,
+    classType: classType.soul_weaver,
     form: [elements.caster_max_hp],
     barrier: () => elements.caster_max_hp.value()*0.2,
     skills: {
@@ -2381,6 +2633,8 @@ const heroes = {
   },
   sage_baal_and_sezan: {
     name: 'Sage Baal & Sezan',
+    element: element.light,
+    classType: classType.mage,
     form: [elements.caster_max_hp, elements.caster_hp],
     skills: {
       s1: {
@@ -2402,6 +2656,8 @@ const heroes = {
   },
   schuri: {
     name: 'Schuri',
+    element: element.fire,
+    classType: classType.ranger,
     skills: {
       s1: {
         rate: 1,
@@ -2417,6 +2673,8 @@ const heroes = {
   },
   shooting_star_achates: {
     name: 'Shooting Star Achates',
+    element: element.dark,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1,
@@ -2427,6 +2685,8 @@ const heroes = {
   },
   seaside_bellona: {
     name: 'Seaside Bellona',
+    element: element.ice,
+    classType: classType.ranger,
     skills: {
       s1: {
         rate: 1,
@@ -2448,6 +2708,8 @@ const heroes = {
   },
   serila: {
     name: 'Serila',
+    element: element.fire,
+    classType: classType.mage,
     dot: [dot.burn],
     skills: {
       s1: {
@@ -2470,6 +2732,8 @@ const heroes = {
   },
   sez: {
     name: 'Sez',
+    element: element.ice,
+    classType: classType.thief,
     form: [elements.target_hp_pc],
     skills: {
       s1: {
@@ -2494,6 +2758,8 @@ const heroes = {
   },
   shadow_rose: {
     name: 'Shadow Rose',
+    element: element.dark,
+    classType: classType.knight,
     skills: {
       s1: {
         rate: 1,
@@ -2515,6 +2781,8 @@ const heroes = {
   },
   sigret: {
     name: 'Sigret',
+    element: element.ice,
+    classType: classType.warrior,
     form: [elements.target_nb_debuff],
     dot: [dot.bleed],
     skills: {
@@ -2538,6 +2806,8 @@ const heroes = {
   },
   silk: {
     name: 'Silk',
+    element: element.earth,
+    classType: classType.ranger,
     form: [elements.caster_speed, elements.caster_nb_focus],
     skills: {
       s1: {
@@ -2555,6 +2825,8 @@ const heroes = {
   },
   silver_blade_aramintha: {
     name: 'Silver Blade Aramintha',
+    element: element.light,
+    classType: classType.mage,
     dot: [dot.burn],
     skills: {
       s1: {
@@ -2576,6 +2848,8 @@ const heroes = {
   },
   sol: {
     name: 'Sol Badguy',
+    element: element.fire,
+    classType: classType.warrior,
     form: [elements.target_has_buff, elements.target_max_hp],
     skills: {
       s1: {
@@ -2600,6 +2874,8 @@ const heroes = {
   },
   specimen_sez: {
     name: 'Specimen Sez',
+    element: element.light,
+    classType: classType.thief,
     form: [elements.target_is_stunned],
     info: '10/31 Hero Balance added, penetrates defense 30% without the stun',
     skills: {
@@ -2624,6 +2900,8 @@ const heroes = {
   },
   specter_tenebria: {
     name: 'Specter Tenebria',
+    element: element.dark,
+    classType: classType.mage,
     form: [elements.target_nb_debuff, elements.dead_people],
     skills: {
       s1: {
@@ -2642,6 +2920,8 @@ const heroes = {
   },
   surin: {
     name: 'Surin',
+    element: element.fire,
+    classType: classType.thief,
     form: [elements.target_nb_bleed],
     dot: [dot.bleed],
     skills: {
@@ -2665,6 +2945,8 @@ const heroes = {
   },
   sven: {
     name: 'Sven',
+    element: element.dark,
+    classType: classType.thief,
     form: [elements.caster_hp_pc, elements.target_hp_pc],
     skills: {
       s1: {
@@ -2689,6 +2971,8 @@ const heroes = {
   },
   tamarinne: {
     name: 'Tamarinne',
+    element: element.fire,
+    classType: classType.soul_weaver,
     skills: {
       s1: {
         rate: 1,
@@ -2699,6 +2983,8 @@ const heroes = {
   },
   taranor_guard: {
     name: 'Taranor Guard',
+    element: element.ice,
+    classType: classType.warrior,
     skills: {
       s1: {
         rate: 1,
@@ -2714,6 +3000,8 @@ const heroes = {
   },
   taranor_royal_guard: {
     name: 'Taranor Royal Guard',
+    element: element.ice,
+    classType: classType.knight,
     form: [elements.caster_max_hp],
     skills: {
       s1: {
@@ -2733,6 +3021,8 @@ const heroes = {
   },
   tenebria: {
     name: 'Tenebria',
+    element: element.fire,
+    classType: classType.mage,
     skills: {
       s1: {
         rate: 1,
@@ -2754,6 +3044,8 @@ const heroes = {
   },
   tieria: {
     name: 'Tieria',
+    element: element.fire,
+    classType: classType.warrior,
     form: [elements.target_max_hp],
     skills: {
       s1: {
@@ -2772,6 +3064,8 @@ const heroes = {
   },
   troublemaker_crozet: {
     name: 'Troublemaker Crozet',
+    element: element.dark,
+    classType: classType.knight,
     form: [elements.caster_max_hp],
     barrier: () => elements.caster_max_hp.value()*0.2,
     skills: {
@@ -2786,6 +3080,8 @@ const heroes = {
   },
   tywin: {
     name: 'Tywin',
+    element: element.ice,
+    classType: classType.knight,
     form: [elements.caster_max_hp],
     skills: {
       s1: {
@@ -2804,6 +3100,8 @@ const heroes = {
   },
   vildred: {
     name: 'Vildred',
+    element: element.earth,
+    classType: classType.thief,
     form: [elements.caster_speed],
     skills: {
       s1: {
@@ -2828,6 +3126,8 @@ const heroes = {
   },
   violet: {
     name: 'Violet',
+    element: element.earth,
+    classType: classType.thief,
     form: [elements.caster_nb_focus],
     skills: {
       s1: {
@@ -2845,6 +3145,8 @@ const heroes = {
   },
   vivian: {
     name: 'Vivian',
+    element: element.earth,
+    classType: classType.mage,
     skills: {
       s1: {
         rate: 1.2,
@@ -2873,6 +3175,8 @@ const heroes = {
   },
   wanda: {
     name: 'Wanda',
+    element: element.dark,
+    classType: classType.ranger,
     skills: {
       s1: {
         rate: 0.9,
@@ -2889,6 +3193,8 @@ const heroes = {
   },
   wanderer_silk: {
     name: 'Wanderer Silk',
+    element: element.light,
+    classType: classType.ranger,
     form: [elements.caster_speed],
     dot: [dot.bleed],
     skills: {
@@ -2914,6 +3220,8 @@ const heroes = {
   },
   watcher_schuri: {
     name: 'Watcher Schuri',
+    element: element.light,
+    classType: classType.ranger,
     skills: {
       s1: {
         rate: 1,
@@ -2935,6 +3243,8 @@ const heroes = {
   },
   yufine: {
     name: 'Yufine',
+    element: element.earth,
+    classType: classType.warrior,
     form: [elements.target_has_buff],
     skills: {
       s1: {
@@ -2956,6 +3266,8 @@ const heroes = {
   },
   yuna: {
     name: 'Yuna',
+    element: element.ice,
+    classType: classType.ranger,
     form: [elements.caster_speed, elements.nb_targets],
     skills: {
       s1: {
@@ -2989,6 +3301,8 @@ const heroes = {
   },
   zeno: {
     name: 'Zeno',
+    element: element.ice,
+    classType: classType.mage,
     form: [elements.caster_max_hp, elements.non_attack_skill_stack],
     skills: {
       s1: {
@@ -3018,6 +3332,8 @@ const heroes = {
   },
   zerato: {
     name: 'Zerato',
+    element: element.ice,
+    classType: classType.mage,
     form: [elements.target_has_debuff],
     skills: {
       s1: {

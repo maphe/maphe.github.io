@@ -59,3 +59,7 @@ span[id$="-val"] {
 div.dropdown-menu.show {
     z-index: 1200;
 }
+
+.buff-block img {
+    margin-bottom: 2px;
+}

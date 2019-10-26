@@ -484,6 +484,8 @@ const build = (hero) => {
                     </div>`);
     }
   }
+
+  document.getElementById('elem-adv-icon').innerHTML = antiElemIcon(hero.element);
 };
 
 const buildArtifact = (artifact) => {
@@ -508,6 +510,19 @@ const buildArtifact = (artifact) => {
   } else {
     specificBlock.style.display = 'none';
   }
+};
+
+const refreshArtifactList = (hero) => {
+  const artiSelector = document.getElementById('artifact');
+  for (const artiOpt of artiSelector.querySelectorAll('option')) {
+    if (!artiOpt.value) continue;
+    artiOpt.disabled = artifacts[artiOpt.value].exclusive && (artifacts[artiOpt.value].exclusive !== hero.classType);
+  }
+  if (artiSelector.options[artiSelector.selectedIndex].disabled) {
+    artiSelector.value = '';
+  }
+
+  $('#artifact').selectpicker('refresh');
 };
 
 const buildElement = (elem, parent) => {
@@ -553,11 +568,36 @@ const buildElement = (elem, parent) => {
   }
 };
 
+const elemIcon = (elem) => {
+  return `<img src='https://epic7x.com/wp-content/themes/epic-seven/assets/img/${elem.charAt(0).toUpperCase() + elem.slice(1)}.png' width='20', height='20' alt='${elem}' />`
+};
+
+const antiElemIcon = (elem) => {
+  switch (elem) {
+    case element.ice: return elemIcon(element.fire);
+    case element.fire: return elemIcon(element.earth);
+    case element.earth: return elemIcon(element.ice);
+    case element.light: return elemIcon(element.dark);
+    case element.dark: return elemIcon(element.light);
+  }
+}
+
+const classIcon = (type) => {
+  switch (type) {
+    case classType.warrior: return `<img src='https://epic7x.com/wp-content/themes/epic-seven/assets/img/Warrior.png' width='18', height='18' alt='${type}' />`;
+    case classType.thief: return `<img src='https://epic7x.com/wp-content/themes/epic-seven/assets/img/Thief.png' width='18', height='18' alt='${type}' />`;
+    case classType.soul_weaver: return `<img src='https://epic7x.com/wp-content/themes/epic-seven/assets/img/Soul%20Weaver.png' width='18', height='18' alt='${type}' />`;
+    case classType.knight: return `<img src='https://epic7x.com/wp-content/themes/epic-seven/assets/img/Knight.png' width='18', height='18' alt='${type}' />`;
+    case classType.ranger: return `<img src='https://epic7x.com/wp-content/themes/epic-seven/assets/img/Ranger.png' width='18', height='18' alt='${type}' />`;
+    case classType.mage: return `<img src='https://epic7x.com/wp-content/themes/epic-seven/assets/img/Mage.png' width='18', height='18' alt='${type}' />`;
+  }
+};
+
 $(() => {
   const heroSelector = document.getElementById('hero');
   const artiSelector = document.getElementById('artifact');
   Object.keys(heroes).map((id => {
-    $(heroSelector).append(`<option value="${id}">${heroes[id].name}</option>`)
+    $(heroSelector).append(`<option value="${id}" data-content="${elemIcon(heroes[id].element)}${classIcon(heroes[id].classType)} <span>${heroes[id].name}</span>">${heroes[id].name}</option>`)
   }));
   $(artiSelector).append(`<option value="">No Artifact Proc</option>`);
   $(artiSelector).append(`<option data-divider="true"></option>`);
@@ -566,7 +606,9 @@ $(() => {
   }));
 
   heroSelector.onchange = () => {
-    build(heroes[heroSelector.value]);
+    const hero = heroes[heroSelector.value];
+    build(hero);
+    refreshArtifactList(hero);
     buildArtifact(artifacts[artiSelector.value]);
     resolve();
     gtag('event', 'pick', {
@@ -606,7 +648,9 @@ $(() => {
     resolve();
   };
 
-  build(heroes[heroSelector.value]);
+  const hero = heroes[heroSelector.value];
+  build(hero);
+  refreshArtifactList(hero);
   buildArtifact(artifacts[artiSelector.value]);
   resolve();
 });
