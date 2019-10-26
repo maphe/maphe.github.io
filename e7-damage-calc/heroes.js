@@ -1851,13 +1851,14 @@ const heroes = {
   },
   luluca: {
     name: 'Luluca',
-    form: [elements.target_hp_pc],
+    form: [elements.target_hp_pc, elements.s3_stack],
     barrier: () => Number(document.getElementById(`atk`).value)*0.375,
     barrierEnhance: 's2',
     skills: {
       s1: {
         rate: 1,
         pow: 1,
+        atk: () => Number(document.getElementById('atk').value)*(1+elements.s3_stack.value()*0.2),
         mult: () => 1 + (1-(elements.target_hp_pc.value()/100))*0.2,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
       },
@@ -1867,6 +1868,7 @@ const heroes = {
       s3: {
         rate: 0.9,
         pow: 1.05,
+        atk: () => Number(document.getElementById('atk').value)*(1+elements.s3_stack.value()*0.2),
         enhance: [0.1, 0, 0, 0, 0.15]
       }
     }

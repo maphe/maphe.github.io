@@ -339,6 +339,16 @@ const elements = {
     type: 'checkbox',
     default: true,
     value: () => document.getElementById('skill-tree-completed').checked,
+  },
+  s3_stack: {
+    id: 's3-stack',
+    label: 'S3 Stack',
+    type: 'slider',
+    min: 0,
+    max: 3,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('s3-stack').value)
   }
 };
 
