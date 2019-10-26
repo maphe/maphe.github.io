@@ -1852,7 +1852,7 @@ const heroes = {
   luluca: {
     name: 'Luluca',
     form: [elements.target_hp_pc, elements.s3_stack],
-    barrier: () => Number(document.getElementById(`atk`).value)*0.375,
+    barrier: () => Number(document.getElementById('atk').value)*(1+elements.s3_stack.value()*0.2)*0.375,
     barrierEnhance: 's2',
     skills: {
       s1: {
