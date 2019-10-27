@@ -108,7 +108,7 @@ class Hero {
     const hit = this.offensivePower(skillId, soulburn) / this.target.defensivePower(skill);
     const critDmg = (this.crit / 100)+(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0);
     return {
-      crit: skill.noCrit ? null : Math.round(hit*critDmg + this.getAfterMathDamage(skillId, critDmg)),
+      crit: skill.noCrit ? null : Math.round(hit*critDmg*(this.artifact.getCritDmgBoost()||1) + this.getAfterMathDamage(skillId, critDmg)),
       crush: skill.noCrit || skill.onlyCrit ? null : Math.round(hit*1.3 + this.getAfterMathDamage(skillId, 1.3)),
       normal: skill.onlyCrit ? null : Math.round(hit + this.getAfterMathDamage(skillId, 1)),
       miss: Math.round(hit*0.75 + this.getAfterMathDamage(skillId, 0.75))
@@ -118,11 +118,8 @@ class Hero {
   getAttack(skillId) {
     const skill = this.skills[skillId];
 
-    if (skill.atk !== undefined) {
-      return skill.atk();
-    } else {
-      return this.atk * getGlobalAtkMult()
-    }
+    const atk = (skill.atk !== undefined) ? skill.atk() : this.atk * getGlobalAtkMult();
+    return atk * this.artifact.getAttackBoost();
   }
 
   offensivePower(skillId, soulburn) {
@@ -218,7 +215,7 @@ class Artifact {
   }
 
   getValue() {
-    return artifacts[this.id].scale[Math.floor(document.getElementById('artifact-lvl').value/3)]
+    return artifacts[this.id].scale ? artifacts[this.id].scale[Math.floor(document.getElementById('artifact-lvl').value/3)] : undefined;
   }
 
   getDamageMultiplier() {
@@ -250,5 +247,19 @@ class Artifact {
       return 0;
     }
     return artifacts[this.id].damage(this.getValue());
+  }
+
+  getAttackBoost() {
+    if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.attack) {
+      return 1;
+    }
+    return artifacts[this.id].value ? artifacts[this.id].value(this.getValue()) : this.getValue();
+  }
+
+  getCritDmgBoost() {
+    if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.critDmgBoost) {
+      return 1;
+    }
+    return this.getValue();
   }
 }

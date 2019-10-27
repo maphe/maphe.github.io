@@ -291,14 +291,35 @@ const elements = {
     default: 0,
     value: () => Number(document.getElementById('stack-crit-hit').value)
   },
-  non_attack_skill_stack: {
-    id: 'stack-non-attack-skill',
+  non_attack_skill_stack_10: {
+    id: 'stack-non-attack-skill-10',
     label: 'Non-Attack Skill Stack',
     type: 'slider',
     min: 0,
     max: 10,
     default: 0,
-    value: () => Number(document.getElementById('stack-non-attack-skill').value)
+    readonly: true,
+    value: () => Number(document.getElementById('stack-non-attack-skill-10').value)
+  },
+  non_attack_skill_stack_3: {
+    id: 'stack-non-attack-skill-3',
+    label: 'Non-Attack Skill Stack',
+    type: 'slider',
+    min: 0,
+    max: 3,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('stack-non-attack-skill-3').value)
+  },
+  turn_stack: {
+    id: 'turn-stack',
+    label: 'Turn Stack',
+    type: 'slider',
+    min: 0,
+    max: 10,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('turn-stack').value)
   },
   dead_people: {
     id: 'dead-people',
