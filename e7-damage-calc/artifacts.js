@@ -41,7 +41,7 @@ const artifacts = {
   hell_cutter: {
     name: 'Hell Cutter',
     type: artifactDmgType.attack,
-    scale: [0.02, 0.022, 0.024, 0.026, 0.28, 0.30, 0.032, 0.034, 0.036, 0.038, 0.04],
+    scale: [0.02, 0.022, 0.024, 0.026, 0.028, 0.03, 0.032, 0.034, 0.036, 0.038, 0.04],
     form: [elements.turn_stack],
     exclusive: classType.warrior,
     value: (artiScale) => 1 + elements.turn_stack.value()*artiScale
