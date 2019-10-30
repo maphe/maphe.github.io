@@ -22,9 +22,9 @@ const artifacts = {
     form: [elements.target_max_hp],
     damage: (artiMult) => elements.target_max_hp.value()*artiMult
   },
-  draconian_plate: {
-    name: 'Draconian Plate',
-    scale: [1.08, 1.088, 1.096, 1.104, 1.112, 1.12, 1.128, 1.136, 1.144, 1.152, 1.16],
+  draco_plate: {
+    name: 'Draco Plate',
+    scale: [1.15, 1.17, 1.18, 1.2, 1.21, 1.23, 1.24, 1.26, 1.27, 1.29, 1.3],
     type: artifactDmgType.critDmgBoost,
   },
   exorcist_tonfa: {
