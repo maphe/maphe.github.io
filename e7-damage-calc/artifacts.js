@@ -26,6 +26,7 @@ const artifacts = {
     name: 'Draco Plate',
     scale: [1.15, 1.17, 1.18, 1.2, 1.21, 1.23, 1.24, 1.26, 1.27, 1.29, 1.3],
     type: artifactDmgType.critDmgBoost,
+    exclusive: classType.warrior
   },
   exorcist_tonfa: {
     name: 'Exorcist\'s Tonfa',
