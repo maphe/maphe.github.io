@@ -1794,12 +1794,13 @@ const heroes = {
     name: 'Kise',
     element: element.ice,
     classType: classType.thief,
-    form: [elements.caster_stealth, elements.caster_hp_pc],
+    form: [elements.target_has_barrier, elements.caster_stealth, elements.caster_hp_pc],
     skills: {
       s1: {
         rate: (soulburn) => soulburn ? 1.4 : 1.1,
         pow: 1,
-        enhance: [0.05, 0.05, 0.1, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
+        mult: () => elements.target_has_barrier.value() ? 1.7 : 1
       },
       s2: {
         rate: 0.8,
@@ -2155,6 +2156,28 @@ const heroes = {
         pow: 1,
         flat: () => elements.caster_defense.value()*0.8,
         enhance: [0.05, 0.05, 0, 0, 0.1, 0.1]
+      }
+    }
+  },
+  melissa: {
+    name: 'Melissa',
+    element: element.fire,
+    classType: classType.mage,
+    form: [elements.caster_hp_pc],
+    skills: {
+      s1: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.5 : 1,
+        pow: 1.1,
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0035,
+      },
+      s2: {
+        rate: 1.5,
+        pow: 0.95,
+      },
+      s3: {
+        rate: 1.2,
+        pow: 1,
       }
     }
   },

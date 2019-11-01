@@ -116,6 +116,13 @@ const elements = {
     value: () => document.getElementById('target-is-stunned').checked,
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_stun.png'
   },
+  target_has_barrier: {
+    id: 'target-has-barrier',
+    label: 'Target has Barrier',
+    type: 'checkbox',
+    value: () => document.getElementById('target-has-barrier').checked,
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_protect.png'
+  },
   target_magic_nailed: {
     id: 'target-magic-nailed',
     label: 'Magic Nail on Target',
