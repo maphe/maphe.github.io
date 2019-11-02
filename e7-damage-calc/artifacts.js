@@ -24,7 +24,7 @@ const artifacts = {
   },
   draco_plate: {
     name: 'Draco Plate',
-    scale: [1.15, 1.17, 1.18, 1.2, 1.21, 1.23, 1.24, 1.26, 1.27, 1.29, 1.3],
+    scale: [0.15, 0.17, 0.18, 0.2, 0.21, 0.23, 0.24, 0.26, 0.27, 0.29, 0.3],
     type: artifactDmgType.critDmgBoost,
     exclusive: classType.warrior
   },
