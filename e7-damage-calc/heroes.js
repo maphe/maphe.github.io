@@ -2900,7 +2900,6 @@ const heroes = {
     element: element.light,
     classType: classType.thief,
     form: [elements.target_is_stunned],
-    info: '10/31 Hero Balance added, penetrates defense 30% without the stun',
     skills: {
       s1: {
         rate: 1,
@@ -3048,7 +3047,7 @@ const heroes = {
     classType: classType.mage,
     skills: {
       s1: {
-        rate: 1,
+        rate: 1.2,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15]
       },
