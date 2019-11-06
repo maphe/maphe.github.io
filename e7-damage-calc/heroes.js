@@ -2170,14 +2170,17 @@ const heroes = {
         rate: (soulburn) => soulburn ? 1.5 : 1,
         pow: 1.1,
         mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0035,
+        enhance: [0.05, 0, 0.05, 0, 0.1]
       },
       s2: {
         rate: 1.5,
         pow: 0.95,
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
       },
       s3: {
         rate: 1.2,
         pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
       }
     }
   },
