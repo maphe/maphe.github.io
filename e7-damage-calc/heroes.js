@@ -1675,7 +1675,7 @@ const heroes = {
       s2: {
         rate: 1,
         pow: 0.9,
-        enhance: [0.05, 0.05, 0.05, 0.05]
+        enhance: [0.05, 0.1, 0.1, 0.1]
       },
       s3: {
         soulburn: true,
