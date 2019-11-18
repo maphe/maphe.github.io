@@ -1758,6 +1758,7 @@ const heroes = {
     element: element.fire,
     classType: classType.thief,
     form: [elements.target_has_debuff, elements.all_allies_fire],
+    dot: [dot.bleed],
     skills: {
       s1: {
         rate: 1,
