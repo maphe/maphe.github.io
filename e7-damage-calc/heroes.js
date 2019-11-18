@@ -1312,6 +1312,25 @@ const heroes = {
       }
     }
   },
+  faithless_lidica: {
+    name: 'Faithless Lidica',
+    element: element.light,
+    classType: classType.ranger,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+      },
+      s2: {
+        rate: 0.7,
+        pow: 1,
+      },
+      s3: {
+        rate: 1.4,
+        pow: 0.95,
+      },
+    }
+  },
   falconer_kluri: {
     name: 'Falconer Kluri',
     element: element.earth,
@@ -1732,6 +1751,32 @@ const heroes = {
         flat: () => elements.caster_max_hp.value()*0.3,
         enhance: [0.05, 0.05, 0, 0.05, 0.1, 0.15]
       }
+    }
+  },
+  khawana: {
+    name: 'Khawana',
+    element: element.fire,
+    classType: classType.thief,
+    form: [elements.target_has_debuff, elements.all_allies_fire],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        afterMath: () => elements.target_has_debuff.value() ? { atkPercent: 0.6, penetrate: 0.7 } : null,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        rate: 0.9,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2 : 1.5,
+        pow: 1,
+        mult: (soulburn) => elements.all_allies_fire.value() ? (soulburn ? 1.25 : 1.35) : 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      },
     }
   },
   khawazu: {

@@ -377,7 +377,13 @@ const elements = {
     default: 0,
     readonly: true,
     value: () => Number(document.getElementById('s3-stack').value)
-  }
+  },
+  all_allies_fire: {
+    id: 'all-allies-fire',
+    label: 'All Allies Fire',
+    type: 'checkbox',
+    value: () => document.getElementById('all-allies-fire').checked,
+  },
 };
 
 elements.caster_speed.sub_elements = [elements.caster_speed_up];

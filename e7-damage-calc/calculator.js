@@ -156,6 +156,7 @@ class Hero {
   }
 
   getAfterMathDamage(skillId, multiplier) {
+    const skill = this.skills[skillId];
     const detonation = this.getDetonateDamage(skillId);
 
     let artiDamage = 0;
@@ -169,7 +170,13 @@ class Hero {
       artiDamage = (artiFlatDmg*this.getSkillEnhanceMult(skillId))/this.target.defensivePower()*multiplier
     }
 
-    return detonation + artiDamage;
+    let skillDamage = 0;
+    const skillMultipliers = skill.afterMath ? skill.afterMath() : null;
+    if (skillMultipliers !== null) {
+      artiDamage = this.atk*skillMultipliers.atkPercent*getGlobalAtkMult()/this.target.defensivePower({penetrate: () => skillMultipliers.penetrate});
+    }
+
+    return detonation + artiDamage + skillDamage;
   }
 
   getDetonateDamage(skillId) {
