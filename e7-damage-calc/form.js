@@ -675,7 +675,7 @@ $(() => {
     if (selected.value) {
       document.getElementById('def').value = selected.dataset.def;
       update('def');
-      const hpInput = document.getElementById(elements.target_max_hp.id)
+      const hpInput = document.getElementById(elements.target_max_hp.id);
       if (hpInput) {
         hpInput.value = selected.dataset.hp;
         update(elements.target_max_hp.id)

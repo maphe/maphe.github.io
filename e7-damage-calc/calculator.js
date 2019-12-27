@@ -69,12 +69,18 @@ const getGlobalAtkMult = () => {
   return mult;
 };
 
-const getGlobalDamageMult = () => {
+const getGlobalDamageMult = (hero) => {
   let mult = 1.0;
 
   for (let checkboxId of ['elem-adv', 'target', 'rage-set']) {
     const elem = document.getElementById(checkboxId);
     mult *= elem.checked ? Number(elem.value) : 1.0;
+  }
+
+  const defPresetSelector = document.getElementById('def-preset');
+  const selected = defPresetSelector.options[defPresetSelector.selectedIndex];
+  if (hero.element === selected.dataset.elemExtraDmg) {
+      mult *= parseFloat(selected.dataset.extraDmgPc);
   }
 
   return mult;
@@ -97,6 +103,7 @@ class Hero {
     this.crit = Number(document.getElementById('crit').value);
     this.skills = heroes[id].skills;
     this.dot = heroes[id].dot;
+    this.element = heroes[id].element;
     this.barrier = heroes[id].barrier;
     this.barrierEnhance = heroes[id].barrierEnhance;
     this.artifact = artifact;
@@ -128,7 +135,7 @@ class Hero {
     const atkTotal = this.getAttack(skillId);
 
     const powerTotal = 1.871 * (typeof skill.pow === 'function' ? skill.pow(soulburn) : skill.pow);
-    const multTotal = (skill.mult ? skill.mult(soulburn) : 1) * this.getSkillEnhanceMult(skillId) * powerTotal * this.artifact.getDamageMultiplier() * getGlobalDamageMult();
+    const multTotal = (skill.mult ? skill.mult(soulburn) : 1) * this.getSkillEnhanceMult(skillId) * powerTotal * this.artifact.getDamageMultiplier() * getGlobalDamageMult(this);
 
     return (atkTotal * (typeof skill.rate === 'function' ? skill.rate(soulburn) : skill.rate) + (skill.flat ? skill.flat(soulburn) : 0)) * multTotal;
   }
