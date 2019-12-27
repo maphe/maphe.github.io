@@ -89,6 +89,33 @@ const heroes = {
       }
     }
   },
+  alencia: {
+    name: 'Alencia',
+    element: element.earth,
+    classType: classType.warrior,
+    form: [elements.caster_max_hp],
+    skills: {
+      s1: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+      },
+      s2: {
+        name: 'Trample',
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.12,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+      },
+      s3: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.15,
+        enhance: [0.05, 0.05, 0, 0.05, 0.15],
+      }
+    }
+  },
   alexa: {
     name: 'Alexa',
     element: element.ice,
@@ -501,6 +528,28 @@ const heroes = {
       }
     }
   },
+  benevolent_romann: {
+    name: 'Benevolent Romann',
+    element: element.light,
+    classType: classType.mage,
+    skills: {
+      s1: {
+        rate: 0.8,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
+      },
+      mana_burst: {
+        name: 'Mana Burst',
+        rate: 0.5,
+        pow: 1,
+      },
+      s3: {
+        rate: 0.9,
+        pow: 1.1,
+        enhance: [0.05, 0, 0, 0, 0.15]
+      }
+    }
+  },
   blaze_dingo: {
     name: 'Blaze Dingo',
     element: element.light,
@@ -830,11 +879,12 @@ const heroes = {
     name: 'Charles',
     element: element.earth,
     classType: classType.knight,
-    form: [elements.caster_nb_buff, elements.nb_targets],
+    form: [elements.caster_nb_buff, elements.nb_targets, elements.exclusive_equipment_2],
     skills: {
       s1: {
         rate: 1,
         pow: 1,
+        mult: () => elements.exclusive_equipment_2.value() ? 1.1 : 1,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
       },
       s2: {
@@ -1272,6 +1322,23 @@ const heroes = {
       },
       s3: {
         enhance: [0.05, 0.1, 0, 0.1, 0.15]
+      }
+    }
+  },
+  elena: {
+    name: 'Elena',
+    element: element.ice,
+    classType: classType.soul_weaver,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.1, 0.1]
+      },
+      s3: {
+        rate: 0.9,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0.15]
       }
     }
   },
@@ -3342,7 +3409,7 @@ const heroes = {
     name: 'Yuna',
     element: element.ice,
     classType: classType.ranger,
-    form: [elements.caster_speed, elements.nb_targets],
+    form: [elements.caster_speed, elements.nb_targets, elements.exclusive_equipment_3],
     skills: {
       s1: {
         soulburn: true,
@@ -3363,10 +3430,11 @@ const heroes = {
         rate: 1.5,
         pow: 0.8,
         mult: () => {
+          const base = elements.exclusive_equipment_3.value() ? 1.3 : 1;
           switch (elements.nb_targets.value()) {
-            case 2: return 1.4;
-            case 1: return 1.6;
-            default: return 1;
+            case 2: return base + 0.4;
+            case 1: return base + 0.6;
+            default: return base;
           }
         },
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1, 0.1, 0.1]

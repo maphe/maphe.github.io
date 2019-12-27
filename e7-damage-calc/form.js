@@ -384,6 +384,24 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('all-allies-fire').checked,
   },
+  exclusive_equipment_1: {
+    id: 'exclusive-equipment-1',
+    label: 'Exclusive Equipment #1',
+    type: 'checkbox',
+    value: () => document.getElementById('exclusive-equipment-1').checked,
+  },
+  exclusive_equipment_2: {
+    id: 'exclusive-equipment-2',
+    label: 'Exclusive Equipment #2',
+    type: 'checkbox',
+    value: () => document.getElementById('exclusive-equipment-2').checked,
+  },
+  exclusive_equipment_3: {
+    id: 'exclusive-equipment-3',
+    label: 'Exclusive Equipment #3',
+    type: 'checkbox',
+    value: () => document.getElementById('exclusive-equipment-3').checked,
+  },
 };
 
 elements.caster_speed.sub_elements = [elements.caster_speed_up];
@@ -614,7 +632,7 @@ const antiElemIcon = (elem) => {
     case element.light: return elemIcon(element.dark);
     case element.dark: return elemIcon(element.light);
   }
-}
+};
 
 const classIcon = (type) => {
   switch (type) {
