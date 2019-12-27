@@ -1910,13 +1910,14 @@ const heroes = {
     name: 'Kise',
     element: element.ice,
     classType: classType.thief,
-    form: [elements.target_has_barrier, elements.caster_stealth, elements.caster_hp_pc],
+    form: [elements.target_has_buff, elements.caster_stealth, elements.caster_hp_pc],
     skills: {
       s1: {
+        soulburn: true,
         rate: (soulburn) => soulburn ? 1.4 : 1.1,
         pow: 1,
         enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
-        mult: () => elements.target_has_barrier.value() ? 1.7 : 1
+        mult: () => elements.target_has_buff.value() ? 1.7 : 1
       },
       s2: {
         rate: 0.8,
