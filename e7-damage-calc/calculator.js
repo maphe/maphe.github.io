@@ -125,7 +125,7 @@ class Hero {
   getAttack(skillId) {
     const skill = this.skills[skillId];
 
-    const atk = (skill.atk !== undefined) ? skill.atk() : this.atk * getGlobalAtkMult();
+    const atk = ((skill.atk !== undefined) ? skill.atk() : this.atk) * getGlobalAtkMult();
     return atk * this.artifact.getAttackBoost();
   }
 
