@@ -103,6 +103,7 @@ class Hero {
     this.crit = Number(document.getElementById('crit').value);
     this.skills = heroes[id].skills;
     this.dot = heroes[id].dot;
+    this.atkUp = heroes[id].atkUp;
     this.element = heroes[id].element;
     this.barrier = heroes[id].barrier;
     this.barrierEnhance = heroes[id].barrierEnhance;
@@ -125,7 +126,7 @@ class Hero {
   getAttack(skillId) {
     const skill = this.skills[skillId];
 
-    const atk = ((skill.atk !== undefined) ? skill.atk() : this.atk) * getGlobalAtkMult();
+    const atk = ((skill.atk !== undefined) ? skill.atk() : this.atk * getGlobalAtkMult()) * (this.atkUp !== undefined ? this.atkUp() : 1);
     return atk * this.artifact.getAttackBoost();
   }
 

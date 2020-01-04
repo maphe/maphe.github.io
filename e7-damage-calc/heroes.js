@@ -571,11 +571,28 @@ const heroes = {
     name: 'Blood Blade Karin',
     element: element.dark,
     classType: classType.thief,
+    form: [elements.caster_hp_pc],
+    atkUp: () => {
+      let mult = 1;
+      let boost = 0.167;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        boost += 0.167 * heroes.blood_blade_karin.skills.s2.enhance[i];
+      }
+
+      if (elements.caster_hp_pc.value() < 75) mult += boost;
+      if (elements.caster_hp_pc.value() < 50) mult += boost;
+      if (elements.caster_hp_pc.value() < 25) mult += boost;
+
+      return mult;
+    },
     skills: {
       s1: {
         rate: 1,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        enhance: [0.05, 0.1, 0.1, 0.1, 0.15]
       },
       s3: {
         soulburn: true,
@@ -2168,11 +2185,11 @@ const heroes = {
     form: [elements.target_hp_pc, elements.s3_stack],
     barrier: () => Number(document.getElementById('atk').value)*(1+elements.s3_stack.value()*0.2)*0.375,
     barrierEnhance: 's2',
+    atkUp: () => 1 + elements.s3_stack.value()*0.2,
     skills: {
       s1: {
         rate: 1,
         pow: 1,
-        atk: () => Number(document.getElementById('atk').value)*(1+elements.s3_stack.value()*0.2),
         mult: () => 1 + (1-(elements.target_hp_pc.value()/100))*0.2,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
       },
@@ -2182,7 +2199,6 @@ const heroes = {
       s3: {
         rate: 0.9,
         pow: 1.05,
-        atk: () => Number(document.getElementById('atk').value)*(1+elements.s3_stack.value()*0.2),
         enhance: [0.1, 0, 0, 0, 0.15]
       }
     }
@@ -2191,12 +2207,27 @@ const heroes = {
     name: 'Luna',
     element: element.ice,
     classType: classType.warrior,
-    form: [elements.nb_hits],
+    form: [elements.caster_hp_above_50pc, elements.nb_hits],
+    atkUp: () => {
+      if (!elements.caster_hp_above_50pc.value()) {
+        return 1;
+      }
+
+      let mult = 1.2;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        mult += heroes.luna.skills.s2.enhance[i];
+      }
+
+      return mult;
+    },
     skills: {
       s1: {
         rate: () => elements.nb_hits.value()*0.7,
         pow: 0.95,
         enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
+      },
+      s2: {
+        enhance: [0.01, 0.02, 0.02, 0.02, 0.03]
       },
       s3: {
         soulburn: true,

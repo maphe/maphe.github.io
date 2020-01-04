@@ -192,6 +192,13 @@ const elements = {
     default: 10000,
     value: () => Number(document.getElementById('caster-hp').value)
   },
+  caster_hp_above_50pc: {
+    id: 'caster-hp-above-50pc',
+    label: 'Caster\'s HP above 50%',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-hp-above-50pc').checked,
+    default: true,
+  },
   caster_defense: {
     id: 'caster-defense',
     label: 'Caster\'s Defense',
