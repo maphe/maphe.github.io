@@ -145,6 +145,24 @@ const heroes = {
       }
     }
   },
+  all_rounder_wanda: {
+    name: 'All-Rounder Wanda',
+    element: element.dark,
+    classType: classType.ranger,
+    skills: {
+      s1: {
+        rate: 0.9,
+        pow: 0.95,
+        mult: () => elements.target_has_target.value() ? 1.35 : 1,
+        enhance: [0.05, 0, 0, 0.05, 0.1, 0.15]
+      },
+      s3: {
+        rate: 1.8,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0, 0, 0.15, 0.15]
+      }
+    }
+  },
   angelic_montmorancy: {
     name: 'Angelic Montmorancy',
     element: element.ice,

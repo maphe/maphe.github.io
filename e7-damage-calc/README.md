@@ -3,7 +3,7 @@
 - ~~Add offensive artifacts (Portrait of the Saviors, Elyha's Knife)~~
   - Add more
 - ~~Improve sliders (easier, more accurate inputs)~~
-- Add Passive Skill boosts (Luna, BBK)
+- ~~Add Passive Skill boosts (Lorina, Luna, BBK)~~
 - Add defensive artifacts (Noble Oath, Adamant Shield)
 - ~~Preset gear values (atk, crit dmg)~~
 - ~~Preset Defense values (eg. hunts)~~
@@ -19,4 +19,4 @@
 
 Heroes that might need a rework/double-check:
 - Cidd
-- Luna (3-10 hits) + permanent elemental adv on S3
+- Luna permanent elemental adv on S3
