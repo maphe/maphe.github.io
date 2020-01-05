@@ -697,6 +697,10 @@ $(() => {
         hpInput.value = selected.dataset.hp;
         update(elements.target_max_hp.id)
       }
+      gtag('event', 'pick', {
+        event_category: 'Defense',
+        event_label: selected.value,
+      });
     }
   };
 
@@ -715,6 +719,10 @@ $(() => {
     buildArtifact(artifacts[artiSelector.value]);
     build(heroes[heroSelector.value]);
     resolve();
+    gtag('event', 'pick', {
+      event_category: 'Artifact',
+      event_label: artiSelector.value,
+    });
   };
 
   const hero = heroes[heroSelector.value];
