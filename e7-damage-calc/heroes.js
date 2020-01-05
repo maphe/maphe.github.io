@@ -1094,12 +1094,23 @@ const heroes = {
     name: 'Commander Lorina',
     element: element.dark,
     classType: classType.warrior,
-    form: [elements.target_hp_pc],
+    form: [elements.target_hp_pc, elements.attack_skill_stack_5],
+    atkUp: () => {
+      let boost = 0.1;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        boost += heroes.commander_lorina.skills.s2.enhance[i];
+      }
+
+      return 1 + elements.attack_skill_stack_5.value()*boost;
+    },
     skills: {
       s1: {
         rate: 1,
         pow: 0.9,
         enhance: [0.05, 0.05, 0.1, 0.1, 0.1]
+      },
+      s2: {
+        enhance: [0.005, 0.005, 0.01, 0.01, 0.02]
       },
       s3: {
         rate: 1.5,
@@ -2126,12 +2137,23 @@ const heroes = {
     name: 'Lorina',
     element: element.dark,
     classType: classType.warrior,
-    form: [elements.target_hp_pc],
+    form: [elements.target_hp_pc, elements.attack_skill_stack_5],
+    atkUp: () => {
+      let boost = 0.1;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        boost += heroes.lorina.skills.s2.enhance[i];
+      }
+
+      return 1 + elements.attack_skill_stack_5.value()*boost;
+    },
     skills: {
       s1: {
         rate: 1,
         pow: 0.9,
         enhance: [0.05, 0.05, 0.1, 0.1, 0.1]
+      },
+      s2: {
+        enhance: [0.005, 0.005, 0.01, 0.01, 0.02]
       },
       s3: {
         rate: 1.5,
