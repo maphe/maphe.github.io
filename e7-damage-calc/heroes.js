@@ -3017,12 +3017,13 @@ const heroes = {
     name: 'Sigret',
     element: element.ice,
     classType: classType.warrior,
-    form: [elements.target_nb_debuff],
+    form: [elements.target_nb_debuff, elements.exclusive_equipment_1],
     dot: [dot.bleed],
     skills: {
       s1: {
         rate: 1,
         pow: 1,
+        mult: () => elements.exclusive_equipment_1.value() ? 1.2 : 1.0,
         enhance: [0.05, 0, 0.1, 0, 0.15]
       },
       s2: {
@@ -3478,11 +3479,12 @@ const heroes = {
     name: 'Yufine',
     element: element.earth,
     classType: classType.warrior,
-    form: [elements.target_has_buff],
+    form: [elements.target_has_buff, elements.exclusive_equipment_2],
     skills: {
       s1: {
         rate: 1,
         pow: 1,
+        mult: () => elements.exclusive_equipment_2.value() ? 1.3 : 1.0,
         enhance: [0.05, 0.05, 0, 0.05, 0, 0.15]
       },
       s2: {
