@@ -1845,19 +1845,19 @@ const heroes = {
     name: 'Kayron',
     element: element.fire,
     classType: classType.thief,
-    form: [elements.caster_hp_pc],
+    form: [elements.caster_hp_pc, elements.exclusive_equipment_1, elements.exclusive_equipment_2],
     skills: {
       s1: {
         soulburn: true,
         rate: (soulburn) => soulburn ? 1.35 : 0.95,
         pow: 1,
-        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0015,
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0015 + (elements.exclusive_equipment_1.value() ? 0.1 : 0),
         enhance: [0.05, 0.05, 0, 0.05, 0, 0.15]
       },
       s3: {
         rate: 1.7,
         pow: 0.9,
-        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.003,
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.003 + (elements.exclusive_equipment_2.value() ? 0.1 : 0),
         enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.1]
       }
     }
