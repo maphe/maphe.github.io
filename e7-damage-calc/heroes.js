@@ -163,6 +163,26 @@ const heroes = {
       }
     }
   },
+  ambitious_tywin: {
+    name: 'Ambitious Tywin',
+    element: element.light,
+    classType: classType.knight,
+    form: [elements.caster_max_hp],
+    skills: {
+      s1: {
+        rate: 0.6,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.1,
+        enhance: [0.05, 0, 0.05, 0, 0, 0.05, 0.15]
+      },
+      s3: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.12,
+        enhance: [0.05, 0, 0.1, 0.15]
+      },
+    }
+  },
   angelic_montmorancy: {
     name: 'Angelic Montmorancy',
     element: element.ice,
