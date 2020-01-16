@@ -943,7 +943,7 @@ const heroes = {
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
       },
       s2: {
-        rate: () => 1.5 + (elements.caster_nb_buff.value() > 1 ? (elements.caster_nb_buff.value()-1)*0.07 : 0),
+        rate: () => 1.5 + (elements.caster_nb_buff.value() > 1 ? (elements.caster_nb_buff.value())*0.07 : 0),
         pow: 1,
         enhance: [0.1, 0, 0.1, 0, 0.1],
       },
@@ -952,9 +952,9 @@ const heroes = {
         pow: 1,
         mult: () => {
           switch (elements.nb_targets.value()) {
-            case 3: return 1.534;
-            case 2: return 1.801;
-            case 1: return 2.068;
+            case 3: return 1.326;
+            case 2: return 1.534;
+            case 1: return 1.801;
             default: return 1;
           }
         },
@@ -3172,7 +3172,7 @@ const heroes = {
       s3: {
         rate: 1.8,
         pow: 0.8,
-        mult: () => elements.target_nb_bleed.value() > 0 ? 1.4 + (Math.min(elements.target_nb_bleed.value(), 5)-1)*0.15 : 1,
+        mult: () => elements.target_nb_bleed.value() > 0 ? 1.25 + (Math.min(elements.target_nb_bleed.value(), 5)-1)*0.25 : 1,
         enhance: [0.1, 0.1, 0, 0.15, 0.15]
       },
     }
