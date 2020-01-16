@@ -2,7 +2,7 @@ Fork to push and test out changes for Maphes Damage Calculator
 
 # TODO
 
-- Update the damage formula (done)
+- ~Update the damage formula (done by Maphe)~
 - Fix Charles S2/S3 multipliers
 - Fix Surin Bleeds
 - 
