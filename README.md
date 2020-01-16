@@ -1,6 +1,5 @@
-# maphe.github.io
+# Fork to push and test out changes for Maphes Damage Calculator
 
-Fixing calculations and multipliers on this fork.
 
 # TODO
 
