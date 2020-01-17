@@ -943,7 +943,7 @@ const heroes = {
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
       },
       s2: {
-        rate: () => 1.5 + (elements.caster_nb_buff.value() > 1 ? (elements.caster_nb_buff.value())*0.07 : 0),
+        rate: () => 1.5 + elements.caster_nb_buff.value()*0.07,
         pow: 1,
         enhance: [0.1, 0, 0.1, 0, 0.1],
       },
