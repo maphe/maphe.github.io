@@ -63,3 +63,11 @@ div.dropdown-menu.show {
 .buff-block img {
     margin-bottom: 2px;
 }
+
+#flags {
+    text-align: right;
+}
+
+#flags button {
+    margin-top: 9px
+}
