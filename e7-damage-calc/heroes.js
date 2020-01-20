@@ -952,7 +952,7 @@ const heroes = {
         pow: 1,
         mult: () => {
           switch (elements.nb_targets.value()) {
-            case 3: return 1.326;
+            case 3: return 1.267;
             case 2: return 1.534;
             case 1: return 1.801;
             default: return 1;
