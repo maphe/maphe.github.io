@@ -708,8 +708,14 @@ $(() => {
   dmgReducPresetSelector.onchange = () => {
     const selected = dmgReducPresetSelector.options[dmgReducPresetSelector.selectedIndex];
     if (selected.value) {
-      document.getElementById('dmg-reduc').value = selected.dataset.reduc;
-      update('dmg-reduc');
+      if (selected.dataset.reduc !== undefined) {
+        document.getElementById('dmg-reduc').value = selected.dataset.reduc;
+        update('dmg-reduc');
+      }
+      if (selected.dataset.trans !== undefined) {
+        document.getElementById('dmg-trans').value = selected.dataset.trans;
+        update('dmg-trans');
+      }
       gtag('event', 'pick', {
         event_category: 'Damage Reduction',
         event_label: selected.value,

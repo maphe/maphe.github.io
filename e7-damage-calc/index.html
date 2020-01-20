@@ -176,12 +176,16 @@
                     </div>
                     <div class="form-group col-md-4 col-sm-12">
                         <select id="dmg-reduc-preset" name="dmg-reduc-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true">
-                            <option value="none" data-reduc="0">No Damage Reduction</option>
+                            <option value="none" data-reduc="0" data-trans="0">No Damage Reduction/Transfer</option>
                             <option data-divider="true"></option>
-                            <option value="proof-of-valor-init" data-reduc="30" data-subtext="30%">Proof of Valor (Battle start)</option>
-                            <option value="ss-bellona" data-reduc="30" data-subtext="30%">Seaside Bellona (S2 Passive)</option>
-                            <option value="aurius" data-reduc="20" data-subtext="20%">Aurius (Max)</option>
-                            <option value="proof-of-valor-down" data-reduc="15" data-subtext="15%">Proof of Valor (After 5 hits)</option>
+                            <optgroup label="Damage Reduction">
+                                <option value="proof-of-valor-init" data-reduc="30" data-subtext="30%">Proof of Valor (Battle start)</option>
+                                <option value="proof-of-valor-down" data-reduc="15" data-subtext="15%">Proof of Valor (After 5 hits)</option>
+                            </optgroup>
+                            <optgroup label="Damage Transfer">
+                                <option value="ss-bellona" data-trans="30" data-subtext="30%">Seaside Bellona (S2 Passive)</option>
+                                <option value="aurius" data-trans="20" data-subtext="20%">Aurius (Max)</option>
+                            </optgroup>
                         </select>
                     </div>
                 </div>
@@ -204,21 +208,44 @@
                         </div>
                     </div>
 
-                    <div class="stat-block">
-                        <div class="form-group row col-sm-12">
-                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>Damage Reduction/Transfer (%)</h5></label>
-                            <div class="input-group input-group-sm col-md-3">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-outline-secondary" type="button" id="dmg-reduc-minus" onclick="minus('dmg-reduc')">&minus;</button>
+                    <div class="row">
+                        <div class="col-sm-6 half-left">
+                            <div class="stat-block">
+                                <div class="form-group row col-sm-12">
+                                    <label for="crit" class="col-md-7 col-form-label form-control-sm"><h5>Damage Reduction (%)</h5></label>
+                                    <div class="input-group input-group-sm col-md-5">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary" type="button" id="dmg-reduc-minus" onclick="minus('dmg-reduc')">&minus;</button>
+                                        </div>
+                                        <input type="number" class="form-control text-center" id="dmg-reduc" value="0" onkeyup="update('dmg-reduc')">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="dmg-reduc-plus" onclick="plus('dmg-reduc')">&plus;</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <input type="number" class="form-control text-center" id="dmg-reduc" value="0" onkeyup="update('dmg-reduc')">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="dmg-reduc-plus" onclick="plus('dmg-reduc')">&plus;</button>
+                                <div class="form-group row col-sm-12">
+                                    <input type="range" class="custom-range" id="dmg-reduc-slide" min="0" max="100" value="0" oninput="slide('dmg-reduc')">
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row col-sm-12">
-                            <input type="range" class="custom-range" id="dmg-reduc-slide" min="0" max="100" value="0" oninput="slide('dmg-reduc')">
+                        <div class="col-sm-6 half-right">
+                            <div class="stat-block">
+                                <div class="form-group row col-sm-12">
+                                    <label for="crit" class="col-md-7 col-form-label form-control-sm"><h5>Damage Transfer (%)</h5></label>
+                                    <div class="input-group input-group-sm col-md-5">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary" type="button" id="dmg-trans-minus" onclick="minus('dmg-trans')">&minus;</button>
+                                        </div>
+                                        <input type="number" class="form-control text-center" id="dmg-trans" value="0" onkeyup="update('dmg-trans')">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="dmg-trans-plus" onclick="plus('dmg-trans')">&plus;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row col-sm-12">
+                                    <input type="range" class="custom-range" id="dmg-trans-slide" min="0" max="100" value="0" oninput="slide('dmg-trans')">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
