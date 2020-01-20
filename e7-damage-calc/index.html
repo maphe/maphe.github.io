@@ -27,12 +27,12 @@
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-<!--        <div class="alert alert-warning alert-dismissible fade show" role="alert">-->
-<!--            <strong>Jan 9, Update:</strong> Added Hero: Ambitious Tywin ; Added Exclusive Equipment for: Kayron, Yufine & Sigret-->
-<!--            <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
-<!--                <span aria-hidden="true">&times;</span>-->
-<!--            </button>-->
-<!--        </div>-->
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Jan 19, Update:</strong> Added Damage Reduction/Transfer (%) in the Target section
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <div>
             <form id="stats">
                 <h4>Hero</h4>
@@ -148,7 +148,7 @@
                 </div>
 
                 <div class="row">
-                    <h4 class="col-md-8">Target</h4>
+                    <h4 class="col-md-4">Target</h4>
                     <div class="form-group col-md-4 col-sm-12">
                         <select id="def-preset" name="def-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true">
                             <option value="">Manual</option>
@@ -174,11 +174,21 @@
                             </optgroup>
                         </select>
                     </div>
+                    <div class="form-group col-md-4 col-sm-12">
+                        <select id="dmg-reduc-preset" name="dmg-reduc-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true">
+                            <option value="none" data-reduc="0">No Damage Reduction</option>
+                            <option data-divider="true"></option>
+                            <option value="proof-of-valor-init" data-reduc="30" data-subtext="30%">Proof of Valor (Battle start)</option>
+                            <option value="ss-bellona" data-reduc="30" data-subtext="30%">Seaside Bellona (S2 Passive)</option>
+                            <option value="aurius" data-reduc="20" data-subtext="20%">Aurius (Max)</option>
+                            <option value="proof-of-valor-down" data-reduc="15" data-subtext="15%">Proof of Valor (After 5 hits)</option>
+                        </select>
+                    </div>
                 </div>
                 <div id="target-block">
                     <div class="stat-block">
                         <div class="form-group row col-sm-12">
-                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>Defense</h5></label>
+                            <label for="def" class="col-md-9 col-form-label form-control-sm"><h5>Defense</h5></label>
                             <div class="input-group input-group-sm col-md-3">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" type="button" id="def-minus" onclick="minus('def')">&minus;</button>
@@ -191,6 +201,24 @@
                         </div>
                         <div class="form-group row col-sm-12">
                             <input type="range" class="custom-range" id="def-slide" min="200" max="5000" value="750" oninput="slide('def')">
+                        </div>
+                    </div>
+
+                    <div class="stat-block">
+                        <div class="form-group row col-sm-12">
+                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>Damage Reduction/Transfer (%)</h5></label>
+                            <div class="input-group input-group-sm col-md-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary" type="button" id="dmg-reduc-minus" onclick="minus('dmg-reduc')">&minus;</button>
+                                </div>
+                                <input type="number" class="form-control text-center" id="dmg-reduc" value="0" onkeyup="update('dmg-reduc')">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="dmg-reduc-plus" onclick="plus('dmg-reduc')">&plus;</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row col-sm-12">
+                            <input type="range" class="custom-range" id="dmg-reduc-slide" min="0" max="100" value="0" oninput="slide('dmg-reduc')">
                         </div>
                     </div>
 

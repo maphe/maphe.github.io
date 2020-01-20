@@ -704,6 +704,19 @@ $(() => {
     }
   };
 
+  const dmgReducPresetSelector = document.getElementById('dmg-reduc-preset');
+  dmgReducPresetSelector.onchange = () => {
+    const selected = dmgReducPresetSelector.options[dmgReducPresetSelector.selectedIndex];
+    if (selected.value) {
+      document.getElementById('dmg-reduc').value = selected.dataset.reduc;
+      update('dmg-reduc');
+      gtag('event', 'pick', {
+        event_category: 'Damage Reduction',
+        event_label: selected.value,
+      });
+    }
+  };
+
   const atkPresetSelector = document.getElementById('atk-preset');
   atkPresetSelector.onchange = () => {
     const selected = atkPresetSelector.options[atkPresetSelector.selectedIndex];
