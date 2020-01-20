@@ -49,6 +49,14 @@ const en = {
     egg: 'Egg',
     azimanak: 'Azimanak',
   },
+  damage_reduction: {
+    label: 'Damage Reduction/Transfer (%)',
+    none: 'No Damage Reduction',
+    proof_init: 'Proof of Valor (Battle start)',
+    proof_5hits: 'Proof of Valor (After 5 hits)',
+    seaside_bellona: 'Seaside Bellona (S2 Passive)',
+    aurius: 'Aurius (Max)',
+  },
   form: {
     nb_targets: 'Number of enemies',
     nb_hits: 'Number of hits',
