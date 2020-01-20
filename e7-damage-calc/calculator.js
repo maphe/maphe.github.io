@@ -168,6 +168,10 @@ class Hero {
       }
     }
 
+    if (skill.exEq !== undefined) {
+      mult += skill.exEq();
+    }
+
     return mult;
   }
 

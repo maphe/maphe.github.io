@@ -939,7 +939,7 @@ const heroes = {
       s1: {
         rate: 1,
         pow: 1,
-        mult: () => elements.exclusive_equipment_2.value() ? 1.1 : 1,
+        exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
       },
       s2: {
@@ -1851,13 +1851,15 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 1.35 : 0.95,
         pow: 1,
-        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0015 + (elements.exclusive_equipment_1.value() ? 0.1 : 0),
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0015,
+        exEq: () => elements.exclusive_equipment_1.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.05, 0, 0.15]
       },
       s3: {
         rate: 1.7,
         pow: 0.9,
-        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.003 + (elements.exclusive_equipment_2.value() ? 0.1 : 0),
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.003,
+        exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.1]
       }
     }
@@ -3023,7 +3025,7 @@ const heroes = {
       s1: {
         rate: 1,
         pow: 1,
-        mult: () => elements.exclusive_equipment_1.value() ? 1.2 : 1.0,
+        exEq: () => elements.exclusive_equipment_1.value() ? 0.2 : 0,
         enhance: [0.05, 0, 0.1, 0, 0.15]
       },
       s2: {
@@ -3484,7 +3486,7 @@ const heroes = {
       s1: {
         rate: 1,
         pow: 1,
-        mult: () => elements.exclusive_equipment_2.value() ? 1.3 : 1.0,
+        exEq: () => elements.exclusive_equipment_2.value() ? 0.3 : 0,
         enhance: [0.05, 0.05, 0, 0.05, 0, 0.15]
       },
       s2: {
@@ -3524,13 +3526,13 @@ const heroes = {
         rate: 1.5,
         pow: 0.8,
         mult: () => {
-          const base = elements.exclusive_equipment_3.value() ? 1.3 : 1;
           switch (elements.nb_targets.value()) {
-            case 2: return base + 0.4;
-            case 1: return base + 0.6;
-            default: return base;
+            case 2: return 1.4;
+            case 1: return 1.6;
+            default: return 1;
           }
         },
+        exEq: () => elements.exclusive_equipment_3.value() ? 0.3 : 0,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1, 0.1, 0.1]
       }
     }
