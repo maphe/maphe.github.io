@@ -1674,6 +1674,7 @@ const heroes = {
           switch (elements.nb_targets.value()) {
             case 1: return 2.5;
             case 2: return 2.0;
+            case 3: return 1.5;
             default: return 1.0;
           }
         },
@@ -2413,6 +2414,7 @@ const heroes = {
           switch (elements.nb_targets.value()) {
             case 1: return 1.9;
             case 2: return 1.6;
+            case 3: return 1.3;
             default: return 1;
           }
         },
@@ -3514,6 +3516,7 @@ const heroes = {
         mult: () => {
           let mult = 1 + elements.caster_speed.value()*0.00075;
           switch (elements.nb_targets.value()) {
+            case 3: mult += 0.2; break;
             case 2: mult += 0.4; break;
             case 1: mult += 0.6; break;
           }
@@ -3527,6 +3530,7 @@ const heroes = {
         pow: 0.8,
         mult: () => {
           switch (elements.nb_targets.value()) {
+            case 3: return 1.2;
             case 2: return 1.4;
             case 1: return 1.6;
             default: return 1;
