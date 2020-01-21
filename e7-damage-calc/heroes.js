@@ -3147,17 +3147,26 @@ const heroes = {
     element: element.dark,
     classType: classType.mage,
     form: [elements.target_nb_debuff, elements.dead_people],
+    atkUp: () => {
+      let buff = 0.07;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        buff += heroes.specter_tenebria.skills.s2.enhance[i];
+      }
+      return 1 + Math.min(elements.dead_people.value(), 5)*buff;
+    },
     skills: {
       s1: {
         rate: 1.2,
         pow: 1,
         enhance: [0.05, 0, 0.05, 0, 0.05, 0.15],
-        mult: () => 1 + Math.min(elements.dead_people.value(), 5)*0.07
+      },
+      s2: {
+        enhance: [0.005, 0.01, 0.015],
       },
       s3: {
         rate: 1.8,
         pow: 0.95,
-        mult: () => 1 + elements.target_nb_debuff.value()*0.2 + Math.min(elements.dead_people.value(), 5)*0.07,
+        mult: () => 1 + elements.target_nb_debuff.value()*0.2,
         enhance: [0.05, 0.05, 0, 0, 0.1, 0.1]
       }
     }
