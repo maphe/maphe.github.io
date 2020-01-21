@@ -50,8 +50,9 @@ const en = {
     azimanak: 'Azimanak',
   },
   damage_reduction: {
-    label: 'Damage Reduction/Transfer (%)',
-    none: 'No Damage Reduction',
+    label_reduction: 'Damage Reduction',
+    label_transfer: 'Damage Transfer',
+    none: 'No Damage Reduction/Transfer',
     proof_init: 'Proof of Valor (Battle start)',
     proof_5hits: 'Proof of Valor (After 5 hits)',
     seaside_bellona: 'Seaside Bellona (S2 Passive)',
