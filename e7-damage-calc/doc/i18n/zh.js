@@ -25,6 +25,7 @@ const zh = {
     crushing_hit: '強擊',
     normal_hit: '普通',
     miss_hit: '閃避',
+    non_applicable: 'n/a',
     hero_specific: '角色 特性'
   },
   presets: {
@@ -118,5 +119,8 @@ const zh = {
     s1: '一技能',
     s2: '二技能',
     s3: '三技能',
+    s1_soulburn: 'S1 Soulburn',
+    s2_soulburn: 'S2 Soulburn',
+    s3_soulburn: 'S3 Soulburn',
   }
 };

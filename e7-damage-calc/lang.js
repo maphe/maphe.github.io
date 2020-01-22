@@ -484,6 +484,9 @@ const i18n = {
       s1: '一技能',
       s2: '二技能',
       s3: '三技能',
+      s1_soulburn: 'S1 Soulburn',
+      s2_soulburn: 'S2 Soulburn',
+      s3_soulburn: 'S3 Soulburn',
     }
   }
 };
@@ -515,11 +518,12 @@ const formLabel = (id) => {
   }
 };
 
-const skillId = (id) => {
+const skillLabel = (id, soulburn = false) => {
   const lang = document.getElementById('root').getAttribute('lang');
   if (lang === 'en') {
-    return id.toUpperCase();
+    return id.toUpperCase() + (soulburn ? ' Soulburn' : '');
   } else {
+    id = soulburn ? id+'_soulburn' : id;
     return i18n[lang].skills[id] || id.toUpperCase();
   }
 };

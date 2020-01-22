@@ -586,7 +586,7 @@ const build = (hero) => {
     const skill = hero.skills[id];
     if (skill.enhance) {
       $(molagoraBlock).append(`<div class="form-group row col-sm-12">
-                        <label for="molagora-${id}" class="col-sm-12 col-md-1 col-form-label form-control-sm text-center"><h5>${skillId(id)}</h5></label>
+                        <label for="molagora-${id}" class="col-sm-12 col-md-1 col-form-label form-control-sm text-center mola-skill-label"><h5>${skillLabel(id)}</h5></label>
                         <div class="input-group input-group-sm col-md-2 col-sm-12">
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-secondary" type="button" id="molagora-${id}-minus" onclick="minusMola('${id}')">&minus;</button>

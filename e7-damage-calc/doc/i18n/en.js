@@ -196,6 +196,8 @@ const en = {
     increased_attack: 'Increased Attack',
     increased_attack_great: 'Increased Attack (Great)',
     rage_set_proc: 'Rage Set Proc',
+    artifact: 'Artifact',
+    artifact_level: 'Level',
     target: 'Target',
     defense: 'Defense',
     increased_defense: 'Increased Defense',
@@ -208,6 +210,7 @@ const en = {
     crushing_hit: 'Crushing Hit',
     normal_hit: 'Normal Hit',
     miss_hit: 'Miss',
+    non_applicable: 'n/a',
     hero_specific: 'Hero Specific'
   },
   presets: {
@@ -224,10 +227,13 @@ const en = {
     blood_ridge_naga: 'Blood Ridge Naga',
     wyvern: 'Wyvern',
     golem_11: 'Golem 11',
+    raqix_flying_troop: 'Raqix Flying Troop',
+    mossy_testudo: 'Mossy Tustedo',
     golem: 'Golem',
     banshee_11: 'Banshee 11',
     mystychain: 'Mystychain',
     icy_dark_bloom: 'Icy Dark Bloom',
+    banshee: 'Banshee',
     azimanak_11: 'Azimanak 11',
     striker_warlord: 'Striker Warlord',
     karax_charger: 'Karax Charger',
@@ -298,5 +304,8 @@ const en = {
     s1: 'S1',
     s2: 'S2',
     s3: 'S3',
+    s1_soulburn: 'S1 Soulburn',
+    s2_soulburn: 'S2 Soulburn',
+    s3_soulburn: 'S3 Soulburn',
   }
 };

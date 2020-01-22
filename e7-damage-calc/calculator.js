@@ -25,7 +25,7 @@ const resolve = () => {
     if (skill.rate !== undefined) {
       const damage = hero.getDamage(skillId);
       $(table).append(`<tr>
-            <td>${skill.name ? skill.name : skillId.toUpperCase()}</td>
+            <td>${skill.name ? skill.name : skillLabel(skillId)}</td>
             <td>${displayDmg(damage, 'crit')}</td>
             <td>${displayDmg(damage, 'crush')}</td>
             <td>${displayDmg(damage, 'normal')}</td>
@@ -35,7 +35,7 @@ const resolve = () => {
       if (skill.soulburn) {
         const damage = hero.getDamage(skillId, true);
         $(table).append(`<tr>
-            <td>${skill.name ? skill.name : skillId.toUpperCase()} Soulburn</td>
+            <td>${skill.name ? skill.name : skillLabel(skillId, true)}</td>
             <td>${displayDmg(damage, 'crit')}</td>
             <td>${displayDmg(damage, 'crush')}</td>
             <td>${displayDmg(damage, 'normal')}</td>

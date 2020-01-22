@@ -22,6 +22,10 @@
     border-radius: 8px;
 }
 
+.mola-skill-label h5 {
+    font-size: 1.2rem;
+}
+
 #damage-block {
     position: -webkit-sticky;
     position: sticky;
