@@ -5,6 +5,16 @@
     border-radius: 8px;
 }
 
+@media (min-width: 576px) {
+    .col-sm-6.half-left {
+        padding-right: 7px;
+    }
+
+    .col-sm-6.half-right {
+        padding-left: 0;
+    }
+}
+
 #molagora-block {
     padding: 18px 0 1px 0px;
     background-color: whitesmoke;

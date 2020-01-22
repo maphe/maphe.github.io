@@ -113,7 +113,7 @@ class Hero {
 
   getDamage(skillId, soulburn = false) {
     const skill = this.skills[skillId];
-    const hit = this.offensivePower(skillId, soulburn) / this.target.defensivePower(skill);
+    const hit = this.offensivePower(skillId, soulburn) * this.target.defensivePower(skill);
     const critDmg = (this.crit / 100)+(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0)+(this.artifact.getCritDmgBoost()||0);
     return {
       crit: skill.noCrit ? null : Math.round(hit*critDmg + this.getAfterMathDamage(skillId, critDmg)),
@@ -166,6 +166,10 @@ class Hero {
       for (let i = 0; i < enhanceLevel; i++) {
         mult += enhancement[i];
       }
+    }
+
+    if (skill.exEq !== undefined) {
+      mult += skill.exEq();
     }
 
     return mult;
@@ -228,7 +232,9 @@ class Target {
   }
 
   defensivePower(skill) {
-    return (((this.def * getGlobalDefMult()) / 300)*(1-(skill && skill.penetrate ? skill.penetrate() : 0)-this.casterArtifact.getDefensePenetration())) + 1;
+    const dmgReduc = Number(document.getElementById('dmg-reduc').value)/100;
+    const dmgTrans = Number(document.getElementById('dmg-trans').value)/100;
+    return ((1-dmgReduc)*(1-dmgTrans))/((((this.def * getGlobalDefMult()) / 300)*(1-(skill && skill.penetrate ? skill.penetrate() : 0)-this.casterArtifact.getDefensePenetration())) + 1);
   }
 }
 
