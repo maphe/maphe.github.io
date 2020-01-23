@@ -11,8 +11,8 @@ const zh = {
     increased_attack: '攻擊力增加',
     increased_attack_great: '攻擊力增加 (大幅)',
     rage_set_proc: '憤怒套裝',
-    artifact: 'Artifact',
-    artifact_level: 'Level',
+    artifact: '神器',
+    artifact_level: '級別',
     target: '目標',
     defense: '防禦力',
     increased_defense: '防禦力增加',
@@ -25,7 +25,6 @@ const zh = {
     crushing_hit: '強擊',
     normal_hit: '普通',
     miss_hit: '閃避',
-    non_applicable: 'n/a',
     hero_specific: '角色 特性'
   },
   presets: {
@@ -48,7 +47,7 @@ const zh = {
     banshee_11: '水 11',
     mystychain: '美絲緹彩',
     icy_dark_bloom: '寒冰達克布魯姆',
-    banshee: 'Banshee',
+    banshee: '報喪妖領主史達萊特',
     azimanak_11: '暗 11',
     striker_warlord: '一擊的羅奇斯戰鬥君主',
     karax_charger: '卡洛斯衝鋒兵',
@@ -116,11 +115,12 @@ const zh = {
     exclusive_equipment_3: '專屬裝備 #3',
   },
   skills: {
+    non_applicable: '無',
     s1: '一技能',
     s2: '二技能',
     s3: '三技能',
-    s1_soulburn: 'S1 Soulburn',
-    s2_soulburn: 'S2 Soulburn',
-    s3_soulburn: 'S3 Soulburn',
+    s1_soulburn: '一技能 靈魂燃燒',
+    s2_soulburn: '二技能 靈魂燃燒',
+    s3_soulburn: '三技能 靈魂燃燒',
   }
 };

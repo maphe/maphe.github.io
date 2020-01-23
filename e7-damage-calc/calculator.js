@@ -47,7 +47,7 @@ const resolve = () => {
 };
 
 const displayDmg = (damage, type) => {
-  return damage[type] !== null ? damage[type] : '<i>n/a</i>'
+  return damage[type] !== null ? damage[type] : `<i>${skillLabel('non_applicable')}</i>`
 };
 
 const getGlobalAtkMult = () => {

@@ -210,7 +210,6 @@ const en = {
     crushing_hit: 'Crushing Hit',
     normal_hit: 'Normal Hit',
     miss_hit: 'Miss',
-    non_applicable: 'n/a',
     hero_specific: 'Hero Specific'
   },
   presets: {
@@ -301,6 +300,7 @@ const en = {
     exclusive_equipment_3: 'Exclusive Equipment #3',
   },
   skills: {
+    non_applicable: 'n/a',
     s1: 'S1',
     s2: 'S2',
     s3: 'S3',

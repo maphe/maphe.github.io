@@ -481,12 +481,13 @@ const i18n = {
       exclusive_equipment_3: '專屬裝備 #3',
     },
     skills: {
+      non_applicable: '無',
       s1: '一技能',
       s2: '二技能',
       s3: '三技能',
-      s1_soulburn: 'S1 Soulburn',
-      s2_soulburn: 'S2 Soulburn',
-      s3_soulburn: 'S3 Soulburn',
+      s1_soulburn: '一技能 靈魂燃燒',
+      s2_soulburn: '二技能 靈魂燃燒',
+      s3_soulburn: '三技能 靈魂燃燒',
     }
   }
 };
@@ -521,7 +522,7 @@ const formLabel = (id) => {
 const skillLabel = (id, soulburn = false) => {
   const lang = document.getElementById('root').getAttribute('lang');
   if (lang === 'en') {
-    return id.toUpperCase() + (soulburn ? ' Soulburn' : '');
+    return (id === 'non_applicable') ? 'n/a' : id.toUpperCase() + (soulburn ? ' Soulburn' : '');
   } else {
     id = soulburn ? id+'_soulburn' : id;
     return i18n[lang].skills[id] || id.toUpperCase();
