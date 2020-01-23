@@ -2541,6 +2541,33 @@ const heroes = {
       }
     }
   },
+  pavel: {
+    name: 'Pavel',
+    element: element.earth,
+    classType: classType.ranger,
+    form: [elements.caster_speed],
+    skills: {
+      s1: {
+        rate: 0.9,
+        pow: 1.1,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        enhance: [0.05, 0, 0.05, 0, 0.1]
+      },
+      s2: {
+        aoe: true,
+        rate: 0.8,
+        pow: 1,
+        mult: () => 1 + elements.caster_speed.value()*0.001125,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      },
+      s3: {
+        rate: 1.3,
+        pow: 1,
+        mult: () => 1 + elements.caster_speed.value()*0.0015,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      }
+    }
+  },
   pearlhorizon: {
     name: 'Pearlhorizon',
     element: element.earth,
