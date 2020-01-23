@@ -335,6 +335,17 @@ const elements = {
     readonly: true,
     value: () => Number(document.getElementById('stack-non-attack-skill-3').value)
   },
+  critical_hit_stack_12: {
+    ref: 'critical_hit_stack_12',
+    id: 'critical-hit-stack-12',
+    label: 'Critical Hit Stack',
+    type: 'slider',
+    min: 0,
+    max: 12,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('critical-hit-stack-12').value)
+  },
   turn_stack: {
     id: 'turn-stack',
     label: 'Turn Stack',

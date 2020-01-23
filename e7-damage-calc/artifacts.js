@@ -29,6 +29,14 @@ const artifacts = {
     type: artifactDmgType.critDmgBoost,
     exclusive: classType.warrior
   },
+  dux_noctis: {
+    name: 'Dux Noctis',
+    type: artifactDmgType.attack,
+    scale: [0.01, 0.011, 0.012, 0.013, 0.014, 0.015, 0.016, 0.017, 0.018, 0.019, 0.02],
+    form: [elements.critical_hit_stack_12],
+    exclusive: classType.ranger,
+    value: (artiScale) => elements.critical_hit_stack_12.value()*artiScale
+  },
   exorcist_tonfa: {
     name: 'Exorcist\'s Tonfa',
     scale: [0.08, 0.088, 0.096, 0.104, 0.112, 0.12, 0.128, 0.136, 0.144, 0.152, 0.16],
