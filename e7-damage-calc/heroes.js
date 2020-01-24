@@ -843,7 +843,7 @@ const heroes = {
     name: 'Challenger Dominiel',
     element: element.dark,
     classType: classType.mage,
-    form: [elements.stack_crit_hit],
+    form: [elements.critical_hit_stack],
     skills: {
       s1: {
         soulburn: true,
@@ -856,7 +856,7 @@ const heroes = {
             mult += heroes.challenger_dominiel.skills.s2.enhance[i];
           }
 
-          return Number(document.getElementById(`atk`).value) * elements.stack_crit_hit.value()*(0.054 + (0.054*mult));
+          return Number(document.getElementById(`atk`).value) * elements.critical_hit_stack.value()*(0.054 + (0.054*mult));
         },
         enhance: [0.05, 0.05, 0.05, 0.1, 0.15],
       },
