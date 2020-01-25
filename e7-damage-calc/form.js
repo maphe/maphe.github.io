@@ -331,15 +331,26 @@ const elements = {
     value: () => document.getElementById('caster-stealth').checked,
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_hide.png'
   },
-  stack_crit_hit: {
-    ref: 'stack_crit_hit',
-    id: 'stack-crit-hit',
-    label: 'Crit Hit Stack',
+  critical_hit_stack: {
+    ref: 'critical_hit_stack',
+    id: 'critical-hit-stack',
+    label: 'Critical Hit Stack',
     type: 'slider',
     min: 0,
     max: 50,
     default: 0,
-    value: () => Number(document.getElementById('stack-crit-hit').value)
+    value: () => Number(document.getElementById('critical-hit-stack').value)
+  },
+  critical_hit_stack_12: {
+    ref: 'critical_hit_stack_12',
+    id: 'critical-hit-stack-12',
+    label: 'Critical Hit Stack',
+    type: 'slider',
+    min: 0,
+    max: 12,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('critical-hit-stack-12').value)
   },
   non_attack_skill_stack_10: {
     ref: 'non_attack_skill_stack_10',
