@@ -171,6 +171,7 @@ const kr = {
     border_coin: '경계의 금화',
     daydream_joker: '데이드림 조커',
     draco_plate: '드라고니언 플레이트',
+    dux_noctis: '둑스 녹티스',
     exorcist_tonfa: '투귀의 톤파',
     elyha_knife: '엘리하 나이프',
     hell_cutter: '지옥 절단기',
@@ -196,13 +197,13 @@ const kr = {
     increased_attack: '공격력 증가',
     increased_attack_great: '공격력 증가 (대)',
     rage_set_proc: '분노셋 적용',
-    artifact: '아티팩틑',
+    artifact: '아티팩트',
     artifact_level: '아티팩트 레벨',
     target: '대상',
     defense: '방어력',
     increased_defense: '방어력 증가',
     decreased_defense: '방어력 감소',
-    target_debuff: '대상의 디버프', // if You are talking about 'debuffing target', '디버프 대상'. if you are talking about target's debuff, '대상의 디버프'
+    target_debuff: '표적',
     skill_enhance: '스킬 강화',
     damage: '데미지',
     skill: '스킬',
@@ -210,7 +211,7 @@ const kr = {
     crushing_hit: '강타',
     normal_hit: '평타',
     miss_hit: '빗나감',
-    hero_specific: '특정 영웅'
+    hero_specific: '영웅 특성'
   },
   presets: {
     manual: '수동',
@@ -243,8 +244,8 @@ const kr = {
     label_reduction: '피해량 감소',
     label_transfer: '피해량 전이',
     none: '피해량 감소/전이 없음',
-    proof_init: 'Proof of Valor (Battle start)',
-    proof_5hits: 'Proof of Valor (After 5 hits)',
+    proof_init: '용맹의 증거 (전투 시작시)',
+    proof_5hits: '용맹의 증거 (피격 5회 이후)',
     seaside_bellona: '해변의 벨로나 (2스킬 패시브)', // ssb's 2nd skill attack is "당신, 매력없어요"
     aurius: '아우리우스 (풀강)',
   },

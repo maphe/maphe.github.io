@@ -667,6 +667,7 @@ const i18n = {
       border_coin: '경계의 금화',
       daydream_joker: '데이드림 조커',
       draco_plate: '드라고니언 플레이트',
+      dux_noctis: '둑스 녹티스',
       exorcist_tonfa: '투귀의 톤파',
       elyha_knife: '엘리하 나이프',
       hell_cutter: '지옥 절단기',
