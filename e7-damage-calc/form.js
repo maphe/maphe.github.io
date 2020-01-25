@@ -1,5 +1,6 @@
 const elements = {
   nb_targets: {
+    ref: 'nb_targets',
     id: 'nb-targets',
     label: 'Number of enemies',
     type: 'slider',
@@ -10,6 +11,7 @@ const elements = {
     value: () => Number(document.getElementById('nb-targets').value)
   },
   nb_hits: {
+    ref: 'nb_hits',
     id: 'nb-hits',
     label: 'Number of hits',
     type: 'slider',
@@ -20,6 +22,7 @@ const elements = {
     value: () => Number(document.getElementById('nb-hits').value)
   },
   target_max_hp: {
+    ref: 'target_max_hp',
     id: 'target-max-hp',
     label: 'Targets\'s Max HP',
     type: 'slider',
@@ -32,6 +35,7 @@ const elements = {
     value: () => Number(document.getElementById('target-max-hp').value)
   },
   target_hp_pc: {
+    ref: 'target_hp_pc',
     id: 'target-hp-pc',
     label: 'Targets\'s HP %',
     type: 'slider',
@@ -43,6 +47,7 @@ const elements = {
     value: () => Number(document.getElementById('target-hp-pc').value)
   },
   target_hp: {
+    ref: 'target_hp',
     id: 'target-hp',
     label: 'Targets\'s HP',
     type: 'slider',
@@ -52,6 +57,7 @@ const elements = {
     value: () => Number(document.getElementById('target-hp').value)
   },
   target_speed: {
+    ref: 'target_speed',
     id: 'target-speed',
     label: 'Targets\'s Speed',
     type: 'slider',
@@ -61,6 +67,7 @@ const elements = {
     value: () => Number(document.getElementById('target-speed').value)
   },
   target_nb_buff: {
+    ref: 'target_nb_buff',
     id: 'target-nb-buff',
     label: 'Buffs on Targets',
     type: 'slider',
@@ -71,6 +78,7 @@ const elements = {
     value: () => Number(document.getElementById('target-nb-buff').value)
   },
   target_nb_debuff: {
+    ref: 'target_nb_debuff',
     id: 'target-nb-debuff',
     label: 'Debuffs on Targets',
     type: 'slider',
@@ -81,18 +89,21 @@ const elements = {
     value: () => Number(document.getElementById('target-nb-debuff').value)
   },
   target_has_buff: {
+    ref: 'target_has_buff',
     id: 'target-has-buff',
     label: 'Target has buffs',
     type: 'checkbox',
     value: () => document.getElementById('target-has-buff').checked
   },
   target_has_debuff: {
+    ref: 'target_has_debuff',
     id: 'target-has-debuff',
     label: 'Target has debuffs',
     type: 'checkbox',
     value: () => document.getElementById('target-has-debuff').checked
   },
   target_has_bleed: {
+    ref: 'target_has_bleed',
     id: 'target-has-bleed',
     label: 'Target has Bleed',
     type: 'checkbox',
@@ -100,6 +111,7 @@ const elements = {
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blood.png'
   },
   target_has_sleep: {
+    ref: 'target_has_sleep',
     id: 'target-has-sleep',
     label: 'Target has Sleep',
     type: 'checkbox',
@@ -107,9 +119,11 @@ const elements = {
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_sleep.png'
   },
   target_has_target: {
+    ref: 'target_has_target',
     value: () => document.getElementById('target').checked,
   },
   target_is_stunned: {
+    ref: 'target_is_stunned',
     id: 'target-is-stunned',
     label: 'Target is stunned',
     type: 'checkbox',
@@ -117,6 +131,7 @@ const elements = {
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_stun.png'
   },
   target_has_barrier: {
+    ref: 'target_has_barrier',
     id: 'target-has-barrier',
     label: 'Target has Barrier',
     type: 'checkbox',
@@ -124,6 +139,7 @@ const elements = {
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_protect.png'
   },
   target_magic_nailed: {
+    ref: 'target_magic_nailed',
     id: 'target-magic-nailed',
     label: 'Magic Nail on Target',
     type: 'checkbox',
@@ -131,6 +147,7 @@ const elements = {
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_nail.png'
   },
   target_nb_bleed: {
+    ref: 'target_nb_bleed',
     id: 'target-nb-bleed',
     label: 'Number of Bleed on target',
     type: 'slider',
@@ -142,6 +159,7 @@ const elements = {
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blood.png'
   },
   target_bleed_detonate: {
+    ref: 'target_bleed_detonate',
     id: 'target-bleed-detonate',
     label: 'Bleed effects to Detonate',
     type: 'slider',
@@ -153,6 +171,7 @@ const elements = {
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blood.png'
   },
   target_burn_detonate: {
+    ref: 'target_burn_detonate',
     id: 'target-burn-detonate',
     label: 'Burn effects to Detonate',
     type: 'slider',
@@ -164,6 +183,7 @@ const elements = {
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blaze.png'
   },
   caster_max_hp: {
+    ref: 'caster_max_hp',
     id: 'caster-max-hp',
     label: 'Caster\'s Max HP',
     type: 'slider',
@@ -173,6 +193,7 @@ const elements = {
     value: () => Number(document.getElementById('caster-max-hp').value)
   },
   caster_hp_pc: {
+    ref: 'caster_hp_pc',
     id: 'caster-hp-pc',
     label: 'Caster\'s HP %',
     type: 'slider',
@@ -184,6 +205,7 @@ const elements = {
     value: () => Number(document.getElementById('caster-hp-pc').value)
   },
   caster_hp: {
+    ref: 'caster_hp',
     id: 'caster-hp',
     label: 'Caster\'s HP',
     type: 'slider',
@@ -193,6 +215,7 @@ const elements = {
     value: () => Number(document.getElementById('caster-hp').value)
   },
   caster_hp_above_50pc: {
+    ref: 'caster_hp_above_50pc',
     id: 'caster-hp-above-50pc',
     label: 'Caster\'s HP above 50%',
     type: 'checkbox',
@@ -200,6 +223,7 @@ const elements = {
     default: true,
   },
   caster_defense: {
+    ref: 'caster_defense',
     id: 'caster-defense',
     label: 'Caster\'s Defense',
     type: 'slider',
@@ -209,6 +233,7 @@ const elements = {
     value: () => Number(document.getElementById('caster-defense').value)*(elements.caster_defense_up.value() ? 1.6 : 1)
   },
   caster_defense_up: {
+    ref: 'caster_defense_up',
     id: 'caster-defense-up',
     label: 'Increased Defense',
     type: 'checkbox',
@@ -216,6 +241,7 @@ const elements = {
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_def_up.png'
   },
   caster_speed: {
+    ref: 'caster_speed',
     id: 'caster-speed',
     label: 'Caster\'s Speed',
     type: 'slider',
@@ -225,6 +251,7 @@ const elements = {
     value: () => Number(document.getElementById('caster-speed').value)*(elements.caster_speed_up.value() ? 1.3 : 1),
   },
   caster_speed_up: {
+    ref: 'caster_speed_up',
     id: 'caster-speed-up',
     label: 'Increased Speed',
     type: 'checkbox',
@@ -232,6 +259,7 @@ const elements = {
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_speed_up.png'
   },
   caster_nb_buff: {
+    ref: 'caster_nb_buff',
     id: 'caster-nb-buff',
     label: 'Buffs on Caster',
     type: 'slider',
@@ -242,12 +270,14 @@ const elements = {
     value: () => Number(document.getElementById('caster-nb-buff').value)
   },
   caster_full_focus: {
+    ref: 'caster_full_focus',
     id: 'caster-full-focus',
     label: 'Full Focus',
     type: 'checkbox',
     value: () => document.getElementById('caster-full-focus').checked
   },
   caster_nb_focus: {
+    ref: 'caster_nb_focus',
     id: 'caster-nb-focus',
     label: 'Focus',
     type: 'slider',
@@ -258,6 +288,7 @@ const elements = {
     value: () => Number(document.getElementById('caster-nb-focus').value)
   },
   caster_fighting_spirit: {
+    ref: 'caster_fighting_spirit',
     id: 'caster-fighting-spirit',
     label: 'Fighting Spirit',
     type: 'slider',
@@ -269,6 +300,7 @@ const elements = {
     value: () => Number(document.getElementById('caster-fighting-spirit').value)
   },
   caster_invincible: {
+    ref: 'caster_invincible',
     id: 'caster-invincible',
     label: 'Caster is Invincible',
     type: 'checkbox',
@@ -276,6 +308,7 @@ const elements = {
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_invincible.png'
   },
   caster_vigor: {
+    ref: 'caster_vigor',
     id: 'caster-vigor',
     label: 'Caster has Vigor',
     type: 'checkbox',
@@ -283,6 +316,7 @@ const elements = {
     icon: 'https://epic7x.com/wp-content/uploads/2019/02/vigor.png'
   },
   caster_enrage: {
+    ref: 'caster_enrage',
     id: 'caster-enrage',
     label: 'Caster has Rage',
     type: 'checkbox',
@@ -290,6 +324,7 @@ const elements = {
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_madness.png'
   },
   caster_stealth: {
+    ref: 'caster_stealth',
     id: 'caster-stealth',
     label: 'Caster has Stealth',
     type: 'checkbox',
@@ -318,6 +353,7 @@ const elements = {
     value: () => Number(document.getElementById('critical-hit-stack-12').value)
   },
   non_attack_skill_stack_10: {
+    ref: 'non_attack_skill_stack_10',
     id: 'stack-non-attack-skill-10',
     label: 'Non-Attack Skill Stack',
     type: 'slider',
@@ -328,6 +364,7 @@ const elements = {
     value: () => Number(document.getElementById('stack-non-attack-skill-10').value)
   },
   attack_skill_stack_5: {
+    ref: 'attack_skill_stack_5',
     id: 'stack-attack-skill-5',
     label: 'Attack Stack',
     type: 'slider',
@@ -338,6 +375,7 @@ const elements = {
     value: () => Number(document.getElementById('stack-attack-skill-5').value)
   },
   non_attack_skill_stack_3: {
+    ref: 'non_attack_skill_stack_3',
     id: 'stack-non-attack-skill-3',
     label: 'Non-Attack Skill Stack',
     type: 'slider',
@@ -348,6 +386,7 @@ const elements = {
     value: () => Number(document.getElementById('stack-non-attack-skill-3').value)
   },
   turn_stack: {
+    ref: 'turn_stack',
     id: 'turn-stack',
     label: 'Turn Stack',
     type: 'slider',
@@ -358,6 +397,7 @@ const elements = {
     value: () => Number(document.getElementById('turn-stack').value)
   },
   dead_people: {
+    ref: 'dead_people',
     id: 'dead-people',
     label: 'People who died',
     type: 'slider',
@@ -368,6 +408,7 @@ const elements = {
     value: () => Number(document.getElementById('dead-people').value)
   },
   highest_ally_attack: {
+    ref: 'highest_ally_attack',
     id: 'highest-ally-attack',
     label: 'Highest Ally Attack',
     type: 'slider',
@@ -377,6 +418,7 @@ const elements = {
     value: () => Number(document.getElementById('highest-ally-attack').value)
   },
   ally_atk_up: {
+    ref: 'ally_atk_up',
     id: 'ally-atk-up',
     label: 'Ally has Increased Attack',
     type: 'checkbox',
@@ -384,6 +426,7 @@ const elements = {
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_att_up.png'
   },
   ally_atk_up_great: {
+    ref: 'ally_atk_up_great',
     id: 'ally-atk-up-great',
     label: 'Ally has Increased Attack (Great)',
     type: 'checkbox',
@@ -391,6 +434,7 @@ const elements = {
     icon: 'https://epic7x.com/wp-content/uploads/2019/01/greater-attack-icon.png'
   },
   skill_tree_completed: {
+    ref: 'skill_tree_completed',
     id: 'skill-tree-completed',
     label: 'Skill Tree Completed',
     type: 'checkbox',
@@ -398,6 +442,7 @@ const elements = {
     value: () => document.getElementById('skill-tree-completed').checked,
   },
   s3_stack: {
+    ref: 's3_stack',
     id: 's3-stack',
     label: 'S3 Stack',
     type: 'slider',
@@ -408,24 +453,28 @@ const elements = {
     value: () => Number(document.getElementById('s3-stack').value)
   },
   all_allies_fire: {
+    ref: 'all_allies_fire',
     id: 'all-allies-fire',
     label: 'All Allies Fire',
     type: 'checkbox',
     value: () => document.getElementById('all-allies-fire').checked,
   },
   exclusive_equipment_1: {
+    ref: 'exclusive_equipment_1',
     id: 'exclusive-equipment-1',
     label: 'Exclusive Equipment #1',
     type: 'checkbox',
     value: () => document.getElementById('exclusive-equipment-1').checked,
   },
   exclusive_equipment_2: {
+    ref: 'exclusive_equipment_2',
     id: 'exclusive-equipment-2',
     label: 'Exclusive Equipment #2',
     type: 'checkbox',
     value: () => document.getElementById('exclusive-equipment-2').checked,
   },
   exclusive_equipment_3: {
+    ref: 'exclusive_equipment_3',
     id: 'exclusive-equipment-3',
     label: 'Exclusive Equipment #3',
     type: 'checkbox',
@@ -548,7 +597,7 @@ const build = (hero) => {
     const skill = hero.skills[id];
     if (skill.enhance) {
       $(molagoraBlock).append(`<div class="form-group row col-sm-12">
-                        <label for="molagora-${id}" class="col-sm-12 col-md-1 col-form-label form-control-sm text-center"><h5>${id.toUpperCase()}</h5></label>
+                        <label for="molagora-${id}" class="col-sm-12 col-md-1 col-form-label form-control-sm text-center mola-skill-label"><h5>${skillLabel(id)}</h5></label>
                         <div class="input-group input-group-sm col-md-2 col-sm-12">
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-secondary" type="button" id="molagora-${id}-minus" onclick="minusMola('${id}')">&minus;</button>
@@ -615,7 +664,7 @@ const buildElement = (elem, parent) => {
     $(parent).append(`<div id="${elem.id}-block" class="stat-block">
                         <div class="form-group row col-sm-12">
                             <label for="crit" class="col-md-9 col-form-label form-control-sm">
-                                <h5>${elem.icon ? '<img src="'+elem.icon+'" width="20" height="20" /> ' : ''}${elem.label}</h5>
+                                <h5>${elem.icon ? '<img src="'+elem.icon+'" width="20" height="20" /> ' : ''}${formLabel(elem.ref)}</h5>
                             </label>
                             <div class="input-group input-group-sm col-md-3">
                                 <div class="input-group-prepend">
@@ -636,7 +685,7 @@ const buildElement = (elem, parent) => {
                               <div class="custom-control custom-checkbox custom-control-inline buff-block">
                                   <input class="custom-control-input" type="checkbox" id="${elem.id}" value="1" onchange="resolve()" ${elem.default === true ? 'checked' : ''}>
                                   <label class="custom-control-label" for="${elem.id}">
-                                    ${elem.icon ? '<img src="'+elem.icon+'" width="20" height="20" />' : ''} ${elem.label}
+                                    ${elem.icon ? '<img src="'+elem.icon+'" width="20" height="20" />' : ''} ${formLabel(elem.ref)}
                                   </label>
                               </div>
                         </div>`);
@@ -678,12 +727,12 @@ $(() => {
   const heroSelector = document.getElementById('hero');
   const artiSelector = document.getElementById('artifact');
   Object.keys(heroes).map((id => {
-    $(heroSelector).append(`<option value="${id}" data-content="${elemIcon(heroes[id].element)}${classIcon(heroes[id].classType)} <span>${heroes[id].name}</span>">${heroes[id].name}</option>`)
+    $(heroSelector).append(`<option value="${id}" data-content="${elemIcon(heroes[id].element)}${classIcon(heroes[id].classType)} <span>${heroName(id)}</span>">${heroName(id)}</option>`)
   }));
-  $(artiSelector).append(`<option value="">No Artifact Proc</option>`);
+  $(artiSelector).append(`<option value="">${artifactName('no_proc')}</option>`);
   $(artiSelector).append(`<option data-divider="true"></option>`);
   Object.keys(artifacts).map((id => {
-    $(artiSelector).append(`<option value="${id}">${artifacts[id].name}</option>`)
+    $(artiSelector).append(`<option value="${id}">${artifactName(id)}</option>`)
   }));
 
   heroSelector.onchange = () => {
