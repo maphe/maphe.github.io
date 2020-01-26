@@ -184,7 +184,7 @@ class Hero {
     let artiDamage = 0;
     const artiMultipliers = this.artifact.getAfterMathMultipliers();
     if (artiMultipliers !== null) {
-      artiDamage = this.getAtk(skillId)*artiMultipliers.atkPercent*this.target.defensivePower({penetrate: () => artiMultipliers.penetrate});
+      artiDamage = this.getAtk(skillId)*artiMultipliers.atkPercent*dmgConst*this.target.defensivePower({penetrate: () => artiMultipliers.penetrate});
     }
 
     const artiFlatDmg = this.artifact.getAfterMathDamage();
@@ -195,7 +195,7 @@ class Hero {
     let skillDamage = 0;
     const skillMultipliers = skill.afterMath ? skill.afterMath() : null;
     if (skillMultipliers !== null) {
-      artiDamage = this.getAtk(skillId)*skillMultipliers.atkPercent*this.target.defensivePower({penetrate: () => skillMultipliers.penetrate});
+      skillDamage = this.getAtk(skillId)*skillMultipliers.atkPercent*dmgConst*this.target.defensivePower({penetrate: () => skillMultipliers.penetrate});
     }
 
     return detonation + artiDamage + skillDamage;
