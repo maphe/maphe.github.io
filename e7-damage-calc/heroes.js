@@ -712,7 +712,7 @@ const heroes = {
         rate: 1,
         pow: 0.95,
         detonate: dot.burn,
-        detonation: () => 1,
+        detonation: () => 1.1,
         enhance: [0.05, 0.05, 0, 0.1, 0, 0.15]
       },
       s2: {
@@ -2717,7 +2717,7 @@ const heroes = {
         rate: 1,
         enhance: [0.05, 0.05, 0, 0.1, 0, 0.15],
         detonate: dot.burn,
-        detonation: () => 1,
+        detonation: () => 1.1,
       },
       s2: {
         enhance: [0.15, 0.15]

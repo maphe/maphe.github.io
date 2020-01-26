@@ -205,9 +205,9 @@ class Hero {
     const skill = this.skills[skillId];
     switch (skill.detonate) {
       case dot.bleed:
-        return elements.target_bleed_detonate.value()*skill.detonation()*this.getAtk(skillId)*0.3*this.target.defensivePower({penetrate: () => 0.7});
+        return elements.target_bleed_detonate.value()*skill.detonation()*this.getDotDamage(dot.bleed);
       case dot.burn:
-        return elements.target_burn_detonate.value()*skill.detonation()*this.getAtk(skillId)*0.6*this.target.defensivePower({penetrate: () => 0.7});
+        return elements.target_burn_detonate.value()*skill.detonation()*this.getDotDamage(dot.burn);
       default: return 0;
     }
   }
