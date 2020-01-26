@@ -1270,7 +1270,8 @@ const heroes = {
     skills: {
       s1: {
         rate: 1.2,
-        pow: 1
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
       }
     }
   },
