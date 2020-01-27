@@ -276,7 +276,7 @@ const kr = {
     caster_defense: '시전자의 방어력',
     caster_defense_up: '시전자에게 방어력 증가효과가 있음',
     caster_speed: '시전자의 속도',
-    caster_speed_up: '시전자에게 속도 증가효과가 있음',
+    caster_speed_up: '속도 증가',
     caster_nb_buff: '시전자에게 강화효과가 있음',
     caster_full_focus: '풀 집중',
     caster_nb_focus: '집중',
