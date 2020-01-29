@@ -90,6 +90,7 @@ const kr = {
     ken: '켄',
     khawana: '카와나',
     khawazu: '카와주',
+    kikirat_v2: '키키라트 v2',
     kiris: '키리스',
     kise: '키세',
     kitty_clarissa: '고양이 클라릿사',
