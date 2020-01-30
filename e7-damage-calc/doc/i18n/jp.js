@@ -117,6 +117,7 @@ const jp = {
     mucacha: 'ムカチャ',
     nemunas: 'ネムナス',
     otillie: 'オティーリエ',
+    pavel: 'パベル',
     pearlhorizon: 'パール・ホライゾン',
     purrgis: 'ファジス',
     pyllis: 'ピィリス',

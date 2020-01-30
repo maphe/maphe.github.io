@@ -118,6 +118,7 @@ const zh = {
     mucacha: '穆卡察',
     nemunas: '尼姆拉斯',
     otillie: '奧緹莉爾',
+    pavel: '帕貝爾',
     pearlhorizon: '波蘿萊珍',
     purrgis: '法濟斯',
     pyllis: '費莉絲',
