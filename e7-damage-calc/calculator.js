@@ -236,7 +236,7 @@ class Target {
   defensivePower(skill) {
     const dmgReduc = Number(document.getElementById('dmg-reduc').value)/100;
     const dmgTrans = Number(document.getElementById('dmg-trans').value)/100;
-    return ((1-dmgReduc)*(1-dmgTrans))/((((this.def * getGlobalDefMult()) / 300)*(1-(skill && skill.penetrate ? skill.penetrate() : 0)-this.casterArtifact.getDefensePenetration())) + 1);
+    return ((1-dmgReduc)*(1-dmgTrans))/((((this.def * getGlobalDefMult()) / 300)*((1-(skill && skill.penetrate ? skill.penetrate() : 0))*(1-this.casterArtifact.getDefensePenetration()))) + 1);
   }
 }
 
