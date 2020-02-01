@@ -797,7 +797,6 @@ $(() => {
 
   artiSelector.onchange = () => {
     buildArtifact(artifacts[artiSelector.value]);
-    build(heroes[heroSelector.value]);
     resolve();
     gtag('event', 'pick', {
       event_category: 'Artifact',
