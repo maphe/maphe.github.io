@@ -11,7 +11,7 @@ const artifacts = {
   border_coin: {
     name: 'Border Coin',
     type: artifactDmgType.attack,
-    scale: [0.075, 0.0825, 0.09, 0.0975, 0.105, 0.1125, 0.2, 0.1275, 0.135, 0.1425, 0.15],
+    scale: [0.075, 0.0825, 0.09, 0.0975, 0.105, 0.1125, 0.12, 0.1275, 0.135, 0.1425, 0.15],
     form: [elements.non_attack_skill_stack_3],
     exclusive: classType.warrior,
     value: (artiScale) => elements.non_attack_skill_stack_3.value()*artiScale
