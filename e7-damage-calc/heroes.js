@@ -2585,6 +2585,7 @@ const heroes = {
         pow: 1,
       },
       s3: {
+        soulburn: true,
         rate: (soulburn) => soulburn ? 2.2 : 1.5,
         pow: 0.9,
         flat: () => elements.target_has_sleep.value() ? elements.target_max_hp.value()*0.2 : 0,
