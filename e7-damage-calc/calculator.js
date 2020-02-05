@@ -1,3 +1,5 @@
+const dmgConst = 1.871;
+
 const resolve = () => {
   const artifact = new Artifact(document.getElementById('artifact').value);
   const hero = new Hero(document.getElementById('hero').value, artifact);
@@ -25,7 +27,7 @@ const resolve = () => {
     if (skill.rate !== undefined) {
       const damage = hero.getDamage(skillId);
       $(table).append(`<tr>
-            <td>${skill.name ? skill.name : skillId.toUpperCase()}</td>
+            <td>${skill.name ? skill.name : skillLabel(skillId)}</td>
             <td>${displayDmg(damage, 'crit')}</td>
             <td>${displayDmg(damage, 'crush')}</td>
             <td>${displayDmg(damage, 'normal')}</td>
@@ -35,7 +37,7 @@ const resolve = () => {
       if (skill.soulburn) {
         const damage = hero.getDamage(skillId, true);
         $(table).append(`<tr>
-            <td>${skill.name ? skill.name : skillId.toUpperCase()} Soulburn</td>
+            <td>${skill.name ? skill.name : skillLabel(skillId, true)}</td>
             <td>${displayDmg(damage, 'crit')}</td>
             <td>${displayDmg(damage, 'crush')}</td>
             <td>${displayDmg(damage, 'normal')}</td>
@@ -47,7 +49,7 @@ const resolve = () => {
 };
 
 const displayDmg = (damage, type) => {
-  return damage[type] !== null ? damage[type] : '<i>n/a</i>'
+  return damage[type] !== null ? damage[type] : `<i>${skillLabel('non_applicable')}</i>`
 };
 
 const getGlobalAtkMult = () => {
@@ -113,7 +115,7 @@ class Hero {
 
   getDamage(skillId, soulburn = false) {
     const skill = this.skills[skillId];
-    const hit = this.offensivePower(skillId, soulburn) / this.target.defensivePower(skill);
+    const hit = this.offensivePower(skillId, soulburn) * this.target.defensivePower(skill);
     const critDmg = (this.crit / 100)+(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0)+(this.artifact.getCritDmgBoost()||0);
     return {
       crit: skill.noCrit ? null : Math.round(hit*critDmg + this.getAfterMathDamage(skillId, critDmg)),
@@ -146,7 +148,7 @@ class Hero {
 
     let dmgMod = 1.0 + getGlobalDamageMult(this) + this.artifact.getDamageMultiplier() + (skill.mult ? skill.mult(soulburn)-1 : 0);
 
-    return ((this.getAtk(skillId)*rate + flatMod)*1.871 + flatMod2) * pow * skillEnhance * elemAdv * target * dmgMod;
+    return ((this.getAtk(skillId)*rate + flatMod)*dmgConst + flatMod2) * pow * skillEnhance * elemAdv * target * dmgMod;
   }
 
   getSkillEnhanceMult(skillId) {
@@ -168,6 +170,10 @@ class Hero {
       }
     }
 
+    if (skill.exEq !== undefined) {
+      mult += skill.exEq();
+    }
+
     return mult;
   }
 
@@ -178,18 +184,18 @@ class Hero {
     let artiDamage = 0;
     const artiMultipliers = this.artifact.getAfterMathMultipliers();
     if (artiMultipliers !== null) {
-      artiDamage = this.getAtk(skillId)*artiMultipliers.atkPercent/this.target.defensivePower({penetrate: () => artiMultipliers.penetrate});
+      artiDamage = this.getAtk(skillId)*artiMultipliers.atkPercent*dmgConst*this.target.defensivePower({penetrate: () => artiMultipliers.penetrate});
     }
 
     const artiFlatDmg = this.artifact.getAfterMathDamage();
     if (artiFlatDmg > 0) {
-      artiDamage = (artiFlatDmg*this.getSkillEnhanceMult(skillId))/this.target.defensivePower()*multiplier
+      artiDamage = (artiFlatDmg*this.getSkillEnhanceMult(skillId))*this.target.defensivePower()*multiplier
     }
 
     let skillDamage = 0;
     const skillMultipliers = skill.afterMath ? skill.afterMath() : null;
     if (skillMultipliers !== null) {
-      artiDamage = this.getAtk(skillId)*skillMultipliers.atkPercent/this.target.defensivePower({penetrate: () => skillMultipliers.penetrate});
+      skillDamage = this.getAtk(skillId)*skillMultipliers.atkPercent*dmgConst*this.target.defensivePower({penetrate: () => skillMultipliers.penetrate});
     }
 
     return detonation + artiDamage + skillDamage;
@@ -199,9 +205,9 @@ class Hero {
     const skill = this.skills[skillId];
     switch (skill.detonate) {
       case dot.bleed:
-        return elements.target_bleed_detonate.value()*skill.detonation()*this.getAtk(skillId)*0.3/this.target.defensivePower({penetrate: () => 0.7});
+        return elements.target_bleed_detonate.value()*skill.detonation()*this.getDotDamage(dot.bleed);
       case dot.burn:
-        return elements.target_burn_detonate.value()*skill.detonation()*this.getAtk(skillId)*0.6/this.target.defensivePower({penetrate: () => 0.7});
+        return elements.target_burn_detonate.value()*skill.detonation()*this.getDotDamage(dot.burn);
       default: return 0;
     }
   }
@@ -209,9 +215,9 @@ class Hero {
   getDotDamage(type) {
     switch (type) {
       case dot.bleed:
-        return this.getAtk()*0.3/this.target.defensivePower({penetrate: () => 0.7});
+        return this.getAtk()*0.3*dmgConst*this.target.defensivePower({penetrate: () => 0.7});
       case dot.burn:
-        return this.getAtk()*0.6/this.target.defensivePower({penetrate: () => 0.7});
+        return this.getAtk()*0.6*dmgConst*this.target.defensivePower({penetrate: () => 0.7});
       default: return 0;
     }
   }
@@ -228,7 +234,9 @@ class Target {
   }
 
   defensivePower(skill) {
-    return (((this.def * getGlobalDefMult()) / 300)*(1-(skill && skill.penetrate ? skill.penetrate() : 0)-this.casterArtifact.getDefensePenetration())) + 1;
+    const dmgReduc = Number(document.getElementById('dmg-reduc').value)/100;
+    const dmgTrans = Number(document.getElementById('dmg-trans').value)/100;
+    return ((1-dmgReduc)*(1-dmgTrans))/((((this.def * getGlobalDefMult()) / 300)*((1-(skill && skill.penetrate ? skill.penetrate() : 0))*(1-this.casterArtifact.getDefensePenetration()))) + 1);
   }
 }
 

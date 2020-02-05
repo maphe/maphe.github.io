@@ -712,7 +712,7 @@ const heroes = {
         rate: 1,
         pow: 0.95,
         detonate: dot.burn,
-        detonation: () => 1,
+        detonation: () => 1.1,
         enhance: [0.05, 0.05, 0, 0.1, 0, 0.15]
       },
       s2: {
@@ -843,7 +843,7 @@ const heroes = {
     name: 'Challenger Dominiel',
     element: element.dark,
     classType: classType.mage,
-    form: [elements.stack_crit_hit],
+    form: [elements.critical_hit_stack],
     skills: {
       s1: {
         soulburn: true,
@@ -856,7 +856,7 @@ const heroes = {
             mult += heroes.challenger_dominiel.skills.s2.enhance[i];
           }
 
-          return Number(document.getElementById(`atk`).value) * elements.stack_crit_hit.value()*(0.054 + (0.054*mult));
+          return Number(document.getElementById(`atk`).value) * elements.critical_hit_stack.value()*(0.054 + (0.054*mult));
         },
         enhance: [0.05, 0.05, 0.05, 0.1, 0.15],
       },
@@ -939,7 +939,7 @@ const heroes = {
       s1: {
         rate: 1,
         pow: 1,
-        mult: () => elements.exclusive_equipment_2.value() ? 1.1 : 1,
+        exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
       },
       s2: {
@@ -952,7 +952,11 @@ const heroes = {
         pow: 1,
         mult: () => {
           switch (elements.nb_targets.value()) {
+<<<<<<< HEAD
             case 3: return 1.326;
+=======
+            case 3: return 1.267;
+>>>>>>> upstream/master
             case 2: return 1.534;
             case 1: return 1.801;
             default: return 1;
@@ -1270,7 +1274,8 @@ const heroes = {
     skills: {
       s1: {
         rate: 1.2,
-        pow: 1
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
       }
     }
   },
@@ -1674,6 +1679,7 @@ const heroes = {
           switch (elements.nb_targets.value()) {
             case 1: return 2.5;
             case 2: return 2.0;
+            case 3: return 1.5;
             default: return 1.0;
           }
         },
@@ -1851,13 +1857,15 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 1.35 : 0.95,
         pow: 1,
-        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0015 + (elements.exclusive_equipment_1.value() ? 0.1 : 0),
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0015,
+        exEq: () => elements.exclusive_equipment_1.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.05, 0, 0.15]
       },
       s3: {
         rate: 1.7,
         pow: 0.9,
-        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.003 + (elements.exclusive_equipment_2.value() ? 0.1 : 0),
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.003,
+        exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.1]
       }
     }
@@ -2411,6 +2419,7 @@ const heroes = {
           switch (elements.nb_targets.value()) {
             case 1: return 1.9;
             case 2: return 1.6;
+            case 3: return 1.3;
             default: return 1;
           }
         },
@@ -2537,6 +2546,33 @@ const heroes = {
       }
     }
   },
+  pavel: {
+    name: 'Pavel',
+    element: element.earth,
+    classType: classType.ranger,
+    form: [elements.caster_speed],
+    skills: {
+      s1: {
+        rate: 0.9,
+        pow: 1.1,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        enhance: [0.05, 0, 0.05, 0, 0.1]
+      },
+      s2: {
+        aoe: true,
+        rate: 0.8,
+        pow: 1,
+        mult: () => 1 + elements.caster_speed.value()*0.001125,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      },
+      s3: {
+        rate: 1.3,
+        pow: 1,
+        mult: () => 1 + elements.caster_speed.value()*0.0015,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      }
+    }
+  },
   pearlhorizon: {
     name: 'Pearlhorizon',
     element: element.earth,
@@ -2553,6 +2589,7 @@ const heroes = {
         pow: 1,
       },
       s3: {
+        soulburn: true,
         rate: (soulburn) => soulburn ? 2.2 : 1.5,
         pow: 0.9,
         flat: () => elements.target_has_sleep.value() ? elements.target_max_hp.value()*0.2 : 0,
@@ -2571,6 +2608,12 @@ const heroes = {
         pow: 1,
         flat: () => elements.caster_max_hp.value()*0.05,
         enhance: [0.1, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        name: 'S2 (Counter)',
+        rate: 1,
+        pow: 1,
+        enhance_from: 's1',
       },
       s3: {
         soulburn: true,
@@ -2680,7 +2723,7 @@ const heroes = {
         rate: 1,
         enhance: [0.05, 0.05, 0, 0.1, 0, 0.15],
         detonate: dot.burn,
-        detonation: () => 1,
+        detonation: () => 1.1,
       },
       s2: {
         enhance: [0.15, 0.15]
@@ -3023,7 +3066,7 @@ const heroes = {
       s1: {
         rate: 1,
         pow: 1,
-        mult: () => elements.exclusive_equipment_1.value() ? 1.2 : 1.0,
+        exEq: () => elements.exclusive_equipment_1.value() ? 0.2 : 0,
         enhance: [0.05, 0, 0.1, 0, 0.15]
       },
       s2: {
@@ -3137,17 +3180,26 @@ const heroes = {
     element: element.dark,
     classType: classType.mage,
     form: [elements.target_nb_debuff, elements.dead_people],
+    atkUp: () => {
+      let buff = 0.07;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        buff += heroes.specter_tenebria.skills.s2.enhance[i];
+      }
+      return 1 + Math.min(elements.dead_people.value(), 5)*buff;
+    },
     skills: {
       s1: {
         rate: 1.2,
         pow: 1,
         enhance: [0.05, 0, 0.05, 0, 0.05, 0.15],
-        mult: () => 1 + Math.min(elements.dead_people.value(), 5)*0.07
+      },
+      s2: {
+        enhance: [0.005, 0.01, 0.015],
       },
       s3: {
         rate: 1.8,
         pow: 0.95,
-        mult: () => 1 + elements.target_nb_debuff.value()*0.2 + Math.min(elements.dead_people.value(), 5)*0.07,
+        mult: () => 1 + elements.target_nb_debuff.value()*0.2,
         enhance: [0.05, 0.05, 0, 0, 0.1, 0.1]
       }
     }
@@ -3484,7 +3536,7 @@ const heroes = {
       s1: {
         rate: 1,
         pow: 1,
-        mult: () => elements.exclusive_equipment_2.value() ? 1.3 : 1.0,
+        exEq: () => elements.exclusive_equipment_2.value() ? 0.3 : 0,
         enhance: [0.05, 0.05, 0, 0.05, 0, 0.15]
       },
       s2: {
@@ -3512,6 +3564,7 @@ const heroes = {
         mult: () => {
           let mult = 1 + elements.caster_speed.value()*0.00075;
           switch (elements.nb_targets.value()) {
+            case 3: mult += 0.2; break;
             case 2: mult += 0.4; break;
             case 1: mult += 0.6; break;
           }
@@ -3524,13 +3577,14 @@ const heroes = {
         rate: 1.5,
         pow: 0.8,
         mult: () => {
-          const base = elements.exclusive_equipment_3.value() ? 1.3 : 1;
           switch (elements.nb_targets.value()) {
-            case 2: return base + 0.4;
-            case 1: return base + 0.6;
-            default: return base;
+            case 3: return 1.2;
+            case 2: return 1.4;
+            case 1: return 1.6;
+            default: return 1;
           }
         },
+        exEq: () => elements.exclusive_equipment_3.value() ? 0.3 : 0,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1, 0.1, 0.1]
       }
     }

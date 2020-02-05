@@ -1,4 +1,4 @@
-<html id="root" lang="en">
+<html id="root" lang="zh">
     <head>
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-147508975-1"></script>
         <script>
@@ -6,42 +6,42 @@
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
 
-          gtag('config', 'UA-147508975-1', { 'page_title' : 'calculator', 'page_path': '/e7-damage-calc/' });
+          gtag('config', 'UA-147508975-1', { 'page_title' : 'calculator', 'page_path': '/e7-damage-calc/zh/' });
         </script>
 
         <meta charset="utf-8" />
-        <meta name="keywords" content="epic seven damage calculator, epic 7 damage calculator, e7 damage calculator" />
-        <meta name="description" content="Damage Calculator for Epic Seven for every hero in the game. Enter your hero stats to get their damage potential." />
+        <meta name="keywords" content="第七史詩 傷害計算器, 第七史詩 傷害模擬器" />
+        <meta name="description" content="填入第七史詩的角色面板數據, 模擬實際戰鬥傷害" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.12/dist/css/bootstrap-select.min.css" />
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="../style.css" />
 
-        <title>Epic7 Damage Calculator</title>
+        <title>第七史詩 傷害計算器</title>
     </head>
     <body class="container">
         <div class="row mt-3">
-            <h1 class="col-9">Epic7 Damage Calculator</h1>
-                <div id="flags" class="dropdown col-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        EN 🇺🇸
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="/e7-damage-calc/jp">JP 🇯🇵</a>
-                        <a class="dropdown-item" href="/e7-damage-calc/kr">KR 🇰🇷</a>
-                        <a class="dropdown-item" href="/e7-damage-calc/zh">ZH 🇨🇳</a>
-                    </div>
+            <h1 class="col-9">第七史詩 傷害計算器</h1>
+            <div id="flags" class="dropdown col-3">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    ZH 🇨🇳
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/e7-damage-calc">EN 🇺🇸</a>
+                    <a class="dropdown-item" href="/e7-damage-calc/jp">JP 🇯🇵</a>
+                    <a class="dropdown-item" href="/e7-damage-calc/kr">KR 🇰🇷</a>
                 </div>
+            </div>
         </div>
 <!--        <div class="alert alert-warning alert-dismissible fade show" role="alert">-->
-<!--            <strong>Jan 23, Update:</strong> Added New Hero: Pavel / Added New Artifact: Dux Noctis-->
+<!--            <strong>Jan 9, Update:</strong> Added Hero: Ambitious Tywin ; Added Exclusive Equipment for: Kayron, Yufine & Sigret-->
 <!--            <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
 <!--                <span aria-hidden="true">&times;</span>-->
 <!--            </button>-->
 <!--        </div>-->
         <div>
             <form id="stats">
-                <h4>Hero</h4>
+                <h4>角色</h4>
                 <div id="hero-block">
                     <div class="row">
                         <div class="form-group col-md-4 col-sm-12">
@@ -54,12 +54,12 @@
                         </div>
                         <div class="form-group col-md-4 col-sm-12">
                             <select id="atk-preset" name="atk-preset" class="form-control custom-select selectpicker" data-size="12" data-show-subtext="true">
-                                <option value="">Manual</option>
+                                <option value="">手動</option>
                                 <option data-divider="true"></option>
-                                <option value="starter" data-atk="2500" data-crit="175" data-subtext="(2500/175%)">Starter gear</option>
-                                <option value="attack" data-atk="6500" data-crit="150" data-subtext="(6500/150%)">All in Attack</option>
-                                <option value="crit" data-atk="2500" data-crit="350" data-subtext="(2500/350%)">All in Crit Dmg</option>
-                                <option value="elite" data-atk="5000" data-crit="300" data-subtext="(5000/300%)">Elite balanced</option>
+                                <option value="starter" data-atk="2500" data-crit="175" data-subtext="(2500/175%)">基礎配置</option>
+                                <option value="attack" data-atk="6500" data-crit="150" data-subtext="(6500/150%)">純攻擊配置</option>
+                                <option value="crit" data-atk="2500" data-crit="350" data-subtext="(2500/350%)">純暴傷配置</option>
+                                <option value="elite" data-atk="5000" data-crit="300" data-subtext="(5000/300%)">傳家寶</option>
                             </select>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
 
                     <div class="stat-block">
                         <div class="form-group row col-sm-12">
-                            <label for="atk" class="col-md-9 col-form-label form-control-sm"><h5>Attack</h5></label>
+                            <label for="atk" class="col-md-9 col-form-label form-control-sm"><h5>攻擊力</h5></label>
                             <div class="input-group input-group-sm col-md-3">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" type="button" id="atk-minus" onclick="minus('atk')">&minus;</button>
@@ -86,7 +86,7 @@
 
                     <div class="stat-block">
                         <div class="form-group row col-sm-12">
-                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>Critical Damage (%)</h5></label>
+                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>暴擊傷害 (%)</h5></label>
                             <div class="input-group input-group-sm col-md-3">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" type="button" id="crit-minus" onclick="minus('crit')">&minus;</button>
@@ -105,36 +105,36 @@
                     <div class="form-group col-sm-12">
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="elem-adv" value="1.1" onchange="resolve()">
-                            <label class="custom-control-label" for="elem-adv"><span id="elem-adv-icon"></span> Elemental Advantage</label>
+                            <label class="custom-control-label" for="elem-adv"><span id="elem-adv-icon"></span> 屬性剋制</label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="atk-up" value="1.5" onchange="resolve()">
                             <label class="custom-control-label" for="atk-up">
-                                <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_att_up.png" width="20" height="20" /> Increased Attack
+                                <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_att_up.png" width="20" height="20" /> 攻擊力增加
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="atk-up-great" value="1.75" onchange="resolve()">
                             <label class="custom-control-label" for="atk-up-great">
-                                <img src="https://epic7x.com/wp-content/uploads/2019/01/greater-attack-icon.png" width="20" height="20" /> Increased Attack (Great)
+                                <img src="https://epic7x.com/wp-content/uploads/2019/01/greater-attack-icon.png" width="20" height="20" /> 攻擊力增加 (大幅)
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="rage-set" value="1.3" onchange="resolve()">
-                            <label class="custom-control-label" for="rage-set">Rage Set Proc</label>
+                            <label class="custom-control-label" for="rage-set">憤怒套裝</label>
                         </div>
                     </div>
                     <hr />
                 </div>
 
                 <div id="artifact-block">
-                    <h4>Artifact</h4>
+                    <h4>神器</h4>
                     <div id="artifact-lvl-block" class="stat-block">
                         <div class="form-group row col-sm-12">
-                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>Level</h5></label>
+                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>級別</h5></label>
                             <div class="input-group input-group-sm col-md-3">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" type="button" id="artifact-lvl-minus" onclick="minus('artifact-lvl')">&minus;</button>
@@ -154,45 +154,45 @@
                 </div>
 
                 <div class="row">
-                    <h4 class="col-md-4">Target</h4>
+                    <h4 class="col-md-4">目標</h4>
                     <div class="form-group col-md-4 col-sm-12">
                         <select id="def-preset" name="def-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true">
-                            <option value="">Manual</option>
+                            <option value="">手動</option>
                             <option data-divider="true"></option>
-                            <optgroup label="Wyvern 11">
-                                <option value="blaze-dragona" data-def="984" data-hp="14158" data-subtext="14158 hp">Blaze Dragona</option>
-                                <option value="blood-ridge-naga" data-def="1183" data-hp="11851" data-subtext="11851 hp">Blood Ridge Naga</option>
-                                <option value="wyvern11" data-def="1254" data-hp="139308" data-subtext="139308 hp" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.3">Wyvern</option>
+                            <optgroup label="龍 11">
+                                <option value="blaze-dragona" data-def="984" data-hp="14158" data-subtext="14158 hp">火焰德拉戈納</option>
+                                <option value="blood-ridge-naga" data-def="1183" data-hp="11851" data-subtext="11851 hp">血光山脊那伽</option>
+                                <option value="wyvern11" data-def="1254" data-hp="139308" data-subtext="139308 hp" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.3">瑪瑙雙足飛龍</option>
                             </optgroup>
-                            <optgroup label="Golem 11">
-                                <option value="raqix-flying-troop" data-def="891" data-hp="12528" data-subtext="12528 hp">Raqix Flying Troop</option>
-                                <option value="mossy-testudo" data-def="1077" data-hp="15015" data-subtext="15015 hp">Mossy Testudo</option>
-                                <option value="golem11" data-def="1306" data-hp="101983" data-subtext="101983 hp" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.3">Golem</option>
+                            <optgroup label="木 11">
+                                <option value="raqix-flying-troop" data-def="891" data-hp="12528" data-subtext="12528 hp">羅奇斯飛行兵</option>
+                                <option value="mossy-testudo" data-def="1077" data-hp="15015" data-subtext="15015 hp">青苔陸龜</option>
+                                <option value="golem11" data-def="1306" data-hp="101983" data-subtext="101983 hp" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.3">傑倫石龍巨像</option>
                             </optgroup>
-                            <optgroup label="Banshee 11">
-                                <option value="mystychain" data-def="1101" data-hp="9631" data-subtext="9631 hp/154 spd">Mystychain</option>
-                                <option value="icy-dark-broom" data-def="1101" data-hp="9631" data-subtext="9631 hp/152 spd">Icy Dark Broom</option>
-                                <option value="banshee11" data-def="1841" data-hp="60624" data-subtext="60624 hp/160 spd" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.3">Banshee</option>
+                            <optgroup label="水 11">
+                                <option value="mystychain" data-def="1101" data-hp="9631" data-subtext="9631 hp/154 spd">美絲緹彩</option>
+                                <option value="icy-dark-broom" data-def="1101" data-hp="9631" data-subtext="9631 hp/152 spd">寒冰達克布魯姆</option>
+                                <option value="banshee11" data-def="1841" data-hp="60624" data-subtext="60624 hp/160 spd" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.3">報喪妖領主史達萊特</option>
                             </optgroup>
-                            <optgroup label="Azimanak 11">
-                                <option value="striker-raqix-warlord" data-def="1030" data-hp="12812" data-subtext="12812 hp/190 spd">Striker Warlord</option>
-                                <option value="karax-charger" data-def="1150" data-hp="20814" data-subtext="20814 hp">Karax Charger</option>
-                                <option value="egg" data-def="540" data-hp="8098" data-subtext="8098 hp">Egg</option>
-                                <option value="azimanak11" data-def="1825" data-hp="87729" data-subtext="87729 hp">Azimanak</option>
+                            <optgroup label="暗 11">
+                                <option value="striker-raqix-warlord" data-def="1030" data-hp="12812" data-subtext="12812 hp/190 spd">一擊的羅奇斯戰鬥君主</option>
+                                <option value="karax-charger" data-def="1150" data-hp="20814" data-subtext="20814 hp">卡洛斯衝鋒兵</option>
+                                <option value="egg" data-def="540" data-hp="8098" data-subtext="8098 hp">蛋</option>
+                                <option value="azimanak11" data-def="1825" data-hp="87729" data-subtext="87729 hp">戰爭君主阿吉瑪隆</option>
                             </optgroup>
                         </select>
                     </div>
                     <div class="form-group col-md-4 col-sm-12">
                         <select id="dmg-reduc-preset" name="dmg-reduc-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true">
-                            <option value="none" data-reduc="0" data-trans="0">No Damage Reduction/Transfer</option>
+                            <option value="none" data-reduc="0" data-trans="0">無減傷 / 無傷害分配</option>
                             <option data-divider="true"></option>
-                            <optgroup label="Damage Reduction">
-                                <option value="proof-of-valor-init" data-reduc="30" data-subtext="30%">Proof of Valor (Battle start)</option>
-                                <option value="proof-of-valor-down" data-reduc="15" data-subtext="15%">Proof of Valor (After 5 hits)</option>
+                            <optgroup label="減傷">
+                                <option value="proof-of-valor-init" data-reduc="30" data-subtext="30%">勇猛證據 (戰鬥開始時)</option>
+                                <option value="proof-of-valor-down" data-reduc="15" data-subtext="15%">勇猛證據 (效果最低時)</option>
                             </optgroup>
-                            <optgroup label="Damage Transfer">
-                                <option value="ss-bellona" data-trans="30" data-subtext="30%">Seaside Bellona (S2 Passive)</option>
-                                <option value="aurius" data-trans="20" data-subtext="20%">Aurius (Max)</option>
+                            <optgroup label="傷害分配">
+                                <option value="ss-bellona" data-trans="30" data-subtext="30%">海邊的維爾蘿娜 (被動)</option>
+                                <option value="aurius" data-trans="20" data-subtext="20%">亞烏利斯 (滿破時)</option>
                             </optgroup>
                         </select>
                     </div>
@@ -200,7 +200,7 @@
                 <div id="target-block">
                     <div class="stat-block">
                         <div class="form-group row col-sm-12">
-                            <label for="def" class="col-md-9 col-form-label form-control-sm"><h5>Defense</h5></label>
+                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>防禦力</h5></label>
                             <div class="input-group input-group-sm col-md-3">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" type="button" id="def-minus" onclick="minus('def')">&minus;</button>
@@ -220,7 +220,7 @@
                         <div class="col-sm-6 half-left">
                             <div class="stat-block">
                                 <div class="form-group row col-sm-12">
-                                    <label for="crit" class="col-md-7 col-form-label form-control-sm"><h5>Damage Reduction (%)</h5></label>
+                                    <label for="crit" class="col-md-7 col-form-label form-control-sm"><h5>減傷 (%)</h5></label>
                                     <div class="input-group input-group-sm col-md-5">
                                         <div class="input-group-prepend">
                                             <button class="btn btn-outline-secondary" type="button" id="dmg-reduc-minus" onclick="minus('dmg-reduc')">&minus;</button>
@@ -239,7 +239,7 @@
                         <div class="col-sm-6 half-right">
                             <div class="stat-block">
                                 <div class="form-group row col-sm-12">
-                                    <label for="crit" class="col-md-7 col-form-label form-control-sm"><h5>Damage Transfer (%)</h5></label>
+                                    <label for="crit" class="col-md-7 col-form-label form-control-sm"><h5>傷害分配 (%)</h5></label>
                                     <div class="input-group input-group-sm col-md-5">
                                         <div class="input-group-prepend">
                                             <button class="btn btn-outline-secondary" type="button" id="dmg-trans-minus" onclick="minus('dmg-trans')">&minus;</button>
@@ -261,21 +261,21 @@
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="def-up" value="1.6" onchange="resolve()">
                             <label class="custom-control-label" for="def-up">
-                                <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_def_up.png" width="20" height="20" /> Increased Defense
+                                <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_def_up.png" width="20" height="20" /> 防禦力增加
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="def-down" value="0.3" onchange="resolve()">
                             <label class="custom-control-label" for="def-down">
-                                <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_def_dn.png" width="20" height="20" /> Decreased Defense
+                                <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_def_dn.png" width="20" height="20" /> 防禦力減少
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="target" value="1.15" onchange="resolve()">
                             <label class="custom-control-label" for="target">
-                                <img src="https://epic7x.com/wp-content/uploads/2018/12/target-debuff-e7.png" width="20" height="20" /> Target
+                                <img src="https://epic7x.com/wp-content/uploads/2018/12/target-debuff-e7.png" width="20" height="20" /> 標靶
                             </label>
                         </div>
                     </div>
@@ -284,20 +284,20 @@
                 <hr />
 
                 <div>
-                    <h4>Hero Specific</h4>
+                    <h4>角色 特性</h4>
                     <div id="custom-block"></div>
                     <hr />
                 </div>
 
 
-                <h4>Skill Enhance</h4>
+                <h4>强化技能</h4>
                 <div id="molagora-block"></div>
             </form>
         </div>
 
         <div id="damage-block">
             <h4>
-                Damage
+                傷害計算
                 <span id="barrier-block" class="badge badge-light float-right">
                     <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_protect.png" width="20" height="20" /> <span id="barrier"></span>
                 </span>
@@ -312,11 +312,11 @@
                 <table class="table table-bordered table-sm col-sm-12">
                     <thead class="table-secondary">
                         <tr>
-                            <th>Skill</th>
-                            <th>Critical Hit</th>
-                            <th>Crushing Hit</th>
-                            <th>Normal Hit</th>
-                            <th>Miss</th>
+                            <th>技能</th>
+                            <th>暴擊</th>
+                            <th>強擊</th>
+                            <th>普通</th>
+                            <th>閃避</th>
                         </tr>
                     </thead>
                     <tbody id="damage"></tbody>
@@ -369,10 +369,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.12/dist/js/bootstrap-select.min.js"></script>
-        <script src="lang.js"></script>
-        <script src="form.js"></script>
-        <script src="heroes.js"></script>
-        <script src="artifacts.js"></script>
-        <script src="calculator.js"></script>
+        <script src="../lang.js"></script>
+        <script src="../form.js"></script>
+        <script src="../heroes.js"></script>
+        <script src="../artifacts.js"></script>
+        <script src="../calculator.js"></script>
     </body>
 </html>

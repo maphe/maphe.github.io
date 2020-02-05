@@ -11,7 +11,7 @@ const artifacts = {
   border_coin: {
     name: 'Border Coin',
     type: artifactDmgType.attack,
-    scale: [0.075, 0.0825, 0.09, 0.0975, 0.105, 0.1125, 0.2, 0.1275, 0.135, 0.1425, 0.15],
+    scale: [0.075, 0.0825, 0.09, 0.0975, 0.105, 0.1125, 0.12, 0.1275, 0.135, 0.1425, 0.15],
     form: [elements.non_attack_skill_stack_3],
     exclusive: classType.warrior,
     value: (artiScale) => elements.non_attack_skill_stack_3.value()*artiScale
@@ -28,6 +28,14 @@ const artifacts = {
     scale: [0.15, 0.17, 0.18, 0.2, 0.21, 0.23, 0.24, 0.26, 0.27, 0.29, 0.3],
     type: artifactDmgType.critDmgBoost,
     exclusive: classType.warrior
+  },
+  dux_noctis: {
+    name: 'Dux Noctis',
+    type: artifactDmgType.attack,
+    scale: [0.01, 0.011, 0.012, 0.013, 0.014, 0.015, 0.016, 0.017, 0.018, 0.019, 0.02],
+    form: [elements.critical_hit_stack_12],
+    exclusive: classType.ranger,
+    value: (artiScale) => elements.critical_hit_stack_12.value()*artiScale
   },
   exorcist_tonfa: {
     name: 'Exorcist\'s Tonfa',

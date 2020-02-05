@@ -5,11 +5,25 @@
     border-radius: 8px;
 }
 
+@media (min-width: 576px) {
+    .col-sm-6.half-left {
+        padding-right: 7px;
+    }
+
+    .col-sm-6.half-right {
+        padding-left: 0;
+    }
+}
+
 #molagora-block {
     padding: 18px 0 1px 0px;
     background-color: whitesmoke;
     margin-bottom: 7px;
     border-radius: 8px;
+}
+
+.mola-skill-label h5 {
+    font-size: 1.2rem;
 }
 
 #damage-block {
@@ -62,4 +76,12 @@ div.dropdown-menu.show {
 
 .buff-block img {
     margin-bottom: 2px;
+}
+
+#flags {
+    text-align: right;
+}
+
+#flags button {
+    margin-top: 9px
 }
