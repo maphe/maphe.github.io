@@ -2153,12 +2153,13 @@ const heroes = {
     name: 'Lilibet',
     element: element.earth,
     classType: classType.warrior,
-    form: [elements.target_has_buff],
+    form: [elements.target_has_buff, elements.exclusive_equipment_1],
     dot: [dot.bleed],
     skills: {
       s1: {
         rate: 1,
         pow: 1,
+        exEq: () => elements.exclusive_equipment_1.value() ? 0.2 : 0,
         enhance: [0.05, 0, 0.1, 0, 0.15]
       },
       s2: {
@@ -3298,6 +3299,28 @@ const heroes = {
         pow: 0.95,
         flat: () => elements.caster_max_hp.value()*0.05,
         enhance: [0.05, 0.05, 0, 0.1, 0.15]
+      }
+    }
+  },
+  temmpest_surin: {
+    name: 'Tempest Surin',
+    element: element.light,
+    classType: classType.thief,
+    form: [elements.caster_hp_pc],
+    dot: [dot.bleed],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0015,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.25 : 1,
+        pow: 1.05,
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.002,
+        enhance: [0.1, 0, 0, 0, 0.15]
       }
     }
   },

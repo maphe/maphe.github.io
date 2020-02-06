@@ -653,6 +653,7 @@ const i18n = {
       tamarinne: '타마린느',
       taranor_guard: '타라노르 근위부대원',
       taranor_royal_guard: '타라노르 왕궁병사',
+      temmpest_surin: '풍운의 수린',
       tenebria: '테네브리아',
       tieria: '디에리아',
       troublemaker_crozet: '무법자 크로제',
