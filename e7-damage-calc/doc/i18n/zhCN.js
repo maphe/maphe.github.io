@@ -12,7 +12,7 @@ const zhCN = {
     angelica: '安洁莉卡',
     apocalypse_ravi: '末日萝菲',
     aramintha: '雅拉敏塔',
-    arbiter_vildred: '运行官维德瑞',
+    arbiter_vildred: '执行官维德瑞',
     armin: '亚敏',
     arowell: '雅洛薇',
     assassin_cartuja: '杀手卡尔图哈',
