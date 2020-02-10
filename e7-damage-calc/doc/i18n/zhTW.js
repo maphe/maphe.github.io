@@ -1,4 +1,4 @@
-const zh = {
+const zhTW = {
   heroes: {
     achates: '雅卡泰絲',
     adlay: '亞迪賴',
