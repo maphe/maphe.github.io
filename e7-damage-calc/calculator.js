@@ -101,6 +101,7 @@ const getGlobalDefMult = () => {
 
 class Hero {
   constructor(id, artifact) {
+    this.id = id;
     this.atk = Number(document.getElementById('atk').value);
     this.crit = Number(document.getElementById('crit').value);
     this.skills = heroes[id].skills;
@@ -243,6 +244,10 @@ class Target {
 class Artifact {
   constructor(id) {
     this.id = id ? id : undefined;
+  }
+
+  getName() {
+    return artifactName(this.id);
   }
 
   getValue() {

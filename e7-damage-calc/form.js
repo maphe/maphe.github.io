@@ -618,13 +618,25 @@ const build = (hero) => {
   document.getElementById('elem-adv-icon').innerHTML = antiElemIcon(hero.element);
 };
 
+const showArtifactInfo = (artifact) => {
+  const block = document.getElementById('artifact-info');
+  block.innerHTML = '';
+
+  if (artifact.info) {
+    block.innerHTML = `<div class="alert alert-info alert-dismissible fade show" role="alert">
+                      <b>${artifactName(artifact.id)}</b>: ${artifact.info}
+                   </div>`;
+  }
+};
+
 const buildArtifact = (artifact) => {
+  if (artifact) showArtifactInfo(artifact);
   const specificBlock = document.getElementById('artifact-custom-block');
-  if (artifact && !artifact.form) {
+  if (artifact && !artifact.form && !artifact.info) {
     specificBlock.innerHTML = '';
   }
 
-  if (!artifact || (!artifact.scale && !artifact.form)) {
+  if (!artifact || (!artifact.scale && !artifact.form && !artifact.info)) {
     document.getElementById('artifact-block').style.display = 'none';
     return;
   }
