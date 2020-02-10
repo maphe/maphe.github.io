@@ -186,6 +186,7 @@ const zhTW = {
     sword_of_the_morning: '黎明劍',
     uberius_tooth: '尤貝里烏斯的臼齒',
     wind_rider: '乘風者',
+    dux_noctis: '暗夜指揮者',
   },
   index: {
     title: '第七史詩 傷害計算器',
