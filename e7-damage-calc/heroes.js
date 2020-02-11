@@ -2671,19 +2671,18 @@ const heroes = {
     name: 'Ravi',
     element: element.fire,
     classType: classType.warrior,
-    form: [elements.caster_fighting_spirit],
+    form: [elements.attack_skill_stack_5],
+    atkUp: () => 1 + elements.attack_skill_stack_5.value()*0.15,
     skills: {
       s1: {
         soulburn: true,
         rate: (soulburn) => soulburn ? 2.5 : 1,
         pow: 1,
-        mult: () => 1 + Math.floor(elements.caster_fighting_spirit.value()/20)*0.15,
         enhance: [0.05, 0, 0.1, 0, 0.15]
       },
       s3: {
         rate: 1.2,
         pow: 0.95,
-        mult: () => 1 + Math.floor(elements.caster_fighting_spirit.value()/20)*0.15,
         enhance: [0.05, 0.05, 0, 0.05, 0.05]
       }
     }
