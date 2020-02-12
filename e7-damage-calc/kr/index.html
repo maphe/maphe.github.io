@@ -16,6 +16,12 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.12/dist/css/bootstrap-select.min.css" />
         <link rel="stylesheet" href="../style.css" />
+        <link rel="stylesheet" href="../flags.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.min.css" />
+        <!-- IE -->
+        <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+        <!-- other browsers -->
+        <link rel="icon" type="image/x-icon" href="../favicon.ico" />
 
         <title>에픽세븐 데미지 계산기</title>
     </head>
@@ -23,13 +29,14 @@
         <div class="row mt-3">
             <h1 class="col-9">에픽세븐 데미지 계산기</h1>
             <div id="flags" class="dropdown col-3">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    KR 🇰🇷
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" lang="ko">
+                    한국어 <span class="flag flag-kr"> </span>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="/e7-damage-calc">EN 🇺🇸</a>
-                    <a class="dropdown-item" href="/e7-damage-calc/jp">JP 🇯🇵</a>
-                    <a class="dropdown-item" href="/e7-damage-calc/zh">ZH 🇨🇳</a>
+                    <a class="dropdown-item" href="../index.html" lang="en-us">English <span class="flag flag-us"> </span></a>
+                    <a class="dropdown-item" href="../jp/index.html" lang="ja">日本語 <span class="flag flag-jp"> </span></a>
+                    <a class="dropdown-item" href="../zhTW/index.html" lang="zh-tw">繁體中文 <span class="flag flag-tw"> </span></a>
+                        <a class="dropdown-item" href="../zh/index.html" lang="zh-cn">简体中文 <span class="flag flag-cn"> </span></a>
                 </div>
             </div>
         </div>
@@ -333,7 +340,7 @@
                         <p>
                             Discord: Maphe#1384<br/>
                             Thanks for the help: okloio, haie<br/>
-                            Translation: Rano 🇨🇳 / 1320만원 🇰🇷 / Tagle 🇯🇵
+                            Translation: Rano <span class="flag-icon flag-icon-tw"> </span> / TriATK <span class="flag-icon flag-icon-cn"></span> / 1320만원 <span class="flag-icon flag-icon-kr"></span> / Tagle <span class="flag-icon flag-icon-jp"></span>
                         </p>
                     </div>
                     <hr class="clearfix w-100 d-md-none pb-3">
