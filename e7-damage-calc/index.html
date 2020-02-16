@@ -75,7 +75,7 @@
 
                     <div class="stat-block">
                         <div class="form-group row col-sm-12">
-                            <label for="atk" class="col-md-9 col-form-label form-control-sm"><h5>Attack</h5></label>
+                            <label for="atk" class="col-md-9 col-form-label form-control-sm" id="atk-label"><h5>Attack</h5></label>
                             <div class="input-group input-group-sm col-md-3">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" type="button" id="atk-minus" onclick="minus('atk')">&minus;</button>
@@ -93,7 +93,7 @@
 
                     <div class="stat-block">
                         <div class="form-group row col-sm-12">
-                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>Critical Damage (%)</h5></label>
+                            <label for="crit" class="col-md-9 col-form-label form-control-sm" id="crit-label"><h5>Critical Damage (%)</h5></label>
                             <div class="input-group input-group-sm col-md-3">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" type="button" id="crit-minus" onclick="minus('crit')">&minus;</button>
@@ -331,7 +331,10 @@
                 </table>
             </div>
         </div>
-
+ <div id="save-for-compare">
+                <button class="btn btn-primary" id="save">Save</button>
+ </div>
+  <div id="builds"><h4>Build</h4></div>       
         <footer class="page-footer pt-3 mt-5">
             <div class="container-fluid text-center text-md-left">
                 <div class="row">
@@ -382,5 +385,6 @@
         <script src="heroes.js"></script>
         <script src="artifacts.js"></script>
         <script src="calculator.js"></script>
+        <script src="compare.js"></script>
     </body>
 </html>
