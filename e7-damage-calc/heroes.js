@@ -820,6 +820,28 @@ const heroes = {
       }
     }
   },
+  cerise: {
+    name: 'Cerise',
+    element: element.ice,
+    classType: classType.ranger,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+      },
+      s2: {
+        rate: 1.5,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+      },
+      s3: {
+        rate: 0.9,
+        pow: 1.1,
+        enhance: [0.05, 0, 0, 0, 0.15],
+      },
+    }
+  },
   cermia: {
     name: 'Cermia',
     element: element.fire,
@@ -2427,6 +2449,26 @@ const heroes = {
         pow: 0.8,
         mult: () => 1 + (100-elements.target_hp_pc.value())*0.003,
         enhance: [0.1, 0.1, 0, 0.15, 0.15]
+      }
+    }
+  },
+  mercenary_helga: {
+    name: 'Mercenary Helga',
+    element: element.earth,
+    classType: classType.warrior,
+    form: [elements.skill_tree_completed],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        mult: () => 1 + (elements.skill_tree_completed.value() ? 0.1 : 0),
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1]
+      },
+      s2: {
+        rate: 1.5,
+        pow: 0.95,
+        mult: () => 1 + (elements.skill_tree_completed.value() ? 0.05 : 0),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1]
       }
     }
   },
