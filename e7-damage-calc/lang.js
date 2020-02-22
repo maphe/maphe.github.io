@@ -440,6 +440,7 @@ const i18n = {
       uberius_tooth: '尤貝里烏斯的臼齒',
       wind_rider: '乘風者',
       dux_noctis: '暗夜指揮者',
+      els_fist: '艾爾之拳',
     },
     form: {
       nb_targets: '敵人數量',
@@ -694,6 +695,7 @@ const i18n = {
       uberius_tooth: '尤贝里乌斯的臼齿',
       wind_rider: '乘风者',
       dux_noctis: '暗夜指挥者',
+      els_fist: '艾尔之拳',
     },
     form: {
       nb_targets: '敌人数量',
