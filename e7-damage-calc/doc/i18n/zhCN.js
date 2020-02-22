@@ -189,6 +189,7 @@ const zhCN = {
     uberius_tooth: '尤贝里乌斯的臼齿',
     wind_rider: '乘风者',
     dux_noctis: '暗夜指挥者',
+    els_fist: '艾尔之拳',
   },
   index: {
     title: '第七史诗 伤害计算器',
