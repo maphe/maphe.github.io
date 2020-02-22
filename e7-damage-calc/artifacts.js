@@ -41,6 +41,20 @@ const artifacts = {
     exclusive: classType.ranger,
     value: (artiScale) => elements.critical_hit_stack_12.value()*artiScale
   },
+  els_fist: {
+    id: 'els_fist',
+    name: 'El\'s Fist',
+    type: artifactDmgType.attack,
+    scale: [0.25, 0.275, 0.3, 0.325, 0.35, 0.375, 0.4, 0.425, 0.45, 0.475, 0.5],
+    form: [elements.caster_hp_pc],
+    exclusive: classType.warrior,
+    value: (artiScale) => {
+      if (elements.caster_hp_pc.value() < 25) return artiScale;
+      if (elements.caster_hp_pc.value() < 50) return artiScale*2/3;
+      if (elements.caster_hp_pc.value() < 75) return artiScale/3;
+      return 0;
+    }
+  },
   exorcist_tonfa: {
     id: 'exorcist_tonfa',
     name: 'Exorcist\'s Tonfa',
