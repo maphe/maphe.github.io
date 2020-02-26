@@ -974,11 +974,8 @@ const heroes = {
         pow: 1,
         mult: () => {
           switch (elements.nb_targets.value()) {
-<<<<<<< HEAD
-            case 3: return 1.326;
-=======
+
             case 3: return 1.267;
->>>>>>> upstream/master
             case 2: return 1.534;
             case 1: return 1.801;
             default: return 1;
@@ -2355,14 +2352,13 @@ const heroes = {
         onlyCrit: true,
         rate: 1.2,
         pow: 0.95,
-		
-	    mult: () => {
-		  let extra = 0;
-		  for (let i = 0; i < Number(document.getElementById(`molagora-s1`).value); i++) {
-		    extra += heroes.martial_artist_ken.skills.s1.enhance[i];
-		  }
-		return (1 + (100-elements.caster_hp_pc.value())*0.004 + extra)
-	    },
+        mult: () => {
+          let extra = 0;
+          for (let i = 0; i < Number(document.getElementById(`molagora-s1`).value); i++) {
+            extra += heroes.martial_artist_ken.skills.s1.enhance[i];
+          }
+        return (1 + (100-elements.caster_hp_pc.value())*0.004 + extra)
+        },
         enhance: [0.05, 0.1, 0.15]
       },
       },
