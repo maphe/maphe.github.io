@@ -1,4 +1,4 @@
-const zh = {
+const zhTW = {
   heroes: {
     achates: '雅卡泰絲',
     adlay: '亞迪賴',
@@ -36,6 +36,7 @@ const zh = {
     cartuja: '卡爾圖哈',
     cecilia: '賽西莉亞',
     celeste: '賽雷斯特',
+    cerise: '賽瑞絲',
     celestial_mercedes: '外太空的玫勒賽德絲',
     cermia: '潔若米亞',
     challenger_dominiel: '挑戰者多米妮爾',
@@ -112,6 +113,7 @@ const zh = {
     maya: '瑪雅',
     melissa: '梅麗莎',
     mercedes: '玫勒賽德絲',
+    mercenary_helga: '自由自在的傭兵赫爾嘉',
     mirsa: '米勒莎',
     mistychain: '美絲緹彩',
     montmorancy: '蒙茉朗西',
@@ -153,6 +155,7 @@ const zh = {
     tamarinne: '塔瑪林爾',
     taranor_guard: '塔拉諾爾禁衛隊員',
     taranor_royal_guard: '塔拉諾爾王宮士兵',
+    temmpest_surin: '風雲蘇琳',
     tenebria: '泰妮布里雅',
     tieria: '黛莉亞',
     troublemaker_crozet: '不法之徒克羅澤',
@@ -185,6 +188,8 @@ const zh = {
     sword_of_the_morning: '黎明劍',
     uberius_tooth: '尤貝里烏斯的臼齒',
     wind_rider: '乘風者',
+    dux_noctis: '暗夜指揮者',
+    els_fist: '艾爾之拳',
   },
   index: {
     title: '第七史詩 傷害計算器',

@@ -820,6 +820,28 @@ const heroes = {
       }
     }
   },
+  cerise: {
+    name: 'Cerise',
+    element: element.ice,
+    classType: classType.ranger,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+      },
+      s2: {
+        rate: 1.5,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+      },
+      s3: {
+        rate: 0.9,
+        pow: 1.1,
+        enhance: [0.05, 0, 0, 0, 0.15],
+      },
+    }
+  },
   cermia: {
     name: 'Cermia',
     element: element.fire,
@@ -2157,12 +2179,13 @@ const heroes = {
     name: 'Lilibet',
     element: element.earth,
     classType: classType.warrior,
-    form: [elements.target_has_buff],
+    form: [elements.target_has_buff, elements.exclusive_equipment_1],
     dot: [dot.bleed],
     skills: {
       s1: {
         rate: 1,
         pow: 1,
+        exEq: () => elements.exclusive_equipment_1.value() ? 0.2 : 0,
         enhance: [0.05, 0, 0.1, 0, 0.15]
       },
       s2: {
@@ -2235,7 +2258,7 @@ const heroes = {
       s2: {
         rate: 1.65,
         pow: 1.05,
-        enhance: [0.05, 0, 0, 0, 0.1]
+        enhance: [0.1, 0, 0, 0, 0.15]
       },
       s3: {
         soulburn: true,
@@ -2430,6 +2453,26 @@ const heroes = {
         pow: 0.8,
         mult: () => 1 + (100-elements.target_hp_pc.value())*0.003,
         enhance: [0.1, 0.1, 0, 0.15, 0.15]
+      }
+    }
+  },
+  mercenary_helga: {
+    name: 'Mercenary Helga',
+    element: element.earth,
+    classType: classType.warrior,
+    form: [elements.skill_tree_completed],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        mult: () => 1 + (elements.skill_tree_completed.value() ? 0.1 : 0),
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1]
+      },
+      s2: {
+        rate: 1.5,
+        pow: 0.95,
+        mult: () => 1 + (elements.skill_tree_completed.value() ? 0.05 : 0),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1]
       }
     }
   },
@@ -2674,19 +2717,18 @@ const heroes = {
     name: 'Ravi',
     element: element.fire,
     classType: classType.warrior,
-    form: [elements.caster_fighting_spirit],
+    form: [elements.attack_skill_stack_5],
+    atkUp: () => 1 + elements.attack_skill_stack_5.value()*0.15,
     skills: {
       s1: {
         soulburn: true,
         rate: (soulburn) => soulburn ? 2.5 : 1,
         pow: 1,
-        mult: () => 1 + Math.floor(elements.caster_fighting_spirit.value()/20)*0.15,
         enhance: [0.05, 0, 0.1, 0, 0.15]
       },
       s3: {
         rate: 1.2,
         pow: 0.95,
-        mult: () => 1 + Math.floor(elements.caster_fighting_spirit.value()/20)*0.15,
         enhance: [0.05, 0.05, 0, 0.05, 0.05]
       }
     }
@@ -3302,6 +3344,28 @@ const heroes = {
         pow: 0.95,
         flat: () => elements.caster_max_hp.value()*0.05,
         enhance: [0.05, 0.05, 0, 0.1, 0.15]
+      }
+    }
+  },
+  temmpest_surin: {
+    name: 'Tempest Surin',
+    element: element.light,
+    classType: classType.thief,
+    form: [elements.caster_hp_pc],
+    dot: [dot.bleed],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0015,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.25 : 1,
+        pow: 1.05,
+        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.002,
+        enhance: [0.1, 0, 0, 0, 0.15]
       }
     }
   },

@@ -15,6 +15,7 @@
 - Make Reingard's Drink only apply to AoE attacks
 - ~~Filter artifacts list by Hero type~~
 - Validate damage scaling bugfixes with dataminers
+- Comparator
 
 ## Bugfixes
 
