@@ -974,7 +974,6 @@ const heroes = {
         pow: 1,
         mult: () => {
           switch (elements.nb_targets.value()) {
-
             case 3: return 1.267;
             case 2: return 1.534;
             case 1: return 1.801;
@@ -2360,7 +2359,6 @@ const heroes = {
         return (1 + (100-elements.caster_hp_pc.value())*0.004 + extra)
         },
         enhance: [0.05, 0.1, 0.15]
-      },
       },
       s3: {
         soulburn: true,
