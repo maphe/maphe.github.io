@@ -739,13 +739,13 @@ const heroes = {
       },
       s3: {
         soulburn: true,
-        rate: (soulburn) => (elements.caster_hp_pc.value() < 50 ? 1 : 0.6) + (soulburn ? 0.2 : 0),
+        rate: (soulburn) => (elements.caster_hp_pc.value() < 75 ? 1 : 0.6) + (soulburn ? 0.2 : 0),
         pow: 1,
         flat: (soulburn) => {
           if (soulburn) {
-            return elements.caster_max_hp.value() * (elements.caster_hp_pc.value() < 50 ? 0.1 : 0.08)
+            return elements.caster_max_hp.value() * (elements.caster_hp_pc.value() < 75 ? 0.1 : 0.08)
           } else {
-            return elements.caster_max_hp.value() * (elements.caster_hp_pc.value() < 50 ? 0.0625 : 0.05)
+            return elements.caster_max_hp.value() * (elements.caster_hp_pc.value() < 75 ? 0.0625 : 0.05)
           }
         },
         enhance: [0.05, 0, 0, 0.1, 0, 0.15]
