@@ -988,30 +988,17 @@ const heroes = {
     name: 'Charlotte',
     element: element.fire,
     classType: classType.knight,
-    form: [elements.caster_nb_focus],
+    info: 'This is the newer version of Charlotte, post March 5th update',
     skills: {
       s1: {
-        rate: 1,
+        rate: 0.9,
         pow: 1,
-        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
-      },
-      s2: {
-        rate: 0.8,
-        pow: 1,
-        enhance: [0.05, 0.05, 0.1, 0, 0.15],
+        enhance: [0.05, 0, 0.1, 0, 0.15],
       },
       s3: {
-        rate: () => {
-          switch (elements.caster_nb_focus.value()) {
-            case 2: return 1;
-            case 3: return 1.3;
-            case 4: return 1.7;
-            case 5: return 2.4;
-            default: return 0.8;
-          }
-        },
-        pow: 0.8,
-        enhance: [0.1, 0.1, 0, 0.1, 0.1],
+        rate: 1.4,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.15],
       }
     }
   },
@@ -1865,6 +1852,33 @@ const heroes = {
       }
     }
   },
+  kawerik: {
+    name: 'Kawerik',
+    element: element.fire,
+    classType: classType.mage,
+    form: [elements.target_speed, elements.caster_speed],
+    skills: {
+      s1: {
+        rate: 0.9,
+        pow: 1,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        rate: 1.4,
+        pow: 1,
+        mult: () => 1 + elements.target_speed.value()*0.003,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        rate: 0.8,
+        pow: 0.95,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        penetrate: () => elements.caster_speed_up.value() ? 0.3 : 0,
+        enhance: [0.05, 0.05, 0, 0.1, 0.15]
+      }
+    }
+  },
   kayron: {
     name: 'Kayron',
     element: element.fire,
@@ -2196,6 +2210,25 @@ const heroes = {
         pow: 0.95,
         enhance: [0.05, 0.05, 0, 0.1, 0.15]
       }
+    }
+  },
+  little_queen_charlotte: {
+    name: 'Little Queen Charlotte',
+    element: element.light,
+    classType: classType.warrior,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s3: {
+        rate: 1.5,
+        pow: 1,
+        mult: () => document.getElementById(`elem-adv`).checked ? 1.3 : 1,
+        penetrate: () => 0.5,
+        enhance: [0.05, 0.05, 0, 0.05, 0.15]
+      },
     }
   },
   lorina: {
