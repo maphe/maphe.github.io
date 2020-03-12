@@ -1523,14 +1523,15 @@ const heroes = {
     form: [elements.caster_defense, elements.target_hp_pc],
     skills: {
       s1: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 0.5 : 0.5,
         rate: 0.5,
         pow: 1,
         flat: () => elements.caster_defense.value()*0.75,
         enhance: [0.05, 0.05, 0.05, 0.1, 0.15]
       },
       s3: {
-        soulburn: true,
-        rate: (soulburn) => soulburn ? 1.7 : 1,
+        rate: 1.7,
         pow: 1,
         flat: () => elements.caster_defense.value()*1.5,
         mult: () => elements.target_hp_pc.value() < 30 ? 3 : 1,
