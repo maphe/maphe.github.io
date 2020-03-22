@@ -26,20 +26,25 @@
         <title>Epic7 Damage Calculator</title>
     </head>
     <body class="container">
-        <div class="row mt-3">
-            <h1 class="col-9">Epic7 Damage Calculator</h1>
-                <div id="flags" class="dropdown col-3">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" lang="en-us">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+            <a class="navbar-brand">Epic 7 Damage Calculator</a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" lang="en-us">
                         English <span class="flag flag-us"> </span>
-                        </button>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="./jp/index.html" lang="ja">日本語 <span class="flag flag-jp"> </span></a>
                         <a class="dropdown-item" href="./kr/index.html" lang="ko">한국어 <span class="flag flag-kr"> </span></a>
                         <a class="dropdown-item" href="./zhTW/index.html" lang="zh-tw">繁體中文 <span class="flag flag-tw"> </span></a>
                         <a class="dropdown-item" href="./zh/index.html" lang="zh-cn">简体中文 <span class="flag flag-cn"> </span></a>
                     </div>
-                </div>
-        </div>
+                </li>
+            </ul>
+        </nav>
 <!--        <div class="alert alert-warning alert-dismissible fade show" role="alert">-->
 <!--            <strong>Mar 5, Update:</strong> Added New Heroes: Kawerik & Little Queen Charlotte<br />-->
 <!--            Fire Charlotte has been updated to reflect changes in her skill set.-->
@@ -49,7 +54,6 @@
 <!--        </div>-->
         <div>
             <form id="stats">
-                <h4>Hero</h4>
                 <div id="hero-block">
                     <div class="row">
                         <div class="form-group col-md-4 col-sm-12">
