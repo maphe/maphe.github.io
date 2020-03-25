@@ -60,7 +60,8 @@ compare.appendChild(dmg_clone);
 function tableCreate() {
     const lang = document.getElementById('root').getAttribute('lang');
     const build = document.getElementById("builds").firstElementChild.innerHTML;
-    const hero=document.getElementById("stats").firstElementChild.innerHTML;
+//    const hero=document.getElementById("stats").firstElementChild.innerHTML;
+    const hero="";
     const artifact=document.getElementById("artifact-block").firstElementChild.innerHTML;
     const atk=document.getElementById("atk-label").innerText;
     const cd=document.getElementById("crit-label").innerText;
