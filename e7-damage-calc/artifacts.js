@@ -132,7 +132,6 @@ const artifacts = {
     atkPercent: 0.45,
     penetrate: 0.7,
     exclusive: classType.warrior,
-    info: 'This includes the buff announced for 2/20 where damage has been increased by 50%'
   },
   wind_rider: {
     id: 'wind_rider',
