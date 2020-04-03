@@ -2910,6 +2910,28 @@ const heroes = {
       }
     }
   },
+  roana: {
+    name: 'Roana',
+    element: element.earth,
+    classType: classType.soul_weaver,
+    form: [elements.caster_max_hp],
+    barrier: () => {
+      const scale = [0, 0.05, 0, 0.1, 0, 0.1, 0];
+      let boost = 1.0;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s1`).value); i++) {
+        boost += scale[i];
+      }
+
+      return elements.caster_max_hp.value()*0.1*boost;
+    },
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1]
+      }
+    }
+  },
   romann: {
     name: 'Romann',
     element: element.ice,
@@ -3198,6 +3220,18 @@ const heroes = {
         pow: 1,
         enhance: [0.05, 0.05, 0, 0.1, 0.1]
       },
+    }
+  },
+  sinful_angelica: {
+    name: 'Sinful Angelica',
+    element: element.dark,
+    classType: classType.soul_weaver,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0.05, 0, 0.1, 0.1]
+      }
     }
   },
   sol: {
