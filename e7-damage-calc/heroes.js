@@ -3725,7 +3725,8 @@ const heroes = {
     name: 'Zeno',
     element: element.ice,
     classType: classType.mage,
-    form: [elements.caster_max_hp, elements.non_attack_skill_stack_10],
+    form: [elements.caster_max_hp, elements.non_attack_skill_stack_8],
+    info: "Zeno has been updated to reflect the Balance Adjustment announced for 4/16",
     skills: {
       s1: {
         rate: 0.5,
@@ -3746,7 +3747,7 @@ const heroes = {
             extra += heroes.zeno.skills.s2.enhance[i];
           }
 
-          return 1 + elements.non_attack_skill_stack_10.value()*(0.05+extra)
+          return 1 + elements.non_attack_skill_stack_8.value()*(0.07+extra)
         },
         enhance: [0.05, 0, 0.1, 0, 0.15],
       }
