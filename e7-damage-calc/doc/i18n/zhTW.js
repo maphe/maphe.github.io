@@ -194,6 +194,8 @@ const zhTW = {
     wind_rider: '乘風者',
     dux_noctis: '暗夜指揮者',
     els_fist: '艾爾之拳',
+    dignus_orb: '尊嚴寶珠',
+    time_matter: '時間的物質',
   },
   index: {
     title: '第七史詩 傷害計算器',
