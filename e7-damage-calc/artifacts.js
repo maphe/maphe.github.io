@@ -25,6 +25,13 @@ const artifacts = {
     form: [elements.target_max_hp],
     flat: (artiScale) => elements.target_max_hp.value()*artiScale
   },
+  dignus_orb: {
+    id: 'dignus_orb',
+    name: 'Dignus Orb',
+    value: 0.15,
+    type: artifactDmgType.damage,
+    exclusive: classType.mage,
+  },
   draco_plate: {
     id: 'draco_plate',
     name: 'Draco Plate',
@@ -124,6 +131,13 @@ const artifacts = {
     name: 'Sword of the Morning',
     type: artifactDmgType.attack,
     scale: [0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2],
+  },
+  time_matter: {
+    id: 'time_matter',
+    name: 'Time Matter',
+    scale: [0.18, 0.198, 0.216, 0.234, 0.252, 0.27, 0.288, 0.306, 0.324, 0.342, 0.36],
+    type: artifactDmgType.damage,
+    exclusive: classType.mage,
   },
   uberius_tooth: {
     id: 'uberius_tooth',

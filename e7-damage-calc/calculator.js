@@ -251,7 +251,7 @@ class Artifact {
   }
 
   getValue() {
-    return artifacts[this.id].scale ? artifacts[this.id].scale[Math.floor(document.getElementById('artifact-lvl').value/3)] : undefined;
+    return artifacts[this.id].scale ? artifacts[this.id].scale[Math.floor(document.getElementById('artifact-lvl').value/3)] : artifacts[this.id].value;
   }
 
   getDamageMultiplier() {
