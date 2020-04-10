@@ -194,6 +194,8 @@ const zhCN = {
     wind_rider: '乘风者',
     dux_noctis: '暗夜指挥者',
     els_fist: '艾尔之拳',
+    dignus_orb: '尊严宝珠',
+    time_matter: '时间的物质',
   },
   index: {
     title: '第七史诗 伤害计算器',
