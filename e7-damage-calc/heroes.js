@@ -2628,6 +2628,7 @@ const heroes = {
     element: element.earth,
     classType: classType.ranger,
     form: [elements.caster_speed],
+    info: "Pavel's S3 is still calculated with pre-buff multipliers until the new multipliers (~25%) are datamined after 4/16 patch",
     skills: {
       s1: {
         rate: 0.9,
