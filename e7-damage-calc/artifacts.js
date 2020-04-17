@@ -147,11 +147,17 @@ const artifacts = {
     penetrate: 0.7,
     exclusive: classType.warrior,
   },
+  victorious_flag: {
+    id: 'victorious_flag',
+    name: 'Victorious Flag',
+    scale: [0.08, 0.088, 0.096, 0.104, 0.112, 0.12, 0.128, 0.136, 0.144, 0.152, 0.16],
+    type: artifactDmgType.damage,
+  },
   wind_rider: {
     id: 'wind_rider',
     name: 'Wind Rider',
     type: artifactDmgType.attack,
     scale: [0.3, 0.33, 0.36, 0.39, 0.42, 0.45, 0.48, 0.51, 0.54, 0.57, 0.6],
     exclusive: classType.thief
-  }
+  },
 };
