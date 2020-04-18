@@ -196,6 +196,7 @@ const zhCN = {
     els_fist: '艾尔之拳',
     dignus_orb: '尊严宝珠',
     time_matter: '时间的物质',
+    victorious_flag: '胜战旗帜',
   },
   index: {
     title: '第七史诗 伤害计算器',

@@ -454,6 +454,7 @@ const i18n = {
       els_fist: '艾爾之拳',
       dignus_orb: '尊嚴寶珠',
       time_matter: '時間的物質',
+      victorious_flag: '勝戰旗幟',
     },
     form: {
       nb_targets: '敵人數量',
@@ -715,6 +716,7 @@ const i18n = {
       els_fist: '艾尔之拳',
       dignus_orb: '尊严宝珠',
       time_matter: '时间的物质',
+      victorious_flag: '胜战旗帜',
     },
     form: {
       nb_targets: '敌人数量',
