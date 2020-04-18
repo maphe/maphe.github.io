@@ -402,7 +402,7 @@ const elements = {
     label: 'Turn Stack',
     type: 'slider',
     min: 0,
-    max: 10,
+    max: 20,
     default: 0,
     readonly: true,
     value: () => Number(document.getElementById('turn-stack').value)
