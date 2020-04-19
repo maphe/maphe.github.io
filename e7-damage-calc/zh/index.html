@@ -46,7 +46,8 @@
             </ul>
         </nav>
       <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          <strong>4月18日, 更新:</strong> 新神器: 胜战旗帜
+          <strong>4月19日, 更新:</strong> 添加讨伐13层数据<br/>
+          添加攻击力%阵型和攻击力%加成选项 + 帕贝尔buff数据实装
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
           </button>
@@ -92,6 +93,51 @@
                         </div>
                         <div class="form-group row col-sm-12 mb-4">
                             <input type="range" class="custom-range" id="atk-slide" min="200" max="10000" value="2500" oninput="slide('atk')" data-for="atk">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 half-left">
+                            <div class="stat-block">
+                                <div class="form-group row col-sm-12">
+                                    <label for="atk-pc-imprint" class="col-md-7 col-form-label form-control-sm">
+                                        <h5 data-toggle="tooltip" title="Enter sum of self Attack Imprint Concentration and allies' Attack Imprint Release ; calculation based on 6 star fully awaken hero stats">Attack % Imprint</h5>
+                                    </label>
+                                    <div class="input-group input-group-sm col-md-5">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary" type="button" id="atk-pc-imprint-minus" onclick="minus('atk-pc-imprint')">&minus;</button>
+                                        </div>
+                                        <input type="number" class="form-control text-center" id="atk-pc-imprint" value="0" onkeyup="update('atk-pc-imprint')">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="atk-pc-imprint-plus" onclick="plus('atk-pc-imprint')">&plus;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row col-sm-12">
+                                    <input type="range" class="custom-range" id="atk-pc-imprint-slide" min="0" max="50" value="0" oninput="slide('atk-pc-imprint')">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 half-right">
+                            <div class="stat-block">
+                                <div class="form-group row col-sm-12">
+                                    <label for="atk-pc-up" class="col-md-7 col-form-label form-control-sm">
+                                        <h5 data-toggle="tooltip" title="Example: Card of Small Miracles">Attack % Increase</h5>
+                                    </label>
+                                    <div class="input-group input-group-sm col-md-5">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary" type="button" id="atk-pc-up-minus" onclick="minus('atk-pc-up')">&minus;</button>
+                                        </div>
+                                        <input type="number" class="form-control text-center" id="atk-pc-up" value="0" onkeyup="update('atk-pc-up')">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="atk-pc-up-plus" onclick="plus('atk-pc-up')">&plus;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row col-sm-12">
+                                    <input type="range" class="custom-range" id="atk-pc-up-slide" min="0" max="20" value="0" oninput="slide('atk-pc-up')">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -172,25 +218,41 @@
                             <option value="">手动</option>
                             <option data-divider="true"></option>
                             <optgroup label="龙 11">
-                                <option value="blaze-dragona" data-def="984" data-hp="14158" data-subtext="14158 hp/144 spd">火焰德拉戈纳</option>
-                                <option value="blood-ridge-naga" data-def="1183" data-hp="11851" data-subtext="11851 hp/163 spd">血光山脊那伽</option>
-                                <option value="wyvern11" data-def="1254" data-hp="139308" data-subtext="139308 hp/208 spd" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.3">玛瑙双足飞龙</option>
+                                <option value="blaze-dragona-11" data-def="984" data-hp="14158" data-subtext="14158 hp/163 spd">火焰德拉戈纳</option>
+                                <option value="blood-ridge-naga-11" data-def="1183" data-hp="11851" data-subtext="11851 hp/144 spd">血光山脊那伽</option>
+                                <option value="wyvern-11" data-def="1254" data-hp="139308" data-subtext="139308 hp/208 spd" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.3">玛瑙双足飞龙</option>
+                            </optgroup>
+                            <optgroup label="龙 13">
+                                <option value="blaze-dragona-13" data-def="1392" data-hp="20241" data-subtext="20241 hp/175 spd">火焰德拉戈纳</option>
+                                <option value="blood-ridge-naga-13" data-def="1340" data-hp="13358" data-subtext="13358 hp/154 spd">血光山脊那伽</option>
+                                <option value="wyvern-13" data-def="1944" data-hp="233578" data-subtext="233578 hp/242 spd" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.3">玛瑙双足飞龙</option>
                             </optgroup>
                             <optgroup label="木 11">
-                                <option value="raqix-flying-troop" data-def="891" data-hp="12528" data-subtext="12528 hp">罗奇斯飞行兵</option>
-                                <option value="mossy-testudo" data-def="1077" data-hp="15015" data-subtext="15015 hp">青苔陆龟</option>
-                                <option value="golem11" data-def="1306" data-hp="101983" data-subtext="101983 hp" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.3">杰伦石龙巨像</option>
+                                <option value="raqix-flying-troop-11" data-def="891" data-hp="12528" data-subtext="12528 hp">罗奇斯飞行兵</option>
+                                <option value="mossy-testudo-11" data-def="1077" data-hp="15015" data-subtext="15015 hp">青苔陆龟</option>
+                                <option value="golem-11" data-def="1306" data-hp="101983" data-subtext="101983 hp" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.3">杰伦石龙巨像</option>
                             </optgroup>
                             <optgroup label="水 11">
-                                <option value="mystychain" data-def="1101" data-hp="9631" data-subtext="9631 hp/154 spd">美丝缇彩</option>
-                                <option value="icy-dark-broom" data-def="1101" data-hp="9631" data-subtext="9631 hp/152 spd">寒冰达克布鲁姆</option>
-                                <option value="banshee11" data-def="1289" data-hp="60624" data-subtext="60624 hp/160 spd" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.3">报丧妖领主史达莱特</option>
+                                <option value="mystychain-11" data-def="1101" data-hp="9631" data-subtext="9631 hp/154 spd">美丝缇彩</option>
+                                <option value="icy-dark-broom-11" data-def="1101" data-hp="9631" data-subtext="9631 hp/152 spd">寒冰达克布鲁姆</option>
+                                <option value="banshee-11" data-def="1289" data-hp="60624" data-subtext="60624 hp/160 spd" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.3">报丧妖领主史达莱特</option>
+                            </optgroup>
+                            <optgroup label="水 13">
+                                <option value="mystychain-13" data-def="1248" data-hp="11015" data-subtext="11015 hp/174 spd">美丝缇彩</option>
+                                <option value="icy-dark-broom-13" data-def="1248" data-hp="11015" data-subtext="11015 hp/174 spd">寒冰达克布鲁姆</option>
+                                <option value="banshee-13" data-def="1976" data-hp="115703" data-subtext="115703 hp/203 spd" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.3">报丧妖领主史达莱特</option>
                             </optgroup>
                             <optgroup label="暗 11">
-                                <option value="striker-raqix-warlord" data-def="1030" data-hp="12812" data-subtext="12812 hp/211 spd">一击的罗奇斯战斗君主</option>
-                                <option value="karax-charger" data-def="1150" data-hp="20814" data-subtext="20814 hp/149 spd">卡洛斯冲锋兵</option>
-                                <option value="egg" data-def="540" data-hp="8098" data-subtext="8098 hp">蛋</option>
-                                <option value="azimanak11" data-def="1825" data-hp="87729" data-subtext="87729 hp">战争君主阿吉玛隆</option>
+                                <option value="striker-raqix-warlord-11" data-def="1030" data-hp="12812" data-subtext="12812 hp/211 spd">一击的罗奇斯战斗君主</option>
+                                <option value="karax-charger-11" data-def="1150" data-hp="20814" data-subtext="20814 hp/149 spd">卡洛斯冲锋兵</option>
+                                <option value="egg-11" data-def="540" data-hp="8098" data-subtext="8098 hp">蛋</option>
+                                <option value="azimanak-11" data-def="1825" data-hp="87729" data-subtext="87729 hp">战争君主阿吉玛隆</option>
+                            </optgroup>
+                            <optgroup label="暗 13">
+                                <option value="striker-raqix-warlord-13" data-def="1134" data-hp="14653" data-subtext="14653 hp/218 spd">一击的罗奇斯战斗君主</option>
+                                <option value="karax-charger-13" data-def="1297" data-hp="23805" data-subtext="23805 hp/176 spd">卡洛斯冲锋兵</option>
+                                <option value="egg-13" data-def="600" data-hp="9156" data-subtext="9156 hp">蛋</option>
+                                <option value="azimanak-13" data-def="1787" data-hp="134511" data-subtext="134511 hp">战争君主阿吉玛隆</option>
                             </optgroup>
                         </select>
                     </div>
