@@ -68,7 +68,7 @@ const getGlobalAtkMult = () => {
     mult += 0.1;
   }
 
-  return mult;
+  return mult + (Number(document.getElementById('atk-pc-up').value)/100);
 };
 
 const getGlobalDamageMult = (hero) => {
@@ -105,6 +105,7 @@ class Hero {
     this.atk = Number(document.getElementById('atk').value);
     this.crit = Number(document.getElementById('crit').value);
     this.skills = heroes[id].skills;
+    this.baseAtk = heroes[id].baseAtk || 0;
     this.dot = heroes[id].dot;
     this.atkUp = heroes[id].atkUp;
     this.element = heroes[id].element;
@@ -130,9 +131,10 @@ class Hero {
     const skill = skillId !== undefined ? this.skills[skillId] : undefined;
 
     const atk = (skill !== undefined && skill.atk !== undefined) ? skill.atk() : this.atk;
+    const atkImprint = this.baseAtk*(Number(document.getElementById('atk-pc-imprint').value)/100);
     const atkMod = 1 + getGlobalAtkMult() + (this.atkUp !== undefined ? this.atkUp()-1 : 0) + this.artifact.getAttackBoost();
 
-    return atk*atkMod;
+    return (atk+atkImprint)*atkMod;
   }
 
   offensivePower(skillId, soulburn) {

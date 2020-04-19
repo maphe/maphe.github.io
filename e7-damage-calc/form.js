@@ -832,4 +832,6 @@ $(() => {
   refreshArtifactList(hero);
   buildArtifact(artifacts[artiSelector.value]);
   resolve();
+
+  $('[data-toggle="tooltip"]').tooltip();
 });

@@ -95,6 +95,51 @@
                         </div>
                     </div>
 
+                    <div class="row">
+                        <div class="col-sm-6 half-left">
+                            <div class="stat-block">
+                                <div class="form-group row col-sm-12">
+                                    <label for="atk-pc-imprint" class="col-md-7 col-form-label form-control-sm">
+                                        <h5 data-toggle="tooltip" title="自身の攻撃力陣形効果（刻印集中）とチームメンバーの攻撃力陣形効果（刻印展開）の総合を入力。星6完全覚醒英雄ステータスを基準に計算する">攻撃力%陣形効果</h5>
+                                    </label>
+                                    <div class="input-group input-group-sm col-md-5">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary" type="button" id="atk-pc-imprint-minus" onclick="minus('atk-pc-imprint')">&minus;</button>
+                                        </div>
+                                        <input type="number" class="form-control text-center" id="atk-pc-imprint" value="0" onkeyup="update('atk-pc-imprint')">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="atk-pc-imprint-plus" onclick="plus('atk-pc-imprint')">&plus;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row col-sm-12">
+                                    <input type="range" class="custom-range" id="atk-pc-imprint-slide" min="0" max="50" value="0" oninput="slide('atk-pc-imprint')">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 half-right">
+                            <div class="stat-block">
+                                <div class="form-group row col-sm-12">
+                                    <label for="atk-pc-up" class="col-md-7 col-form-label form-control-sm">
+                                        <h5 data-toggle="tooltip" title="例: 小さな奇跡のカード">攻撃力%上昇</h5>
+                                    </label>
+                                    <div class="input-group input-group-sm col-md-5">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary" type="button" id="atk-pc-up-minus" onclick="minus('atk-pc-up')">&minus;</button>
+                                        </div>
+                                        <input type="number" class="form-control text-center" id="atk-pc-up" value="0" onkeyup="update('atk-pc-up')">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="atk-pc-up-plus" onclick="plus('atk-pc-up')">&plus;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row col-sm-12">
+                                    <input type="range" class="custom-range" id="atk-pc-up-slide" min="0" max="20" value="0" oninput="slide('atk-pc-up')">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="stat-block">
                         <div class="form-group row col-sm-12">
                             <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>クリティカル　ダメージ (%)</h5></label>

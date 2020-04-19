@@ -45,12 +45,12 @@
                 </li>
             </ul>
         </nav>
-<!--        <div class="alert alert-warning alert-dismissible fade show" role="alert">-->
-<!--            <strong>Apr 9, Update:</strong> Added Time Matter and Dignus Orb to the artifact list-->
-<!--            <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
-<!--                <span aria-hidden="true">&times;</span>-->
-<!--            </button>-->
-<!--        </div>-->
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Apr 18, Update:</strong> Updated Pavel's multipliers with latest buff + Added Attack % Imprint and Attack % Increase inputs.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <div>
             <form id="stats">
                 <div id="hero-block">
@@ -92,6 +92,51 @@
                         </div>
                         <div class="form-group row col-sm-12 mb-4">
                             <input type="range" class="custom-range" id="atk-slide" min="200" max="10000" value="2500" oninput="slide('atk')" data-for="atk">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-6 half-left">
+                            <div class="stat-block">
+                                <div class="form-group row col-sm-12">
+                                    <label for="atk-pc-imprint" class="col-md-7 col-form-label form-control-sm">
+                                        <h5 data-toggle="tooltip" title="Enter sum of self Attack Imprint Concentration and allies' Attack Imprint Release ; calculation based on 6 star fully awaken hero stats">Attack % Imprint</h5>
+                                    </label>
+                                    <div class="input-group input-group-sm col-md-5">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary" type="button" id="atk-pc-imprint-minus" onclick="minus('atk-pc-imprint')">&minus;</button>
+                                        </div>
+                                        <input type="number" class="form-control text-center" id="atk-pc-imprint" value="0" onkeyup="update('atk-pc-imprint')">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="atk-pc-imprint-plus" onclick="plus('atk-pc-imprint')">&plus;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row col-sm-12">
+                                    <input type="range" class="custom-range" id="atk-pc-imprint-slide" min="0" max="50" value="0" oninput="slide('atk-pc-imprint')">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 half-right">
+                            <div class="stat-block">
+                                <div class="form-group row col-sm-12">
+                                    <label for="atk-pc-up" class="col-md-7 col-form-label form-control-sm">
+                                        <h5 data-toggle="tooltip" title="Example: Card of Small Miracles">Attack % Increase</h5>
+                                    </label>
+                                    <div class="input-group input-group-sm col-md-5">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary" type="button" id="atk-pc-up-minus" onclick="minus('atk-pc-up')">&minus;</button>
+                                        </div>
+                                        <input type="number" class="form-control text-center" id="atk-pc-up" value="0" onkeyup="update('atk-pc-up')">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="atk-pc-up-plus" onclick="plus('atk-pc-up')">&plus;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row col-sm-12">
+                                    <input type="range" class="custom-range" id="atk-pc-up-slide" min="0" max="20" value="0" oninput="slide('atk-pc-up')">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -146,7 +191,7 @@
                     <div id="artifact-info"></div>
                     <div id="artifact-lvl-block" class="stat-block">
                         <div class="form-group row col-sm-12">
-                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>Level</h5></label>
+                            <label for="artifact-lvl" class="col-md-9 col-form-label form-control-sm"><h5>Level</h5></label>
                             <div class="input-group input-group-sm col-md-3">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" type="button" id="artifact-lvl-minus" onclick="minus('artifact-lvl')">&minus;</button>
@@ -232,7 +277,7 @@
                         <div class="col-sm-6 half-left">
                             <div class="stat-block">
                                 <div class="form-group row col-sm-12">
-                                    <label for="crit" class="col-md-7 col-form-label form-control-sm"><h5>Damage Reduction (%)</h5></label>
+                                    <label for="dmg-reduc" class="col-md-7 col-form-label form-control-sm"><h5>Damage Reduction (%)</h5></label>
                                     <div class="input-group input-group-sm col-md-5">
                                         <div class="input-group-prepend">
                                             <button class="btn btn-outline-secondary" type="button" id="dmg-reduc-minus" onclick="minus('dmg-reduc')">&minus;</button>
@@ -251,7 +296,7 @@
                         <div class="col-sm-6 half-right">
                             <div class="stat-block">
                                 <div class="form-group row col-sm-12">
-                                    <label for="crit" class="col-md-7 col-form-label form-control-sm"><h5>Damage Transfer (%)</h5></label>
+                                    <label for="dmg-trans" class="col-md-7 col-form-label form-control-sm"><h5>Damage Transfer (%)</h5></label>
                                     <div class="input-group input-group-sm col-md-5">
                                         <div class="input-group-prepend">
                                             <button class="btn btn-outline-secondary" type="button" id="dmg-trans-minus" onclick="minus('dmg-trans')">&minus;</button>
