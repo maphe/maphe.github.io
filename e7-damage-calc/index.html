@@ -377,7 +377,9 @@
 
         <div id="damage-block">
             <h4>
-                Damage <button id="compare" type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#compareModal">Save/Compare</button>
+                Damage
+                <button id="compare-add-open" type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#compareAddModal">Save</button>
+                <button id="compare-open" type="button" class="btn btn-outline-secondary btn-sm" data-toggle="modal" data-target="#compareModal">Compare</button>
                 <span id="barrier-block" class="badge badge-light float-right">
                     <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_protect.png" width="20" height="20" /> <span id="barrier"></span>
                 </span>
@@ -445,7 +447,7 @@
             </div>
         </footer>
 
-        <div id="compareModal" class="modal fade" tabindex="-1" role="dialog">
+        <div id="compareAddModal" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -457,15 +459,43 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="damage-mem-name" class="col-form-label">Setting Name</label>
-                                <input type="text" class="form-control" id="damage-mem-name" value="Bla bla">
+                                <label for="damage-mem-name" class="col-form-label">Build Name</label>
+                                <input type="text" class="form-control" id="damage-mem-name" placeholder="Enter your build name">
                             </div>
                         </form>
-                        <a href="test">Open comparison screen</a>
+                        <a href="compare.html">Open comparison screen</a>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                         <button type="button" class="btn btn-primary" id="compare-add">Add to pool</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="compareModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Compare Damage</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="compare-splash" style="display: none">No builds have been saved yet</p>
+                        <div id="damage-comparison-block">
+                            <table class="table table-bordered table-sm col-sm-12">
+                                <thead class="table-secondary">
+                                <tr id="damage-header"></tr>
+                                </thead>
+                                <tbody id="damage-comparison"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="clear-compare" type="button" class="btn btn-danger">Clear</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

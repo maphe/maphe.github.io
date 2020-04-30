@@ -42,7 +42,14 @@ const addToComparePool = () => {
 const compare = (heroId) => {
   const allSets = localStorage.getItem('heroes') ? JSON.parse(localStorage.getItem('heroes')) : {};
   const heroSets = allSets[heroId] || {};
-  console.log(heroSets[Object.keys(heroSets)[0]]);
+
+  console.log(heroSets, !!heroSets);
+
+  if (Object.keys(heroSets).length === 0) {
+    document.getElementById('compare-splash').style.display = 'block';
+    document.getElementById('damage-comparison-block').style.display = 'none';
+    return;
+  }
 
   const headers = document.getElementById('damage-header');
   headers.innerHTML = '<th>Set</th>';
@@ -59,7 +66,17 @@ const compare = (heroId) => {
     }
     $(body).append(`<tr>${html}</tr>`)
   }
+
+  document.getElementById('compare-splash').style.display = 'none';
+  document.getElementById('damage-comparison-block').style.display = 'block';
 };
+
+const clearCompare = (heroId) => {
+  const allSets = localStorage.getItem('heroes') ? JSON.parse(localStorage.getItem('heroes')) : {};
+
+  delete allSets[heroId];
+  localStorage.setItem('heroes', JSON.stringify(allSets));
+}
 
 
 $(() => {
@@ -76,11 +93,22 @@ $(() => {
     };
   }
 
-  document.getElementById('compare').onclick = () => {
+  document.getElementById('compare-add-open').onclick = () => {
     document.getElementById('damage-mem-name').value = setDefaultSettingName();
   };
 
   document.getElementById('compare-add').onclick = () => {
     addToComparePool();
   }
+
+  document.getElementById('clear-compare').onclick = () => {
+    const heroSelector = document.getElementById('hero');
+    clearCompare(heroSelector.value);
+    compare(heroSelector.value);
+  }
+
+  $('#compareModal').on('shown.bs.modal', () => {
+    const heroSelector = document.getElementById('hero');
+    compare(heroSelector.value);
+  })
 });
