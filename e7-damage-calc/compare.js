@@ -62,7 +62,7 @@ const compare = (heroId) => {
   const headers = document.getElementById('damage-header');
   headers.innerHTML = '<th>Build</th>';
   for (const skillId of Object.keys(heroSets[Object.keys(heroSets)[0]])) {
-    $(headers).append(`<th>${compareSkillLabel(skillId)}</th>`)
+    $(headers).append(`<th class="text-right">${compareSkillLabel(skillId)}</th>`)
   }
 
   const body = document.getElementById('damage-comparison');
@@ -70,7 +70,9 @@ const compare = (heroId) => {
   for (const setName of Object.keys(heroSets)) {
     let html = `<td>${setName}</td>`;
     for (const skillId of Object.keys(heroSets[setName])) {
-      html += `<td>${heroSets[setName][skillId]['crit']}</td>`;
+      const dmg = heroSets[setName][skillId];
+      const output = dmg['crit'] || dmg['normal'] || dmg['miss'] || 0;
+      html += `<td class="text-right">${output}</td>`;
     }
     $(body).append(`<tr>${html}</tr>`)
   }
