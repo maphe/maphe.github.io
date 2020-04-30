@@ -1,3 +1,8 @@
+const getSavedBuilds = () => {
+  const allSets = localStorage.getItem('heroes') ? JSON.parse(localStorage.getItem('heroes')) : {};
+  return allSets[document.getElementById('hero').value] || {};
+}
+
 const setDefaultSettingName = () => {
   const artifact = new Artifact(document.getElementById('artifact').value);
   const hero = new Hero(document.getElementById('hero').value, artifact);
@@ -23,7 +28,7 @@ const addToComparePool = () => {
 
       if (skill.soulburn) {
         const damage = hero.getDamage(skillId, true);
-        dmg[skillId+'+sb'] = {
+        dmg[skillId+'_sb'] = {
           'crit': damage['crit'],
           'normal': damage['normal'],
           'miss': damage['miss'],
@@ -37,13 +42,16 @@ const addToComparePool = () => {
   heroSets[document.getElementById('damage-mem-name').value] = dmg;
   allSets[hero.id] = heroSets;
   localStorage.setItem('heroes', JSON.stringify(allSets));
+  gtag('event', 'save', {
+    event_category: 'Hero',
+    event_label: hero.id,
+  });
+  refreshCompareBadge();
 };
 
 const compare = (heroId) => {
   const allSets = localStorage.getItem('heroes') ? JSON.parse(localStorage.getItem('heroes')) : {};
   const heroSets = allSets[heroId] || {};
-
-  console.log(heroSets, !!heroSets);
 
   if (Object.keys(heroSets).length === 0) {
     document.getElementById('compare-splash').style.display = 'block';
@@ -52,9 +60,9 @@ const compare = (heroId) => {
   }
 
   const headers = document.getElementById('damage-header');
-  headers.innerHTML = '<th>Set</th>';
+  headers.innerHTML = '<th>Build</th>';
   for (const skillId of Object.keys(heroSets[Object.keys(heroSets)[0]])) {
-    $(headers).append(`<th>${skillId}</th>`)
+    $(headers).append(`<th>${compareSkillLabel(skillId)}</th>`)
   }
 
   const body = document.getElementById('damage-comparison');
@@ -69,6 +77,10 @@ const compare = (heroId) => {
 
   document.getElementById('compare-splash').style.display = 'none';
   document.getElementById('damage-comparison-block').style.display = 'block';
+  gtag('event', 'compare', {
+    event_category: 'Hero',
+    event_label: heroId,
+  });
 };
 
 const clearCompare = (heroId) => {
@@ -78,6 +90,9 @@ const clearCompare = (heroId) => {
   localStorage.setItem('heroes', JSON.stringify(allSets));
 }
 
+const refreshCompareBadge = () => {
+  document.getElementById('compare-pool-size').innerText = Object.keys(getSavedBuilds()).length;
+}
 
 $(() => {
   const allSets = localStorage.getItem('heroes') ? JSON.parse(localStorage.getItem('heroes')) : {};
@@ -89,7 +104,7 @@ $(() => {
   if (heroSelector) {
     heroSelector.onchange = () => {
       const hero = heroes[heroSelector.value];
-      compare(heroSelector.value)
+      compare(heroSelector.value);
     };
   }
 
@@ -99,6 +114,7 @@ $(() => {
 
   document.getElementById('compare-add').onclick = () => {
     addToComparePool();
+    $('#compareAddModal').modal('toggle');
   }
 
   document.getElementById('clear-compare').onclick = () => {
@@ -110,5 +126,5 @@ $(() => {
   $('#compareModal').on('shown.bs.modal', () => {
     const heroSelector = document.getElementById('hero');
     compare(heroSelector.value);
-  })
+  });
 });
