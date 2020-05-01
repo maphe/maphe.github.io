@@ -53,6 +53,33 @@ const heroes = {
       }
     }
   },
+  adventurer_ras: {
+    name: 'Adventurer Ras',
+    element: element.fire,
+    classType: classType.knight,
+    baseAtk: 758,
+    form: [elements.caster_max_hp, elements.skill_tree_completed],
+    skills: {
+      s1: {
+        rate: 0.9,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.04,
+        mult: () => 1 + (elements.skill_tree_completed.value() ? 0.1 : 0),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s2: {
+        rate: 1.5,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s3: {
+        rate: 0.9,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.04,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+    }
+  },
   ains: {
     name: 'Ains',
     element: element.earth,
@@ -666,6 +693,34 @@ const heroes = {
         rate: (soulburn) => soulburn ? 1.45 : 1.2,
         pow: 0.95,
         enhance: [0.05, 0.05, 0, 0.1, 0.15]
+      },
+    }
+  },
+  blood_moon_haste: {
+    name: 'Blood Moon Haste',
+    element: element.dark,
+    classType: classType.soul_weaver,
+    baseAtk: 621,
+    form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value()*0.4,
+    barrierEnhance: 's2',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.12,
+        enhance: [0.05, 0.1, 0.15]
+      },
+      s2: {
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1, 0.15]
+      },
+      s3: {
+        noCrit: true,
+        rate: 0.3,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.12,
+        penetrate: () => 1.0,
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1]
       },
     }
   },
