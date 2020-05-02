@@ -768,6 +768,7 @@ $(() => {
       event_category: 'Hero',
       event_label: heroSelector.value,
     });
+    refreshCompareBadge();
   };
 
   const defPresetSelector = document.getElementById('def-preset');
@@ -834,4 +835,5 @@ $(() => {
   resolve();
 
   $('[data-toggle="tooltip"]').tooltip();
+  refreshCompareBadge();
 });
