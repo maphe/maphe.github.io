@@ -60,7 +60,7 @@ const compare = (heroId) => {
   }
 
   const headers = document.getElementById('damage-header');
-  headers.innerHTML = '<th>Build</th>';
+  headers.innerHTML = '<th></th><th>Build</th>';
   for (const skillId of Object.keys(heroSets[Object.keys(heroSets)[0]])) {
     $(headers).append(`<th class="text-right">${compareSkillLabel(skillId)}</th>`)
   }
@@ -68,11 +68,11 @@ const compare = (heroId) => {
   const body = document.getElementById('damage-comparison');
   body.innerHTML = '';
   for (const setName of Object.keys(heroSets)) {
-    let html = `<td>${setName}</td>`;
+    let html = `<td class="text-center align-middle"><a href="#" class="compare-clear-single" data-hero="${heroId}" data-build="${setName}"><i class="fas fa-trash-alt"></i></a></td><td class="py-2">${setName}</td>`;
     for (const skillId of Object.keys(heroSets[setName])) {
       const dmg = heroSets[setName][skillId];
       const output = dmg['crit'] || dmg['normal'] || dmg['miss'] || 0;
-      html += `<td class="text-right">${output}</td>`;
+      html += `<td class="text-right py-2">${output}</td>`;
     }
     $(body).append(`<tr>${html}</tr>`)
   }
@@ -90,6 +90,19 @@ const clearCompare = (heroId) => {
 
   delete allSets[heroId];
   localStorage.setItem('heroes', JSON.stringify(allSets));
+  refreshCompareBadge();
+}
+
+const clearCompareBuild = (heroId, buildName) => {
+  const allSets = localStorage.getItem('heroes') ? JSON.parse(localStorage.getItem('heroes')) : {};
+  const builds = getSavedBuilds();
+  if (builds[buildName]) {
+    delete builds[buildName];
+    allSets[heroId] = builds;
+    localStorage.setItem('heroes', JSON.stringify(allSets));
+  }
+  compare(heroId);
+  refreshCompareBadge();
 }
 
 const refreshCompareBadge = () => {
@@ -128,5 +141,9 @@ $(() => {
   $('#compareModal').on('shown.bs.modal', () => {
     const heroSelector = document.getElementById('hero');
     compare(heroSelector.value);
+  });
+
+  $('#damage-comparison-block').on('click', '.compare-clear-single', (event) => {
+    clearCompareBuild(event.currentTarget.dataset.hero, event.currentTarget.dataset.build);
   });
 });
