@@ -1058,7 +1058,7 @@ const artifactName = (id) => {
   if (lang === 'en') {
     return artifacts[id] ? artifacts[id].name : 'No Artifact Proc';
   } else {
-    return i18n[lang].artifacts[id] || artifacts[id].name;
+    return i18n[lang].artifacts[id || 'no_proc'] || artifacts[id].name;
   }
 };
 
