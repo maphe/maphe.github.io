@@ -3857,7 +3857,7 @@ const heroes = {
         rate: 1.8,
         pow: 0.8,
         mult: () => 1 + elements.caster_speed.value()*0.001125,
-        enhance: [0.1, 0.1, 0, 0, 0.15]
+        enhance: [0.1, 0.1, 0, 0.15, 0.15]
       }
     }
   },

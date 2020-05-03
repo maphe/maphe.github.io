@@ -1,87 +1,149 @@
-nb = 1;
-window.onload = function() {
-	var submits = document.getElementById("save");
-
-	submits.onclick = function() {
-		//get hero info
-		var hero = $('[data-id="hero"]').attr("title");
-		var artifact = $('[data-id="artifact"]').attr("title");		
-		var atk = document.getElementById('atk').value;		
-		var crit = document.getElementById('crit').value;
-if (typeof document.getElementById('caster-speed') === 'undefined' || document.getElementById('caster-speed') === null) {
-var speed = ''    
-}
-else{
-     var speed = document.getElementById('caster-speed').value;
-}
-    
-if (typeof document.getElementById('caster-defense') === 'undefined' || document.getElementById('caster-defense') === null) {
-    var def = ''
-}
-else{
-     var def = document.getElementById('caster-defense').value;
-}
-if (typeof document.getElementById('caster-max-hp') === 'undefined' || document.getElementById('caster-max-hp') === null) {
-    var hp = ''
-}
-else{
-     var hp = document.getElementById('caster-max-hp').value;
+const getSavedBuilds = () => {
+  const allSets = localStorage.getItem('heroes') ? JSON.parse(localStorage.getItem('heroes')) : {};
+  return allSets[document.getElementById('hero').value] || {};
 }
 
-tableCreate();
-lastid= nb-1;
-tbHeroinfo = document.getElementById("tbHeroinfo"+lastid);
-var row = tbHeroinfo.insertRow(0);
-var cell1 = row.insertCell(0);
-  var cell2 = row.insertCell(1);
-  var cell3 = row.insertCell(2);
-  var cell4 = row.insertCell(3);
-  var cell5 = row.insertCell(4);
-  var cell6 = row.insertCell(5);
-  var cell7 = row.insertCell(6);
-cell1.innerHTML = hero;
-  cell2.innerHTML = artifact;
-cell3.innerHTML = atk; 
-cell4.innerHTML = crit; 
-cell5.innerHTML = speed; 
-cell6.innerHTML = def; 
-cell7.innerHTML = hp;
+const setDefaultSettingName = () => {
+  const artifact = new Artifact(document.getElementById('artifact').value);
+  const hero = new Hero(document.getElementById('hero').value, artifact);
 
-				
-dmg = document.getElementById('damage-block');
-dmg_clone = dmg.cloneNode(true);
-dmg_clone.id = "compare-block"+lastid;
-compare = document.getElementById("compare-block"+lastid);
-// compare.appendChild(document.createTextNode('top div'));
+  return `${hero.atk}⚔️x${hero.crit}% (${artifact.getName()}) vs ${hero.target.def}🛡️`;
+};
 
-compare.appendChild(dmg_clone);
-}
-}
-function tableCreate() {
-    const lang = document.getElementById('root').getAttribute('lang');
-    const build = document.getElementById("builds").firstElementChild.innerHTML;
-//    const hero=document.getElementById("stats").firstElementChild.innerHTML;
-    const hero="";
-    const artifact=document.getElementById("artifact-block").firstElementChild.innerHTML;
-    const atk=document.getElementById("atk-label").innerText;
-    const cd=document.getElementById("crit-label").innerText;
-    if (lang === 'en') {
-        var cspeed=elements["caster_speed"].label;
-        var cdefense=elements["caster_defense"].label;
-        var cmaxhp=elements["caster_max_hp"].label;
-    }else{
-    var cspeed=i18n[lang].form["caster_speed"];
-    var cdefense=i18n[lang].form["caster_defense"];
-    var cmaxhp=i18n[lang].form["caster_max_hp"];
+const addToComparePool = () => {
+  const artifact = new Artifact(document.getElementById('artifact').value);
+  const hero = new Hero(document.getElementById('hero').value, artifact);
+
+  let dmg = {};
+  for (const skillId of Object.keys(hero.skills)) {
+    const skill = hero.skills[skillId];
+
+    if (skill.rate !== undefined) {
+      const damage = hero.getDamage(skillId);
+      dmg[skillId] = {
+        'crit': damage['crit'],
+        'normal': damage['normal'],
+        'miss': damage['miss'],
+      };
+
+      if (skill.soulburn) {
+        const damage = hero.getDamage(skillId, true);
+        dmg[skillId+'_sb'] = {
+          'crit': damage['crit'],
+          'normal': damage['normal'],
+          'miss': damage['miss'],
+        };
+      }
     }
-    var compareblock1 = "<div class=\"compare-block\" id=\"compare-block"+nb+"\"> <h4>"+build+nb+"</h4><div>        <table class=\"table table-bordered table-sm col-sm-12\">     <thead class=\"table-secondary\">        <tr>           <th>"+hero+"</th>           <th>"+artifact+"</th>           <th>"+atk+"</th>         <th>"+cd+"</th>            <th>"+cspeed+"</th>         <th>"+cdefense+"</th>         <th>"+cmaxhp+"</th>        </tr>    </thead>    <tbody id=\"tbHeroinfo";
-    var compareblock2 = nb;
-    var compareblock3 = "\"></tbody> </table></div></div>";
-    var arr=new Array();
-arr.push(compareblock1);
-arr.push(compareblock2);
-arr.push(compareblock3);
-var compareblock=arr.join("");
-document.querySelector('footer').insertAdjacentHTML('beforebegin', compareblock);
-nb++;
+  }
+
+  const allSets = localStorage.getItem('heroes') ? JSON.parse(localStorage.getItem('heroes')) : {};
+  const heroSets = allSets[hero.id] || {};
+  heroSets[document.getElementById('damage-mem-name').value] = dmg;
+  allSets[hero.id] = heroSets;
+  localStorage.setItem('heroes', JSON.stringify(allSets));
+  gtag('event', 'save', {
+    event_category: 'Hero',
+    event_label: hero.id,
+  });
+  refreshCompareBadge();
+};
+
+const compare = (heroId) => {
+  const allSets = localStorage.getItem('heroes') ? JSON.parse(localStorage.getItem('heroes')) : {};
+  const heroSets = allSets[heroId] || {};
+
+  if (Object.keys(heroSets).length === 0) {
+    document.getElementById('compare-splash').style.display = 'block';
+    document.getElementById('damage-comparison-block').style.display = 'none';
+    return;
+  }
+
+  const headers = document.getElementById('damage-header');
+  headers.innerHTML = '<th></th><th>Build</th>';
+  for (const skillId of Object.keys(heroSets[Object.keys(heroSets)[0]])) {
+    $(headers).append(`<th class="text-right">${compareSkillLabel(skillId)}</th>`)
+  }
+
+  const body = document.getElementById('damage-comparison');
+  body.innerHTML = '';
+  for (const setName of Object.keys(heroSets)) {
+    let html = `<td class="text-center align-middle"><a href="#" class="compare-clear-single" data-hero="${heroId}" data-build="${setName}"><i class="fas fa-trash-alt"></i></a></td><td class="py-2">${setName}</td>`;
+    for (const skillId of Object.keys(heroSets[setName])) {
+      const dmg = heroSets[setName][skillId];
+      const output = dmg['crit'] || dmg['normal'] || dmg['miss'] || 0;
+      html += `<td class="text-right py-2">${output}</td>`;
+    }
+    $(body).append(`<tr>${html}</tr>`)
+  }
+
+  document.getElementById('compare-splash').style.display = 'none';
+  document.getElementById('damage-comparison-block').style.display = 'block';
+  gtag('event', 'compare', {
+    event_category: 'Hero',
+    event_label: heroId,
+  });
+};
+
+const clearCompare = (heroId) => {
+  const allSets = localStorage.getItem('heroes') ? JSON.parse(localStorage.getItem('heroes')) : {};
+
+  delete allSets[heroId];
+  localStorage.setItem('heroes', JSON.stringify(allSets));
+  refreshCompareBadge();
 }
+
+const clearCompareBuild = (heroId, buildName) => {
+  const allSets = localStorage.getItem('heroes') ? JSON.parse(localStorage.getItem('heroes')) : {};
+  const builds = getSavedBuilds();
+  if (builds[buildName]) {
+    delete builds[buildName];
+    allSets[heroId] = builds;
+    localStorage.setItem('heroes', JSON.stringify(allSets));
+  }
+  compare(heroId);
+  refreshCompareBadge();
+}
+
+const refreshCompareBadge = () => {
+  document.getElementById('compare-pool-size').innerText = Object.keys(getSavedBuilds()).length;
+}
+
+$(() => {
+  const allSets = localStorage.getItem('heroes') ? JSON.parse(localStorage.getItem('heroes')) : {};
+
+  const heroSelector = document.getElementById('compare-hero-picker');
+  Object.keys(allSets).map((id => {
+    $(heroSelector).append(`<option value="${id}" data-content="${elemIcon(heroes[id].element)}${classIcon(heroes[id].classType)} <span>${heroName(id)}</span>">${heroName(id)}</option>`)
+  }));
+  if (heroSelector) {
+    heroSelector.onchange = () => {
+      const hero = heroes[heroSelector.value];
+      compare(heroSelector.value);
+    };
+  }
+
+  document.getElementById('compare-add-open').onclick = () => {
+    document.getElementById('damage-mem-name').value = setDefaultSettingName();
+  };
+
+  document.getElementById('compare-add').onclick = () => {
+    addToComparePool();
+    $('#compareAddModal').modal('toggle');
+  }
+
+  document.getElementById('clear-compare').onclick = () => {
+    const heroSelector = document.getElementById('hero');
+    clearCompare(heroSelector.value);
+    compare(heroSelector.value);
+  }
+
+  $('#compareModal').on('shown.bs.modal', () => {
+    const heroSelector = document.getElementById('hero');
+    compare(heroSelector.value);
+  });
+
+  $('#damage-comparison-block').on('click', '.compare-clear-single', (event) => {
+    clearCompareBuild(event.currentTarget.dataset.hero, event.currentTarget.dataset.build);
+  });
+});

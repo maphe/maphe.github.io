@@ -62,7 +62,7 @@ const elements = {
     label: 'Targets\'s Speed',
     type: 'slider',
     min: 70,
-    max: 300,
+    max: 350,
     default: 150,
     value: () => Number(document.getElementById('target-speed').value)
   },
@@ -246,7 +246,7 @@ const elements = {
     label: 'Caster\'s Speed',
     type: 'slider',
     min: 70,
-    max: 300,
+    max: 350,
     default: 150,
     value: () => Number(document.getElementById('caster-speed').value)*(elements.caster_speed_up.value() ? 1.3 : 1),
   },
@@ -768,6 +768,7 @@ $(() => {
       event_category: 'Hero',
       event_label: heroSelector.value,
     });
+    refreshCompareBadge();
   };
 
   const defPresetSelector = document.getElementById('def-preset');
@@ -834,4 +835,5 @@ $(() => {
   resolve();
 
   $('[data-toggle="tooltip"]').tooltip();
+  refreshCompareBadge();
 });

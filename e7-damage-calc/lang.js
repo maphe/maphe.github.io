@@ -1058,7 +1058,7 @@ const artifactName = (id) => {
   if (lang === 'en') {
     return artifacts[id] ? artifacts[id].name : 'No Artifact Proc';
   } else {
-    return i18n[lang].artifacts[id] || artifacts[id].name;
+    return i18n[lang].artifacts[id || 'no_proc'] || artifacts[id].name;
   }
 };
 
@@ -1079,4 +1079,26 @@ const skillLabel = (id, soulburn = false) => {
     id = soulburn ? id+'_soulburn' : id;
     return i18n[lang].skills[id] || id.toUpperCase();
   }
+};
+
+const compareSkillLabel = (id) => {
+  const lang = document.getElementById('root').getAttribute('lang');
+  const idSplit = id.split('_');
+  id = idSplit[0];
+  const extra = idSplit[1] || '';
+
+  let display;
+  if (lang === 'en') {
+    display = id.toUpperCase();
+  } else {
+    display = i18n[lang].skills[id] || id.toUpperCase();
+  }
+
+  if (extra === 'sb') {
+    display += '<i class="fas fa-fire"></i>';
+  } else if (extra!== '') {
+    display += '<i class="far fa-plus-square"></i>';
+  }
+
+  return display
 };
