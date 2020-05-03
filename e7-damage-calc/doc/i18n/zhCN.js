@@ -202,8 +202,8 @@ const zhCN = {
   },
   index: {
     title: '第七史诗 伤害计算器',
-    google_keywords: '第七史诗 伤害计算器, 第七史诗 伤害仿真器',
-    google_description: '填入第七史诗的角色皮肤数据, 仿真实际战斗伤害',
+    google_keywords: '第七史诗 伤害计算器, 第七史诗 伤害模拟器',
+    google_description: '填入第七史诗的角色面板数据, 模拟实际战斗伤害',
     hero: '角色',
     no_artifact_proc: '无神器',
     attack: '攻击力',
