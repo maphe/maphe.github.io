@@ -192,6 +192,7 @@ const i18n = {
       sword_of_the_morning: '黎明の剣',
       time_matter: '流転物質',
       uberius_tooth: 'ユーベリウスの牙',
+      violet_talisman: "紫菫の輝き",
       wind_rider: '旋風の操手',
     },
     form: {
@@ -978,6 +979,7 @@ const i18n = {
       sword_of_the_morning: '여명의 검',
       time_matter: '시간의 물질',
       uberius_tooth: '유베리우스의 어금니',
+      violet_talisman: "보랏빛 탈리스만",
       wind_rider: '윈드라이더',
     },
     form: {
