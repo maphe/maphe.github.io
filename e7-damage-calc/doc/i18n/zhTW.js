@@ -199,6 +199,7 @@ const zhTW = {
     dignus_orb: '尊嚴寶珠',
     time_matter: '時間的物質',
     victorious_flag: '勝戰旗幟',
+    violet_talisman: '紫色護身符',
   },
   index: {
     title: '第七史詩 傷害計算器',

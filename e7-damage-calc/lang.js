@@ -458,6 +458,7 @@ const i18n = {
       dignus_orb: '尊嚴寶珠',
       time_matter: '時間的物質',
       victorious_flag: '勝戰旗幟',
+      violet_talisman: '紫色護身符',
     },
     form: {
       nb_targets: '敵人數量',
@@ -722,6 +723,7 @@ const i18n = {
       dignus_orb: '尊严宝珠',
       time_matter: '时间的物质',
       victorious_flag: '胜战旗帜',
+      violet_talisman: '紫色护身符',
     },
     form: {
       nb_targets: '敌人数量',
