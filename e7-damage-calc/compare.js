@@ -147,4 +147,3 @@ $(() => {
     clearCompareBuild(event.currentTarget.dataset.hero, event.currentTarget.dataset.build);
   });
 });
->>>>>>> upstream/master
