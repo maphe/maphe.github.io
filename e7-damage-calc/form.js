@@ -801,6 +801,10 @@ $(() => {
         document.getElementById('dmg-trans').value = selected.dataset.trans;
         update('dmg-trans');
       }
+      if (selected.dataset.defup !== undefined) {
+        document.getElementById('def-pc-up').value = selected.dataset.defup;
+        update('def-pc-up');
+      }
       gtag('event', 'pick', {
         event_category: 'Damage Reduction',
         event_label: selected.value,

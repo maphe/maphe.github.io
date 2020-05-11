@@ -46,12 +46,12 @@
                 </li>
             </ul>
         </nav>
-     <div class="alert alert-warning alert-dismissible fade show" role="alert">
-         <strong>5月3日, 更新:</strong> 新功能：配装比较器
-         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-             <span aria-hidden="true">&times;</span>
-         </button>
-     </div>
+<!--         <div class="alert alert-warning alert-dismissible fade show" role="alert">-->
+<!--             <strong>5月3日, 更新:</strong> 新功能：配装比较器-->
+<!--             <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+<!--                 <span aria-hidden="true">&times;</span>-->
+<!--             </button>-->
+<!--         </div>-->
         <div>
             <form id="stats">
                 <div id="hero-block">
@@ -263,7 +263,7 @@
                     </div>
                     <div class="form-group col-md-4 col-sm-12">
                         <select id="dmg-reduc-preset" name="dmg-reduc-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true">
-                            <option value="none" data-reduc="0" data-trans="0">无减伤 / 无伤害分配</option>
+                            <option value="none" data-reduc="0" data-trans="0" data-defup="0">无减伤 / 无伤害分配</option>
                             <option data-divider="true"></option>
                             <optgroup label="减伤">
                                 <option value="proof-of-valor-init" data-reduc="30" data-subtext="30%">勇猛证据 (战斗开始时)</option>
@@ -271,27 +271,52 @@
                             </optgroup>
                             <optgroup label="伤害分配">
                                 <option value="ss-bellona" data-trans="30" data-subtext="30%">海边的维尔萝娜 (被动)</option>
-                                <option value="aurius" data-trans="20" data-subtext="20%">亚乌利斯 (满破时)</option>
+                                <option value="aurius" data-trans="20" data-defup="10" data-subtext="20% (+10% 防御力)">亚乌利斯 (满破时)</option>
                             </optgroup>
                         </select>
                     </div>
                 </div>
                 <div id="target-block">
-                    <div class="stat-block">
-                        <div class="form-group row col-sm-12">
-                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>防御力</h5></label>
-                            <div class="input-group input-group-sm col-md-3">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-outline-secondary" type="button" id="def-minus" onclick="minus('def')">&minus;</button>
+                    <div class="row">
+                        <div class="col-sm-6 half-left">
+                            <div class="stat-block">
+                                <div class="form-group row col-sm-12">
+                                    <label for="def" class="col-md-7 col-form-label form-control-sm"><h5>防御力</h5></label>
+                                    <div class="input-group input-group-sm col-md-5">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary" type="button" id="def-minus" onclick="minus('def')">&minus;</button>
+                                        </div>
+                                        <input type="number" class="form-control text-center" id="def" value="1000" onkeyup="update('def')">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="def-plus" onclick="plus('def')">&plus;</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <input type="number" class="form-control text-center" id="def" value="1000" onkeyup="update('def')">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="def-plus" onclick="plus('def')">&plus;</button>
+                                <div class="form-group row col-sm-12">
+                                    <input type="range" class="custom-range" id="def-slide" min="200" max="5000" value="750" oninput="slide('def')">
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row col-sm-12">
-                            <input type="range" class="custom-range" id="def-slide" min="200" max="5000" value="750" oninput="slide('def')">
+                        <div class="col-sm-6 half-right">
+                            <div class="stat-block">
+                                <div class="form-group row col-sm-12">
+                                    <label for="def" class="col-md-7 col-form-label form-control-sm">
+                                        <h5>Defense % Increase <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="Example: Aurius, Card of Small Miracles, Resolute Soldier Series"></i></h5>
+                                    </label>
+                                    <div class="input-group input-group-sm col-md-5">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary" type="button" id="def-pc-up-minus" onclick="minus('def-pc-up')">&minus;</button>
+                                        </div>
+                                        <input type="number" class="form-control text-center" id="def-pc-up" value="0" onkeyup="update('def-pc-up')">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="def-pc-up-plus" onclick="plus('def-pc-up')">&plus;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row col-sm-12">
+                                    <input type="range" class="custom-range" id="def-pc-up-slide" min="0" max="20" value="0" oninput="slide('def-pc-up')">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
