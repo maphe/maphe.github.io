@@ -153,6 +153,15 @@ const artifacts = {
     scale: [0.08, 0.088, 0.096, 0.104, 0.112, 0.12, 0.128, 0.136, 0.144, 0.152, 0.16],
     type: artifactDmgType.damage,
   },
+  violet_talisman: {
+    id: 'violet_talisman',
+    name: 'Violet Talisman',
+    type: artifactDmgType.attack,
+    scale: [0.05, 0.055, 0.06, 0.065, 0.07, 0.075, 0.08, 0.085, 0.09, 0.095, 0.1],
+    form: [elements.turn_stack_3],
+    exclusive: classType.thief,
+    value: (artiScale) => elements.turn_stack_3.value()*artiScale
+  },
   wind_rider: {
     id: 'wind_rider',
     name: 'Wind Rider',

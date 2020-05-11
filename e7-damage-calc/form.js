@@ -407,6 +407,17 @@ const elements = {
     readonly: true,
     value: () => Number(document.getElementById('turn-stack').value)
   },
+  turn_stack_3: {
+    ref: 'turn_stack_3',
+    id: 'turn-stack-3',
+    label: 'Turn Stack',
+    type: 'slider',
+    min: 0,
+    max: 3,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('turn-stack-3').value)
+  },
   dead_people: {
     ref: 'dead_people',
     id: 'dead-people',
