@@ -86,22 +86,7 @@ div.dropdown-menu.show {
     margin-top: 9px
 }
 
-#save-for-compare{
- text-align: center;
- margin-top: 10px;
-}
 
-div.compare-block  {
-    bottom: 0;
-    background-color: white;
-    z-index: 1000;
-    padding: 5px 5px 0 5px;
-    border: 1px solid darkgrey;
-    border-radius: 5px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-#builds {
-      visibility:hidden;
+#damage-comparison {
+    line-height: 22px;
 }

@@ -232,7 +232,7 @@ class Hero {
 
 class Target {
   constructor(casterArtifact) {
-    this.def = Number(document.getElementById('def').value);
+    this.def = Number(document.getElementById('def').value)*(1+Number(document.getElementById('def-pc-up').value)/100);
     this.casterArtifact = casterArtifact;
   }
 

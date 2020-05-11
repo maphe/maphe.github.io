@@ -122,7 +122,7 @@
                             <div class="stat-block">
                                 <div class="form-group row col-sm-12">
                                     <label for="atk-pc-up" class="col-md-7 col-form-label form-control-sm">
-                                        <h5>攻撃力%上昇 <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="例: 小さな奇跡のカード"></i></h5>
+                                        <h5>攻撃力%上昇 <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="例: 紫菫の輝き, 小さな奇跡のカード"></i></h5>
                                     </label>
                                     <div class="input-group input-group-sm col-md-5">
                                         <div class="input-group-prepend">
@@ -135,7 +135,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group row col-sm-12">
-                                    <input type="range" class="custom-range" id="atk-pc-up-slide" min="0" max="20" value="0" oninput="slide('atk-pc-up')">
+                                    <input type="range" class="custom-range" id="atk-pc-up-slide" min="0" max="35" value="0" oninput="slide('atk-pc-up')">
                                 </div>
                             </div>
                         </div>
@@ -263,7 +263,7 @@
                     </div>
                     <div class="form-group col-md-4 col-sm-12">
                         <select id="dmg-reduc-preset" name="dmg-reduc-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true">
-                            <option value="none" data-reduc="0" data-trans="0">ダメージ軽減/身代わり効果なし</option>
+                            <option value="none" data-reduc="0" data-trans="0" data-defup="0">ダメージ軽減/身代わり効果なし</option>
                             <option data-divider="true"></option>
                             <optgroup label="ダメージ軽減">
                                 <option value="proof-of-valor-init" data-reduc="30" data-subtext="30%">武勇の証 (初期状態)</option>
@@ -271,27 +271,52 @@
                             </optgroup>
                             <optgroup label="ダメージ身代わり">
                                 <option value="ss-bellona" data-trans="30" data-subtext="30%">浜辺のヴェローナ (スキル2パッシブ)</option>
-                                <option value="aurius" data-trans="20" data-subtext="20%">アウリウス (Max)</option>
+                                <option value="aurius" data-trans="20" data-defup="10" data-subtext="20% (+10% 防御力)">アウリウス (Max)</option>
                             </optgroup>
                         </select>
                     </div>
                 </div>
                 <div id="target-block">
-                    <div class="stat-block">
-                        <div class="form-group row col-sm-12">
-                            <label for="def" class="col-md-9 col-form-label form-control-sm"><h5>防御力</h5></label>
-                            <div class="input-group input-group-sm col-md-3">
-                                <div class="input-group-prepend">
-                                    <button class="btn btn-outline-secondary" type="button" id="def-minus" onclick="minus('def')">&minus;</button>
+                    <div class="row">
+                        <div class="col-sm-6 half-left">
+                            <div class="stat-block">
+                                <div class="form-group row col-sm-12">
+                                    <label for="def" class="col-md-7 col-form-label form-control-sm"><h5>防御力</h5></label>
+                                    <div class="input-group input-group-sm col-md-5">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary" type="button" id="def-minus" onclick="minus('def')">&minus;</button>
+                                        </div>
+                                        <input type="number" class="form-control text-center" id="def" value="1000" onkeyup="update('def')">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="def-plus" onclick="plus('def')">&plus;</button>
+                                        </div>
+                                    </div>
                                 </div>
-                                <input type="number" class="form-control text-center" id="def" value="1000" onkeyup="update('def')">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button" id="def-plus" onclick="plus('def')">&plus;</button>
+                                <div class="form-group row col-sm-12">
+                                    <input type="range" class="custom-range" id="def-slide" min="200" max="5000" value="750" oninput="slide('def')">
                                 </div>
                             </div>
                         </div>
-                        <div class="form-group row col-sm-12">
-                            <input type="range" class="custom-range" id="def-slide" min="200" max="5000" value="750" oninput="slide('def')">
+                        <div class="col-sm-6 half-right">
+                            <div class="stat-block">
+                                <div class="form-group row col-sm-12">
+                                    <label for="def" class="col-md-7 col-form-label form-control-sm">
+                                        <h5>Defense % Increase <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="Example: アウリウス, 小さな奇跡のカード, 連作【決意に満ちし兵たち】"></i></h5>
+                                    </label>
+                                    <div class="input-group input-group-sm col-md-5">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-outline-secondary" type="button" id="def-pc-up-minus" onclick="minus('def-pc-up')">&minus;</button>
+                                        </div>
+                                        <input type="number" class="form-control text-center" id="def-pc-up" value="0" onkeyup="update('def-pc-up')">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" type="button" id="def-pc-up-plus" onclick="plus('def-pc-up')">&plus;</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row col-sm-12">
+                                    <input type="range" class="custom-range" id="def-pc-up-slide" min="0" max="20" value="0" oninput="slide('def-pc-up')">
+                                </div>
+                            </div>
                         </div>
                     </div>
 
