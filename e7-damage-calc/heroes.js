@@ -2681,6 +2681,25 @@ const heroes = {
       }
     }
   },
+  mighty_scout: {
+    name: 'Mighty Scout (Mouse)',
+    element: element.earth,
+    classType: classType.thief,
+    baseAtk: 919,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s2: {
+        rate: 1.35,
+        pow: 1,
+        penetrate: () => 0.7,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      }
+    }
+  },
   mirsa: {
     name: 'Mirsa',
     element: element.light,
