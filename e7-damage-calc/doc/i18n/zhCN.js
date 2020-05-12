@@ -118,6 +118,7 @@ const zhCN = {
     melissa: '梅丽莎',
     mercedes: '玫勒赛德丝',
     mercenary_helga: '自由自在的佣兵赫尔嘉',
+    mighty_scout: '侦察兵玛伊堤(木老鼠)',
     mirsa: '米勒莎',
     mistychain: '美丝缇彩',
     montmorancy: '蒙茉朗西',
@@ -200,6 +201,7 @@ const zhCN = {
     time_matter: '时间的物质',
     victorious_flag: '胜战旗帜',
     violet_talisman: '紫色护身符',
+    radiant_forever: '灿烂的永恆',
   },
   index: {
     title: '第七史诗 伤害计算器',

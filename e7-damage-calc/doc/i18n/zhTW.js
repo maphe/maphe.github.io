@@ -118,6 +118,7 @@ const zhTW = {
     melissa: '梅麗莎',
     mercedes: '玫勒賽德絲',
     mercenary_helga: '自由自在的傭兵赫爾嘉',
+    mighty_scout: '偵察兵瑪伊堤(木老鼠)',
     mirsa: '米勒莎',
     mistychain: '美絲緹彩',
     montmorancy: '蒙茉朗西',
@@ -200,6 +201,7 @@ const zhTW = {
     time_matter: '時間的物質',
     victorious_flag: '勝戰旗幟',
     violet_talisman: '紫色護身符',
+    radiant_forever: '燦爛的永恆',
   },
   index: {
     title: '第七史詩 傷害計算器',
