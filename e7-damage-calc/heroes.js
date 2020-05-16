@@ -2743,7 +2743,7 @@ const heroes = {
         rate: (soulburn) => soulburn ? 2.5 : 1.8,
         pow: 0.85,
         mult: () => 1 + elements.caster_speed.value()*0.0015,
-        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.05]
+        enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.15]
       }
     }
   },
