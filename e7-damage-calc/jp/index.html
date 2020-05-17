@@ -301,7 +301,7 @@
                             <div class="stat-block">
                                 <div class="form-group row col-sm-12">
                                     <label for="def" class="col-md-7 col-form-label form-control-sm">
-                                        <h5>Defense % Increase <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="例: アウリウス, 小さな奇跡のカード, 連作【決意に満ちし兵たち】"></i></h5>
+                                        <h5>防御力 % 増加 <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="例: アウリウス, 小さな奇跡のカード, 連作【決意に満ちし兵たち】"></i></h5>
                                     </label>
                                     <div class="input-group input-group-sm col-md-5">
                                         <div class="input-group-prepend">
@@ -402,6 +402,15 @@
         <div id="damage-block">
             <h4>
                 ダメージ
+                <div class="btn-group" role="group">
+                    <button id="compare-add-open" type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#compareAddModal">
+                        <i class="fas fa-save"></i> <span class="d-none d-md-inline">記録</span>
+                    </button>
+                    <button id="compare-open" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#compareModal">
+                        <i class="fas fa-exchange-alt"></i> <span class="d-none d-md-inline">比較</span>
+                        <span id="compare-pool-size" class="badge badge-light">0</span>
+                    </button>
+                </div>
                 <span id="barrier-block" class="badge badge-light float-right">
                     <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_protect.png" width="20" height="20" /> <span id="barrier"></span>
                 </span>
@@ -468,6 +477,69 @@
                 </div>
             </div>
         </footer>
+
+        <div id="compareAddModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">ダメージ比較</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="damage-mem-name" class="col-form-label">ビルド名</label>
+                                <input type="text" class="form-control" id="damage-mem-name">
+                            </div>
+                        </form>
+                        <span class="text-muted font-italic">同キャラに記録したいビルド名が重複した場合、既存のビルドを上書きします</span>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
+                            <i class="fas fa-window-close"></i> 取り消し
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm" id="compare-add">
+                            <i class="fas fa-save"></i> 比較対象枠に追加
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="compareModal" class="modal fade" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">ダメージ比較</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p id="compare-splash" style="display: none">記録したビルドがありません</p>
+                        <div id="damage-comparison-block">
+                            <table class="table table-bordered table-sm col-sm-12">
+                                <thead class="table-secondary">
+                                <tr id="damage-header"></tr>
+                                </thead>
+                                <tbody id="damage-comparison"></tbody>
+                            </table>
+                            <span class="text-muted font-italic">クリティカルヒットのダメージを比較します。クリティカルヒットのないスキルの場合代わりにノーマルヒットのダメージを比較します</span>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="clear-compare" type="button" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash-alt"></i> 全部消す
+                        </button>
+                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">
+                            <i class="fas fa-window-close"></i> 閉じる
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

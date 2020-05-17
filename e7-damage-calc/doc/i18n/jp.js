@@ -214,6 +214,7 @@ const jp = {
     artifact_level: '遺物レベル',
     target: 'ターゲット',
     defense: '防御力',
+    defense_pc_increase: "防御力 % 増加",
     increased_defense: '防御力UP',
     decreased_defense: '防御力DOWN',
     target_debuff: '標的',
@@ -225,6 +226,20 @@ const jp = {
     normal_hit: '通常ヒット',
     miss_hit: 'ミスヒット',
     hero_specific: '英雄別項目'
+  },
+  comparator: {
+    compare_title: "ダメージ比較",
+    save: "記録",
+    compare: "比較",
+    build: "ビルド",
+    build_name: "ビルド名",
+    saving_tooltip: "同キャラに記録したいビルド名が重複した場合、既存のビルドを上書きします",
+    cancel: "取り消し",
+    add_to_pool: "比較対象枠に追加",
+    no_hero_tooltip: "記録したビルドがありません",
+    compare_tooltip: "クリティカルヒットのダメージを比較します。クリティカルヒットのないスキルの場合代わりにノーマルヒットのダメージを比較します",
+    clear_all: "全部消す",
+    close: "閉じる"
   },
   presets: {
     manual: '自由入力',
