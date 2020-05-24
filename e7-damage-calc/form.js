@@ -418,6 +418,17 @@ const elements = {
     readonly: true,
     value: () => Number(document.getElementById('turn-stack-3').value)
   },
+  aoe_stack_5: {
+    ref: 'aoe_stack_5',
+    id: 'aoe-stack-5',
+    label: 'AoE Attack Stack',
+    type: 'slider',
+    min: 0,
+    max: 5,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('aoe-stack-5').value)
+  },
   dead_people: {
     ref: 'dead_people',
     id: 'dead-people',
