@@ -134,7 +134,7 @@ class Hero {
 
     let atkImprint = 0;
     let atkMod = 1;
-    if (skill.noBuff !== true) {
+    if (skill === undefined || skill.noBuff !== true) {
       atkImprint = this.baseAtk * (Number(document.getElementById('atk-pc-imprint').value) / 100);
       atkMod = 1 + getGlobalAtkMult() + (this.atkUp !== undefined ? this.atkUp() - 1 : 0) + this.artifact.getAttackBoost();
     }
