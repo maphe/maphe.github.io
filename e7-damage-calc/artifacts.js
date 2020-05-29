@@ -139,6 +139,15 @@ const artifacts = {
     type: artifactDmgType.attack,
     scale: [0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2],
   },
+  tear_of_the_desert: {
+    id: 'tear_of_the_desert',
+    name: 'Tear of the Desert',
+    type: artifactDmgType.attack,
+    scale: [0.02, 0.022, 0.024, 0.026, 0.028, 0.03, 0.032, 0.034, 0.036, 0.038, 0.04],
+    form: [elements.aoe_stack_5],
+    exclusive: classType.mage,
+    value: (artiScale) => elements.aoe_stack_5.value()*artiScale
+  },
   time_matter: {
     id: 'time_matter',
     name: 'Time Matter',

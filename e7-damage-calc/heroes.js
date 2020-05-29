@@ -2362,6 +2362,7 @@ const heroes = {
         rate: 0.9,
         pow: 1,
         atk: () =>  elements.highest_ally_attack.value() * (elements.ally_atk_up.value() ? 1.5 : 1) * (elements.ally_atk_up_great.value() ? 1.75 : 1),
+        noBuff: true,
         enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1]
       }
     }

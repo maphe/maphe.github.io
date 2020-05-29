@@ -131,8 +131,13 @@ class Hero {
     const skill = skillId !== undefined ? this.skills[skillId] : undefined;
 
     const atk = (skill !== undefined && skill.atk !== undefined) ? skill.atk() : this.atk;
-    const atkImprint = this.baseAtk*(Number(document.getElementById('atk-pc-imprint').value)/100);
-    const atkMod = 1 + getGlobalAtkMult() + (this.atkUp !== undefined ? this.atkUp()-1 : 0) + this.artifact.getAttackBoost();
+
+    let atkImprint = 0;
+    let atkMod = 1;
+    if (skill === undefined || skill.noBuff !== true) {
+      atkImprint = this.baseAtk * (Number(document.getElementById('atk-pc-imprint').value) / 100);
+      atkMod = 1 + getGlobalAtkMult() + (this.atkUp !== undefined ? this.atkUp() - 1 : 0) + this.artifact.getAttackBoost();
+    }
 
     return (atk+atkImprint)*atkMod;
   }
