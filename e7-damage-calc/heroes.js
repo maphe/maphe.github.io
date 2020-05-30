@@ -1088,7 +1088,6 @@ const heroes = {
     element: element.fire,
     classType: classType.knight,
     baseAtk: 1134,
-    info: 'This is the newer version of Charlotte, post March 5th update',
     skills: {
       s1: {
         rate: 0.9,
@@ -2372,8 +2371,9 @@ const heroes = {
     element: element.earth,
     classType: classType.warrior,
     baseAtk: 1119,
-    form: [elements.target_has_buff, elements.exclusive_equipment_1],
+    form: [elements.target_has_buff, elements.exclusive_equipment_1, elements.exclusive_equipment_3],
     dot: [dot.bleed],
+    info: "Exclusive Equipment #3 introduced on 6/11 Balance Patch",
     skills: {
       s1: {
         rate: 1,
@@ -2391,6 +2391,7 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 2.6 : 2,
         pow: 0.95,
+        exEq: () => elements.exclusive_equipment_3.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.15]
       }
     }
