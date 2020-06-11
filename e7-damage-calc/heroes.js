@@ -921,7 +921,7 @@ const heroes = {
       s1: {
         rate: 1,
         pow: 1,
-        critDmgBoost: () => 0.3,
+        critDmgBoost: () => 0.2,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
       },
       s2: {
