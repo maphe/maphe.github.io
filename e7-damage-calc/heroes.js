@@ -933,6 +933,7 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 2.3 : 1.8,
         pow: 1,
+        critDmgBoost: () => 0.3,
         enhance: [0.05, 0.05, 0, 0.1, 0.1]
       }
     }
