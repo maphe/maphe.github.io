@@ -912,6 +912,31 @@ const heroes = {
       }
     }
   },
+  celine: {
+    name: 'Celine',
+    element: element.earth,
+    classType: classType.thief,
+    baseAtk: 1228,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        critDmgBoost: () => 0.3,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s2: {
+        rate: 1.4,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2.3 : 1.8,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      }
+    }
+  },
   cerise: {
     name: 'Cerise',
     element: element.ice,
@@ -1687,6 +1712,31 @@ const heroes = {
       }
     }
   },
+  free_spirit_tieria: {
+    name: 'Free Spirit Tieria',
+    element: element.light,
+    classType: classType.warrior,
+    baseAtk: 957,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        critDmgBoost: () => 0.2,
+        enhance: [0.05, 0.05, 0.1, 0.1]
+      },
+      s2: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.1, 0.1]
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2.5 : 1.8,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.05, 0.15]
+      }
+    }
+  },
   furious: {
     name: 'Furious',
     element: element.ice,
@@ -2232,6 +2282,25 @@ const heroes = {
         pow: 0.95,
         enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.15]
       }
+    }
+  },
+  kizuna_ai: {
+    name: 'Kizuna AI',
+    element: element.fire,
+    classType: classType.soul_weaver,
+    baseAtk: 576,
+    form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value()*0.12,
+    barrierEnhance: 's3',
+    skills: {
+      s1: {
+        rate: 0.5,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1, 0.1]
+      },
+      s3: {
+        enhance: [0.05, 0.1, 0.15]
+      },
     }
   },
   kluri: {
@@ -3007,6 +3076,25 @@ const heroes = {
         rate: 0.9,
         pow: 1,
         enhance: [0.05, 0.1, 0.15]
+      }
+    }
+  },
+  remnant_violet: {
+    name: 'Remnant Violet',
+    element: element.dark,
+    classType: classType.thief,
+    baseAtk: 1283,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s3: {
+        rate: 1.3,
+        pow: 1,
+        penetrate: () => 0.5,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
       }
     }
   },
