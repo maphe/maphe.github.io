@@ -204,6 +204,7 @@ const zhTW = {
     dux_noctis: '暗夜指揮者',
     els_fist: '艾爾之拳',
     dignus_orb: '尊嚴寶珠',
+    tear_of_the_desert: '沙漠之淚',
     time_matter: '時間的物質',
     victorious_flag: '勝戰旗幟',
     violet_talisman: '紫色護身符',
