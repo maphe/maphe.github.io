@@ -2442,7 +2442,6 @@ const heroes = {
     baseAtk: 1119,
     form: [elements.target_has_buff, elements.exclusive_equipment_1, elements.exclusive_equipment_3],
     dot: [dot.bleed],
-    info: "Exclusive Equipment #3 introduced on 6/11 Balance Patch",
     skills: {
       s1: {
         rate: 1,
@@ -2921,7 +2920,6 @@ const heroes = {
     classType: classType.ranger,
     baseAtk: 1283,
     form: [elements.caster_speed],
-    info: "Pavel's multipliers have been updated after 4/16 buff.",
     skills: {
       s1: {
         rate: 0.9,
@@ -4102,7 +4100,6 @@ const heroes = {
     classType: classType.mage,
     baseAtk: 1039,
     form: [elements.caster_max_hp, elements.non_attack_skill_stack_8],
-    info: "Zeno has been updated to reflect the Balance Adjustment announced for 4/16",
     skills: {
       s1: {
         rate: 0.5,
