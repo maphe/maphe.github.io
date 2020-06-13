@@ -769,97 +769,99 @@ const classIcon = (type) => {
 };
 
 $(() => {
-  const heroSelector = document.getElementById('hero');
-  const artiSelector = document.getElementById('artifact');
-  Object.keys(heroes).map((id => {
-    $(heroSelector).append(`<option value="${id}" data-content="${elemIcon(heroes[id].element)}${classIcon(heroes[id].classType)} <span>${heroName(id)}</span>">${heroName(id)}</option>`)
-  }));
-  $(artiSelector).append(`<option value="">${artifactName('no_proc')}</option>`);
-  $(artiSelector).append(`<option data-divider="true"></option>`);
-  Object.keys(artifacts).map((id => {
-    $(artiSelector).append(`<option value="${id}">${artifactName(id)}</option>`)
-  }));
+  try {
+    const heroSelector = document.getElementById('hero');
+    const artiSelector = document.getElementById('artifact');
+    Object.keys(heroes).map((id => {
+      $(heroSelector).append(`<option value="${id}" data-content="${elemIcon(heroes[id].element)}${classIcon(heroes[id].classType)} <span>${heroName(id)}</span>">${heroName(id)}</option>`)
+    }));
+    $(artiSelector).append(`<option value="">${artifactName('no_proc')}</option>`);
+    $(artiSelector).append(`<option data-divider="true"></option>`);
+    Object.keys(artifacts).map((id => {
+      $(artiSelector).append(`<option value="${id}">${artifactName(id)}</option>`)
+    }));
 
-  heroSelector.onchange = () => {
+    heroSelector.onchange = () => {
+      const hero = heroes[heroSelector.value];
+      build(hero);
+      refreshArtifactList(hero);
+      buildArtifact(artifacts[artiSelector.value]);
+      resolve();
+      gtag('event', 'pick', {
+        event_category: 'Hero',
+        event_label: heroSelector.value,
+      });
+      refreshCompareBadge();
+    };
+
+    const defPresetSelector = document.getElementById('def-preset');
+    defPresetSelector.onchange = () => {
+      const selected = defPresetSelector.options[defPresetSelector.selectedIndex];
+      if (selected.value) {
+        document.getElementById('def').value = selected.dataset.def;
+        update('def');
+        const hpInput = document.getElementById(elements.target_max_hp.id);
+        if (hpInput) {
+          hpInput.value = selected.dataset.hp;
+          update(elements.target_max_hp.id)
+        }
+        gtag('event', 'pick', {
+          event_category: 'Defense',
+          event_label: selected.value,
+        });
+      }
+    };
+
+    const dmgReducPresetSelector = document.getElementById('dmg-reduc-preset');
+    dmgReducPresetSelector.onchange = () => {
+      const selected = dmgReducPresetSelector.options[dmgReducPresetSelector.selectedIndex];
+      if (selected.value) {
+        if (selected.dataset.reduc !== undefined) {
+          document.getElementById('dmg-reduc').value = selected.dataset.reduc;
+          update('dmg-reduc');
+        }
+        if (selected.dataset.trans !== undefined) {
+          document.getElementById('dmg-trans').value = selected.dataset.trans;
+          update('dmg-trans');
+        }
+        if (selected.dataset.defup !== undefined) {
+          document.getElementById('def-pc-up').value = selected.dataset.defup;
+          update('def-pc-up');
+        }
+        gtag('event', 'pick', {
+          event_category: 'Damage Reduction',
+          event_label: selected.value,
+        });
+      }
+    };
+
+    const atkPresetSelector = document.getElementById('atk-preset');
+    atkPresetSelector.onchange = () => {
+      const selected = atkPresetSelector.options[atkPresetSelector.selectedIndex];
+      if (selected.value) {
+        document.getElementById('atk').value = selected.dataset.atk;
+        document.getElementById('crit').value = selected.dataset.crit;
+        update('atk');
+        update('crit');
+      }
+    };
+
+    artiSelector.onchange = () => {
+      buildArtifact(artifacts[artiSelector.value]);
+      resolve();
+      gtag('event', 'pick', {
+        event_category: 'Artifact',
+        event_label: artiSelector.value,
+      });
+    };
+
     const hero = heroes[heroSelector.value];
     build(hero);
     refreshArtifactList(hero);
     buildArtifact(artifacts[artiSelector.value]);
-    resolve();
-    gtag('event', 'pick', {
-      event_category: 'Hero',
-      event_label: heroSelector.value,
-    });
     refreshCompareBadge();
-  };
+  } catch (e) {}
 
-  const defPresetSelector = document.getElementById('def-preset');
-  defPresetSelector.onchange = () => {
-    const selected = defPresetSelector.options[defPresetSelector.selectedIndex];
-    if (selected.value) {
-      document.getElementById('def').value = selected.dataset.def;
-      update('def');
-      const hpInput = document.getElementById(elements.target_max_hp.id);
-      if (hpInput) {
-        hpInput.value = selected.dataset.hp;
-        update(elements.target_max_hp.id)
-      }
-      gtag('event', 'pick', {
-        event_category: 'Defense',
-        event_label: selected.value,
-      });
-    }
-  };
-
-  const dmgReducPresetSelector = document.getElementById('dmg-reduc-preset');
-  dmgReducPresetSelector.onchange = () => {
-    const selected = dmgReducPresetSelector.options[dmgReducPresetSelector.selectedIndex];
-    if (selected.value) {
-      if (selected.dataset.reduc !== undefined) {
-        document.getElementById('dmg-reduc').value = selected.dataset.reduc;
-        update('dmg-reduc');
-      }
-      if (selected.dataset.trans !== undefined) {
-        document.getElementById('dmg-trans').value = selected.dataset.trans;
-        update('dmg-trans');
-      }
-      if (selected.dataset.defup !== undefined) {
-        document.getElementById('def-pc-up').value = selected.dataset.defup;
-        update('def-pc-up');
-      }
-      gtag('event', 'pick', {
-        event_category: 'Damage Reduction',
-        event_label: selected.value,
-      });
-    }
-  };
-
-  const atkPresetSelector = document.getElementById('atk-preset');
-  atkPresetSelector.onchange = () => {
-    const selected = atkPresetSelector.options[atkPresetSelector.selectedIndex];
-    if (selected.value) {
-      document.getElementById('atk').value = selected.dataset.atk;
-      document.getElementById('crit').value = selected.dataset.crit;
-      update('atk');
-      update('crit');
-    }
-  };
-
-  artiSelector.onchange = () => {
-    buildArtifact(artifacts[artiSelector.value]);
-    resolve();
-    gtag('event', 'pick', {
-      event_category: 'Artifact',
-      event_label: artiSelector.value,
-    });
-  };
-
-  const hero = heroes[heroSelector.value];
-  build(hero);
-  refreshArtifactList(hero);
-  buildArtifact(artifacts[artiSelector.value]);
   resolve();
-
   $('[data-toggle="tooltip"]').tooltip();
-  refreshCompareBadge();
 });
