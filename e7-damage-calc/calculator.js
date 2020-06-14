@@ -5,6 +5,7 @@ const resolve = () => {
   const hero = new Hero(document.getElementById('hero').value, artifact);
 
   document.getElementById(`barrier-block`).style.display = 'none';
+  document.getElementById(`artifact-dmg-block`).style.display = 'none';
   for (const dotType of [dot.bleed, dot.burn]) {
     document.getElementById(`${dotType}-damage-block`).style.display = 'none';
   }
@@ -17,6 +18,12 @@ const resolve = () => {
   if (hero.barrier) {
     document.getElementById(`barrier-block`).style.display = 'inline-block';
     document.getElementById(`barrier`).innerText = Math.round(hero.getBarrierStrength()).toString();
+  }
+
+  const artiDmg = hero.getAfterMathArtifactDamage();
+  if (artiDmg != null) {
+    document.getElementById(`artifact-dmg-block`).style.display = 'inline-block';
+    document.getElementById(`artifact-dmg`).innerText = Math.round(artiDmg).toString();
   }
 
   const table = document.getElementById('damage');
@@ -120,10 +127,10 @@ class Hero {
     const hit = this.offensivePower(skillId, soulburn) * this.target.defensivePower(skill);
     const critDmg = (this.crit / 100)+(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0)+(this.artifact.getCritDmgBoost()||0);
     return {
-      crit: skill.noCrit ? null : Math.round(hit*critDmg + this.getAfterMathDamage(skillId, critDmg)),
-      crush: skill.noCrit || skill.onlyCrit ? null : Math.round(hit*1.3 + this.getAfterMathDamage(skillId, 1.3)),
-      normal: skill.onlyCrit ? null : Math.round(hit + this.getAfterMathDamage(skillId, 1)),
-      miss: Math.round(hit*0.75 + this.getAfterMathDamage(skillId, 0.75))
+      crit: skill.noCrit ? null : Math.round(hit*critDmg + this.getAfterMathDamage(skillId)),
+      crush: skill.noCrit || skill.onlyCrit ? null : Math.round(hit*1.3 + this.getAfterMathDamage(skillId)),
+      normal: skill.onlyCrit ? null : Math.round(hit + this.getAfterMathDamage(skillId)),
+      miss: Math.round(hit*0.75 + this.getAfterMathDamage(skillId))
     };
   }
 
@@ -185,28 +192,29 @@ class Hero {
     return mult;
   }
 
-  getAfterMathDamage(skillId, multiplier) {
+  getAfterMathDamage(skillId) {
     const skill = this.skills[skillId];
     const detonation = this.getDetonateDamage(skillId);
 
-    let artiDamage = 0;
-    const artiMultipliers = this.artifact.getAfterMathMultipliers();
-    if (artiMultipliers !== null) {
-      artiDamage = this.getAtk(skillId)*artiMultipliers.atkPercent*dmgConst*this.target.defensivePower({penetrate: () => artiMultipliers.penetrate});
-    }
-
-    const artiFlatDmg = this.artifact.getAfterMathDamage();
-    if (artiFlatDmg > 0) {
-      artiDamage = (artiFlatDmg*this.getSkillEnhanceMult(skillId))*this.target.defensivePower()*multiplier
-    }
+    let artiDamage = this.getAfterMathArtifactDamage();
+    if (artiDamage === null) artiDamage = 0;
 
     let skillDamage = 0;
     const skillMultipliers = skill.afterMath ? skill.afterMath() : null;
     if (skillMultipliers !== null) {
-      skillDamage = this.getAtk(skillId)*skillMultipliers.atkPercent*dmgConst*this.target.defensivePower({penetrate: () => skillMultipliers.penetrate});
+      skillDamage = this.getAtk(skillId)*skillMultipliers.atkPercent*dmgConst*this.target.defensivePower({ penetrate: () => skillMultipliers.penetrate });
     }
 
     return detonation + artiDamage + skillDamage;
+  }
+
+  getAfterMathArtifactDamage() {
+    const artiMultipliers = this.artifact.getAfterMathMultipliers();
+    if (artiMultipliers !== null) {
+      return this.getAtk()*artiMultipliers.atkPercent*dmgConst*this.target.defensivePower({ penetrate: () => artiMultipliers.penetrate });
+    }
+
+    return null;
   }
 
   getDetonateDamage(skillId) {
@@ -283,13 +291,6 @@ class Artifact {
       atkPercent: artifacts[this.id].atkPercent,
       penetrate: artifacts[this.id].penetrate,
     }
-  }
-
-  getAfterMathDamage() {
-    if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.aftermath || artifacts[this.id].damage === undefined) {
-      return 0;
-    }
-    return artifacts[this.id].damage(this.getValue());
   }
 
   getAttackBoost() {

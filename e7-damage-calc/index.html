@@ -46,11 +46,20 @@
                 </li>
             </ul>
         </nav>
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>June 10, Update:</strong> Added new Heroes: Celine, Free Spirit Tieria, Kizuna AI, Remnant Violet
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
+        <div class="row">
+            <div class="col-md-8">
+<!--                <div class="alert alert-warning alert-dismissible fade show" role="alert">-->
+<!--                    <strong>June 10, Update:</strong> Added new Heroes: Celine, Free Spirit Tieria, Kizuna AI, Remnant Violet-->
+<!--                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+<!--                        <span aria-hidden="true">&times;</span>-->
+<!--                    </button>-->
+<!--                </div>-->
+            </div>
+            <div class="col-md-4">
+                <a href="effectiveness.html" class="btn btn-secondary btn-sm mb-3 float-right">
+                    Effectiveness Checker <i class="fas fa-angle-double-right"></i>
+                </a>
+            </div>
         </div>
         <div>
             <form id="stats">
@@ -419,6 +428,10 @@
                 </span>
                 <span id="burn-damage-block" class="badge badge-light float-right">
                     <img src="https://epic7x.com/wp-content/uploads/2018/12/stic_blaze.png" width="20" height="20" /> <span id="burn-damage"></span>
+                </span>
+                <span id="artifact-dmg-block" class="badge badge-light float-right">
+                    <i class="fas fa-tools"></i> <span id="artifact-dmg"></span>
+                    <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="Damage coming from Artifact, already included in the table below"></i>
                 </span>
             </h4>
             <div>
