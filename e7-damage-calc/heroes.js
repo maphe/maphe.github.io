@@ -2290,12 +2290,13 @@ const heroes = {
     classType: classType.soul_weaver,
     baseAtk: 576,
     form: [elements.caster_max_hp],
-    barrier: () => elements.caster_max_hp.value()*0.12,
+    barrier: () => elements.caster_max_hp.value()*0.14,
     barrierEnhance: 's3',
     skills: {
       s1: {
         rate: 0.5,
         pow: 0.9,
+        flat: () => elements.caster_max_hp.value()*0.12,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1, 0.1]
       },
       s3: {
