@@ -1973,7 +1973,7 @@ const heroName = (id) => {
   }
 };
 
-const heroaltName = (id) => {
+const heroNickname = (id) => {
   const lang = document.getElementById('root').getAttribute('lang');
   return i18n[lang].nicknames[id] || '';
 };
