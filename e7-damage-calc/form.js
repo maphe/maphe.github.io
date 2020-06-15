@@ -773,7 +773,7 @@ $(() => {
     const heroSelector = document.getElementById('hero');
     const artiSelector = document.getElementById('artifact');
     Object.keys(heroes).map((id => {
-      $(heroSelector).append(`<option value="${id}" data-content="${elemIcon(heroes[id].element)}${classIcon(heroes[id].classType)} <span>${heroName(id)}</span>">${heroName(id)}</option>`)
+      $(heroSelector).append(`<option value="${id}" data-content="${elemIcon(heroes[id].element)}${classIcon(heroes[id].classType)}<span>${heroName(id)} ${heroaltName(id)}</span>">${heroName(id)}</option>`)
     }));
     $(artiSelector).append(`<option value="">${artifactName('no_proc')}</option>`);
     $(artiSelector).append(`<option data-divider="true"></option>`);
