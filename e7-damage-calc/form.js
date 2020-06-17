@@ -865,3 +865,35 @@ $(() => {
   resolve();
   $('[data-toggle="tooltip"]').tooltip();
 });
+
+(function() {
+  let darkSwitch = document.getElementById('dark-switch');
+  if (darkSwitch) {
+    initTheme();
+    darkSwitch.addEventListener('change', function(event) {
+      applyTheme();
+      gtag('event', 'switch', {
+        event_category: 'Theme',
+        event_label: darkSwitch.checked ? 'dark' : 'light',
+      });
+    });
+    function initTheme() {
+      const darkThemeSelected =
+          localStorage.getItem('dark-switch') !== null &&
+          localStorage.getItem('dark-switch') === 'dark';
+      darkSwitch.checked = darkThemeSelected;
+      darkThemeSelected
+          ? document.body.setAttribute('data-theme', 'dark')
+          : document.body.removeAttribute('data-theme');
+    }
+    function applyTheme() {
+      if (darkSwitch.checked) {
+        document.body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('dark-switch', 'dark');
+      } else {
+        document.body.removeAttribute('data-theme');
+        localStorage.removeItem('dark-switch');
+      }
+    }
+  }
+})();
