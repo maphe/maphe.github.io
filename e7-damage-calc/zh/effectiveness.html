@@ -29,20 +29,31 @@
     </head>
     <body class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-            <a class="navbar-brand">第七史诗伤害计算器</a>
+            <a class="navbar-brand">第七史诗效果命中与抵抗计算</a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks</a>
+                    <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks <i class="fas fa-external-link-alt fa-xs"></i></a>
                 </li>
             </ul>
         </nav>
-        <div class="row">
-            <div class="col-md-4">
-                <a href="index.html" class="btn btn-secondary btn-sm mb-3">
-                    <i class="fas fa-angle-double-left"></i> 伤害计算器
-                </a>
-            </div>
-        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="fas fa-angle-double-left"></i> 伤害计算器</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item nav-link">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="dark-switch">
+                        <label class="custom-control-label" for="dark-switch">
+                            <span class="d-none d-sm-inline">深色模式</span>
+                            <i class="fas fa-adjust d-inline d-sm-none mt-1"></i>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </nav>
         <div>
             <form id="stats">
                 <div class="stat-block">
