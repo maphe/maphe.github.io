@@ -4,18 +4,18 @@
   - Add more
 - ~~Improve sliders (easier, more accurate inputs)~~
 - ~~Add Passive Skill boosts (Lorina, Luna, BBK)~~
-- Add defensive artifacts (Noble Oath, Adamant Shield)
+- ~~Add defensive artifacts (Noble Oath, Adamant Shield)~~
 - ~~Preset gear values (atk, crit dmg)~~
 - ~~Preset Defense values (eg. hunts)~~
   - ~~Add more~~
 - ~~Extra-attack (Sven, Clarissa, Vivian, Alexa)~~
 - ~~Display increased damage % from molas~~
-- Display multipliers
+- ~~Display multipliers~~
 - ~~Rage Set multiplier~~
 - Make Reingard's Drink only apply to AoE attacks
 - ~~Filter artifacts list by Hero type~~
-- Validate damage scaling bugfixes with dataminers
-- Comparator
+- ~~Validate damage scaling bugfixes with dataminers~~
+- ~~Comparator~~
 
 ## Bugfixes
 

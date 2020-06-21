@@ -34,7 +34,12 @@ const resolve = () => {
     if (skill.rate !== undefined) {
       const damage = hero.getDamage(skillId);
       $(table).append(`<tr>
-            <td>${skill.name ? skill.name : skillLabel(skillId)}</td>
+            <td>
+              ${skill.name ? skill.name : skillLabel(skillId)}
+              <a tabindex="0" class="btn btn-xs btn-light p-1 float-right" data-toggle="popover" title="${skillLabel('mods')}" data-content='${getModTooltip(hero, skillId)}' data-html="true" data-placement="top">
+                <i class="fas fa-square-root-alt fa-sm"></i>
+              </a>
+            </td>
             <td>${displayDmg(damage, 'crit')}</td>
             <td>${displayDmg(damage, 'crush')}</td>
             <td>${displayDmg(damage, 'normal')}</td>
@@ -44,7 +49,12 @@ const resolve = () => {
       if (skill.soulburn) {
         const damage = hero.getDamage(skillId, true);
         $(table).append(`<tr>
-            <td>${skill.name ? skill.name : skillLabel(skillId, true)}</td>
+            <td>
+              ${skill.name ? skill.name : skillLabel(skillId, true)}
+              <a tabindex="0" class="btn btn-xs btn-light p-1 float-right" data-toggle="popover" title="Skill Modifiers" data-content='${getModTooltip(hero, skillId, true)}' data-html="true" data-placement="top">
+                <i class="fas fa-square-root-alt fa-sm"></i>
+              </a>
+            </td>
             <td>${displayDmg(damage, 'crit')}</td>
             <td>${displayDmg(damage, 'crush')}</td>
             <td>${displayDmg(damage, 'normal')}</td>
@@ -58,6 +68,18 @@ const resolve = () => {
 const displayDmg = (damage, type) => {
   return damage[type] !== null ? damage[type] : `<i>${skillLabel('non_applicable')}</i>`
 };
+
+const getModTooltip = (hero, skillId, soulburn = false) => {
+  const values = hero.getModifiers(skillId, soulburn);
+  let content = `${skillLabel('att_rate')}: <b class="float-right">${values.rate}</b><br/>
+                 ${skillLabel('power')}: <b class="float-right">${values.pow}</b><br/>`;
+
+  if (values.mult !== null) content += `${skillLabel('mult')}: <b class="float-right">${Math.round(values.mult*100)}%</b><br/>`;
+  if (values.flat !== null) content += `${skillLabel('flat')}: <b class="float-right">${Math.round(values.flat)}</b><br/>`;
+  if (values.critBoost !== null) content += `${skillLabel('critBoost')}: <b class="float-right">+${Math.round(values.critBoost*100)}%</b><br/>`;
+  if (values.pen != null) content += `${skillLabel('pen')}: <b class="float-right">${Math.round(values.pen*100)}%</b><br/>`;
+  return content;
+}
 
 const getGlobalAtkMult = () => {
   let mult = 0.0;
@@ -120,6 +142,18 @@ class Hero {
     this.barrierEnhance = heroes[id].barrierEnhance;
     this.artifact = artifact;
     this.target = new Target(artifact);
+  }
+
+  getModifiers(skillId, soulburn = false) {
+    const skill = this.skills[skillId];
+    return {
+      rate: (typeof skill.rate === 'function') ? skill.rate(soulburn) : skill.rate,
+      pow: (typeof skill.pow === 'function') ? skill.pow(soulburn) : skill.pow,
+      mult: skill.mult ? skill.mult(soulburn)-1 : null,
+      flat: skill.flat ? skill.flat(soulburn) : null,
+      critBoost: skill.critDmgBoost ? skill.critDmgBoost(soulburn) : null,
+      pen: skill.penetrate ? skill.penetrate() : null,
+    }
   }
 
   getDamage(skillId, soulburn = false) {

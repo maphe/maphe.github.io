@@ -35,6 +35,15 @@ const i18n = {
       taranor_guard: 'tg',
       troublemaker_crozet: 'ml.crozet mlcrozet',
       wanderer_silk: 'ml.silk mlsilk',
+    },
+    skills: {
+      mods: 'Skill Modifiers',
+      att_rate: 'Attack Rate',
+      power: 'Power',
+      mult: 'Mult Mod',
+      flat: 'Flat Mod',
+      critBoost: 'Crit Dmg',
+      pen: 'Penetrate'
     }
   },
   jp: {
@@ -1471,10 +1480,10 @@ const formLabel = (id) => {
 const skillLabel = (id, soulburn = false) => {
   const lang = document.getElementById('root').getAttribute('lang');
   if (lang === 'en') {
-    return (id === 'non_applicable') ? 'n/a' : id.toUpperCase() + (soulburn ? ' Soulburn' : '');
+    return (id === 'non_applicable') ? 'n/a' : i18n[lang].skills[id] || id.toUpperCase() + (soulburn ? ' Soulburn' : '');
   } else {
     id = soulburn ? id+'_soulburn' : id;
-    return i18n[lang].skills[id] || id.toUpperCase();
+    return i18n[lang].skills[id] || i18n['en'].skills[id] || id.toUpperCase();
   }
 };
 
