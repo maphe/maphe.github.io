@@ -864,6 +864,13 @@ $(() => {
 
   resolve();
   $('[data-toggle="tooltip"]').tooltip();
+  const dmgBlock = $('#damage-block');
+  dmgBlock.on('focus', '[data-toggle="popover"]', (event) => {
+    $(event.target).popover('show');
+  });
+  dmgBlock.on('blur', '[data-toggle="popover"]', (event) => {
+    $(event.target).popover('hide');
+  });
 });
 
 (function() {

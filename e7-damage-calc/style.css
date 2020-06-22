@@ -90,7 +90,6 @@ div.dropdown-menu.show {
     line-height: 22px;
 }
 
-
 /* Dark Theme */
 
 [data-theme="dark"] {
@@ -113,7 +112,8 @@ div.dropdown-menu.show {
 [data-theme="dark"] .navbar-light .navbar-brand,
 [data-theme="dark"] .navbar-light .navbar-nav .nav-link:hover,
 [data-theme="dark"] .dropdown-item,
-[data-theme="dark"] .close {
+[data-theme="dark"] .close,
+[data-theme="dark"] .popover-body {
     color: #eee;
 }
 
@@ -146,19 +146,37 @@ div.dropdown-menu.show {
     color: #eee;
 }
 
-[data-theme="dark"] .btn-light, [data-theme="dark"] .dropdown-menu.show, [data-theme="dark"] .card-header {
+[data-theme="dark"] .btn-light,
+[data-theme="dark"] .dropdown-menu.show,
+[data-theme="dark"] .card-header,
+[data-theme="dark"] .popover-header {
     background-color: #333;
     color: #eee;
+}
+
+[data-theme="dark"] .badge-light {
+    background-color: #222;
+    color: #eee;
+}
+
+[data-theme="dark"] .popover {
+    background-color: #333;
+    color: #eee;
+    border-color: #ccc;
+}
+
+[data-theme="dark"] .popover .arrow:after {
+    border-top-color: #555;
 }
 
 [data-theme="dark"] .dropdown-item:hover {
     color: #333;
 }
 
-[data-theme="dark"] .modal-content {
-    background-color: #555;
+[data-theme="dark"] li.disabled .dropdown-item {
+    color: #777;
 }
 
-[data-theme="dark"] .card-body {
+[data-theme="dark"] .modal-content, [data-theme="dark"] .popover-body, [data-theme="dark"] .card-body {
     background-color: #555;
 }
