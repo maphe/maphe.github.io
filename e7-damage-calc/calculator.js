@@ -51,7 +51,7 @@ const resolve = () => {
         $(table).append(`<tr>
             <td>
               ${skill.name ? skill.name : skillLabel(skillId, true)}
-              <a tabindex="0" class="btn btn-xs btn-light p-1 float-right" data-toggle="popover" title="Skill Modifiers" data-content='${getModTooltip(hero, skillId, true)}' data-html="true" data-placement="top">
+              <a tabindex="0" class="btn btn-xs btn-light p-1 float-right" data-toggle="popover" title="${skillLabel('mods')}" data-content='${getModTooltip(hero, skillId, true)}' data-html="true" data-placement="top">
                 <i class="fas fa-square-root-alt fa-sm"></i>
               </a>
             </td>

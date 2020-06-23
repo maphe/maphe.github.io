@@ -737,6 +737,13 @@ const i18n = {
       s1_soulburn: '1技能 靈魂燃燒',
       s2_soulburn: '2技能 靈魂燃燒',
       s3_soulburn: '3技能 靈魂燃燒',
+      mods: '技能倍率',
+      att_rate: '基礎倍率(Attack Rate)',
+      power: '倍率修正值(Pow!)',
+      mult: '條件收益倍率',
+      flat: '固定值傷害倍率',
+      critBoost: '暴擊增傷系數',
+      pen: '防禦貫穿系數'
     }
   },
   zhCN: {
@@ -1166,6 +1173,13 @@ const i18n = {
       s1_soulburn: '1技能 灵魂燃烧',
       s2_soulburn: '2技能 灵魂燃烧',
       s3_soulburn: '3技能 灵魂燃烧',
+      mods: '技能倍率',
+      att_rate: '基础倍率(Attack Rate)',
+      power: '倍率修正值(Pow!)',
+      mult: '条件收益倍率',
+      flat: '固定值伤害倍率',
+      critBoost: '暴击增伤系数',
+      pen: '防御贯穿系数'
     }
   },
   kr: {
