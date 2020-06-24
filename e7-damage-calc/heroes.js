@@ -3716,7 +3716,8 @@ const heroes = {
         mult: () => 1 + (100-elements.caster_hp_pc.value())*0.003,
       },
       s3: {
-        rate: 0.8,
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1 : 0.8,
         pow: 0.8,
         mult: () => 1 + (100-elements.caster_hp_pc.value())*0.005 + (100-elements.target_hp_pc.value())*0.0015,
         enhance: [0.05, 0.05, 0.1, 0, 0.1, 0.1, 0.1]
