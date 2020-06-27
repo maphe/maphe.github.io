@@ -268,6 +268,8 @@ class Hero {
         return this.getAtk()*0.3*dmgConst*this.target.defensivePower({penetrate: () => 0.7});
       case dot.burn:
         return this.getAtk()*0.6*dmgConst*this.target.defensivePower({penetrate: () => 0.7});
+      case dot.bomb:
+        return this.getAtk()*1.5*dmgConst*this.target.defensivePower({penetrate: () => 0.7});
       default: return 0;
     }
   }

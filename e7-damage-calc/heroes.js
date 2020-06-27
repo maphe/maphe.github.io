@@ -1,6 +1,7 @@
 const dot = {
   bleed: 'bleed',
-  burn: 'burn'
+  burn: 'burn',
+  bomb: 'bomb',
 };
 
 const classType = {
@@ -3228,6 +3229,7 @@ const heroes = {
     classType: classType.ranger,
     baseAtk: 1088,
     form: [elements.target_has_debuff],
+    dot: [dot.bomb],
     skills: {
       s1: {
         rate: 1,
