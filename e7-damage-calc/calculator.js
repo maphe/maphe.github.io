@@ -6,7 +6,7 @@ const resolve = () => {
 
   document.getElementById(`barrier-block`).style.display = 'none';
   document.getElementById(`artifact-dmg-block`).style.display = 'none';
-  for (const dotType of [dot.bleed, dot.burn]) {
+  for (const dotType of [dot.bleed, dot.burn, dot.bomb]) {
     document.getElementById(`${dotType}-damage-block`).style.display = 'none';
   }
 
@@ -230,7 +230,7 @@ class Hero {
     const skill = this.skills[skillId];
     const detonation = this.getDetonateDamage(skillId);
 
-    let artiDamage = this.getAfterMathArtifactDamage();
+    let artiDamage = this.getAfterMathArtifactDamage(skill);
     if (artiDamage === null) artiDamage = 0;
 
     let skillDamage = 0;
@@ -242,8 +242,8 @@ class Hero {
     return detonation + artiDamage + skillDamage;
   }
 
-  getAfterMathArtifactDamage() {
-    const artiMultipliers = this.artifact.getAfterMathMultipliers();
+  getAfterMathArtifactDamage(skill) {
+    const artiMultipliers = this.artifact.getAfterMathMultipliers(skill);
     if (artiMultipliers !== null) {
       return this.getAtk()*artiMultipliers.atkPercent*dmgConst*this.target.defensivePower({ penetrate: () => artiMultipliers.penetrate });
     }
@@ -297,6 +297,11 @@ class Artifact {
     this.id = id ? id : undefined;
   }
 
+  applies(skill) {
+    if (this.id === undefined || skill === undefined) return true;
+    return artifacts[this.id].applies !== undefined ? artifacts[this.id].applies(skill) : true;
+  }
+
   getName() {
     return artifactName(this.id);
   }
@@ -319,7 +324,8 @@ class Artifact {
     return this.getValue();
   }
 
-  getAfterMathMultipliers() {
+  getAfterMathMultipliers(skill) {
+    if(!this.applies(skill)) return null;
     if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.aftermath || artifacts[this.id].atkPercent === undefined || artifacts[this.id].penetrate === undefined) {
       return null;
     }

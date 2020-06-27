@@ -124,7 +124,8 @@ const artifacts = {
     type: artifactDmgType.aftermath,
     atkPercent: 0.3,
     penetrate: 0.7,
-    exclusive: classType.ranger
+    exclusive: classType.ranger,
+    applies: (skill) => skill.aoe === true
   },
   sigurd_scythe: {
     id: 'sigurd_scythe',

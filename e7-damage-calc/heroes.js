@@ -610,13 +610,15 @@ const heroes = {
         rate: 0.8,
         pow: 0.95,
         mult: () => elements.nb_targets.value() > 1 ? 1 + (elements.nb_targets.value() - 1) * 0.1 : 1,
-        enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1],
+        aoe: true,
       },
       s3: {
         soulburn: true,
         rate: (soulburn) => soulburn ? 1.2 : 0.95,
         pow: 1,
-        enhance: [0.15, 0, 0, 0, 0.15]
+        enhance: [0.15, 0, 0, 0, 0.15],
+        aoe: true,
       }
     }
   },
@@ -884,7 +886,8 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 1.1 : 0.85,
         pow: 0.9,
-        enhance: [0.05, 0.05, 0.05, 0, 0.05, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0.05, 0, 0.05, 0.1, 0.1],
+        aoe: true,
       },
     }
   },
@@ -958,6 +961,7 @@ const heroes = {
         rate: 0.9,
         pow: 1.1,
         enhance: [0.05, 0, 0, 0, 0.15],
+        aoe: true,
       },
     }
   },
@@ -1641,7 +1645,8 @@ const heroes = {
       s2: {
         rate: 0.7,
         pow: 1,
-        enhance: [0.05, 0, 0.05, 0, 0.15]
+        enhance: [0.05, 0, 0.05, 0, 0.15],
+        aoe: true,
       },
       s3: {
         rate: 1.4,
@@ -2231,7 +2236,8 @@ const heroes = {
       s2: {
         rate: 0.7,
         pow: 1,
-        enhance: [0.05, 0.05, 0, 0.1, 0.05, 0.05]
+        enhance: [0.05, 0.05, 0, 0.1, 0.05, 0.05],
+        aoe: true,
       }
     }
   },
@@ -2388,7 +2394,8 @@ const heroes = {
       s3: {
         rate: 0.8,
         pow: 0.8,
-        enhance: [0.05, 0.05, 0, 0.1, 0.15]
+        enhance: [0.05, 0.05, 0, 0.1, 0.15],
+        aoe: true,
       }
     }
   },
@@ -2406,7 +2413,8 @@ const heroes = {
       s2: {
         rate: 0.7,
         pow: 1,
-        enhance: [0.05, 0, 0.1, 0, 0.15]
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        aoe: true,
       },
       s3: {
         rate: 1.6,
@@ -2934,7 +2942,8 @@ const heroes = {
         rate: 0.8,
         pow: 1,
         mult: () => 1 + elements.caster_speed.value()*0.001125,
-        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
       },
       s3: {
         rate: 1.6,
@@ -3245,7 +3254,8 @@ const heroes = {
       s3: {
         rate: 0.8,
         pow: 1.1,
-        enhance: [0.05, 0, 0, 0, 0.15]
+        enhance: [0.05, 0, 0, 0, 0.15],
+        aoe: true,
       }
     }
   },
@@ -3388,7 +3398,8 @@ const heroes = {
       s3: {
         rate: 1,
         pow: 1,
-        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
       }
     }
   },
@@ -3419,13 +3430,15 @@ const heroes = {
       s2: {
         rate: 0.7,
         pow: 1,
-        enhance: [0.05, 0.1, 0.15]
+        enhance: [0.05, 0.1, 0.15],
+        aoe: true,
       },
       s3: {
         rate: 1,
         pow: 1,
         critDmgBoost: () => 0.2,
-        enhance: [0.05, 0, 0, 0, 0.1, 0.15]
+        enhance: [0.05, 0, 0, 0, 0.1, 0.15],
+        aoe: true,
       }
     }
   },
@@ -3548,7 +3561,8 @@ const heroes = {
       s3: {
         rate: 0.85,
         pow: 1.05,
-        enhance: [0.1, 0, 0, 0.15]
+        enhance: [0.1, 0, 0, 0.15],
+        aoe: true,
       }
     }
   },
@@ -4024,7 +4038,8 @@ const heroes = {
       s2: {
         rate: 0.7,
         pow: 1.05,
-        enhance: [0.1, 0, 0, 0, 0.15]
+        enhance: [0.1, 0, 0, 0, 0.15],
+        aoe: true,
       },
       s3: {
         rate: 0.8,
@@ -4079,7 +4094,8 @@ const heroes = {
           }
           return mult;
         },
-        enhance: [0.05, 0.05, 0.05, 0.1, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1, 0.1],
+        aoe: true,
       },
       s3: {
         onlyCrit: true,
@@ -4094,7 +4110,8 @@ const heroes = {
           }
         },
         exEq: () => elements.exclusive_equipment_3.value() ? 0.3 : 0,
-        enhance: [0.05, 0.05, 0.05, 0.05, 0.1, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1, 0.1, 0.1],
+        aoe: true,
       }
     }
   },
