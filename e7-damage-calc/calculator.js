@@ -78,6 +78,7 @@ const getModTooltip = (hero, skillId, soulburn = false) => {
   if (values.flat !== null) content += `${skillLabel('flat')}: <b class="float-right">${Math.round(values.flat)}</b><br/>`;
   if (values.critBoost !== null) content += `${skillLabel('critBoost')}: <b class="float-right">+${Math.round(values.critBoost*100)}%</b><br/>`;
   if (values.pen != null) content += `${skillLabel('pen')}: <b class="float-right">${Math.round(values.pen*100)}%</b><br/>`;
+  if (values.elemAdv === true) content += `${skillLabel('elemAdv')}: <i class="fas fa-check-square"></i><br/>`;
   return content;
 }
 
@@ -153,6 +154,7 @@ class Hero {
       flat: skill.flat ? skill.flat(soulburn) : null,
       critBoost: skill.critDmgBoost ? skill.critDmgBoost(soulburn) : null,
       pen: skill.penetrate ? skill.penetrate() : null,
+      elemAdv: (typeof skill.elemAdv === 'function') ? skill.elemAdv() : false,
     }
   }
 
@@ -192,7 +194,10 @@ class Hero {
 
     const pow = (typeof skill.pow === 'function') ? skill.pow(soulburn) : skill.pow;
     const skillEnhance = this.getSkillEnhanceMult(skillId);
-    const elemAdv = document.getElementById('elem-adv').checked ? Number(document.getElementById('elem-adv').value) : 1.0;
+    let elemAdv = 1.0;
+    if (document.getElementById('elem-adv').checked || (typeof skill.elemAdv === 'function') && skill.elemAdv() === true) {
+      elemAdv = Number(document.getElementById('elem-adv').value);
+    }
     const target = document.getElementById('target').checked ? Number(document.getElementById('target').value) : 1.0;
 
     let dmgMod = 1.0 + getGlobalDamageMult(this) + this.artifact.getDamageMultiplier() + (skill.mult ? skill.mult(soulburn)-1 : 0);

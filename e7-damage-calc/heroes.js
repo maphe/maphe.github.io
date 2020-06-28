@@ -1193,14 +1193,14 @@ const heroes = {
     form: [elements.caster_speed],
     skills: {
       s1: {
-        rate: 0.9,
+        rate: () => elements.caster_speed_up.value() ? 1.05 : 0.9,
         pow: () => {
-          let mult = 1.0;
+          let mult = 0.0;
           for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
             mult += heroes.cidd.skills.s2.enhance[i];
           }
 
-          return 0.95*mult;
+          return 0.95+mult;
         },
         mult: () => 1 + elements.caster_speed.value()*0.00075,
         enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
@@ -1213,7 +1213,8 @@ const heroes = {
         rate: (soulburn) => soulburn ? 2.2 : 1.6,
         pow: 1,
         mult: () => 1 + elements.caster_speed.value()*0.0021,
-        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        elemAdv: () => elements.caster_speed_up.value()
       }
     }
   },
@@ -2621,7 +2622,8 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 2.2 : 1.5,
         pow: 1.05,
-        enhance: [0.05, 0, 0.1, 0, 0.1]
+        enhance: [0.05, 0, 0.1, 0, 0.1],
+        elemAdv: () => true
       }
     }
   },

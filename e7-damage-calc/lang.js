@@ -43,7 +43,8 @@ const i18n = {
       mult: 'Mult Mod',
       flat: 'Flat Mod',
       critBoost: 'Crit Dmg',
-      pen: 'Penetrate'
+      pen: 'Penetrate',
+      elemAdv: 'Elemental Adv'
     }
   },
   jp: {

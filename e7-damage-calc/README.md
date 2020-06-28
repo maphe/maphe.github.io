@@ -1,7 +1,6 @@
 ## Todo List/Roadmap
 
 - ~~Add offensive artifacts (Portrait of the Saviors, Elyha's Knife)~~
-  - Add more
 - ~~Improve sliders (easier, more accurate inputs)~~
 - ~~Add Passive Skill boosts (Lorina, Luna, BBK)~~
 - ~~Add defensive artifacts (Noble Oath, Adamant Shield)~~
@@ -12,7 +11,7 @@
 - ~~Display increased damage % from molas~~
 - ~~Display multipliers~~
 - ~~Rage Set multiplier~~
-- Make Reingard's Drink only apply to AoE attacks
+- ~~Make Reingard's Drink only apply to AoE attacks~~
 - ~~Filter artifacts list by Hero type~~
 - ~~Validate damage scaling bugfixes with dataminers~~
 - ~~Comparator~~
@@ -33,5 +32,5 @@
 ### Disclaimer
 
 Heroes that might need a rework/double-check:
-- Cidd
-- Luna permanent elemental adv on S3
+- ~~Cidd~~
+- ~~Luna permanent elemental adv on S3~~
