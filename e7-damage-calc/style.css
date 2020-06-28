@@ -90,6 +90,10 @@ div.dropdown-menu.show {
     line-height: 22px;
 }
 
+body .popover {
+    max-width: 500px;
+}
+
 /* Dark Theme */
 
 [data-theme="dark"] {

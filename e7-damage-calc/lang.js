@@ -44,7 +44,40 @@ const i18n = {
       flat: 'Flat Mod',
       critBoost: 'Crit Dmg',
       pen: 'Penetrate',
-      elemAdv: 'Elemental Adv'
+      detonation: 'Detonation',
+      exEq: 'Excl. Equipment',
+      elemAdv: 'Elemental Adv',
+      custom: {
+        all_fire: '{v}% Team Fire',
+        caster_defense: '{v}% Defense',
+        caster_left_hp_pc: '{v}% remaining HP%',
+        caster_lost_hp: '{v}% lost HP',
+        caster_lost_hp_pc: '{v}% lost HP%',
+        caster_max_hp: '{v}% max HP',
+        caster_hp_pc_over_hp_threshold: '{v}% HP% [above threshold]',
+        caster_rage: '{v}% Rage',
+        caster_speed: '{v}% Speed',
+        caster_hp_pc_under_hp_threshold: '{v}% HP% [below threshold]',
+        elemental_advantage: '{v}% Elem. Adv.',
+        per_crit_hit: '{v}% per Critical Hit',
+        per_target: '{v}% per Target',
+        per_bleed: '{v}% per Bleed',
+        per_fewer_target: '{v}% per fewer Target',
+        per_focus: '{v}% per Focus',
+        per_stack: '{v}% per Stack',
+        per_target_debuff: '{v}% per Debuff',
+        skill_tree: 'Skill Tree: {v}%',
+        target_bleed: 'Target Bleed: {v}%',
+        target_debuff: 'Target Debuff: {v}%',
+        target_has_buff: 'Target has Buff: {v}%',
+        target_has_debuff: 'Target has Debuff: {v}%',
+        target_has_no_buff: 'Target has no Buff: {v}%',
+        target_lost_hp_pc: '{v}% Target lost HP%',
+        target_magic_nail: 'Magic Nail: {v}%',
+        target_max_hp: '{v}% Target max HP',
+        target_speed: '{v}% Target Speed',
+        under_threshold: 'Below Threshold: {v}%',
+      }
     }
   },
   jp: {
@@ -1523,3 +1556,19 @@ const compareSkillLabel = (id) => {
 
   return display
 };
+
+const getSkillModTip = (tips) => {
+  if (!tips) return '';
+
+  const output = [];
+  for (const key of Object.keys(tips)) {
+    let lang = document.getElementById('root').getAttribute('lang');
+    if (i18n[lang].skills['custom'] === undefined) lang = 'en';
+    if (i18n[lang].skills['custom'][key] === undefined) lang = 'en';
+
+    if (i18n[lang].skills['custom'][key] === undefined) return null;
+    output.push((i18n[lang].skills['custom'][key]).replace('{v}', tips[key]));
+  }
+
+  return `(${output.join(', ')})`
+}

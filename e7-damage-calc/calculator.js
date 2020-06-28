@@ -74,11 +74,17 @@ const getModTooltip = (hero, skillId, soulburn = false) => {
   let content = `${skillLabel('att_rate')}: <b class="float-right">${values.rate}</b><br/>
                  ${skillLabel('power')}: <b class="float-right">${values.pow}</b><br/>`;
 
-  if (values.mult !== null) content += `${skillLabel('mult')}: <b class="float-right">${Math.round(values.mult*100)}%</b><br/>`;
-  if (values.flat !== null) content += `${skillLabel('flat')}: <b class="float-right">${Math.round(values.flat)}</b><br/>`;
+  if (values.mult !== null) {
+    content += `${skillLabel('mult')}: <span class="float-right">${values.multTip} <b>${Math.round(values.mult*100)}%</b></span><br/>`;
+  }
+  if (values.flat !== null) {
+    content += `${skillLabel('flat')}: <span class="float-right">${values.flatTip} <b>${Math.round(values.flat)}</b></span><br/>`;
+  }
   if (values.critBoost !== null) content += `${skillLabel('critBoost')}: <b class="float-right">+${Math.round(values.critBoost*100)}%</b><br/>`;
   if (values.pen != null) content += `${skillLabel('pen')}: <b class="float-right">${Math.round(values.pen*100)}%</b><br/>`;
-  if (values.elemAdv === true) content += `${skillLabel('elemAdv')}: <i class="fas fa-check-square"></i><br/>`;
+  if (values.detonation != null) content += `${skillLabel('detonation')}: <b class="float-right">+${Math.round(values.detonation*100)}%</b><br/>`;
+  if (values.exEq != null) content += `${skillLabel('exEq')}: <b class="float-right">+${Math.round(values.exEq*100)}%</b><br/>`;
+  if (values.elemAdv === true) content += `${skillLabel('elemAdv')}: <i class="fas fa-check-square float-right"></i><br/>`;
   return content;
 }
 
@@ -151,9 +157,13 @@ class Hero {
       rate: (typeof skill.rate === 'function') ? skill.rate(soulburn) : skill.rate,
       pow: (typeof skill.pow === 'function') ? skill.pow(soulburn) : skill.pow,
       mult: skill.mult ? skill.mult(soulburn)-1 : null,
+      multTip: skill.multTip !== undefined ? getSkillModTip(skill.multTip(soulburn)) : '',
       flat: skill.flat ? skill.flat(soulburn) : null,
+      flatTip: skill.flatTip !== undefined ? getSkillModTip(skill.flatTip(soulburn)) : '',
       critBoost: skill.critDmgBoost ? skill.critDmgBoost(soulburn) : null,
       pen: skill.penetrate ? skill.penetrate() : null,
+      detonation: skill.detonation !== undefined ? skill.detonation()-1 : null,
+      exEq: skill.exEq !== undefined ? skill.exEq() : null,
       elemAdv: (typeof skill.elemAdv === 'function') ? skill.elemAdv() : false,
     }
   }
