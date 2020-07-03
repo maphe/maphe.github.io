@@ -169,6 +169,13 @@ const artifacts = {
     name: 'Victorious Flag',
     scale: [0.08, 0.088, 0.096, 0.104, 0.112, 0.12, 0.128, 0.136, 0.144, 0.152, 0.16],
     type: artifactDmgType.damage,
+    info: infoLabel('victorious_flag'),
+    applies: (skill) => {
+      const hero = heroes[document.getElementById('hero').value];
+      if (hero.element === element.dark || hero.element === element.light) return false;
+
+      return (document.getElementById('elem-adv').checked || ((skill.elemAdv !== undefined) && skill.elemAdv() === true));
+    }
   },
   violet_talisman: {
     id: 'violet_talisman',
