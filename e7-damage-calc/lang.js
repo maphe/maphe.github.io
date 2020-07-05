@@ -78,6 +78,9 @@ const i18n = {
         target_speed: '{v}% Target Speed',
         under_threshold: 'Below Threshold: {v}%',
       }
+    },
+    info: {
+      victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes'
     }
   },
   jp: {
@@ -1639,4 +1642,11 @@ const getSkillModTip = (tips) => {
   }
 
   return `(${output.join(', ')})`
+}
+
+const infoLabel = (key) => {
+  let lang = document.getElementById('root').getAttribute('lang');
+  if (i18n[lang].info === undefined) lang = 'en';
+
+  return i18n[lang].info[key] || i18n['en'].info[key] || '';
 }

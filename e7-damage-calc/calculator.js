@@ -84,7 +84,7 @@ const getModTooltip = (hero, skillId, soulburn = false) => {
   if (values.pen != null) content += `${skillLabel('pen')}: <b class="float-right">${Math.round(values.pen*100)}%</b><br/>`;
   if (values.detonation != null) content += `${skillLabel('detonation')}: <b class="float-right">+${Math.round(values.detonation*100)}%</b><br/>`;
   if (values.exEq != null) content += `${skillLabel('exEq')}: <b class="float-right">+${Math.round(values.exEq*100)}%</b><br/>`;
-  if (values.elemAdv === true) content += `${skillLabel('elemAdv')}: <i class="fas fa-check-square float-right"></i><br/>`;
+  if (values.elemAdv !== null) content += `${skillLabel('elemAdv')}: <i class="fas ${values.elemAdv ? 'fa-check-square' : 'fa-times-circle'} float-right"></i><br/>`;
   return content;
 }
 
@@ -164,7 +164,7 @@ class Hero {
       pen: skill.penetrate ? skill.penetrate() : null,
       detonation: skill.detonation !== undefined ? skill.detonation()-1 : null,
       exEq: skill.exEq !== undefined ? skill.exEq() : null,
-      elemAdv: (typeof skill.elemAdv === 'function') ? skill.elemAdv() : false,
+      elemAdv: (typeof skill.elemAdv === 'function') ? skill.elemAdv() : null,
     }
   }
 
@@ -210,7 +210,7 @@ class Hero {
     }
     const target = document.getElementById('target').checked ? Number(document.getElementById('target').value) : 1.0;
 
-    let dmgMod = 1.0 + getGlobalDamageMult(this) + this.artifact.getDamageMultiplier() + (skill.mult ? skill.mult(soulburn)-1 : 0);
+    let dmgMod = 1.0 + getGlobalDamageMult(this) + this.artifact.getDamageMultiplier(skill) + (skill.mult ? skill.mult(soulburn)-1 : 0);
 
     return ((this.getAtk(skillId)*rate + flatMod)*dmgConst + flatMod2) * pow * skillEnhance * elemAdv * target * dmgMod;
   }
@@ -325,7 +325,8 @@ class Artifact {
     return artifacts[this.id].scale ? artifacts[this.id].scale[Math.floor(document.getElementById('artifact-lvl').value/3)] : artifacts[this.id].value;
   }
 
-  getDamageMultiplier() {
+  getDamageMultiplier(skill) {
+    if(!this.applies(skill)) return 0;
     if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.damage) {
       return 0;
     }
