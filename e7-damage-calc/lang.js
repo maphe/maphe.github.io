@@ -815,6 +815,9 @@ const i18n = {
         target_speed: '{v}% 目標速度',
         under_threshold: '低於閾值: {v}%',
       }
+      info: {
+      victorious_flag: '必須勾選屬性克制才能看到效果, 對光暗英雄無效.'
+      }
     }
   },
   zhCN: {
@@ -1284,6 +1287,9 @@ const i18n = {
         target_max_hp: '{v}% 目标最大生命值',
         target_speed: '{v}% 目标速度',
         under_threshold: '低于阈值: {v}%',
+      }
+     info: {
+      victorious_flag: '必须勾选属性克制才能看到效果, 对光暗英雄无效.'
       }
     }
   },
