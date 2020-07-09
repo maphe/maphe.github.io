@@ -1421,6 +1421,7 @@ const i18n = {
       mistychain: '미스티체인',
       montmorancy: '몽모랑시',
       mucacha: '무카차',
+      mui: '뮤이',
       nemunas: '네무나스',
       otillie: '오틸리어',
       pavel: '파벨',

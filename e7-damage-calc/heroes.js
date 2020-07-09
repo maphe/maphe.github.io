@@ -2166,7 +2166,7 @@ const heroes = {
     element: element.fire,
     classType: classType.mage,
     baseAtk: 1306,
-    form: [elements.target_speed, elements.caster_speed],
+    form: [elements.target_speed, elements.caster_speed, elements.exclusive_equipment_3],
     skills: {
       s1: {
         rate: 0.9,
@@ -2188,6 +2188,7 @@ const heroes = {
         mult: () => 1 + elements.caster_speed.value()*0.00075,
         multTip: () => ({ caster_speed: 0.075 }),
         penetrate: () => elements.caster_speed_up.value() ? 0.3 : 0,
+        exEq: () => elements.exclusive_equipment_3.value() ? 0.2 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.15]
       }
     }
@@ -3007,6 +3008,29 @@ const heroes = {
         mult: () => 1 + elements.caster_speed.value()*0.00075,
         multTip: () => ({ caster_speed: 0.075 }),
         enhance: [0.05, 0, 0.1, 0, 0.15]
+      }
+    }
+  },
+  mui: {
+    name: 'Mui',
+    element: element.earth,
+    classType: classType.warrior,
+    baseAtk: 1039,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      },
+      s2: {
+        rate: 0.9,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.1, 0.1, 0.15]
+      },
+      s3: {
+        rate: 1,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0.1, 0.15]
       }
     }
   },
