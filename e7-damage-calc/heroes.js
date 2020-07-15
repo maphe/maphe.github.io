@@ -3016,6 +3016,7 @@ const heroes = {
     element: element.earth,
     classType: classType.warrior,
     baseAtk: 1039,
+    dot: [dot.bleed],
     skills: {
       s1: {
         rate: 1,
