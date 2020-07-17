@@ -129,7 +129,7 @@ const getGlobalDefMult = () => {
 
   for (let checkboxId of ['def-up', 'def-down']) {
     const elem = document.getElementById(checkboxId);
-    mult *= elem.checked ? Number(elem.value) : 1.0;
+    mult += elem.checked ? Number(elem.value) : 0.0;
   }
 
   return mult;
