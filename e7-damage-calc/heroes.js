@@ -753,6 +753,29 @@ const heroes = {
       },
     }
   },
+  briar_witch_iseria: {
+    name: 'Briar Witch Iseria',
+    element: element.dark,
+    classType: classType.ranger,
+    baseAtk: 1182,
+    info: infoLabel('briar_witch_iseria'),
+    skills: {
+      s1: {
+        rate: 0.85,
+        pow: 1,
+        afterMath: (hitType) => (hitType !== hitTypes.miss) ? { atkPercent: 0.3, penetrate: 0.7 } : null,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.2 : 0.95,
+        pow: 1.1,
+        afterMath: (hitType) => (hitType !== hitTypes.miss) ? { atkPercent: 0.3, penetrate: 0.7 } : null,
+        enhance: [0.05, 0, 0, 0, 0.15],
+        aoe: true,
+      }
+    }
+  },
   butcher_corps_inquisitor: {
     name: 'Butcher Corps Inquisitor',
     element: element.fire,
@@ -2018,6 +2041,25 @@ const heroes = {
         rate: 1.5,
         pow: 0.95,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1]
+      }
+    }
+  },
+  holiday_yufine: {
+    name: 'Holiday Yufine',
+    element: element.fire,
+    classType: classType.warrior,
+    baseAtk: 1119,
+    dot: [dot.burn],
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.05, 0.15]
+      },
+      s3: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
       }
     }
   },

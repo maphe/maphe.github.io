@@ -47,6 +47,9 @@ const i18n = {
       detonation: 'Detonation',
       exEq: 'Excl. Equipment',
       elemAdv: 'Elemental Adv',
+      afterMathFormula: 'Aftermath',
+      afterMathDmg: 'Aftermath Dmg',
+      hitBoost: 'Hit',
       custom: {
         all_fire: '{v}% Team Fire',
         caster_defense: '{v}% Defense',
@@ -80,7 +83,8 @@ const i18n = {
       }
     },
     info: {
-      victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes'
+      victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes',
+      briar_witch_iseria: 'Extra Damage from S2 passive is calculated with 70% Defense penetration, it has to be double checked, early datamine did not confirm that',
     }
   },
   jp: {

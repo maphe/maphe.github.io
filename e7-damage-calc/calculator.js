@@ -1,4 +1,10 @@
 const dmgConst = 1.871;
+const hitTypes = {
+  crit: 'crit',
+  crush: 'crush',
+  normal: 'normal',
+  miss: 'miss',
+};
 
 const resolve = () => {
   const artifact = new Artifact(document.getElementById('artifact').value);
@@ -85,6 +91,9 @@ const getModTooltip = (hero, skillId, soulburn = false) => {
   if (values.detonation != null) content += `${skillLabel('detonation')}: <b class="float-right">+${Math.round(values.detonation*100)}%</b><br/>`;
   if (values.exEq != null) content += `${skillLabel('exEq')}: <b class="float-right">+${Math.round(values.exEq*100)}%</b><br/>`;
   if (values.elemAdv !== null) content += `${skillLabel('elemAdv')}: <i class="fas ${values.elemAdv ? 'fa-check-square' : 'fa-times-circle'} float-right"></i><br/>`;
+  if (values.afterMathFormula !== null) content += `${skillLabel('afterMathFormula')}/${skillLabel('att_rate')}: <b class="float-right">${Math.round(values.afterMathFormula.atkPercent*100)}%</b><br/>`;
+  if (values.afterMathFormula !== null) content += `${skillLabel('afterMathFormula')}/${skillLabel('pen')}: <b class="float-right">${Math.round(values.afterMathFormula.penetrate*100)}%</b><br/>`;
+  if (values.afterMathDmg !== null) content += `${skillLabel('afterMathDmg')}: <b class="float-right">${Math.round(values.afterMathDmg)}</b><br/>`;
   return content;
 }
 
@@ -165,6 +174,8 @@ class Hero {
       detonation: skill.detonation !== undefined ? skill.detonation()-1 : null,
       exEq: skill.exEq !== undefined ? skill.exEq() : null,
       elemAdv: (typeof skill.elemAdv === 'function') ? skill.elemAdv() : null,
+      afterMathFormula: skill.afterMath !== undefined ? skill.afterMath(soulburn) : null,
+      afterMathDmg: skill.afterMath !== undefined ? this.getAfterMathSkillDamage(skillId, hitTypes.crit) : null,
     }
   }
 
@@ -173,10 +184,10 @@ class Hero {
     const hit = this.offensivePower(skillId, soulburn) * this.target.defensivePower(skill);
     const critDmg = (this.crit / 100)+(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0)+(this.artifact.getCritDmgBoost()||0);
     return {
-      crit: skill.noCrit ? null : Math.round(hit*critDmg + this.getAfterMathDamage(skillId)),
-      crush: skill.noCrit || skill.onlyCrit ? null : Math.round(hit*1.3 + this.getAfterMathDamage(skillId)),
-      normal: skill.onlyCrit ? null : Math.round(hit + this.getAfterMathDamage(skillId)),
-      miss: Math.round(hit*0.75 + this.getAfterMathDamage(skillId))
+      crit: skill.noCrit ? null : Math.round(hit*critDmg + this.getAfterMathDamage(skillId, hitTypes.crit)),
+      crush: skill.noCrit || skill.onlyCrit ? null : Math.round(hit*1.3 + this.getAfterMathDamage(skillId, hitTypes.crush)),
+      normal: skill.onlyCrit ? null : Math.round(hit + this.getAfterMathDamage(skillId, hitTypes.normal)),
+      miss: Math.round(hit*0.75 + this.getAfterMathDamage(skillId, hitTypes.miss))
     };
   }
 
@@ -241,20 +252,28 @@ class Hero {
     return mult;
   }
 
-  getAfterMathDamage(skillId) {
+  getAfterMathDamage(skillId, hitType) {
     const skill = this.skills[skillId];
     const detonation = this.getDetonateDamage(skillId);
 
     let artiDamage = this.getAfterMathArtifactDamage(skill);
     if (artiDamage === null) artiDamage = 0;
 
+    const skillDamage = this.getAfterMathSkillDamage(skillId, hitType);
+
+    return detonation + artiDamage + skillDamage;
+  }
+
+  getAfterMathSkillDamage(skillId, hitType) {
+    const skill = this.skills[skillId];
+
     let skillDamage = 0;
-    const skillMultipliers = skill.afterMath ? skill.afterMath() : null;
+    const skillMultipliers = skill.afterMath ? skill.afterMath(hitType) : null;
     if (skillMultipliers !== null) {
       skillDamage = this.getAtk(skillId)*skillMultipliers.atkPercent*dmgConst*this.target.defensivePower({ penetrate: () => skillMultipliers.penetrate });
     }
 
-    return detonation + artiDamage + skillDamage;
+    return skillDamage;
   }
 
   getAfterMathArtifactDamage(skill) {
