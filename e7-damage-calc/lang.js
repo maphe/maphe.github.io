@@ -385,6 +385,7 @@ const i18n = {
       blaze_dingo: '烈火汀果',
       blood_blade_karin: '血劍卡琳',
       blood_moon_haste: '赤月的貴族海斯特',
+      briar_witch_iseria: '灰光森林的伊賽麗亞',
       butcher_corps_inquisitor: '混沌教屠殺追擊者',
       captain_rikoris: '先鋒隊長里科黎司',
       carmainerose: '卡麥蘿茲',
@@ -439,6 +440,7 @@ const i18n = {
       haste: '海斯特',
       hazel: '海茲',
       helga: '赫爾嘉',
+      holiday_yufine: '度假風優芬妮',
       hurado: '修拉杜',
       iseria: '伊賽麗亞',
       jecht: '傑克托',
@@ -565,6 +567,7 @@ const i18n = {
       blaze_dingo: '光廚子',
       blood_blade_karin: '血卡',
       blood_moon_haste: '暗正太',
+      briar_witch_iseria: '暗飛劍 暗木飛 暗弓',
       butcher_corps_inquisitor: '哥殺 哥布林殺手',
       carmainerose: '火爪',
       carrot: '卡羅',
@@ -576,7 +579,7 @@ const i18n = {
       cerise: '水弓',
       cermia: '夏娜',
       challenger_dominiel: '暗兔',
-      champion_zerato: '暗傑 泥巴佬 泥巴哥',
+      champion_zerato: '暗傑 泥巴佬 泥巴哥 杰哥',
       chaos_sect_axe: '暗斧',
       charles: '木老頭 劍聖',
       charlotte: '火呆毛 女王',
@@ -610,6 +613,7 @@ const i18n = {
       gunther: '昆特 坤哥',
       haste: '火正太',
       helga: '三星小木斧',
+      holiday_yufine: '燒烤龍 噴火龍 火龍妹 包子龍',
       hurado: '光頭 三星暗法',
       iseria: '木飛劍',
       jecht: '木狗奶',
@@ -620,7 +624,7 @@ const i18n = {
       kizuna_ai: 'ai vtb',
       ken: '火拳',
       khawana: '火妹妹',
-      kikirat_v2: '高達 紮古 機器人',
+      kikirat_v2: '高達 紮古 機器人 鋼彈',
       kiris: '毒弓',
       kise: '水74 新水鐮',
       kitty_clarissa: '暗貓',
@@ -790,6 +794,9 @@ const i18n = {
       detonation: '激爆',
       exEq: '專屬裝備',
       elemAdv: '屬性克制',
+      afterMathFormula: '行動後',
+      afterMathDmg: '行動後追加傷害',
+      hitBoost: '命中數量加成',
       custom: {
         all_fire: '{v}% 全體我軍火屬性',
         caster_defense: '{v}% 自身防禦力',
@@ -823,7 +830,8 @@ const i18n = {
       }
     },
     info: {
-      victorious_flag: '必須勾選屬性克制才能看到效果, 對光暗英雄無效.'
+      victorious_flag: '必須勾選屬性克制才能看到效果, 對光暗英雄無效.',
+      briar_witch_iseria: 'S2 追加傷害目前根據 70% 穿甲計算, 需要再次確認, 早期解包並未包含該信息',
     }
   },
   zhCN: {
@@ -859,6 +867,7 @@ const i18n = {
       blaze_dingo: '烈火汀果',
       blood_blade_karin: '血剑卡琳',
       blood_moon_haste: '赤月的贵族海斯特',
+      briar_witch_iseria: '灰光森林的伊赛丽亚',
       butcher_corps_inquisitor: '混沌教屠杀追击者',
       captain_rikoris: '先锋队长里科黎司',
       carmainerose: '卡麦萝兹',
@@ -913,6 +922,7 @@ const i18n = {
       haste: '海斯特',
       hazel: '海兹',
       helga: '赫尔嘉',
+      holiday_yufine: '度假风优芬妮',
       hurado: '修拉杜',
       iseria: '伊赛丽亚',
       jecht: '杰克托',
@@ -1039,6 +1049,7 @@ const i18n = {
       blaze_dingo: '光厨子',
       blood_blade_karin: '血卡',
       blood_moon_haste: '暗正太',
+      briar_witch_iseria: '暗飞剑 暗木飞 暗弓',
       butcher_corps_inquisitor: '哥杀 哥布林杀手',
       carmainerose: '火爪',
       carrot: '卡罗',
@@ -1050,7 +1061,7 @@ const i18n = {
       cerise: '水弓',
       cermia: '夏娜',
       challenger_dominiel: '暗兔',
-      champion_zerato: '暗杰 泥巴佬 泥巴哥',
+      champion_zerato: '暗杰 泥巴佬 泥巴哥 杰哥',
       chaos_sect_axe: '暗斧',
       charles: '木老头 剑圣',
       charlotte: '火呆毛 女王',
@@ -1084,6 +1095,7 @@ const i18n = {
       gunther: '昆特大爷 坤哥',
       haste: '火正太',
       helga: '三星小木斧',
+      holiday_yufine: '烧烤龙 喷火龙 火龙妹 包子龙',
       hurado: '光头 三星暗法',
       iseria: '木飞剑',
       jecht: '木狗奶',
@@ -1265,6 +1277,9 @@ const i18n = {
       detonation: '激爆',
       exEq: '专属装备',
       elemAdv: '属性克制',
+      afterMathFormula: '行动后',
+      afterMathDmg: '行动后追加伤害',
+      hitBoost: '命中数量加成',
       custom: {
         all_fire: '{v}% 全体我军火属性',
         caster_defense: '{v}% 自身防御力',
@@ -1298,7 +1313,8 @@ const i18n = {
       }
     }
     ,info: {
-      victorious_flag: '必须勾选属性克制才能看到效果, 对光暗英雄无效.'
+      victorious_flag: '必须勾选属性克制才能看到效果, 对光暗英雄无效.',
+      briar_witch_iseria: 'S2 追加伤害目前根据 70% 穿甲计算, 需要再次确认, 早期解包并未包含该信息',
       }
   },
   kr: {
