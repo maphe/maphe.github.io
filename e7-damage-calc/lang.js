@@ -49,7 +49,6 @@ const i18n = {
       elemAdv: 'Elemental Adv',
       afterMathFormula: 'Aftermath',
       afterMathDmg: 'Aftermath Dmg',
-      hitBoost: 'Hit',
       custom: {
         all_fire: '{v}% Team Fire',
         caster_defense: '{v}% Defense',
