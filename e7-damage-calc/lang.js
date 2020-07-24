@@ -82,8 +82,10 @@ const i18n = {
       }
     },
     info: {
-      victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes',
+      pre_august_6_balance: 'This uses pre-balance multipliers; multipliers will be updated after 8/6 balance patch is implemented and datamined',
+      post_august_6_balance: 'Latest multipliers from 8/6 balance patch have been applied',
       briar_witch_iseria: 'Extra Damage from S2 passive is calculated with 70% Defense penetration, it has to be double checked, early datamine did not confirm that',
+      victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes',
     }
   },
   jp: {

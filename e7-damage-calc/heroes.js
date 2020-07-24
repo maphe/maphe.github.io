@@ -67,6 +67,7 @@ const heroes = {
         flat: () => elements.caster_max_hp.value()*0.04,
         flatTip: () => ({ caster_max_hp: 4 }),
         mult: () => 1 + (elements.skill_tree_completed.value() ? 0.1 : 0),
+        multTip: () => ({ skill_tree: 10 }),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
       },
       s2: {
@@ -286,6 +287,7 @@ const heroes = {
     classType: classType.mage,
     baseAtk: 1197,
     dot: [dot.burn],
+    info: infoLabel('pre_august_6_balance'),
     skills: {
       s1: {
         rate: 1,
@@ -472,6 +474,7 @@ const heroes = {
     element: element.fire,
     classType: classType.warrior,
     baseAtk: 1019,
+    info: infoLabel('pre_august_6_balance'),
     skills: {
       s1: {
         rate: 1,
@@ -1106,19 +1109,22 @@ const heroes = {
     element: element.fire,
     classType: classType.knight,
     baseAtk: 963,
-    form: [elements.caster_hp_pc],
+    info: infoLabel('post_august_6_balance'),
+    form: [elements.caster_hp_pc, elements.skill_tree_completed],
     skills: {
       s1: {
         rate: 1,
         pow: 1,
+        mult: () => 1 + (elements.skill_tree_completed.value() ? 0.05 : 0),
+        multTip: () => ({ skill_tree: 5 }),
         enhance: [0.05, 0, 0.1, 0, 0, 0.15]
       },
       s3: {
         soulburn: true,
         rate: (soulburn) => soulburn ? 2.2 : 1.5,
         pow: 0.85,
-        mult: () => 1 + (1-(elements.caster_hp_pc.value()/100))/2,
-        multTip: () => ({ caster_lost_hp_pc: 50 }),
+        mult: () => 1 + (1-(elements.caster_hp_pc.value()/100))/2 + (elements.skill_tree_completed.value() ? 0.12 : 0),
+        multTip: () => ({ caster_lost_hp_pc: 50, skill_tree: 12 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.15]
       }
     }
@@ -3211,6 +3217,7 @@ const heroes = {
     classType: classType.knight,
     baseAtk: 685,
     form: [elements.caster_defense],
+    info: infoLabel('pre_august_6_balance'),
     barrier: () => elements.caster_defense.value()*0.6,
     skills: {
       s1: {
