@@ -635,17 +635,18 @@ const build = (hero) => {
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-secondary" type="button" id="molagora-${id}-minus" onclick="minusMola('${id}')">&minus;</button>
                             </div>
-                            <input type="number" class="form-control text-center" id="molagora-${id}" min="0" max="${skill.enhance.length}" value="0" readonly onkeyup="update('molagora-${id}')">
+                            <input type="number" class="form-control text-center" id="molagora-${id}" min="0" max="${skill.enhance.length}" value="${skill.enhance.length}" readonly onkeyup="update('molagora-${id}')">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" type="button" id="molagora-${id}-plus" onclick="plusMola('${id}')">&plus;</button>
                             </div>
                         </div>
-                        <input id="molagora-${id}-slide" type="range" min="0" max="${skill.enhance.length}" class="custom-range col-md-${skill.enhance.length} col-sm-12 mt-3 mt-md-0 ml-2 ml-md-0" value="0" oninput="slideMola('${id}')" />
+                        <input id="molagora-${id}-slide" type="range" min="0" max="${skill.enhance.length}" class="custom-range col-md-${skill.enhance.length} col-sm-12 mt-3 mt-md-0 ml-2 ml-md-0" value="${skill.enhance.length}" oninput="slideMola('${id}')" />
                         <div class="col text-right molagora-badge">
                             <span class="badge badge-pill badge-dark">+<span id="molagora-${id}-percent">0</span>%</span>
                         </div>
                     </div>`);
     }
+    updateMolaBonus(id);
   }
 
   document.getElementById('elem-adv-icon').innerHTML = antiElemIcon(hero.element);
