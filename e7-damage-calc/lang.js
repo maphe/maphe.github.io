@@ -830,6 +830,8 @@ const i18n = {
       }
     },
     info: {
+      pre_august_6_balance: '此處使用的是平衡補丁前的技能倍率， 8月6日補丁實裝後會更新技能倍率',
+      post_august_6_balance: '8月6日平衡補丁技能倍率已實裝',
       victorious_flag: '必須勾選屬性克制才能看到效果, 對光暗英雄無效.',
       briar_witch_iseria: 'S2 追加傷害目前根據 70% 穿甲計算, 需要再次確認, 早期解包並未包含該信息',
     }
@@ -1312,6 +1314,8 @@ const i18n = {
       }
     }
     ,info: {
+      pre_august_6_balance: '此处使用的是平衡补丁前的技能倍率， 8月6日补丁实装后会更新技能倍率',
+      post_august_6_balance: '8月6日平衡补丁技能倍率已实装',
       victorious_flag: '必须勾选属性克制才能看到效果, 对光暗英雄无效.',
       briar_witch_iseria: 'S2 追加伤害目前根据 70% 穿甲计算, 需要再次确认, 早期解包并未包含该信息',
       }
