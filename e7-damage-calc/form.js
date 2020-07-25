@@ -645,8 +645,8 @@ const build = (hero) => {
                             <span class="badge badge-pill badge-dark">+<span id="molagora-${id}-percent">0</span>%</span>
                         </div>
                     </div>`);
+      updateMolaBonus(id);
     }
-    updateMolaBonus(id);
   }
 
   document.getElementById('elem-adv-icon').innerHTML = antiElemIcon(hero.element);
