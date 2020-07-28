@@ -270,7 +270,7 @@ class Hero {
     let skillDamage = 0;
     const skillMultipliers = skill.afterMath ? skill.afterMath(hitType) : null;
     if (skillMultipliers !== null) {
-      skillDamage = this.getAtk(skillId)*skillMultipliers.atkPercent*dmgConst*this.target.defensivePower({ penetrate: () => skillMultipliers.penetrate });
+      skillDamage = this.getAtk(skillId)*skillMultipliers.atkPercent*dmgConst*this.target.defensivePower({ penetrate: () => skillMultipliers.penetrate }, true);
     }
 
     return skillDamage;
@@ -279,7 +279,7 @@ class Hero {
   getAfterMathArtifactDamage(skill) {
     const artiMultipliers = this.artifact.getAfterMathMultipliers(skill);
     if (artiMultipliers !== null) {
-      return this.getAtk()*artiMultipliers.atkPercent*dmgConst*this.target.defensivePower({ penetrate: () => artiMultipliers.penetrate });
+      return this.getAtk()*artiMultipliers.atkPercent*dmgConst*this.target.defensivePower({ penetrate: () => artiMultipliers.penetrate }, true);
     }
 
     return null;
@@ -299,11 +299,11 @@ class Hero {
   getDotDamage(type) {
     switch (type) {
       case dot.bleed:
-        return this.getAtk()*0.3*dmgConst*this.target.defensivePower({penetrate: () => 0.7});
+        return this.getAtk()*0.3*dmgConst*this.target.defensivePower({ penetrate: () => 0.7 }, true);
       case dot.burn:
-        return this.getAtk()*0.6*dmgConst*this.target.defensivePower({penetrate: () => 0.7});
+        return this.getAtk()*0.6*dmgConst*this.target.defensivePower({ penetrate: () => 0.7 }, true);
       case dot.bomb:
-        return this.getAtk()*1.5*dmgConst*this.target.defensivePower({penetrate: () => 0.7});
+        return this.getAtk()*1.5*dmgConst*this.target.defensivePower({ penetrate: () => 0.7 }, true);
       default: return 0;
     }
   }
@@ -319,8 +319,8 @@ class Target {
     this.casterArtifact = casterArtifact;
   }
 
-  defensivePower(skill) {
-    const dmgReduc = Number(document.getElementById('dmg-reduc').value)/100;
+  defensivePower(skill, noReduc = false) {
+    const dmgReduc = noReduc ? 0 : Number(document.getElementById('dmg-reduc').value)/100;
     const dmgTrans = Number(document.getElementById('dmg-trans').value)/100;
     return ((1-dmgReduc)*(1-dmgTrans))/((((this.def * getGlobalDefMult()) / 300)*((1-(skill && skill.penetrate ? skill.penetrate() : 0))*(1-this.casterArtifact.getDefensePenetration()))) + 1);
   }
