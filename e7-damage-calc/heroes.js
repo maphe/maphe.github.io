@@ -139,7 +139,7 @@ const heroes = {
         enhance: [0.05, 0, 0.1, 0, 0.15],
       },
       s2: {
-        name: 'Trample',
+        name: infoLabel('alencia_trample'),
         rate: 0.5,
         pow: 1,
         flat: () => elements.caster_max_hp.value()*0.12,
@@ -168,7 +168,7 @@ const heroes = {
         enhance: [0.05, 0.1, 0.15],
       },
       s1_extra: {
-        name: 'S1 Extra Attack',
+        name: infoLabel('s1_extra_attack'),
         rate: 0.75,
         pow: 1,
       },
@@ -3715,6 +3715,14 @@ const heroes = {
         mult: (soulburn) => 1 + (100-elements.target_hp_pc.value())*(soulburn ? 0.007 : 0.003),
         multTip: (soulburn) => ({ target_lost_hp_pc: soulburn ? 0.7 : 0.3 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.15]
+      },
+      explosion: {
+        name: infoLabel('sez_explosion'),
+        rate: 0,
+        pow: 0,
+        afterMath: () => ({ atkPercent: 1.5, penetrate: 0.7 }),
+        noCrit: true,
+        noMiss: true,
       }
     }
   },
@@ -4207,13 +4215,13 @@ const heroes = {
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1]
       },
       s2_wave_2: {
-        name: 'S2 Wave 2',
+        name: infoLabel('s2_wave_2'),
         rate: 0.55,
         pow: 0.9,
         enhance_from: 's2'
       },
       s2_wave_3: {
-        name: 'S2 Wave 3',
+        name: infoLabel('s2_wave_3'),
         rate: 0.3,
         pow: 0.9,
         enhance_from: 's2'

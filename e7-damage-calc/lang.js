@@ -82,9 +82,14 @@ const i18n = {
       }
     },
     info: {
+      alencia_trample: 'Trample',
+      briar_witch_iseria: 'Extra Damage from S2 passive is calculated with 70% Defense penetration, it has to be double checked, early datamine did not confirm that',
       pre_august_6_balance: 'This uses pre-balance multipliers; multipliers will be updated after 8/6 balance patch is implemented and datamined',
       post_august_6_balance: 'Latest multipliers from 8/6 balance patch have been applied',
-      briar_witch_iseria: 'Extra Damage from S2 passive is calculated with 70% Defense penetration, it has to be double checked, early datamine did not confirm that',
+      s1_extra_attack: 'S1 Extra Attack',
+      s2_wave_2: 'S2 Wave 2',
+      s2_wave_3: 'S2 Wave 3',
+      sez_explosion: 'Explosion',
       victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes',
     }
   },

@@ -187,7 +187,7 @@ class Hero {
       crit: skill.noCrit ? null : Math.round(hit*critDmg + this.getAfterMathDamage(skillId, hitTypes.crit)),
       crush: skill.noCrit || skill.onlyCrit ? null : Math.round(hit*1.3 + this.getAfterMathDamage(skillId, hitTypes.crush)),
       normal: skill.onlyCrit ? null : Math.round(hit + this.getAfterMathDamage(skillId, hitTypes.normal)),
-      miss: Math.round(hit*0.75 + this.getAfterMathDamage(skillId, hitTypes.miss))
+      miss: skill.noMiss ? null : Math.round(hit*0.75 + this.getAfterMathDamage(skillId, hitTypes.miss))
     };
   }
 
