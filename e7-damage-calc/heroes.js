@@ -1599,6 +1599,32 @@ const heroes = {
       }
     }
   },
+  doll_maker_pearlhorizon: {
+    name: 'Doll Maker Pearlhorizon',
+    element: element.earth,
+    classType: classType.mage,
+    baseAtk: 921,
+    form: [elements.target_max_hp, elements.target_has_sleep],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0.1]
+      },
+      s2: {
+        rate: 0.6,
+        pow: 1,
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2.2 : 1.5,
+        pow: 0.9,
+        flat: () => elements.target_has_sleep.value() ? elements.target_max_hp.value()*0.3 : 0,
+        flatTip: () => ({ target_max_hp: elements.target_has_sleep.value() ? 30 : 0 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.1]
+      },
+    }
+  },
   dominiel: {
     name: 'Dominiel',
     element: element.ice,
