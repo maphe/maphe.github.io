@@ -287,7 +287,7 @@ const heroes = {
     classType: classType.mage,
     baseAtk: 1197,
     dot: [dot.burn],
-    info: infoLabel('pre_august_6_balance'),
+    info: infoLabel('post_august_6_balance'),
     skills: {
       s1: {
         rate: 1,
@@ -295,7 +295,7 @@ const heroes = {
         enhance: [0.1, 0, 0, 0.15]
       },
       s2: {
-        rate: 0.8,
+        rate: 0.9,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0.15]
       },
@@ -1619,8 +1619,8 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 2.2 : 1.5,
         pow: 0.9,
-        flat: () => elements.target_has_sleep.value() ? elements.target_max_hp.value()*0.3 : 0,
-        flatTip: () => ({ target_max_hp: elements.target_has_sleep.value() ? 30 : 0 }),
+        extraDmg: () => elements.target_has_sleep.value() ? elements.target_max_hp.value()*0.3 : 0,
+        extraDmgTip: () => ({ target_max_hp: elements.target_has_sleep.value() ? 30 : 0 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.1]
       },
     }
@@ -3201,8 +3201,8 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 2.2 : 1.5,
         pow: 0.9,
-        flat: () => elements.target_has_sleep.value() ? elements.target_max_hp.value()*0.2 : 0,
-        flatTip: () => ({ target_max_hp: elements.target_has_sleep.value() ? 20 : 0 }),
+        extraDmg: () => elements.target_has_sleep.value() ? elements.target_max_hp.value()*0.2 : 0,
+        extraDmgTip: () => ({ target_max_hp: elements.target_has_sleep.value() ? 20 : 0 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.1]
       },
     }
