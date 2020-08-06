@@ -806,6 +806,7 @@ const i18n = {
       elemAdv: '屬性克制',
       afterMathFormula: '行動後',
       afterMathDmg: '行動後追加傷害',
+      extraDmg: '額外傷害',
       custom: {
         all_fire: '{v}% 全體我軍火屬性',
         caster_defense: '{v}% 自身防禦力',
@@ -1297,6 +1298,7 @@ const i18n = {
       elemAdv: '属性克制',
       afterMathFormula: '行动后',
       afterMathDmg: '行动后追加伤害',
+      extraDmg: '额外伤害',
       custom: {
         all_fire: '{v}% 全体我军火属性',
         caster_defense: '{v}% 自身防御力',
