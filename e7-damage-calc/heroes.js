@@ -474,7 +474,7 @@ const heroes = {
     element: element.fire,
     classType: classType.warrior,
     baseAtk: 1019,
-    info: infoLabel('pre_august_6_balance'),
+    info: infoLabel('post_august_6_balance'),
     skills: {
       s1: {
         rate: 1,
@@ -487,9 +487,9 @@ const heroes = {
         enhance: [0.1, 0, 0, 0, 0.15]
       },
       s3: {
-        rate: 0.7,
+        rate: 0.9,
         pow: 1,
-        enhance: [0.05, 0, 0, 0.05, 0.05]
+        enhance: [0.05, 0, 0, 0.1, 0.15]
       },
     }
   },
@@ -3170,7 +3170,6 @@ const heroes = {
         mult: () => 1 + elements.caster_speed.value()*0.001125,
         multTip: () => ({ caster_speed: 0.1125 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
-        aoe: true,
       },
       s3: {
         rate: 1.6,
@@ -3242,22 +3241,22 @@ const heroes = {
     element: element.dark,
     classType: classType.knight,
     baseAtk: 685,
-    form: [elements.caster_defense],
-    info: infoLabel('pre_august_6_balance'),
-    barrier: () => elements.caster_defense.value()*0.6,
+    form: [elements.caster_defense, elements.caster_attacked_stack_3],
+    info: infoLabel('post_august_6_balance'),
+    barrier: () => elements.caster_defense.value()*(1+elements.caster_attacked_stack_3.value()*0.1) * 0.6,
     skills: {
       s1: {
         rate: 0.7,
         pow: 1,
-        flat: () => elements.caster_defense.value()*0.4,
-        flatTip: () => ({ caster_defense: 40 }),
+        flat: () => elements.caster_defense.value()*(1+elements.caster_attacked_stack_3.value()*0.1) * 0.5,
+        flatTip: () => ({ caster_defense: 50, per_stack: 10 }),
         enhance: [0.05, 0, 0.1, 0, 0.15]
       },
       s3: {
         rate: 1.3,
         pow: 0.95,
-        flat: () => elements.caster_defense.value()*0.7,
-        flatTip: () => ({ caster_defense: 70 }),
+        flat: () => elements.caster_defense.value()*(1+elements.caster_attacked_stack_3.value()*0.1) * 0.7,
+        flatTip: () => ({ caster_defense: 70, per_stack: 10 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.15]
       }
     }

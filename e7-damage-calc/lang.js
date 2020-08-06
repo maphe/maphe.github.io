@@ -49,7 +49,7 @@ const i18n = {
       elemAdv: 'Elemental Adv',
       afterMathFormula: 'Aftermath',
       afterMathDmg: 'Aftermath Dmg',
-      extraDmg: 'Extra Damage',
+      extraDmg: 'Extra Dmg',
       custom: {
         all_fire: '{v}% Team Fire',
         caster_defense: '{v}% Defense',
