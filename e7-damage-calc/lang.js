@@ -1403,6 +1403,7 @@ const i18n = {
       diene: '디에네',
       dingo: '딩고',
       dizzy: '디지',
+      doll_maker_pearlhorizon: '인형 제작가 펄호라이즌',
       dominiel: '도미니엘',
       doris: '도리스',
       eaton: '이튼',
