@@ -300,7 +300,7 @@ const heroes = {
         enhance: [0.05, 0, 0.1, 0.15]
       },
       s3: {
-        rate: 0.9,
+        rate: 1,
         pow: 1,
         enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.1]
       }
