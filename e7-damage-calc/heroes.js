@@ -761,7 +761,6 @@ const heroes = {
     element: element.dark,
     classType: classType.ranger,
     baseAtk: 1182,
-    info: infoLabel('briar_witch_iseria'),
     skills: {
       s1: {
         rate: 0.85,
