@@ -85,9 +85,6 @@ const i18n = {
     },
     info: {
       alencia_trample: 'Trample',
-      briar_witch_iseria: 'Extra Damage from S2 passive is calculated with 70% Defense penetration, it has to be double checked, early datamine did not confirm that',
-      pre_august_6_balance: 'This uses pre-balance multipliers; multipliers will be updated after 8/6 balance patch is implemented and datamined',
-      post_august_6_balance: 'Latest multipliers from 8/6 balance patch have been applied',
       s1_extra_attack: 'S1 Extra Attack',
       s2_wave_2: 'S2 Wave 2',
       s2_wave_3: 'S2 Wave 3',
@@ -841,9 +838,6 @@ const i18n = {
     },
     info: {
       alencia_trample: '扼殺',
-      briar_witch_iseria: 'S2 追加傷害目前根據 70% 穿甲計算, 需要再次確認, 早期解包並未包含該信息',
-      post_august_6_balance: '8月6日平衡補丁技能倍率已實裝',
-      pre_august_6_balance: '此處使用的是平衡補丁前的技能倍率， 8月6日補丁實裝後會更新技能倍率',
       s1_extra_attack: 'S1 追加攻擊',
       s2_wave_2: 'S2 第二波',
       s2_wave_3: 'S2 第三波',
@@ -1330,12 +1324,9 @@ const i18n = {
         target_speed: '{v}% 目标速度',
         under_threshold: '低于阈值: {v}%',
       }
-    }
-    ,info: {
+    },
+    info: {
       alencia_trample: '扼杀',
-      briar_witch_iseria: 'S2 追加伤害目前根据 70% 穿甲计算, 需要再次确认, 早期解包并未包含该信息',
-      post_august_6_balance: '8月6日平衡补丁技能倍率已实装',
-      pre_august_6_balance: '此处使用的是平衡补丁前的技能倍率， 8月6日补丁实装后会更新技能倍率',
       s1_extra_attack: 'S1 追加攻击',
       s2_wave_2: 'S2 第二波',
       s2_wave_3: 'S2 第三波',

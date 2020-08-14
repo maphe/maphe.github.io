@@ -287,7 +287,6 @@ const heroes = {
     classType: classType.mage,
     baseAtk: 1197,
     dot: [dot.burn],
-    info: infoLabel('post_august_6_balance'),
     skills: {
       s1: {
         rate: 1,
@@ -474,7 +473,6 @@ const heroes = {
     element: element.fire,
     classType: classType.warrior,
     baseAtk: 1019,
-    info: infoLabel('post_august_6_balance'),
     skills: {
       s1: {
         rate: 1,
@@ -1108,7 +1106,6 @@ const heroes = {
     element: element.fire,
     classType: classType.knight,
     baseAtk: 963,
-    info: infoLabel('post_august_6_balance'),
     form: [elements.caster_hp_pc, elements.skill_tree_completed],
     skills: {
       s1: {
@@ -3240,7 +3237,6 @@ const heroes = {
     classType: classType.knight,
     baseAtk: 685,
     form: [elements.caster_defense, elements.caster_attacked_stack_3],
-    info: infoLabel('post_august_6_balance'),
     barrier: () => elements.caster_defense.value()*(1+elements.caster_attacked_stack_3.value()*0.1) * 0.6,
     skills: {
       s1: {
