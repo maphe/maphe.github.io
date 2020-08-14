@@ -2903,8 +2903,7 @@ const heroes = {
     form: [elements.caster_hp_pc],
     skills: {
       s1: {
-        soulburn: true,
-        rate: (soulburn) => soulburn ? 1.5 : 1,
+        rate: 1,
         pow: 1.1,
         mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0035,
         multTip: () => ({ caster_lost_hp_pc: 0.35 }),
