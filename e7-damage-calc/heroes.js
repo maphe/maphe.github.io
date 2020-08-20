@@ -1238,6 +1238,38 @@ const heroes = {
       }
     }
   },
+  choux: {
+    name: 'Choux',
+    element: element.ice,
+    classType: classType.warrior,
+    baseAtk: 966,
+    form: [elements.caster_max_hp, elements.caster_full_focus],
+    skills: {
+      s1: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.1,
+        flatTip: () => ({ caster_max_hp: 10 }),
+        enhance: [0.05, 0, 0.05, 0, 0.05, 0.15]
+      },
+      s2: {
+        soulburn: true,
+        rate: 0.5,
+        pow: 1,
+        flat: (soulburn) => elements.caster_max_hp.value()*(soulburn ? 0.23 : 0.15),
+        flatTip: (soulburn) => ({ caster_max_hp: (soulburn ? 23 : 15) }),
+        penetrate: () => elements.caster_full_focus.value() ? 0.5 : 0.3,
+        enhance: [0.05, 0.1, 0.15]
+      },
+      s3: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.15,
+        flatTip: () => ({ caster_max_hp: 15 }),
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1]
+      }
+    }
+  },
   church_of_ilryos_axe: {
     name: 'Church of Ilryos Axe',
     element: element.dark,

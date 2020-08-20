@@ -1386,6 +1386,7 @@ const i18n = {
       charles: '찰스',
       charlotte: '샬롯',
       chloe: '클로에',
+      choux: '슈',
       church_of_ilryos_axe: '일리오스교 도끼병',
       cidd: '시더',
       clarissa: '클라릿사',
