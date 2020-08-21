@@ -47,8 +47,7 @@ const heroes = {
         enhance: [0.05, 0, 0.1, 0, 0.15]
       },
       s3: {
-        soulburn: true,
-        rate: (soulburn) => soulburn ? 1.25 : 1,
+        rate: 1,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15]
       }
@@ -3248,9 +3247,11 @@ const heroes = {
         enhance: [0.05, 0, 0.1, 0, 0.15]
       },
       s2: {
-        name: 'S2 (Counter)',
+        name: infoLabel('s2_counter'),
         rate: 1,
         pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.05,
+        flatTip: () => ({ caster_max_hp: 5 }),
         enhance_from: 's1',
       },
       s3: {

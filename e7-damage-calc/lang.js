@@ -87,6 +87,7 @@ const i18n = {
       alencia_trample: 'Trample',
       s1_extra_attack: 'S1 Extra Attack',
       s2_wave_2: 'S2 Wave 2',
+      s2_counter: 'S2 (Counter)',
       s2_wave_3: 'S2 Wave 3',
       sez_explosion: 'Explosion',
       victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes',
