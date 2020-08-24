@@ -3248,7 +3248,7 @@ const heroes = {
       },
       s2: {
         name: infoLabel('s2_counter'),
-        rate: 1,
+        rate: 0.7,
         pow: 1,
         flat: () => elements.caster_max_hp.value()*0.05,
         flatTip: () => ({ caster_max_hp: 5 }),
