@@ -151,6 +151,7 @@ const heroes = {
         flat: () => elements.caster_max_hp.value()*0.15,
         flatTip: () => ({ caster_max_hp: 15 }),
         enhance: [0.05, 0.05, 0, 0.05, 0.15],
+        aoe: true,
       }
     }
   },
@@ -486,7 +487,8 @@ const heroes = {
       s3: {
         rate: 0.9,
         pow: 1,
-        enhance: [0.05, 0, 0, 0.1, 0.15]
+        enhance: [0.05, 0, 0, 0.1, 0.15],
+        aoe: true,
       },
     }
   },
@@ -607,6 +609,7 @@ const heroes = {
         rate: 0.5,
         pow: 0.95,
         enhance_from: 's1',
+        aoe: true,
       },
       s3: {
         rate: 1.5,
@@ -811,7 +814,8 @@ const heroes = {
       s3: {
         rate: 0.85,
         pow: 1,
-        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1]
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1],
+        aoe: true,
       }
     }
   },
@@ -899,7 +903,8 @@ const heroes = {
           }
           return tip;
         },
-        enhance: [0.05, 0, 0, 0.1, 0, 0.15]
+        enhance: [0.05, 0, 0, 0.1, 0, 0.15],
+        aoe: true,
       }
     }
   },
@@ -1145,7 +1150,8 @@ const heroes = {
         pow: 0.95,
         mult: () => 1 + (100-elements.target_hp_pc.value())*0.005,
         multTip: () => ({ target_lost_hp_pc: 50 }),
-        enhance: [0.05, 0.05, 0.1, 0.15]
+        enhance: [0.05, 0.05, 0.1, 0.15],
+        aoe: true,
       },
       s3: {
         rate: 1.8,
@@ -1265,7 +1271,8 @@ const heroes = {
         pow: 1,
         flat: () => elements.caster_max_hp.value()*0.15,
         flatTip: () => ({ caster_max_hp: 15 }),
-        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1]
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1],
+        aoe: true,
       }
     }
   },
@@ -1289,7 +1296,8 @@ const heroes = {
         pow: 0.95,
         mult: () => 1 + (100-elements.target_hp_pc.value())*0.005,
         multTip: () => ({ target_lost_hp_pc: 50 }),
-        enhance: [0.05, 0.05, 0.1, 0.15]
+        enhance: [0.05, 0.05, 0.1, 0.15],
+        aoe: true,
       },
       s3: {
         rate: 1.8,
@@ -1349,7 +1357,8 @@ const heroes = {
       s2: {
         rate: 0.7,
         pow: 1,
-        enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1],
+        aoe: true,
       },
       s3: {
         soulburn: true,
@@ -1357,7 +1366,8 @@ const heroes = {
         pow: 1,
         mult: () => elements.caster_enrage.value() ? 1.3 : 1,
         multTip: () => ({ caster_rage: 30 }),
-        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
       }
     }
   },
@@ -1442,7 +1452,8 @@ const heroes = {
         pow: 0.9,
         flat: () => elements.caster_defense.value()*0.7,
         flatTip: () => ({ caster_defense: 70 }),
-        enhance: [0.05, 0, 0, 0, 0, 0.1, 0.15]
+        enhance: [0.05, 0, 0, 0, 0, 0.1, 0.15],
+        aoe: true,
       }
     }
   },
@@ -1594,7 +1605,8 @@ const heroes = {
       s2: {
         rate: 0.8,
         pow: 1,
-        enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.1],
+        aoe: true,
       }
     }
   },
@@ -1897,7 +1909,8 @@ const heroes = {
       s2: {
         rate: 1,
         pow: 1,
-        enhance: [0.05, 0.05, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0.1, 0.1],
+        aoe: true,
       },
       s3: {
         soulburn: true,
@@ -1941,7 +1954,8 @@ const heroes = {
       s3: {
         rate: 0.8,
         pow: 1,
-        enhance: [0.05, 0, 0, 0, 0.1, 0.15]
+        enhance: [0.05, 0, 0, 0, 0.1, 0.15],
+        aoe: true,
       }
     }
   },
@@ -2113,12 +2127,14 @@ const heroes = {
       s1: {
         rate: 0.7,
         pow: 1,
-        enhance: [0.05, 0, 0.1, 0, 0.15]
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        aoe: true,
       },
       s3: {
         rate: 1,
         pow: 1,
         enhance: [0.05, 0.05, 0, 0.05, 0.15],
+        aoe: true,
       }
     }
   },
@@ -2215,12 +2231,14 @@ const heroes = {
         pow: 1,
         mult: () => 1 + (elements.nb_targets.value()-1)*0.1,
         multTip: () => ({ per_target: 10 }),
-        enhance: [0.05, 0.05, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0.1, 0.1],
+        aoe: true,
       },
       s3: {
         rate: 1,
         pow: 0.9,
-        enhance: [0.05, 0, 0.1, 0, 0, 0.1, 0.15]
+        enhance: [0.05, 0, 0.1, 0, 0, 0.1, 0.15],
+        aoe: true,
       }
     }
   },
@@ -2491,7 +2509,8 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 1.05 : 0.8,
         pow: 0.95,
-        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.15]
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.15],
+        aoe: true,
       }
     }
   },
@@ -2563,6 +2582,38 @@ const heroes = {
       }
     }
   },
+  last_rider_krau: {
+    name: 'Last Rider Krau',
+    element: element.light,
+    classType: classType.knight,
+    baseAtk: 839,
+    form: [elements.caster_max_hp, elements.attack_skill_stack_3],
+    barrier: () => elements.caster_max_hp.value()*0.07,
+    barrierEnhance: 's2',
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 1,
+        flat: () => 0.1*elements.caster_max_hp.value(),
+        flatTip: () => ({ caster_max_hp: 10 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+      },
+      s2: {
+        enhance: [0.05, 0.1, 0.1, 0.1, 0.15]
+      },
+      s3: {
+        noCrit: true,
+        rate: 0.3,
+        pow: 1,
+        flat: () => 0.06*elements.caster_max_hp.value(),
+        flatTip: () => ({ caster_lost_hp: 6 }),
+        mult: () => 1 + elements.attack_skill_stack_3.value()*0.2,
+        multTip: () => ({ per_stack: 20 }),
+        penetrate: () => 1.0,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      }
+    }
+  },
   lena: {
     name: 'Lena',
     element: element.ice,
@@ -2581,7 +2632,8 @@ const heroes = {
         pow: 1,
         mult: () => 1 + (100-elements.target_hp_pc.value())*0.002,
         multTip: () => ({ tagret_lost_hp_pc: 0.2 }),
-        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1]
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1],
+        aoe: true,
       },
     }
   },
@@ -2883,7 +2935,8 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 1.1 : 0.9,
         pow: 1,
-        enhance: [0.05, 0, 0, 0.1, 0, 0.15]
+        enhance: [0.05, 0, 0, 0.1, 0, 0.15],
+        aoe: true,
       }
     }
   },
@@ -3126,12 +3179,14 @@ const heroes = {
       s2: {
         rate: 0.9,
         pow: 1,
-        enhance: [0.05, 0.05, 0.1, 0.1, 0.15]
+        enhance: [0.05, 0.05, 0.1, 0.1, 0.15],
+        aoe: true,
       },
       s3: {
         rate: 1,
         pow: 0.95,
-        enhance: [0.05, 0.05, 0, 0.1, 0.15]
+        enhance: [0.05, 0.05, 0, 0.1, 0.15],
+        aoe: true,
       }
     }
   },
@@ -3253,6 +3308,7 @@ const heroes = {
         flat: () => elements.caster_max_hp.value()*0.05,
         flatTip: () => ({ caster_max_hp: 5 }),
         enhance_from: 's1',
+        aoe: true,
       },
       s3: {
         soulburn: true,
@@ -3260,7 +3316,8 @@ const heroes = {
         pow: 1,
         flat: () => elements.caster_max_hp.value()*0.1,
         flatTip: () => ({ caster_max_hp: 10 }),
-        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
       }
     }
   },
@@ -3333,7 +3390,8 @@ const heroes = {
       s3: {
         rate: 1.2,
         pow: 0.95,
-        enhance: [0.05, 0.05, 0, 0.05, 0.05]
+        enhance: [0.05, 0.05, 0, 0.05, 0.05],
+        aoe: true,
       }
     }
   },
@@ -3454,7 +3512,8 @@ const heroes = {
       s3: {
         rate: 0.6,
         pow: 1,
-        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1]
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1],
+        aoe: true,
       }
     }
   },
@@ -4372,6 +4431,7 @@ const heroes = {
       s2: {
         rate: 0.9,
         pow: 1,
+        aoe: true,
       },
       s3: {
         rate: 2,

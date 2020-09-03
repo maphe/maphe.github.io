@@ -8,6 +8,14 @@ const artifactDmgType = {
 };
 
 const artifacts = {
+  a_little_queens_crown: {
+    id: 'a_little_queens_crown',
+    name: 'A Little Queen\'s Crown',
+    scale: [0.16, 0.176, 0.192, 0.208, 0.224, 0.24, 0.256, 0.272, 0.288, 0.304, 0.32],
+    type: artifactDmgType.damage,
+    exclusive: classType.warrior,
+    applies: (skill) => skill.aoe !== true
+  },
   border_coin: {
     id: 'border_coin',
     name: 'Border Coin',
@@ -127,6 +135,21 @@ const artifacts = {
     penetrate: 0.7,
     exclusive: classType.ranger,
     applies: (skill) => skill.aoe === true
+  },
+  shepherd_of_the_hollow: {
+    id: 'shepherd_of_the_hollow',
+    name: 'Shepherd of the Hollow',
+    scale: [0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2],
+    type: artifactDmgType.damage,
+    exclusive: classType.thief,
+    applies: () => {
+      try {
+        return elements.caster_hp_pc.value() < 25
+      } catch (e) {
+        // in case there's no HP% slider for the selected hero
+        return true;
+      }
+    }
   },
   sigurd_scythe: {
     id: 'sigurd_scythe',
