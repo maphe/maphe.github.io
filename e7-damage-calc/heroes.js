@@ -2606,7 +2606,7 @@ const heroes = {
         rate: 0.3,
         pow: 1,
         flat: () => 0.06*elements.caster_max_hp.value(),
-        flatTip: () => ({ caster_lost_hp: 6 }),
+        flatTip: () => ({ caster_max_hp: 6 }),
         mult: () => 1 + elements.attack_skill_stack_3.value()*0.2,
         multTip: () => ({ per_stack: 20 }),
         penetrate: () => 1.0,
