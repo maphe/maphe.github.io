@@ -736,8 +736,8 @@ const i18n = {
       victorious_flag: '勝戰旗幟',
       violet_talisman: '紫色護身符',
       radiant_forever: '燦爛的永恆',
-      a_little_queens_crown:'年輕女王的王冠',
-      shepherd_of_the_hollow:'空心的牧羊人',
+      a_little_queens_crown:'小小女王的巨大王冠',
+      shepherd_of_the_hollow:'無為的引導者',
     },
     form: {
       nb_targets: '敵人數量',
@@ -1233,8 +1233,8 @@ const i18n = {
       victorious_flag: '胜战旗帜',
       violet_talisman: '紫色护身符',
       radiant_forever: '灿烂的永恆',
-      a_little_queens_crown:'年轻女王的王冠',
-      shepherd_of_the_hollow:'空心的牧羊人',
+      a_little_queens_crown:'小小女王的巨大王冠',
+      shepherd_of_the_hollow:'无为的引导者',
     },
     form: {
       nb_targets: '敌人数量',
