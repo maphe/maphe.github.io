@@ -3257,7 +3257,8 @@ const heroes = {
         pow: 1,
         mult: () => 1 + elements.caster_speed.value()*0.0015,
         multTip: () => ({ caster_speed: 0.15 }),
-        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        noTrans: true,
       }
     }
   },
