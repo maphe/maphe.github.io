@@ -2008,7 +2008,6 @@ const heroes = {
     element: element.light,
     classType: classType.warrior,
     baseAtk: 1426,
-    form: [elements.target_has_bleed],
     dot: [dot.bleed],
     skills: {
       s1: {
@@ -2021,9 +2020,7 @@ const heroes = {
         noCrit: true,
         soulburn: true,
         rate: (soulburn) => soulburn ? 2.9 : 2.2,
-        pow: 0.85,
-        mult: () => elements.target_has_bleed.value() ? 1.3 : 1,
-        multTip: () => ({ target_bleed: 30 }),
+        pow: 0.95,
         enhance: [0.05, 0.05, 0, 0.1, 0.15]
       }
     }
