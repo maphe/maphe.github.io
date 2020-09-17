@@ -276,6 +276,13 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('caster-full-focus').checked
   },
+  caster_full_fighting_spirit: {
+    ref: 'caster_full_fighting_spirit',
+    id: 'caster-full-fighting-spirit',
+    label: 'Full Fighting Spirit',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-full-fighting-spirit').checked
+  },
   caster_nb_focus: {
     ref: 'caster_nb_focus',
     id: 'caster-nb-focus',

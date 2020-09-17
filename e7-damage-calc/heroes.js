@@ -2579,6 +2579,44 @@ const heroes = {
       }
     }
   },
+  landy: {
+    name: 'Landy',
+    element: element.earth,
+    classType: classType.ranger,
+    baseAtk: 1158,
+    form: [elements.caster_full_fighting_spirit, elements.attack_skill_stack_5],
+    atkUp: () => {
+      let boost = 0.07;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        boost += heroes.landy.skills.s2.enhance[i];
+      }
+
+      return 1 + elements.attack_skill_stack_5.value()*boost;
+    },
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15]
+      },
+      s2: {
+        enhance: [0.005, 0.005, 0.005, 0.005, 0.01]
+      },
+      s3: {
+        soulburn: true,
+        aoe: true,
+        rate: (soulburn) => {
+          if (elements.caster_full_fighting_spirit.value()) {
+            return soulburn ? 1.25 : 1;
+          } else {
+            return soulburn ? 1.15 : 0.9;
+          }
+        },
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      }
+    }
+  },
   last_rider_krau: {
     name: 'Last Rider Krau',
     element: element.light,
