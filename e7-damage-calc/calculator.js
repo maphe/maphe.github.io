@@ -319,14 +319,15 @@ class Hero {
 
 class Target {
   constructor(casterArtifact) {
-    this.def = Number(document.getElementById('def').value)*(1+Number(document.getElementById('def-pc-up').value)/100);
+    const defMult = getGlobalDefMult() + Number(document.getElementById('def-pc-up').value)/100;
+    this.def = Number(document.getElementById('def').value)*defMult;
     this.casterArtifact = casterArtifact;
   }
 
   defensivePower(skill, noReduc = false) {
     const dmgReduc = noReduc ? 0 : Number(document.getElementById('dmg-reduc').value)/100;
     const dmgTrans = skill.noTrans === true ? 0 : Number(document.getElementById('dmg-trans').value)/100;
-    return ((1-dmgReduc)*(1-dmgTrans))/((((this.def * getGlobalDefMult()) / 300)*((1-(skill && skill.penetrate ? skill.penetrate() : 0))*(1-this.casterArtifact.getDefensePenetration()))) + 1);
+    return ((1-dmgReduc)*(1-dmgTrans))/(((this.def / 300)*((1-(skill && skill.penetrate ? skill.penetrate() : 0))*(1-this.casterArtifact.getDefensePenetration()))) + 1);
   }
 }
 
