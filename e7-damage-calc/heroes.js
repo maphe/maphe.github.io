@@ -1316,6 +1316,8 @@ const heroes = {
       s1: {
         rate: () => elements.caster_speed_up.value() ? 1.05 : 0.9,
         pow: () => {
+          if (!elements.caster_speed_up.value()) return 0.95;
+
           let mult = 0.0;
           for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
             mult += heroes.cidd.skills.s2.enhance[i];
