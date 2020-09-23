@@ -2320,7 +2320,7 @@ const heroes = {
     skills: {
       s1: {
         soulburn: true,
-        rate: (soulburn) => soulburn ? 1.35 : 0.95,
+        rate: (soulburn) => soulburn ? 1.35 : 0.85,
         pow: 1,
         mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0015,
         multTip: () => ({ caster_lost_hp_pc: 0.15 }),
