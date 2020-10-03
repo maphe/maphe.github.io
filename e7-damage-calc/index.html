@@ -68,12 +68,12 @@
                 </li>
             </ul>
         </nav>
-<!--        <div class="alert alert-warning alert-dismissible fade show" role="alert">-->
-<!--            <strong>September 16, Update:</strong> Added new hero: Landy-->
-<!--            <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
-<!--                <span aria-hidden="true">&times;</span>-->
-<!--            </button>-->
-<!--        </div>-->
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>October 3, Update:</strong> Added Expedition Bosses to Enemy List (with defense stat)
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
         <div>
             <form id="stats">
                 <div id="hero-block">
@@ -243,7 +243,7 @@
                 <div class="row">
                     <h4 class="col-md-4">Target</h4>
                     <div class="form-group col-md-4 col-sm-12">
-                        <select id="def-preset" name="def-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true">
+                        <select id="def-preset" name="def-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true" data-live-search="true">
                             <option value="">Manual</option>
                             <option data-divider="true"></option>
                             <optgroup label="Wyvern 11">
@@ -254,7 +254,7 @@
                             <optgroup label="Wyvern 13">
                                 <option value="blaze-dragona-13" data-def="1392" data-hp="20241" data-subtext="20241 hp/175 spd">Blaze Dragona</option>
                                 <option value="blood-ridge-naga-13" data-def="1340" data-hp="13358" data-subtext="13358 hp/154 spd">Blood Ridge Naga</option>
-                                <option value="wyvern-13" data-def="1944" data-hp="233578" data-subtext="233578 hp/242 spd" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.3">Wyvern</option>
+                                <option value="wyvern-13" data-def="1940" data-hp="233578" data-subtext="233578 hp/242 spd" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.3">Wyvern</option>
                             </optgroup>
                             <optgroup label="Golem 11">
                                 <option value="raqix-flying-troop-11" data-def="891" data-hp="12528" data-subtext="12528 hp">Raqix Flying Troop</option>
@@ -264,7 +264,7 @@
                             <optgroup label="Golem 13">
                                 <option value="raqix-flying-troop-13" data-def="1007" data-hp="14743" data-subtext="14743 hp/188 spd">Raqix Flying Troop</option>
                                 <option value="mossy-testudo-13" data-def="1221" data-hp="17172" data-subtext="17172 hp">Mossy Testudo</option>
-                                <option value="golem-13" data-def="1554" data-hp="158553" data-subtext="158553 hp" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.3">Golem</option>
+                                <option value="golem-13" data-def="1550" data-hp="158553" data-subtext="158553 hp" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.3">Golem</option>
                             </optgroup>
                             <optgroup label="Banshee 11">
                                 <option value="mystychain-11" data-def="1101" data-hp="9631" data-subtext="9631 hp/154 spd">Mystychain</option>
@@ -274,7 +274,7 @@
                             <optgroup label="Banshee 13">
                                 <option value="mystychain-13" data-def="1248" data-hp="11015" data-subtext="11015 hp/174 spd">Mystychain</option>
                                 <option value="icy-dark-broom-13" data-def="1248" data-hp="11015" data-subtext="11015 hp/174 spd">Icy Dark Broom</option>
-                                <option value="banshee-13" data-def="1976" data-hp="115703" data-subtext="115703 hp/203 spd" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.3">Banshee</option>
+                                <option value="banshee-13" data-def="1977" data-hp="115703" data-subtext="115703 hp/203 spd" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.3">Banshee</option>
                             </optgroup>
                             <optgroup label="Azimanak 11">
                                 <option value="striker-raqix-warlord-11" data-def="1030" data-hp="12812" data-subtext="12812 hp/211 spd">Striker Warlord</option>
@@ -286,7 +286,22 @@
                                 <option value="striker-raqix-warlord-13" data-def="1134" data-hp="14653" data-subtext="14653 hp/218 spd">Striker Warlord</option>
                                 <option value="karax-charger-13" data-def="1297" data-hp="23805" data-subtext="23805 hp/176 spd">Karax Charger</option>
                                 <option value="egg-13" data-def="600" data-hp="9156" data-subtext="9156 hp">Egg</option>
-                                <option value="azimanak-13" data-def="2832" data-hp="134511" data-subtext="134511 hp">Azimanak</option>
+                                <option value="azimanak-13" data-def="2822" data-hp="134511" data-subtext="134511 hp">Azimanak</option>
+                            </optgroup>
+                            <optgroup label="Earth Expedition">
+                                <option value="earth-exp-1" data-def="807">Earth Expedition - Level 1</option>
+                                <option value="earth-exp-2" data-def="1078">Earth Expedition - Level 2</option>
+                                <option value="earth-exp-3" data-def="1324">Earth Expedition - Level 3</option>
+                            </optgroup>
+                            <optgroup label="Ice Expedition">
+                                <option value="earth-exp-1" data-def="677">Ice Expedition - Level 1</option>
+                                <option value="earth-exp-2" data-def="904">Ice Expedition - Level 2</option>
+                                <option value="earth-exp-3" data-def="1159">Ice Expedition - Level 3</option>
+                            </optgroup>
+                            <optgroup label="Fire Expedition">
+                                <option value="earth-exp-1" data-def="783">Fire Expedition - Level 1</option>
+                                <option value="earth-exp-2" data-def="1045">Fire Expedition - Level 2</option>
+                                <option value="earth-exp-3" data-def="1340">Fire Expedition - Level 3</option>
                             </optgroup>
                         </select>
                     </div>
