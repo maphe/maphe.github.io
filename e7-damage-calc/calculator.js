@@ -101,7 +101,7 @@ const getModTooltip = (hero, skillId, soulburn = false) => {
 const getGlobalAtkMult = () => {
   let mult = 0.0;
 
-  for (let checkboxId of ['atk-up', 'atk-up-great']) {
+  for (let checkboxId of ['atk-down', 'atk-up', 'atk-up-great']) {
     const elem = document.getElementById(checkboxId);
     mult += elem.checked ? Number(elem.value)-1 : 0.0;
   }
