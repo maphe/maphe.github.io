@@ -313,7 +313,7 @@ class Hero {
   }
 
   getBarrierStrength() {
-    return this.barrier()*(this.barrierEnhance ? this.getSkillEnhanceMult(this.barrierEnhance) : 1);
+    return this.barrier(this)*(this.barrierEnhance ? this.getSkillEnhanceMult(this.barrierEnhance) : 1);
   }
 }
 
