@@ -1018,6 +1018,7 @@ const heroes = {
     name: 'Celine',
     element: element.earth,
     classType: classType.thief,
+    form: [elements.exclusive_equipment_2, elements.exclusive_equipment_3],
     baseAtk: 1228,
     skills: {
       s1: {
@@ -1029,12 +1030,14 @@ const heroes = {
       s2: {
         rate: 1.4,
         pow: 1,
+        exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
       },
       s3: {
         soulburn: true,
         rate: (soulburn) => soulburn ? 2.3 : 1.8,
         pow: 1,
+        exEq: () => elements.exclusive_equipment_3.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.1]
       }
     }
@@ -3057,6 +3060,19 @@ const heroes = {
         pow: 1.05,
         enhance: [0.05, 0, 0.1, 0, 0.1],
         elemAdv: () => true
+      }
+    }
+  },
+  magic_scholar_doris: {
+    name: 'Magic Scholar Doris',
+    element: element.light,
+    classType: classType.soul_weaver,
+    baseAtk: 540,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.1, 0, 0, 0.15]
       }
     }
   },
