@@ -1507,6 +1507,7 @@ const i18n = {
       ludwig: '루트비히',
       luluca: '루루카',
       luna: '루나',
+      magic_scholar_doris: '마법학자 도리스',
       maid_chloe: '메이드 클로에',
       martial_artist_ken: '무투가 켄',
       mascot_hazel: '마스코트 헤이즐',
