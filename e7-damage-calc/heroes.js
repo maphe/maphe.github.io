@@ -1031,7 +1031,8 @@ const heroes = {
         rate: 1.4,
         pow: 1,
         exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
-        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        noTrans: true,
       },
       s3: {
         soulburn: true,
