@@ -57,6 +57,23 @@
             <form id="stats">
                 <div class="stat-block">
                     <div class="form-group row col-sm-12">
+                        <label for="hit-chance" class="col-md-9 col-form-label form-control-sm"><h5>攻击命中概率 (%)</h5></label>
+                        <div class="input-group input-group-sm col-md-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" type="button" id="hit-chance-minus" onclick="minus('hit-chance')">&minus;</button>
+                            </div>
+                            <input type="number" class="form-control text-center" id="hit-chance" value="100" onkeyup="update('hit-chance')">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="hit-chance-plus" onclick="plus('hit-chance')">&plus;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row col-sm-12">
+                        <input type="range" class="custom-range" id="hit-chance-slide" min="0" max="100" value="100" step="5" oninput="slide('hit-chance')">
+                    </div>
+                </div>
+                <div class="stat-block">
+                    <div class="form-group row col-sm-12">
                         <label for="effect-chance" class="col-md-9 col-form-label form-control-sm"><h5>技能发动概率 (%)</h5></label>
                         <div class="input-group input-group-sm col-md-3">
                             <div class="input-group-prepend">
@@ -114,7 +131,7 @@
                         <div class="card border-success mb-3">
                             <div class="card-header">
                                 总体技能命中率
-                                <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="此处计算了技能发动概率"></i>
+                                <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="此处计算了技能发动概率和攻击命中概率"></i>
                             </div>
                             <div class="card-body text-success">
                                 <p class="card-text">
@@ -128,7 +145,7 @@
                             <div class="card border-info">
                                 <div class="card-header">
                                     技能发动后命中率
-                                    <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="这是技能发动后命中概率, 也就是计算了目标的效果抵抗但不计算技能发动概率"></i>
+                                    <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="这是技能发动后命中概率, 也就是计算了目标的效果抵抗但不计算攻击命中概率和技能效果发动概率"></i>
                                 </div>
                                 <div class="card-body text-info">
                                     <p class="card-text">
@@ -139,7 +156,7 @@
                             <div class="card border-danger">
                                 <div class="card-header">
                                     技能被抵抗概率
-                                    <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="目标抵抗概率"></i>
+                                    <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="攻击命中并且技能效果发动后目标抵抗的概率"></i>
                                 </div>
                                 <div class="card-body text-danger">
                                     <p class="card-text">
