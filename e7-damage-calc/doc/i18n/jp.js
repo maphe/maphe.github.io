@@ -157,7 +157,7 @@ const jp = {
     tamarinne: 'ルリ',
     taranor_guard: 'タラノル近衛隊員',
     taranor_royal_guard: 'タラノル王宮衛兵',
-    temmpest_surin: '風雲のスーリン',
+    tempest_surin: '風雲のスーリン',
     tenebria: 'テネブレア',
     tieria: 'ディエリア',
     troublemaker_crozet: '暴徒 クロゼ',

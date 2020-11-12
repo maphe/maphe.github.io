@@ -168,7 +168,7 @@ const zhTW = {
     tamarinne: '塔瑪林爾',
     taranor_guard: '塔拉諾爾禁衛隊員',
     taranor_royal_guard: '塔拉諾爾王宮士兵',
-    temmpest_surin: '風雲蘇琳',
+    tempest_surin: '風雲蘇琳',
     tenebria: '泰妮布里雅',
     tieria: '黛莉亞',
     troublemaker_crozet: '不法之徒克羅澤',

@@ -4368,7 +4368,7 @@ const heroes = {
       }
     }
   },
-  temmpest_surin: {
+  tempest_surin: {
     name: 'Tempest Surin',
     element: element.light,
     classType: classType.thief,

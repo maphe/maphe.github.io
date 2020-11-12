@@ -168,7 +168,7 @@ const zhCN = {
     tamarinne: '塔玛林尔',
     taranor_guard: '塔拉诺尔禁卫队员',
     taranor_royal_guard: '塔拉诺尔王宫士兵',
-    temmpest_surin: '风云苏琳',
+    tempest_surin: '风云苏琳',
     tenebria: '泰妮布里雅',
     tieria: '黛莉亚',
     troublemaker_crozet: '不法之徒克罗泽',
