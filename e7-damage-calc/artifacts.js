@@ -166,6 +166,14 @@ const artifacts = {
     exclusive: classType.warrior,
     value: () => 0.25
   },
+  sword_of_summer_twilight: {
+    id: 'sword_of_summer_twilight',
+    name: 'Sword of Summer Twilight',
+    scale: [0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2],
+    type: artifactDmgType.penetrate,
+    exclusive: classType.thief,
+    applies: (skill) => skill.aoe === true,
+  },
   sword_of_the_morning: {
     id: 'sword_of_the_morning',
     name: 'Sword of the Morning',

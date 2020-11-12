@@ -347,7 +347,8 @@ const heroes = {
           }
         },
         pow: 0.85,
-        enhance: [0.05, 0.05, 0.05, 0.1, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1, 0.1],
+        aoe: true,
       }
     }
   },
@@ -749,7 +750,8 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 1.45 : 1.2,
         pow: 0.95,
-        enhance: [0.05, 0.05, 0, 0.1, 0.15]
+        enhance: [0.05, 0.05, 0, 0.1, 0.15],
+        aoe: true,
       },
     }
   },
@@ -2204,7 +2206,8 @@ const heroes = {
           }
         },
         multTip: () => ({ per_fewer_target: 50 }),
-        enhance: [0.15, 0, 0, 0, 0.15]
+        enhance: [0.15, 0, 0, 0, 0.15],
+        aoe: true,
       }
     }
   },
@@ -2471,7 +2474,8 @@ const heroes = {
         mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0015,
         multTip: () => ({ caster_lost_hp_pc: 0.15 }),
         exEq: () => elements.exclusive_equipment_1.value() ? 0.1 : 0,
-        enhance: [0.05, 0.05, 0, 0.05, 0, 0.15]
+        enhance: [0.05, 0.05, 0, 0.05, 0, 0.15],
+        aoe: true,
       },
       s3: {
         rate: 1.7,
@@ -2531,7 +2535,8 @@ const heroes = {
       s2: {
         rate: 0.9,
         pow: 1,
-        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
       },
       s3: {
         soulburn: true,
@@ -2624,7 +2629,8 @@ const heroes = {
         rate: 0.8,
         pow: 1,
         penetrate: () => elements.caster_stealth.value() ? 0.6 : 0.3,
-        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
       },
       s3: {
         rate: 1.6,
@@ -4023,7 +4029,8 @@ const heroes = {
       s2: {
         rate: 0.5,
         pow: 1,
-        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
       },
       s3: {
         soulburn: true,
@@ -4215,7 +4222,8 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 1.05 : 0.8,
         pow: 1,
-        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
       },
       s3: {
         rate: 1.5,
@@ -4309,7 +4317,8 @@ const heroes = {
         pow: 0.8,
         mult: () => 1 + (100-elements.caster_hp_pc.value())*0.005 + (100-elements.target_hp_pc.value())*0.0015,
         multTip: () => ({ caster_lost_hp_pc: 50, target_lost_hp_pc: 15 }),
-        enhance: [0.05, 0.05, 0.1, 0, 0.1, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0.1, 0, 0.1, 0.1, 0.1],
+        aoe: true,
       }
     }
   },
@@ -4389,7 +4398,8 @@ const heroes = {
         pow: 1.05,
         mult: () => 1 + (100-elements.caster_hp_pc.value())*0.002,
         multTip: () => ({ caster_lost_hp_pc: 20 }),
-        enhance: [0.1, 0, 0, 0, 0.15]
+        enhance: [0.1, 0, 0, 0, 0.15],
+        aoe: true,
       }
     }
   },
@@ -4521,7 +4531,8 @@ const heroes = {
       s2: {
         rate: 0.5,
         pow: 1,
-        enhance: [0.05, 0.05, 0.05, 0.05, 0.1]
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
       },
       s3: {
         soulburn: true,
@@ -4529,7 +4540,8 @@ const heroes = {
         pow: 1,
         mult: (soulburn) => 1 + elements.caster_speed.value()*(soulburn ? 0.0009 : 0.00075),
         multTip: (soulburn) => ({ caster_speed: soulburn ? 0.09 : 0.075 }),
-        enhance: [0.05, 0.05, 0, 0.1, 0.1]
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
       }
     }
   },

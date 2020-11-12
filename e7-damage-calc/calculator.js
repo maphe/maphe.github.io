@@ -330,7 +330,7 @@ class Target {
   defensivePower(skill, noReduc = false) {
     const dmgReduc = noReduc ? 0 : Number(document.getElementById('dmg-reduc').value)/100;
     const dmgTrans = skill.noTrans === true ? 0 : Number(document.getElementById('dmg-trans').value)/100;
-    return ((1-dmgReduc)*(1-dmgTrans))/(((this.def / 300)*((1-(skill && skill.penetrate ? skill.penetrate() : 0))*(1-this.casterArtifact.getDefensePenetration()))) + 1);
+    return ((1-dmgReduc)*(1-dmgTrans))/(((this.def / 300)*((1-(skill && skill.penetrate ? skill.penetrate() : 0))*(1-this.casterArtifact.getDefensePenetration(skill)))) + 1);
   }
 }
 
@@ -360,7 +360,8 @@ class Artifact {
     return this.getValue();
   }
 
-  getDefensePenetration() {
+  getDefensePenetration(skill) {
+    if(!this.applies(skill)) return 0;
     if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.penetrate) {
       return 0;
     }
