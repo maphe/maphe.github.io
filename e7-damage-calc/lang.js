@@ -1009,7 +1009,7 @@ const i18n = {
       melissa: '梅丽莎',
       mercedes: '玫勒赛德丝',
       mercenary_helga: '自由自在的佣兵赫尔嘉',
-      mighty_scout: '侦察兵玛伊堤(木老鼠)',
+      mighty_scout: '侦察兵玛伊堤',
       mirsa: '米勒莎',
       mistychain: '美丝缇彩',
       montmorancy: '蒙茉朗西',
