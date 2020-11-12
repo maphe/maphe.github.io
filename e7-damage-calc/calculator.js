@@ -183,9 +183,12 @@ class Hero {
   }
 
   getDamage(skillId, soulburn = false) {
+    const critDmgUpBox = document.getElementById('crit-dmg-up');
+    const critDmgBuff = critDmgUpBox && critDmgUpBox.checked ? Number(critDmgUpBox.value) : 0.0;
+
     const skill = this.skills[skillId];
     const hit = this.offensivePower(skillId, soulburn) * this.target.defensivePower(skill);
-    const critDmg = (this.crit / 100)+(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0)+(this.artifact.getCritDmgBoost()||0);
+    const critDmg = Math.min((this.crit / 100)+critDmgBuff, 3.5)+(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0)+(this.artifact.getCritDmgBoost()||0);
     const extraDmg = skill.extraDmg !== undefined ? Math.round(skill.extraDmg(soulburn)) : 0;
     return {
       crit: skill.noCrit ? null : Math.round(hit*critDmg + this.getAfterMathDamage(skillId, hitTypes.crit)) + extraDmg,

@@ -1963,6 +1963,19 @@ const heroes = {
       }
     }
   },
+  flan: {
+    name: 'Flan',
+    element: element.ice,
+    classType: classType.ranger,
+    baseAtk: 1003,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1]
+      },
+    }
+  },
   free_spirit_tieria: {
     name: 'Free Spirit Tieria',
     element: element.light,
