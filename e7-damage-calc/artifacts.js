@@ -133,7 +133,8 @@ const artifacts = {
     name: 'Radiant Forever',
     scale: [0.25, 0.275, 0.3, 0.325, 0.35, 0.375, 0.4, 0.425, 0.45, 0.475, 0.5],
     type: artifactDmgType.damage,
-    exclusive: classType.mage
+    exclusive: classType.mage,
+    applies: (skill) => skill.aoe === true
   },
   reingar_special_drink: {
     id: 'reingar_special_drink',
