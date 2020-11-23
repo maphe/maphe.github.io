@@ -14,7 +14,7 @@ const artifacts = {
     scale: [0.16, 0.176, 0.192, 0.208, 0.224, 0.24, 0.256, 0.272, 0.288, 0.304, 0.32],
     type: artifactDmgType.damage,
     exclusive: classType.warrior,
-    applies: (skill) => skill.aoe !== true
+    applies: (skill) => skill.single === true
   },
   border_coin: {
     id: 'border_coin',
