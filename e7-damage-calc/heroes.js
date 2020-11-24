@@ -2807,8 +2807,12 @@ const heroes = {
         rate: (soulburn) => soulburn ? 1.4 : 1.1,
         pow: 1,
         enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
-        mult: () => elements.target_has_buff.value() ? 1.7 : 1,
-        multTip: () => ({ target_debuff: 70 }),
+        mult: (soulburn) => {
+          if (!elements.target_has_buff.value()) return 1;
+
+          return soulburn ? 2 : 1.7;
+        },
+        multTip: (soulburn) => ({ target_debuff: soulburn ? 100 : 70 }),
         single: true,
       },
       s2: {
