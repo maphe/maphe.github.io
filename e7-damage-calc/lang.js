@@ -86,6 +86,7 @@ const i18n = {
     },
     info: {
       alencia_trample: 'Trample',
+      lqc_s3_splash: 'S3 Splash',
       s1_extra_attack: 'S1 Extra Attack',
       s2_wave_2: 'S2 Wave 2',
       s2_counter: 'S2 (Counter)',
@@ -1529,6 +1530,7 @@ const i18n = {
       mucacha: '무카차',
       mui: '뮤이',
       nemunas: '네무나스',
+      operator_sigret: '오퍼레이러 세크레트',
       otillie: '오틸리어',
       pavel: '파벨',
       pearlhorizon: '펄호라이즌',

@@ -359,6 +359,17 @@ const elements = {
     readonly: true,
     value: () => Number(document.getElementById('critical-hit-stack-12').value)
   },
+  critical_hit_stack_8: {
+    ref: 'critical_hit_stack_8',
+    id: 'critical-hit-stack-8',
+    label: 'Critical Hit Stack',
+    type: 'slider',
+    min: 0,
+    max: 8,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('critical-hit-stack-8').value)
+  },
   non_attack_skill_stack_8: {
     ref: 'non_attack_skill_stack_8',
     id: 'stack-non-attack-skill-8',

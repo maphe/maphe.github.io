@@ -1135,9 +1135,10 @@ const heroes = {
         single: true,
       },
       s3: {
-        rate: 0.9,
+        rate: 1,
         pow: 1.1,
         enhance: [0.05, 0, 0, 0, 0.15],
+        elemAdv: () => true,
         aoe: true,
       },
     }
@@ -1812,8 +1813,7 @@ const heroes = {
         aoe: true,
       },
       s3: {
-        soulburn: true,
-        rate: (soulburn) => soulburn ? 2.2 : 1.5,
+        rate: 1.5,
         pow: 0.9,
         extraDmg: () => elements.target_has_sleep.value() ? elements.target_max_hp.value()*0.3 : 0,
         extraDmgTip: () => ({ target_max_hp: elements.target_has_sleep.value() ? 30 : 0 }),
@@ -2935,36 +2935,30 @@ const heroes = {
     element: element.earth,
     classType: classType.ranger,
     baseAtk: 1158,
-    form: [elements.caster_full_fighting_spirit, elements.attack_skill_stack_5],
+    form: [elements.caster_full_fighting_spirit, elements.attack_skill_stack_3],
     atkUp: () => {
-      let boost = 0.07;
+      let boost = 0.15;
       for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
         boost += heroes.landy.skills.s2.enhance[i];
       }
 
-      return 1 + elements.attack_skill_stack_5.value()*boost;
+      return 1 + elements.attack_skill_stack_3.value()*boost;
     },
     skills: {
       s1: {
-        rate: 1,
+        rate: 1.1,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
         single: true,
       },
       s2: {
-        enhance: [0.005, 0.005, 0.005, 0.005, 0.01]
+        enhance: [0.005, 0.005, 0.01, 0.01, 0.02]
       },
       s3: {
-        soulburn: true,
         aoe: true,
-        rate: (soulburn) => {
-          if (elements.caster_full_fighting_spirit.value()) {
-            return soulburn ? 1.25 : 1;
-          } else {
-            return soulburn ? 1.15 : 0.9;
-          }
-        },
+        rate: 0.9,
         pow: 1,
+        penetrate: () => elements.caster_full_fighting_spirit.value() ? 0.5 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.1]
       }
     }
@@ -3144,7 +3138,7 @@ const heroes = {
     baseAtk: 1119,
     skills: {
       s1: {
-        rate: 1,
+        rate: 1.2,
         pow: 1,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
@@ -3158,6 +3152,14 @@ const heroes = {
         enhance: [0.05, 0.05, 0, 0.05, 0.15],
         single: true,
       },
+      s3_splash: {
+        name: infoLabel('lqc_s3_splash'),
+        rate: 0,
+        pow: 0,
+        afterMath: () => document.getElementById(`elem-adv`).checked ? { atkPercent: 1.2, penetrate: 0.7 } : null,
+        noCrit: true,
+        noMiss: true,
+      }
     }
   },
   lorina: {
@@ -3663,6 +3665,34 @@ const heroes = {
       }
     }
   },
+  operator_sigret: {
+    name: 'Operator Sigret',
+    element: element.dark,
+    classType: classType.ranger,
+    baseAtk: 1079,
+    form: [elements.target_has_barrier],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 0.8,
+        pow: 1,
+        penetrate: () => elements.target_has_barrier.value() ? 1.0 : 0.5,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 1.1,
+        pow: 1.1,
+        enhance: [0.05, 0, 0, 0, 0.15],
+        aoe: true,
+      }
+    }
+  },
   otillie: {
     name: 'Otillie',
     element: element.dark,
@@ -3736,8 +3766,7 @@ const heroes = {
         aoe: true,
       },
       s3: {
-        soulburn: true,
-        rate: (soulburn) => soulburn ? 2.2 : 1.5,
+        rate: 1.5,
         pow: 0.9,
         extraDmg: () => elements.target_has_sleep.value() ? elements.target_max_hp.value()*0.2 : 0,
         extraDmgTip: () => ({ target_max_hp: elements.target_has_sleep.value() ? 20 : 0 }),
@@ -4201,11 +4230,13 @@ const heroes = {
         aoe: true,
       },
       s3: {
-        rate: 1.2,
+        rate: 0.5,
         pow: 1,
-        flat: () => 0.3*Math.max(elements.caster_max_hp.value()-elements.caster_hp.value(), 0),
-        flatTip: () => ({ caster_lost_hp: 30 }),
+        penetrate: () => 1.0,
+        flat: () => 0.25*Math.max(elements.caster_max_hp.value()-elements.caster_hp.value(), 0),
+        flatTip: () => ({ caster_lost_hp: 25 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        noCrit: true,
         single: true,
       }
     }

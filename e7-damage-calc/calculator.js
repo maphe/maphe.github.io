@@ -327,10 +327,19 @@ class Target {
     this.casterArtifact = casterArtifact;
   }
 
+  getPenetration(skill) {
+    const base = skill && skill.penetrate ? skill.penetrate() : 0;
+    const set = skill.single && document.getElementById('pen-set') && document.getElementById('pen-set').checked
+        ? Number(document.getElementById('pen-set').value)
+        : 0;
+
+    return Math.min(1, base + set);
+  }
+
   defensivePower(skill, noReduc = false) {
     const dmgReduc = noReduc ? 0 : Number(document.getElementById('dmg-reduc').value)/100;
     const dmgTrans = skill.noTrans === true ? 0 : Number(document.getElementById('dmg-trans').value)/100;
-    return ((1-dmgReduc)*(1-dmgTrans))/(((this.def / 300)*((1-(skill && skill.penetrate ? skill.penetrate() : 0))*(1-this.casterArtifact.getDefensePenetration(skill)))) + 1);
+    return ((1-dmgReduc)*(1-dmgTrans))/(((this.def / 300)*((1-this.getPenetration(skill))*(1-this.casterArtifact.getDefensePenetration(skill)))) + 1);
   }
 }
 
