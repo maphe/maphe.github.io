@@ -1686,6 +1686,7 @@ const i18n = {
     },
     artifacts: {
       no_proc: '아티팩트 효과 없음',
+      a_symbol_of_unity: '결속의 상징',
       border_coin: '경계의 금화',
       daydream_joker: '데이드림 조커',
       dignus_orb: '디그누스 오브',
