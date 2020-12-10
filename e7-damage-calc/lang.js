@@ -1531,6 +1531,7 @@ const i18n = {
       melissa: '멜리사',
       mercedes: '메르세데스',
       mercenary_helga: '자유로운 용병 헬가',
+      mort: '모르트',
       mirsa: '미르사',
       mistychain: '미스티체인',
       montmorancy: '몽모랑시',
