@@ -504,6 +504,7 @@ const i18n = {
       mirsa: '米勒莎',
       mistychain: '美絲緹彩',
       montmorancy: '蒙茉朗西',
+      mort:'魔勒',
       mucacha: '穆卡察',
       mui:'繆伊',
       nemunas: '尼姆拉斯',
@@ -731,6 +732,7 @@ const i18n = {
     },
     artifacts: {
       no_proc: '無神器',
+      a_symbol_of_unity:'團結的象徵',
       border_coin: '孤注一擲',
       daydream_joker: '白日夢小丑',
       draco_plate: '龍族板甲',
@@ -1019,6 +1021,7 @@ const i18n = {
       mirsa: '米勒莎',
       mistychain: '美丝缇彩',
       montmorancy: '蒙茉朗西',
+      mort:'魔勒',
       mucacha: '穆卡察',
       mui:'缪伊',
       nemunas: '尼姆拉斯',
@@ -1248,6 +1251,7 @@ const i18n = {
     },
     artifacts: {
       no_proc: '无神器',
+      a_symbol_of_unity:'团结的象征',
       border_coin: '孤注一掷',
       daydream_joker: '白日梦小丑',
       draco_plate: '龙族板甲',
