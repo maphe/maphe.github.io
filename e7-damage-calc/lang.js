@@ -26,6 +26,7 @@ const i18n = {
       judge_kise: 'j.kise jkise',
       maid_chloe: 'ml.chloe mlchloe',
       martial_artist_ken: 'ml.ken mlken',
+      mort: 'mortelix',
       sage_baal_and_sezan: 'ml.baal mlbaal',
       shooting_star_achates: 'ssa',
       seaside_bellona: 'ssb',

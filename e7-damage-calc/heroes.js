@@ -3589,6 +3589,31 @@ const heroes = {
       }
     }
   },
+  mort: {
+    name: 'Mort',
+    element: element.earth,
+    classType: classType.knight,
+    baseAtk: 957,
+    form: [elements.caster_max_hp, elements.caster_enrage],
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.08,
+        flatTip: () => ({ caster_max_hp: 8 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 0.7,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.12,
+        flatTip: () => ({ caster_max_hp: 12 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
+      }
+    }
+  },
   mucacha: {
     name: 'Mucacha',
     element: element.earth,

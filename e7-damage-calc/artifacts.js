@@ -16,6 +16,12 @@ const artifacts = {
     exclusive: classType.warrior,
     applies: (skill) => skill.single === true
   },
+  a_symbol_of_unity: {
+    id: 'a_symbol_of_unity',
+    name: 'A Symbol of Unity',
+    scale: [0.08, 0.088, 0.096, 0.104, 0.112, 0.12, 0.128, 0.136, 0.144, 0.152, 0.16],
+    type: artifactDmgType.damage
+  },
   border_coin: {
     id: 'border_coin',
     name: 'Border Coin',
