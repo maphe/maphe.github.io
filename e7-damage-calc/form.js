@@ -816,6 +816,8 @@ $(() => {
     Object.keys(heroes).map((id => {
       $(heroSelector).append(`<option value="${id}" data-tokens="${heroNicknames(id)}" data-content="${elemIcon(heroes[id].element)}${classIcon(heroes[id].classType)}<span>${heroName(id)}</span>">${heroName(id)}</option>`)
     }));
+    $(heroSelector).selectpicker('refresh');
+
     $(artiSelector).append(`<option value="">${artifactName('no_proc')}</option>`);
     $(artiSelector).append(`<option data-divider="true"></option>`);
     Object.keys(artifacts).map((id => {
