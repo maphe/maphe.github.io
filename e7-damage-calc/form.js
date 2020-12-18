@@ -83,7 +83,7 @@ const elements = {
     label: 'Debuffs on Targets',
     type: 'slider',
     min: 0,
-    max: 9,
+    max: 10,
     default: 0,
     readonly: true,
     value: () => Number(document.getElementById('target-nb-debuff').value)
