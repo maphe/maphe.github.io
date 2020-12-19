@@ -110,19 +110,6 @@ const refreshCompareBadge = () => {
 }
 
 $(() => {
-  const allSets = localStorage.getItem('heroes') ? JSON.parse(localStorage.getItem('heroes')) : {};
-
-  const heroSelector = document.getElementById('compare-hero-picker');
-  Object.keys(allSets).map((id => {
-    $(heroSelector).append(`<option value="${id}" data-content="${elemIcon(heroes[id].element)}${classIcon(heroes[id].classType)} <span>${heroName(id)}</span>">${heroName(id)}</option>`)
-  }));
-  if (heroSelector) {
-    heroSelector.onchange = () => {
-      const hero = heroes[heroSelector.value];
-      compare(heroSelector.value);
-    };
-  }
-
   document.getElementById('compare-add-open').onclick = () => {
     document.getElementById('damage-mem-name').value = setDefaultSettingName();
   };
