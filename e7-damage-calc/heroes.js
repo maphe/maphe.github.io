@@ -2008,7 +2008,6 @@ const heroes = {
     classType: classType.mage,
     baseAtk: 1039,
     form: [elements.target_has_provoke, elements.target_max_hp],
-    info: infoLabel('fairytale_tene_s2'),
     skills: {
       s1: {
         rate: 1,
@@ -2019,10 +2018,8 @@ const heroes = {
       s2: {
         rate: 0.8,
         pow: 1,
-        afterMath: (hitType) => (hitType !== hitTypes.miss && elements.target_has_provoke.value())
-            ? { flat: () => elements.target_max_hp.value()*0.1, penetrate: 0.7 }
-            : null,
-        flatTip: () => ({ target_max_hp: 10 }),
+        extraDmg: (hitType) => hitType !== hitTypes.miss && elements.target_has_provoke.value() ? elements.target_max_hp.value()*0.1 : 0,
+        extraDmgTip: () => ({ target_max_hp: elements.target_has_provoke.value() ? 10 : 0 }),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         aoe: true,
       },

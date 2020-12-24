@@ -87,7 +87,6 @@ const i18n = {
     },
     info: {
       alencia_trample: 'Trample',
-      fairytale_tene_s2: 'Fairytale Tenebria S2 extra damage formula in a new kind of damage so the formula might be wrong for now',
       lqc_s3_splash: 'S3 Splash',
       s1_extra_attack: 'S1 Extra Attack',
       s2_wave_2: 'S2 Wave 2',
@@ -876,7 +875,6 @@ const i18n = {
     },
     info: {
       alencia_trample: '扼殺',
-      fairytale_tene_s2: '童話泰妮布里雅的S2傷害為新機制，目前可能不準',
       lqc_s3_splash: 'S3 濺射傷害',
       s1_extra_attack: 'S1 追加攻擊',
       s2_wave_2: 'S2 第二波',
@@ -1400,7 +1398,6 @@ const i18n = {
     },
     info: {
       alencia_trample: '扼杀',
-      fairytale_tene_s2: '童话泰妮布里雅的S2伤害为新机制，目前可能不准',
       lqc_s3_splash: 'S3 溅射伤害',
       s1_extra_attack: 'S1 追加攻击',
       s2_wave_2: 'S2 第二波',
@@ -1730,7 +1727,6 @@ const i18n = {
       wind_rider: '윈드라이더',
     },
     info: {
-      fairytale_tene_s2: '메르헨 테네브리아 2스킬 추가 데미지 계산식은 새로 생긴 형식이라 계산이 틀릴 수 있습니다.'
     },
     form: {
       nb_targets: '대상 수',
