@@ -1478,6 +1478,7 @@ const i18n = {
       elson: '엘슨',
       enott: '에노트',
       ervalen: '에르발렌',
+      fairytale_tenebria: '메르헨 테네브리아',
       faithless_lidica: '불신자 리디카',
       falconer_kluri: '매사냥꾼 쿠루리',
       fallen_cecilia: '나락의 세실리아',
