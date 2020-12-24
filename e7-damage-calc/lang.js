@@ -1482,6 +1482,7 @@ const i18n = {
       falconer_kluri: '매사냥꾼 쿠루리',
       fallen_cecilia: '나락의 세실리아',
       fighter_maya: '전투형 마야',
+      flan: '플랑',
       free_spirit_tieria: '여일의 디에리아',
       furious: '퓨리우스',
       general_purrgis: '대장 퍼지스',
@@ -1640,6 +1641,7 @@ const i18n = {
       destina: "데티",
       elphelt_valentine: "엘펠",
       elson: "우웅",
+      fairytale_tenebria: '엘테네',
       faithless_lidica: '불디카',
       falconer_kluri: '매루리',
       fallen_cecilia: '나세실',
@@ -1715,6 +1717,9 @@ const i18n = {
       uberius_tooth: '유베리우스의 어금니',
       violet_talisman: "보랏빛 탈리스만",
       wind_rider: '윈드라이더',
+    },
+    info: {
+      fairytale_tene_s2: '메르헨 테네브리아 2스킬 추가 데미지 계산식은 새로 생긴 형식이라 계산이 틀릴 수 있습니다.'
     },
     form: {
       nb_targets: '대상 수',
