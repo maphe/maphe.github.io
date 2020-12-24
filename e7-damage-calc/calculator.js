@@ -91,7 +91,10 @@ const getModTooltip = (hero, skillId, soulburn = false) => {
   if (values.detonation != null) content += `${skillLabel('detonation')}: <b class="float-right">+${Math.round(values.detonation*100)}%</b><br/>`;
   if (values.exEq != null) content += `${skillLabel('exEq')}: <b class="float-right">+${Math.round(values.exEq*100)}%</b><br/>`;
   if (values.elemAdv !== null) content += `${skillLabel('elemAdv')}: <i class="fas ${values.elemAdv ? 'fa-check-square' : 'fa-times-circle'} float-right"></i><br/>`;
-  if (values.afterMathFormula !== null) content += `${skillLabel('afterMathFormula')}/${skillLabel('att_rate')}: <b class="float-right">${Math.round(values.afterMathFormula.atkPercent*100)}%</b><br/>`;
+  if (values.afterMathFormula !== null && values.afterMathFormula.atkPercent)
+    content += `${skillLabel('afterMathFormula')}/${skillLabel('att_rate')}: <b class="float-right">${Math.round(values.afterMathFormula.atkPercent*100)}%</b><br/>`;
+  if (values.afterMathFormula !== null && values.afterMathFormula.flat)
+    content += `${skillLabel('afterMathFormula')}/${skillLabel('flat')}: <span class="float-right">${values.flatTip} <b>${Math.round(values.afterMathFormula.flat)}</b></span><br/>`;
   if (values.afterMathFormula !== null) content += `${skillLabel('afterMathFormula')}/${skillLabel('pen')}: <b class="float-right">${Math.round(values.afterMathFormula.penetrate*100)}%</b><br/>`;
   if (values.afterMathDmg !== null) content += `${skillLabel('afterMathDmg')}: <b class="float-right">${Math.round(values.afterMathDmg)}</b><br/>`;
   if (values.extraDmg != null) content += `${skillLabel('extraDmg')}: <span class="float-right">${values.extraDmgTip} <b>${Math.round(values.extraDmg)}</b><br/>`;
@@ -175,7 +178,11 @@ class Hero {
       detonation: skill.detonation !== undefined ? skill.detonation()-1 : null,
       exEq: skill.exEq !== undefined ? skill.exEq() : null,
       elemAdv: (typeof skill.elemAdv === 'function') ? skill.elemAdv() : null,
-      afterMathFormula: skill.afterMath !== undefined ? skill.afterMath(soulburn) : null,
+      afterMathFormula: skill.afterMath !== undefined && skill.afterMath(hitTypes.normal) ? {
+        atkPercent: skill.afterMath(hitTypes.normal).atkPercent || undefined,
+        penetrate: skill.afterMath(hitTypes.normal).penetrate,
+        flat: skill.afterMath(hitTypes.normal).flat ? skill.afterMath().flat() : undefined,
+      } : null,
       afterMathDmg: skill.afterMath !== undefined ? this.getAfterMathSkillDamage(skillId, hitTypes.crit) : null,
       extraDmg: skill.extraDmg !== undefined ? skill.extraDmg(soulburn) : null,
       extraDmgTip: skill.extraDmgTip !== undefined ? getSkillModTip(skill.extraDmgTip(soulburn)) : ''
@@ -277,7 +284,11 @@ class Hero {
     let skillDamage = 0;
     const skillMultipliers = skill.afterMath ? skill.afterMath(hitType) : null;
     if (skillMultipliers !== null) {
-      skillDamage = this.getAtk(skillId)*skillMultipliers.atkPercent*dmgConst*this.target.defensivePower({ penetrate: () => skillMultipliers.penetrate }, true);
+      if (skillMultipliers.atkPercent) {
+        skillDamage = this.getAtk(skillId) * skillMultipliers.atkPercent * dmgConst * this.target.defensivePower({penetrate: () => skillMultipliers.penetrate}, true);
+      } else if (skillMultipliers.flat) {
+        skillDamage = skillMultipliers.flat() * dmgConst * this.target.defensivePower({penetrate: () => skillMultipliers.penetrate || 0}, true);
+      }
     }
 
     return skillDamage;

@@ -118,6 +118,14 @@ const elements = {
     value: () => document.getElementById('target-has-sleep').checked,
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_sleep.png'
   },
+  target_has_provoke: {
+    ref: 'target_has_provoke',
+    id: 'target-has-provoke',
+    label: 'Target is Provoked',
+    type: 'checkbox',
+    value: () => document.getElementById('target-has-provoke').checked,
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_provoke.png'
+  },
   target_has_target: {
     ref: 'target_has_target',
     value: () => document.getElementById('target').checked,

@@ -2002,6 +2002,38 @@ const heroes = {
       }
     }
   },
+  fairytale_tenebria: {
+    name: 'Fairytale Tenebria',
+    element: element.ice,
+    classType: classType.mage,
+    baseAtk: 1039,
+    form: [elements.target_has_provoke, elements.target_max_hp],
+    info: infoLabel('fairytale_tene_s2'),
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s2: {
+        rate: 0.8,
+        pow: 1,
+        afterMath: (hitType) => (hitType !== hitTypes.miss && elements.target_has_provoke.value())
+            ? { flat: () => elements.target_max_hp.value()*0.1, penetrate: 0.7 }
+            : null,
+        flatTip: () => ({ target_max_hp: 10 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
+      s3: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.10],
+        aoe: true,
+      },
+    }
+  },
   faithless_lidica: {
     name: 'Faithless Lidica',
     element: element.light,

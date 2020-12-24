@@ -87,6 +87,7 @@ const i18n = {
     },
     info: {
       alencia_trample: 'Trample',
+      fairytale_tene_s2: 'Fairytale Tenebria S2 extra damage formula in a new kind of damage so the formula might be wrong for now',
       lqc_s3_splash: 'S3 Splash',
       s1_extra_attack: 'S1 Extra Attack',
       s2_wave_2: 'S2 Wave 2',
