@@ -94,6 +94,10 @@ body .popover {
     max-width: 500px;
 }
 
+.btn.btn-light {
+    border-color: #cacbcc;
+}
+
 /* Dark Theme */
 
 [data-theme="dark"] {
