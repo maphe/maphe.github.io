@@ -485,13 +485,14 @@ const heroes = {
     element: element.dark,
     classType: classType.thief,
     baseAtk: 1027,
-    form: [elements.caster_speed, elements.caster_stealth],
+    form: [elements.caster_speed, elements.caster_stealth, elements.exclusive_equipment_1],
     skills: {
       s1: {
         rate: () => elements.caster_stealth.value() ? 1.2 : 0.9,
         pow: 1,
         mult: () => 1 + elements.caster_speed.value()*0.00075,
         multTip: () => ({ caster_speed: 0.075 }),
+        exEq: () => elements.exclusive_equipment_1.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0.1, 0.1],
         single: true,
       },
