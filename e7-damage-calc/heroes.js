@@ -378,6 +378,32 @@ const heroes = {
       }
     }
   },
+  archdemon_shadow: {
+    name: "Archdemon's Shadow",
+    element: element.dark,
+    classType: classType.mage,
+    baseAtk: 1316,
+    dot: [dot.burn],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s2: {
+        rate: 0.6,
+        pow: 1.3,
+        aoe: true,
+      },
+      s3: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        aoe: true,
+      }
+    }
+  },
   armin: {
     name: 'Armin',
     element: element.earth,
@@ -5165,6 +5191,39 @@ const heroes = {
         exEq: () => elements.exclusive_equipment_3.value() ? 0.3 : 0,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1, 0.1, 0.1],
         aoe: true,
+      }
+    }
+  },
+  zealot_carmainerose: {
+    name: 'Zealot Carmainerose',
+    element: element.fire,
+    classType: classType.mage,
+    baseAtk: 1168,
+    form: [elements.skill_tree_completed, elements.target_has_buff],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        mult: () => elements.skill_tree_completed.value() && !elements.target_has_buff.value() ? 1.1 : 1,
+        multTip: () => (elements.skill_tree_completed.value() ? { target_has_no_buff: 10 } : null),
+        enhance: [0.05, 0.1, 0, 0, 0.15],
+        single: true,
+      },
+      s2: {
+        rate: 1.5,
+        pow: 1.05,
+        mult: () => elements.skill_tree_completed.value() && !elements.target_has_buff.value() ? 1.1 : 1,
+        multTip: () => (elements.skill_tree_completed.value() ? { target_has_no_buff: 10 } : null),
+        enhance: [0.1, 0, 0, 0, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 1.5,
+        pow: 0.95,
+        mult: () => elements.skill_tree_completed.value() && !elements.target_has_buff.value() ? 1.1 : 1,
+        multTip: () => (elements.skill_tree_completed.value() ? { target_has_no_buff: 10 } : null),
+        enhance: [0.05, 0.05, 0, 0.1, 0.15],
+        single: true,
       }
     }
   },
