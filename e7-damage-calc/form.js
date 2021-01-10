@@ -750,10 +750,6 @@ const refreshArtifactList = (hero) => {
 };
 
 const buildElement = (elem, parent) => {
-  if (document.getElementById(elem.id) !== null) {
-    return;
-  }
-
   if (elem.type === 'slider') {
     $(parent).append(`<div id="${elem.id}-block" class="stat-block">
                         <div class="form-group row col-sm-12">
@@ -817,6 +813,15 @@ const classIcon = (type) => {
   }
 };
 
+const dedupeForm = (hero, artifact) => {
+  const heroElIds = (hero.form || []).map(element => element.id);
+  const artiElIds = (artifact.form || []).map(element => element.id);
+  const intersect = heroElIds.filter(id => artiElIds.includes(id));
+  if (intersect.length > 0) {
+    artifact.form = artifact.form.filter(element => !intersect.includes(element.id));
+  }
+}
+
 $(() => {
   try {
     const heroSelector = document.getElementById('hero');
@@ -834,9 +839,11 @@ $(() => {
 
     heroSelector.onchange = () => {
       const hero = heroes[heroSelector.value];
+      const artifact = { ...artifacts[artiSelector.value] };
+      dedupeForm(hero, artifact);
       build(hero);
       refreshArtifactList(hero);
-      buildArtifact(artifacts[artiSelector.value]);
+      buildArtifact(artifact);
       resolve();
       gtag('event', 'pick', {
         event_category: 'Hero',
