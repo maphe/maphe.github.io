@@ -115,7 +115,7 @@ const artifacts = {
   last_teatime: {
     id: 'last_teatime',
     name: 'Last Teatime',
-    scale: [0.07, 0.077, 0.084, 0.91, 0.98, 0.105, 0.112, 0.119, 0.126, 0.133, 0.14],
+    scale: [0.07, 0.077, 0.084, 0.091, 0.098, 0.105, 0.112, 0.119, 0.126, 0.133, 0.14],
     type: artifactDmgType.damage,
     exclusive: classType.mage,
     applies: (skill) => skill.aoe === true
