@@ -2391,8 +2391,9 @@ const heroes = {
     element: element.fire,
     classType: classType.thief,
     baseAtk: 1089,
-    form: [elements.nb_targets],
+    form: [elements.nb_targets, elements.target_bleed_detonate],
     dot: [dot.bleed],
+    info: infoLabel('haste_balance'),
     skills: {
       s1: {
         rate: 1,
@@ -2419,6 +2420,8 @@ const heroes = {
           }
         },
         multTip: () => ({ per_fewer_target: 50 }),
+        detonate: dot.bleed,
+        detonation: () => document.getElementById('elem-adv').checked ? 1.05 : 0,
         enhance: [0.15, 0, 0, 0, 0.15],
         aoe: true,
       }
@@ -2683,7 +2686,7 @@ const heroes = {
         pow: 0.95,
         mult: () => 1 + elements.caster_speed.value()*0.00075,
         multTip: () => ({ caster_speed: 0.075 }),
-        penetrate: () => elements.caster_speed_up.value() ? 0.3 : 0,
+        penetrate: () => 0.3,
         exEq: () => elements.exclusive_equipment_3.value() ? 0.2 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.15],
         aoe: true,
@@ -2789,7 +2792,6 @@ const heroes = {
     element: element.fire,
     classType: classType.warrior,
     baseAtk: 1119,
-    dot: [dot.burn],
     skills: {
       s1: {
         rate: 1,
@@ -3857,6 +3859,32 @@ const heroes = {
       },
     }
   },
+  politis: {
+    name: 'Politis',
+    element: element.fire,
+    classType: classType.mage,
+    baseAtk: 1197,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s2: {
+        rate: 0.9,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
+      s3: {
+        rate: 1,
+        pow: 1.1,
+        enhance: [0.05, 0, 0, 0, 0.15],
+        aoe: true,
+      },
+    }
+  },
   purrgis: {
     name: 'Purrgis',
     element: element.earth,
@@ -4514,6 +4542,7 @@ const heroes = {
     classType: classType.ranger,
     baseAtk: 1188,
     form: [elements.caster_speed, elements.caster_nb_focus],
+    info: infoLabel('silk_balance'),
     skills: {
       s1: {
         rate: () => elements.caster_nb_focus.value() >= 2 ? 1.25 : 0.9,
@@ -4524,7 +4553,7 @@ const heroes = {
         single: true,
       },
       s3: {
-        rate: 0.85,
+        rate: 0.95,
         pow: 1.05,
         enhance: [0.1, 0, 0, 0.15],
         aoe: true,
@@ -4627,6 +4656,7 @@ const heroes = {
     classType: classType.thief,
     baseAtk: 1228,
     form: [elements.target_is_stunned],
+    info: infoLabel('spez_balance'),
     skills: {
       s1: {
         rate: 1,
@@ -4636,7 +4666,7 @@ const heroes = {
       },
       s2: {
         soulburn: true,
-        rate: (soulburn) => soulburn ? 1.05 : 0.8,
+        rate: (soulburn) => soulburn ? 1.15 : 0.9,
         pow: 1,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         aoe: true,

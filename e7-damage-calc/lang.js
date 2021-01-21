@@ -87,12 +87,15 @@ const i18n = {
     },
     info: {
       alencia_trample: 'Trample',
+      haste_balance: '1/21 Balance applied: Detonation added (+5% damage)',
       lqc_s3_splash: 'S3 Splash',
       s1_extra_attack: 'S1 Extra Attack',
       s2_wave_2: 'S2 Wave 2',
       s2_counter: 'S2 (Counter)',
       s2_wave_3: 'S2 Wave 3',
       sez_explosion: 'Explosion',
+      silk_balance: '1/21 Balance applied: S3 multiplier changed from 0.85/1.05 to 0.95/1.05',
+      spez_balance: '1/21 Balance applied: S2 multiplier changed from 0.8/1 to 0.9/1 (Soulburn from 1.05/1 to 1.15/1)',
       victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes',
     }
   },
