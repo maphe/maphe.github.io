@@ -1568,6 +1568,7 @@ const i18n = {
       otillie: '오틸리어',
       pavel: '파벨',
       pearlhorizon: '펄호라이즌',
+      politis: '폴리티스',
       purrgis: '퍼지스',
       pyllis: '필리스',
       ras: '라스',
