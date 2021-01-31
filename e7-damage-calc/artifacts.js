@@ -46,6 +46,15 @@ const artifacts = {
     type: artifactDmgType.damage,
     exclusive: classType.mage,
   },
+  double_edged_decrescent: {
+    id: 'double_edged_decrescent',
+    name: 'Double-Edged Decrescent',
+    type: artifactDmgType.attack,
+    scale: [0.05, 0.055, 0.06, 0.065, 0.07, 0.075, 0.08, 0.085, 0.09, 0.095, 0.1],
+    form: [elements.single_attack_stack_3],
+    exclusive: classType.thief,
+    value: (artiScale) => elements.single_attack_stack_3.value()*artiScale
+  },
   draco_plate: {
     id: 'draco_plate',
     name: 'Draco Plate',
