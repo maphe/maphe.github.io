@@ -771,6 +771,7 @@ const i18n = {
       a_little_queens_crown:'小小女王的巨大王冠',
       shepherd_of_the_hollow:'無為的引導者',
       last_teatime:'最後的下午茶',
+      double_edged_decrescent:'雙刃下弦月',
     },
     form: {
       nb_targets: '敵人數量',
@@ -1303,6 +1304,7 @@ const i18n = {
       a_little_queens_crown:'小小女王的巨大王冠',
       shepherd_of_the_hollow:'无为的引导者',
       last_teatime:'最后的下午茶',
+      double_edged_decrescent:'双刃下弦月',
     },
     form: {
       nb_targets: '敌人数量',
