@@ -1741,6 +1741,31 @@ const heroes = {
       }
     }
   },
+  designer_lilibet: {
+    name: 'Designer Lilibet',
+    element: element.dark,
+    classType: classType.warrior,
+    form: [elements.caster_defense],
+    baseAtk: 975,
+    skills: {
+      s1: {
+        rate: 0.6,
+        pow: 1,
+        flat: () => elements.caster_defense.value()*1.0,
+        flatTip: () => ({ caster_defense: 100 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 0.6,
+        pow: 1,
+        flat: () => elements.caster_defense.value()*1.15,
+        flatTip: () => ({ caster_defense: 115 }),
+        enhance: [0.05, 0.05, 0, 0.05, 0.15],
+        aoe: true,
+      }
+    }
+  },
   destina: {
     name: 'Destina',
     element: element.earth,
@@ -3265,6 +3290,28 @@ const heroes = {
         pow: 1,
         enhance: [0.05, 0, 0, 0.1, 0.15],
         single: true,
+      }
+    }
+  },
+  lucy: {
+    name: 'Lucy',
+    element: element.earth,
+    classType: classType.soul_weaver,
+    baseAtk: 558,
+    form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value()*0.2,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 0.9,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0.05, 0, 0.1, 0.1],
+        aoe: true,
       }
     }
   },
