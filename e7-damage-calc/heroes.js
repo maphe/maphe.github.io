@@ -1014,15 +1014,9 @@ const heroes = {
             return elements.caster_max_hp.value() * (elements.caster_hp_pc.value() < 75 ? 0.0625 : 0.05)
           }
         },
-        flatTip: (soulburn) => {
-          const tip = { caster_max_hp: 7 };
-          if (elements.caster_hp_pc.value() < 75) {
-            tip.caster_hp_pc_under_hp_threshold = soulburn ? 10 : 6.25;
-          } else {
-            tip.caster_hp_pc_over_hp_threshold = soulburn ? 8 : 5;
-          }
-          return tip;
-        },
+        flatTip: (soulburn) => (elements.caster_hp_pc.value() < 75)
+            ? { caster_hp_pc_under_hp_threshold: soulburn ? 10 : 6.25 }
+            : { caster_hp_pc_over_hp_threshold: soulburn ? 8 : 5 },
         enhance: [0.05, 0, 0, 0.1, 0, 0.15],
         aoe: true,
       }
@@ -1931,6 +1925,32 @@ const heroes = {
       }
     }
   },
+  eda: {
+    name: 'Eda',
+    element: element.ice,
+    classType: classType.mage,
+    baseAtk: 1255,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 0.9,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true
+      },
+      s3: {
+        rate: 1.05,
+        pow: 1.1,
+        enhance: [0.05, 0, 0, 0, 0.15],
+        aoe: true
+      }
+    }
+  },
   elena: {
     name: 'Elena',
     element: element.ice,
@@ -2330,6 +2350,24 @@ const heroes = {
         rate: 1.65,
         pow: 0.95,
         enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      }
+    }
+  },
+  great_chief_khawana: {
+    name: 'Great Chief Khawana',
+    element: element.dark,
+    classType: classType.warrior,
+    baseAtk: 1138,
+    form: [elements.dual_attack_stack_5],
+    barrier: (hero) => hero.getAtk()*0.5,
+    atkUp: () => 1 + elements.dual_attack_stack_5.value()*0.15,
+    skills: {
+      s1: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.8 : 1.1,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1],
         single: true,
       }
     }
