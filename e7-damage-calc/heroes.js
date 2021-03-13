@@ -1047,7 +1047,7 @@ const heroes = {
       },
       s3: {
         rate: 0.6,
-        pow: 1.5,
+        pow: 1.05,
         flat: () => elements.caster_max_hp.value()*0.12,
         flatTip: () => ({ caster_max_hp: 12 }),
         enhance: [0.05, 0, 0, 0, 0.15],
