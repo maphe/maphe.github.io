@@ -93,7 +93,7 @@ const heroes = {
     name: 'Ainos',
     element: element.dark,
     classType: classType.soul_weaver,
-    baseAtk: 796,
+    baseAtk: 804,
     skills: {
       s1: {
         rate: 1,
@@ -780,7 +780,7 @@ const heroes = {
     name: 'Blaze Dingo',
     element: element.light,
     classType: classType.soul_weaver,
-    baseAtk: 859,
+    baseAtk: 880,
     skills: {
       s1: {
         rate: 1.5,
@@ -1395,7 +1395,7 @@ const heroes = {
     element: element.ice,
     classType: classType.warrior,
     baseAtk: 966,
-    form: [elements.caster_max_hp, elements.caster_full_focus],
+    form: [elements.caster_max_hp],
     skills: {
       s1: {
         rate: 0.5,
@@ -1411,7 +1411,7 @@ const heroes = {
         pow: 1,
         flat: (soulburn) => elements.caster_max_hp.value()*(soulburn ? 0.23 : 0.15),
         flatTip: (soulburn) => ({ caster_max_hp: (soulburn ? 23 : 15) }),
-        penetrate: () => elements.caster_full_focus.value() ? 0.5 : 0.3,
+        penetrate: () => 0.5,
         enhance: [0.05, 0.1, 0.15],
         single: true,
       },
@@ -1725,7 +1725,7 @@ const heroes = {
     name: 'Desert Jewel Basar',
     element: element.light,
     classType: classType.soul_weaver,
-    baseAtk: 932,
+    baseAtk: 948,
     skills: {
       s1: {
         rate: 1.2,
@@ -2517,8 +2517,8 @@ const heroes = {
         single: true,
       },
       s2: {
-        rate: 1.5,
-        pow: 0.95,
+        rate: 1.55,
+        pow: 0.9,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
       }
@@ -2611,7 +2611,7 @@ const heroes = {
     name: 'Jecht',
     element: element.earth,
     classType: classType.soul_weaver,
-    baseAtk: 796,
+    baseAtk: 804,
     skills: {
       s1: {
         rate: 1,
@@ -2823,7 +2823,7 @@ const heroes = {
     element: element.fire,
     classType: classType.thief,
     baseAtk: 957,
-    form: [elements.target_has_debuff, elements.all_allies_fire],
+    form: [elements.target_has_debuff, elements.caster_speed],
     dot: [dot.bleed],
     skills: {
       s1: {
@@ -2836,15 +2836,16 @@ const heroes = {
       s2: {
         rate: 0.9,
         pow: 1,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        multTip: () => ({ caster_speed: 0.075 }),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         aoe: true,
       },
       s3: {
-        soulburn: true,
-        rate: (soulburn) => soulburn ? 2 : 1.5,
+        rate: 1.5,
         pow: 1,
-        mult: (soulburn) => elements.all_allies_fire.value() ? (soulburn ? 1.25 : 1.35) : 1,
-        multTip: (soulburn) => ({ all_fire: soulburn ? 25 : 35 }),
+        mult: () => 1 + elements.caster_speed.value()*0.001125,
+        multTip: () => ({ caster_speed: 0.1125 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         single: true,
       },
@@ -3635,8 +3636,8 @@ const heroes = {
         single: true,
       },
       s2: {
-        rate: 1.5,
-        pow: 0.95,
+        rate: 1.55,
+        pow: 0.9,
         mult: () => 1 + (elements.skill_tree_completed.value() ? 0.05 : 0),
         multTip: () => ({ skill_tree: 5 }),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
@@ -3807,6 +3808,29 @@ const heroes = {
         pow: 0.95,
         enhance: [0.05, 0.05, 0, 0.1, 0.15],
         aoe: true,
+      }
+    }
+  },
+  muse_rima: {
+    name: 'Muse Rima',
+    element: element.ice,
+    classType: classType.ranger,
+    form: [elements.skill_tree_completed],
+    baseAtk: 822,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.8,
+        mult: () => 1 + (elements.skill_tree_completed.value() ? 0.05 : 0),
+        multTip: () => ({ skill_tree: 5 }),
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1, 0.15],
+        single: true,
+      },
+      s2: {
+        rate: 1.3,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.15],
+        single: true,
       }
     }
   },
@@ -4124,7 +4148,7 @@ const heroes = {
     name: 'Requiemroar',
     element: element.dark,
     classType: classType.soul_weaver,
-    baseAtk: 827,
+    baseAtk: 842,
     skills: {
       s1: {
         rate: 1,
@@ -4229,7 +4253,7 @@ const heroes = {
         enhance: [0.05, 0.05, 0.05, 0.1, 0.1, 0.15],
         single: true,
       },
-      s3: {
+      s2: {
         rate: 1.3,
         pow: 0.95,
         enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.15],
@@ -4864,7 +4888,7 @@ const heroes = {
     name: 'Tamarinne',
     element: element.fire,
     classType: classType.soul_weaver,
-    baseAtk: 932,
+    baseAtk: 948,
     skills: {
       s1: {
         rate: 1,
