@@ -22,6 +22,15 @@ const artifacts = {
     scale: [0.08, 0.088, 0.096, 0.104, 0.112, 0.12, 0.128, 0.136, 0.144, 0.152, 0.16],
     type: artifactDmgType.damage
   },
+  black_hand_of_the_goddess: {
+    id: 'black_hand_of_the_goddess',
+    name: 'Black Hand of the Goddess',
+    scale: [0.12, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2, 0.21, 0.22, 0.24],
+    type: artifactDmgType.critDmgBoost,
+    exclusive: classType.mage,
+    form: [elements.attack_skill_stack_5],
+    value: (artiScale) => artiScale - ((artiScale / 10) * elements.attack_skill_stack_5.value()),
+  },
   border_coin: {
     id: 'border_coin',
     name: 'Border Coin',

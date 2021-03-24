@@ -1501,7 +1501,7 @@ const heroes = {
     element: element.ice,
     classType: classType.warrior,
     baseAtk: 1252,
-    form: [elements.caster_enrage],
+    form: [elements.caster_enrage, elements.exclusive_equipment_3],
     dot: [dot.bleed],
     skills: {
       s1: {
@@ -1522,6 +1522,7 @@ const heroes = {
         pow: 1,
         mult: () => elements.caster_enrage.value() ? 1.3 : 1,
         multTip: () => ({ caster_rage: 30 }),
+        exEq: () => elements.exclusive_equipment_3.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         aoe: true,
       }

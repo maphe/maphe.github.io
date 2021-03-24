@@ -400,7 +400,7 @@ class Artifact {
     if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.critDmgBoost) {
       return 0;
     }
-    return this.getValue();
+    return artifacts[this.id].value ? artifacts[this.id].value(this.getValue()) : this.getValue();
   }
 
   getFlatMult() {
