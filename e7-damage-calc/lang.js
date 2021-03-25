@@ -750,6 +750,7 @@ const i18n = {
     artifacts: {
       no_proc: '無神器',
       a_symbol_of_unity:'團結的象徵',
+      black_hand_of_the_goddess: '女神的黑手',
       border_coin: '孤注一擲',
       daydream_joker: '白日夢小丑',
       draco_plate: '龍族板甲',
@@ -1289,6 +1290,7 @@ const i18n = {
     artifacts: {
       no_proc: '无神器',
       a_symbol_of_unity:'团结的象征',
+      black_hand_of_the_goddess: '女神的黑手',
       border_coin: '孤注一掷',
       daydream_joker: '白日梦小丑',
       draco_plate: '龙族板甲',
