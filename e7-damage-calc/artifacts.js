@@ -228,6 +228,7 @@ const artifacts = {
     atkPercent: 0.45,
     penetrate: 0.7,
     exclusive: classType.warrior,
+    applies: (skill) => skill.single === true,
   },
   victorious_flag: {
     id: 'victorious_flag',
