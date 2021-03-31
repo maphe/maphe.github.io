@@ -4786,7 +4786,7 @@ const heroes = {
         rate: 1.8,
         pow: 1,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
-        aoe: true,
+        single: true,
       }
     }
   },
