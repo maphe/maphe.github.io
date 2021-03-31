@@ -88,6 +88,7 @@ const i18n = {
     info: {
       alencia_trample: 'Trample',
       haste_balance: '1/21 Balance applied: Detonation added (+5% damage)',
+      elphelt_balance: '3/31 Balance: S1: 1/1 -> 1.1/1; S2: 1/0.85 -> 1/1, debuff scaling 15% -> 20%',
       lqc_s3_splash: 'S3 Splash',
       s1_extra_attack: 'S1 Extra Attack',
       s2_wave_2: 'S2 Wave 2',
@@ -95,6 +96,7 @@ const i18n = {
       s2_wave_3: 'S2 Wave 3',
       sez_explosion: 'Explosion',
       silk_balance: '1/21 Balance applied: S3 multiplier changed from 0.85/1.05 to 0.95/1.05',
+      sol_balance: '3/31 Balance: S2: 1/1 -> 0.7/1 (nerf); S3: added aftermath damage',
       spez_balance: '1/21 Balance applied: S2 multiplier changed from 0.8/1 to 0.9/1 (Soulburn from 1.05/1 to 1.15/1)',
       victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes',
     }
@@ -1552,6 +1554,7 @@ const i18n = {
       jena: '제나',
       judge_kise: '심판자 키세',
       judith: '쥬디스',
+      kanna: '폭격형 카논',
       karin: '카린',
       kawerik: '카웨릭',
       kayron: '카일론',
@@ -1629,6 +1632,7 @@ const i18n = {
       silk: '실크',
       silver_blade_aramintha: '백은칼날의 아라민타',
       sol: '솔',
+      solitaria_of_the_snow: '설국의 솔리타리아',
       sonia: '소니아',
       specimen_sez: '실험체 세즈',
       specter_tenebria: '환영의 테네브리아',

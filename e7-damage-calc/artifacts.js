@@ -8,6 +8,13 @@ const artifactDmgType = {
 };
 
 const artifacts = {
+  air_to_surface_missile_misha: {
+    id: 'air_to_surface_missile_misha',
+    name: 'Air-to-Surface Missile: MISHA',
+    scale: [0.15, 0.17, 0.18, 0.2, 0.21, 0.23, 0.24, 0.26, 0.27, 0.29, 0.3],
+    type: artifactDmgType.critDmgBoost,
+    exclusive: classType.ranger,
+  },
   a_little_queens_crown: {
     id: 'a_little_queens_crown',
     name: 'A Little Queen\'s Crown',

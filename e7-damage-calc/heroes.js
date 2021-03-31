@@ -1978,19 +1978,20 @@ const heroes = {
     classType: classType.ranger,
     baseAtk: 1003,
     form: [elements.target_nb_debuff],
+    info: infoLabel('elphelt_balance'),
     skills: {
       s1: {
-        rate: 1,
+        rate: 1.1,
         pow: 1,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         single: true,
       },
       s2: {
         rate: 1,
-        pow: 0.85,
-        mult: () => 1 + (elements.target_nb_debuff.value()*0.15),
-        multTip: () => ({ per_target_debuff: 15 }),
-        enhance: [0.05, 0.05, 0.1, 0.1, 0.15],
+        pow: 1,
+        mult: () => 1 + (elements.target_nb_debuff.value()*0.2),
+        multTip: () => ({ per_target_debuff: 20 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
       },
       s3: {
@@ -2691,6 +2692,29 @@ const heroes = {
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
         single: true,
+      }
+    }
+  },
+  kanna: {
+    name: 'Kanna',
+    element: element.fire,
+    classType: classType.ranger,
+    form: [elements.caster_speed],
+    baseAtk: 1182,
+    skills: {
+      s1: {
+        rate: 0.75,
+        pow: 1,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        multTip: () => ({ caster_speed: 0.075 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
+      s3: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0, 0.1, 0.15],
+        aoe: true,
       }
     }
   },
@@ -4717,6 +4741,7 @@ const heroes = {
     classType: classType.warrior,
     baseAtk: 1177,
     form: [elements.target_has_buff, elements.target_max_hp],
+    info: infoLabel('sol_balance'),
     skills: {
       s1: {
         rate: 1,
@@ -4727,7 +4752,7 @@ const heroes = {
         single: true,
       },
       s2: {
-        rate: 1,
+        rate: 0.7,
         pow: 1,
         flat: () => elements.target_max_hp.value()*0.04,
         flatTip: () => ({ target_max_hp: 4 }),
@@ -4739,8 +4764,29 @@ const heroes = {
         pow: 1,
         flat: () => elements.target_max_hp.value()*0.05,
         flatTip: () => ({ target_max_hp: 5 }),
+        afterMath: () => ({ atkPercent: 0.4, penetrate: 0.7 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         single: true,
+      }
+    }
+  },
+  solitaria_of_the_snow: {
+    name: 'Solitaria of the Snow',
+    element: element.light,
+    classType: classType.mage,
+    baseAtk: 1039,
+    skills: {
+      s1: {
+        rate: 0.8,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
+      s3: {
+        rate: 1.8,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
       }
     }
   },
