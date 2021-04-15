@@ -476,6 +476,7 @@ const i18n = {
       jena: '捷娜',
       judge_kise: '審判者綺世',
       judith: '茱迪絲',
+      kanna: '暴擊型卡農',
       karin: '卡琳',
       kawerik: '卡威利',
       kayron: '凱隆',
@@ -782,6 +783,7 @@ const i18n = {
       shepherd_of_the_hollow:'無為的引導者',
       last_teatime:'最後的下午茶',
       double_edged_decrescent:'雙刃下弦月',
+      air_to_surface_missile_misha:'空對地導彈: 美莎',
     },
     form: {
       nb_targets: '敵人數量',
@@ -1015,6 +1017,7 @@ const i18n = {
       jena: '捷娜',
       judge_kise: '审判者绮世',
       judith: '茱迪丝',
+      kanna: '暴击型卡农',
       karin: '卡琳',
       kawerik: '卡威利',
       kayron: '凯隆',
@@ -1323,6 +1326,7 @@ const i18n = {
       shepherd_of_the_hollow:'无为的引导者',
       last_teatime:'最后的下午茶',
       double_edged_decrescent:'双刃下弦月',
+      air_to_surface_missile_misha:'空对地导弹: 美莎',
     },
     form: {
       nb_targets: '敌人数量',
