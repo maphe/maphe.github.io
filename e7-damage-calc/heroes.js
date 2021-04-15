@@ -2947,7 +2947,7 @@ const heroes = {
     element: element.ice,
     classType: classType.thief,
     baseAtk: 1283,
-    form: [elements.target_has_buff, elements.caster_stealth, elements.caster_hp_pc],
+    form: [elements.target_has_buff, elements.caster_stealth, elements.caster_hp_pc, elements.exclusive_equipment_2],
     skills: {
       s1: {
         soulburn: true,
@@ -2966,6 +2966,7 @@ const heroes = {
         rate: 0.8,
         pow: 1,
         penetrate: () => elements.caster_stealth.value() ? 0.6 : 0.3,
+        exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         aoe: true,
       },
@@ -3384,7 +3385,7 @@ const heroes = {
     element: element.earth,
     classType: classType.mage,
     baseAtk: 1412,
-    form: [elements.caster_invincible],
+    form: [elements.caster_invincible, elements.exclusive_equipment_3],
     skills: {
       s1: {
         rate: 1,
@@ -3403,6 +3404,7 @@ const heroes = {
         rate: (soulburn) => soulburn ? 1.1 : 0.85,
         pow: 0.95,
         penetrate: () => elements.caster_invincible.value() ? 0.5 : 0.2,
+        exEq: () => elements.exclusive_equipment_3.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.15],
         aoe: true,
       }
