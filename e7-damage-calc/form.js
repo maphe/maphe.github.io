@@ -277,6 +277,13 @@ const elements = {
     readonly: true,
     value: () => Number(document.getElementById('caster-nb-buff').value)
   },
+  caster_has_debuff: {
+    ref: 'caster_has_debuff',
+    id: 'caster-has-debuff',
+    label: 'Caster has debuffs',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-has-debuff').checked
+  },
   caster_full_focus: {
     ref: 'caster_full_focus',
     id: 'caster-full-focus',

@@ -2319,13 +2319,27 @@ const heroes = {
     name: 'Gloomyrain',
     element: element.light,
     classType: classType.mage,
+    form: [elements.caster_has_debuff],
     baseAtk: 1199,
+    atkUp: () => {
+      if (!elements.caster_has_debuff.value()) return 1;
+
+      let boost = 0.2;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        boost += heroes.gloomyrain.skills.s2.enhance[i];
+      }
+
+      return 1 + boost;
+    },
     skills: {
       s1: {
         rate: 1,
         pow: 0.95,
         enhance: [0.05, 0.05, 0.1, 0, 0, 0.15],
         single: true,
+      },
+      s2: {
+        enhance: [0.05, 0.05, 0.1],
       },
       s3: {
         soulburn: true,
