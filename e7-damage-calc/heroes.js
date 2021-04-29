@@ -4534,6 +4534,14 @@ const heroes = {
         noCrit: true,
         single: true,
       },
+      s2: {
+        rate: 0,
+        pow: 0,
+        afterMath: () => ({ atkPercent: 0.45, penetrate: 0.7 }),
+        noCrit: true,
+        noMiss: true,
+        single: true,
+      },
       s3: {
         rate: 1.5,
         pow: 1.1,
