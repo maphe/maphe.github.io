@@ -4521,6 +4521,28 @@ const heroes = {
       }
     }
   },
+  senya: {
+    name: 'Senya',
+    element: element.earth,
+    classType: classType.knight,
+    baseAtk: 1445,
+    skills: {
+      s1: {
+        rate: 0.95,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        noCrit: true,
+        single: true,
+      },
+      s3: {
+        rate: 1.5,
+        pow: 1.1,
+        enhance: [0.05, 0, 0, 0, 0.15],
+        noCrit: true,
+        aoe: true,
+      }
+    }
+  },
   shooting_star_achates: {
     name: 'Shooting Star Achates',
     element: element.dark,

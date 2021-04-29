@@ -198,6 +198,15 @@ const artifacts = {
     exclusive: classType.warrior,
     value: () => 0.25
   },
+  spear_of_a_new_dawn: {
+    id: 'spear_of_a_new_dawn',
+    name: 'Spear of a New Dawn',
+    type: artifactDmgType.aftermath,
+    atkPercent: 0.4,
+    penetrate: 0.7,
+    exclusive: classType.knight,
+    applies: (_, skillId) => skillId === 's1',
+  },
   sword_of_summer_twilight: {
     id: 'sword_of_summer_twilight',
     name: 'Sword of Summer Twilight',

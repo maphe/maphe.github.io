@@ -262,7 +262,7 @@ class Hero {
     const skill = this.skills[skillId];
     const detonation = this.getDetonateDamage(skillId);
 
-    let artiDamage = this.getAfterMathArtifactDamage(skill);
+    let artiDamage = this.getAfterMathArtifactDamage(skillId);
     if (artiDamage === null) artiDamage = 0;
 
     const skillDamage = this.getAfterMathSkillDamage(skillId, hitType);
@@ -283,8 +283,10 @@ class Hero {
     return skillDamage;
   }
 
-  getAfterMathArtifactDamage(skill) {
-    const artiMultipliers = this.artifact.getAfterMathMultipliers(skill);
+  getAfterMathArtifactDamage(skillId) {
+    const skill = this.skills[skillId];
+
+    const artiMultipliers = this.artifact.getAfterMathMultipliers(skill, skillId);
     if (artiMultipliers !== null) {
       return this.getAtk()*artiMultipliers.atkPercent*dmgConst*this.target.defensivePower({ penetrate: () => artiMultipliers.penetrate }, true);
     }
@@ -349,9 +351,9 @@ class Artifact {
     this.id = id ? id : undefined;
   }
 
-  applies(skill) {
+  applies(skill, skillId = undefined) {
     if (this.id === undefined || skill === undefined) return true;
-    return artifacts[this.id].applies !== undefined ? artifacts[this.id].applies(skill) : true;
+    return artifacts[this.id].applies !== undefined ? artifacts[this.id].applies(skill, skillId) : true;
   }
 
   getName() {
@@ -378,8 +380,8 @@ class Artifact {
     return this.getValue();
   }
 
-  getAfterMathMultipliers(skill) {
-    if(!this.applies(skill)) return null;
+  getAfterMathMultipliers(skill, skillId) {
+    if(!this.applies(skill, skillId)) return null;
     if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.aftermath || artifacts[this.id].atkPercent === undefined || artifacts[this.id].penetrate === undefined) {
       return null;
     }
