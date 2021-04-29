@@ -548,6 +548,7 @@ const i18n = {
       schuri: '修里',
       shooting_star_achates: '流星雅卡泰絲',
       seaside_bellona: '海邊的維爾蘿娜',
+      senya:'賽娜',
       serila: '塞麗拉',
       sez: '賽茲',
       shadow_rose: '暗影蘿季',
@@ -784,6 +785,7 @@ const i18n = {
       last_teatime:'最後的下午茶',
       double_edged_decrescent:'雙刃下弦月',
       air_to_surface_missile_misha:'空對地導彈: 美莎',
+      spear_of_a_new_dawn:'開闢之鎗',
     },
     form: {
       nb_targets: '敵人數量',
@@ -1089,6 +1091,7 @@ const i18n = {
       schuri: '修里',
       shooting_star_achates: '流星雅卡泰丝',
       seaside_bellona: '海边的维尔萝娜',
+      senya:'赛娜',
       serila: '塞丽拉',
       sez: '赛兹',
       shadow_rose: '暗影萝季',
@@ -1327,6 +1330,7 @@ const i18n = {
       last_teatime:'最后的下午茶',
       double_edged_decrescent:'双刃下弦月',
       air_to_surface_missile_misha:'空对地导弹: 美莎',
+      spear_of_a_new_dawn:'开辟之枪',
     },
     form: {
       nb_targets: '敌人数量',
