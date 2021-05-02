@@ -1978,7 +1978,6 @@ const heroes = {
     classType: classType.ranger,
     baseAtk: 1003,
     form: [elements.target_nb_debuff],
-    info: infoLabel('elphelt_balance'),
     skills: {
       s1: {
         rate: 1.1,
@@ -2472,7 +2471,6 @@ const heroes = {
     baseAtk: 1089,
     form: [elements.nb_targets, elements.target_bleed_detonate],
     dot: [dot.bleed],
-    info: infoLabel('haste_balance'),
     skills: {
       s1: {
         rate: 1,
@@ -4722,7 +4720,6 @@ const heroes = {
     classType: classType.ranger,
     baseAtk: 1188,
     form: [elements.caster_speed, elements.caster_nb_focus],
-    info: infoLabel('silk_balance'),
     skills: {
       s1: {
         rate: () => elements.caster_nb_focus.value() >= 2 ? 1.25 : 0.9,
@@ -4787,7 +4784,6 @@ const heroes = {
     classType: classType.warrior,
     baseAtk: 1177,
     form: [elements.target_has_buff, elements.target_max_hp],
-    info: infoLabel('sol_balance'),
     skills: {
       s1: {
         rate: 1,
@@ -4858,7 +4854,6 @@ const heroes = {
     classType: classType.thief,
     baseAtk: 1228,
     form: [elements.target_is_stunned],
-    info: infoLabel('spez_balance'),
     skills: {
       s1: {
         rate: 1,
