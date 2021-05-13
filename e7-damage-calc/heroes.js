@@ -3694,7 +3694,7 @@ const heroes = {
           }
         },
         multTip: () => ({ per_fewer_target: 30 }),
-        enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
+        enhance_from: 's2',
         aoe: true,
       },
       s3: {
