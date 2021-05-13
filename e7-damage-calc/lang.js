@@ -1720,6 +1720,7 @@ const i18n = {
       maid_chloe: '메클',
       martial_artist_ken: '월켄 무켄 월오독',
       mascot_hazel: "마이즐",
+      mediator_kawerik: '조율자 카웨릭',
       melissa: "라이징스타",
       mercedes: "벤츠",
       mui: '신캐',
