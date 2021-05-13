@@ -506,6 +506,17 @@ const elements = {
     readonly: true,
     value: () => Number(document.getElementById('caster-attacked-stack-3').value)
   },
+  caster_attacked_stack_5: {
+    ref: 'caster_attacked_stack_5',
+    id: 'caster-attacked-stack-5',
+    label: 'Caster Attacked Stack',
+    type: 'slider',
+    min: 0,
+    max: 5,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('caster-attacked-stack-5').value)
+  },
   dead_people: {
     ref: 'dead_people',
     id: 'dead-people',

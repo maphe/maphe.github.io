@@ -968,6 +968,7 @@ const heroes = {
     dot: [dot.burn],
     barrier: () => Number(document.getElementById(`atk`).value)*0.6,
     barrierEnhance: 's2',
+    info: infoLabel('carrot_balance'),
     skills: {
       s1: {
         rate: 1,
@@ -981,7 +982,7 @@ const heroes = {
         enhance: [0.15, 0.15]
       },
       s3: {
-        rate: 1,
+        rate: 1.1,
         pow: 1,
         enhance: [0.05, 0, 0, 0, 0.1, 0, 0.15],
         aoe: true,
@@ -1271,31 +1272,33 @@ const heroes = {
     element: element.dark,
     classType: classType.warrior,
     baseAtk: 1144,
-    form: [elements.target_hp_pc, elements.caster_max_hp],
+    form: [elements.caster_max_hp, elements.caster_attacked_stack_5],
     dot: [dot.bleed],
+    atkUp: () => 1 + elements.caster_attacked_stack_5.value()*0.06,
+    info: infoLabel('chaos_sect_balance'),
     skills: {
       s1: {
-        rate: 1,
+        rate: 0.85,
         pow: 0.95,
-        mult: () => 1 + (100-elements.target_hp_pc.value())*0.002,
-        multTip: () => ({ target_lost_hp_pc: 20 }),
+        flat: () => elements.caster_max_hp.value()*0.04,
+        flatTip: () => ({ caster_max_hp: 4 }),
         enhance: [0.05, 0.05, 0.1, 0.15],
         single: true,
       },
       s2: {
-        soulburn: true,
-        rate: (soulburn) => soulburn ? 1 : 0.8,
+        rate: 0.75,
         pow: 0.95,
-        mult: () => 1 + (100-elements.target_hp_pc.value())*0.005,
-        multTip: () => ({ target_lost_hp_pc: 50 }),
+        flat: () => elements.caster_max_hp.value()*0.05,
+        flatTip: () => ({ caster_max_hp: 5 }),
         enhance: [0.05, 0.05, 0.1, 0.15],
         aoe: true,
       },
       s3: {
-        rate: 1.8,
+        rate: 1.2,
         pow: 0.9,
-        flat: () => elements.caster_max_hp.value()*0.05,
-        flatTip: () => ({ caster_max_hp: 5 }),
+        flat: () => elements.caster_max_hp.value()*0.1,
+        flatTip: () => ({ caster_max_hp: 10 }),
+        penetrate: () => document.getElementById(`elem-adv`).checked ? 0.4 : 0,
         enhance: [0.05, 0.05, 0.05, 0, 0, 0.1, 0.15],
         single: true,
       }
@@ -1430,28 +1433,31 @@ const heroes = {
     element: element.dark,
     classType: classType.warrior,
     baseAtk: 1144,
-    form: [elements.target_hp_pc],
+    form: [elements.caster_max_hp],
     dot: [dot.bleed],
+    info: infoLabel('chaos_sect_balance'),
     skills: {
       s1: {
-        rate: 1,
+        rate: 0.85,
         pow: 0.95,
-        mult: () => 1 + (100-elements.target_hp_pc.value())*0.002,
-        multTip: () => ({ target_lost_hp_pc: 20 }),
+        flat: () => elements.caster_max_hp.value()*0.04,
+        flatTip: () => ({ caster_max_hp: 4 }),
         enhance: [0.05, 0.05, 0.1, 0.15],
         single: true,
       },
       s2: {
-        rate: (soulburn) => soulburn ? 1 : 0.8,
+        rate: 0.75,
         pow: 0.95,
-        mult: () => 1 + (100-elements.target_hp_pc.value())*0.005,
-        multTip: () => ({ target_lost_hp_pc: 50 }),
+        flat: () => elements.caster_max_hp.value()*0.05,
+        flatTip: () => ({ caster_max_hp: 5 }),
         enhance: [0.05, 0.05, 0.1, 0.15],
         aoe: true,
       },
       s3: {
-        rate: 1.8,
+        rate: 1.2,
         pow: 0.9,
+        flat: () => elements.caster_max_hp.value()*0.1,
+        flatTip: () => ({ caster_max_hp: 10 }),
         enhance: [0.05, 0.05, 0.05, 0, 0, 0.1, 0.15],
         single: true,
       }
@@ -3592,6 +3598,31 @@ const heroes = {
       }
     }
   },
+  mediator_kawerik: {
+    name: 'Mediator Kawerik',
+    element: element.dark,
+    classType: classType.warrior,
+    baseAtk: 966,
+    form: [elements.caster_max_hp],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        flat: () => 0.04*elements.caster_max_hp.value(),
+        flatTip: () => ({ caster_max_hp: 4 }),
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 1.5,
+        pow: 1,
+        flat: () => 0.07*elements.caster_max_hp.value(),
+        flatTip: () => ({ caster_max_hp: 7 }),
+        enhance: [0.05, 0, 0, 0, 0.1, 0.15],
+        single: true,
+      }
+    }
+  },
   melissa: {
     name: 'Melissa',
     element: element.fire,
@@ -3627,15 +3658,32 @@ const heroes = {
     classType: classType.mage,
     baseAtk: 1187,
     form: [elements.nb_targets, elements.target_hp_pc],
+    info: infoLabel('mercedes_balance'),
     skills: {
       s1: {
-        rate: 0.7,
+        rate: 0.8,
         pow: 0.95,
         enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
       },
       s2: {
         soulburn: true,
         rate: (soulburn) => soulburn ? 0.9 : 0.7,
+        pow: 0.9,
+        mult: () => {
+          switch (elements.nb_targets.value()) {
+            case 1: return 1.9;
+            case 2: return 1.6;
+            case 3: return 1.3;
+            default: return 1;
+          }
+        },
+        multTip: () => ({ per_fewer_target: 30 }),
+        enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
+        aoe: true,
+      },
+      s2_bis: {
+        name: infoLabel('s2_wave_2'),
+        rate: 0.35,
         pow: 0.9,
         mult: () => {
           switch (elements.nb_targets.value()) {
@@ -4209,10 +4257,11 @@ const heroes = {
     element: element.fire,
     classType: classType.mage,
     baseAtk: 1039,
-    form: [elements.target_burn_detonate, elements.skill_tree_completed],
+    form: [elements.target_burn_detonate],
     dot: [dot.burn],
     barrier: () => Number(document.getElementById(`atk`).value)*0.6,
     barrierEnhance: 's2',
+    info: infoLabel('carrot_balance'),
     skills: {
       s1: {
         pow: 0.95,
@@ -4226,11 +4275,9 @@ const heroes = {
         enhance: [0.15, 0.15]
       },
       s3: {
-        pow: 1,
+        pow: 1.1,
         rate: 1,
         enhance: [0.05, 0, 0, 0, 0.1, 0, 0.15],
-        mult: () => elements.skill_tree_completed.value() ? 1.1 : 1,
-        multTip: () => ({ skill_tree: 10 }),
         aoe: true,
       }
     }
