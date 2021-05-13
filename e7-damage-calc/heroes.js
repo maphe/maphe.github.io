@@ -142,7 +142,7 @@ const heroes = {
     element: element.ice,
     classType: classType.soul_weaver,
     baseAtk: 705,
-    barrier: () => Number(document.getElementById(`atk`).value),
+    barrier: (hero) => hero.getAtk(),
     skills: {
       s1: {
         rate: 1,
@@ -966,7 +966,7 @@ const heroes = {
     baseAtk: 1039,
     form: [elements.target_burn_detonate],
     dot: [dot.burn],
-    barrier: () => Number(document.getElementById(`atk`).value)*0.6,
+    barrier: (hero) => hero.getAtk()*0.6,
     barrierEnhance: 's2',
     info: infoLabel('carrot_balance'),
     skills: {
@@ -1880,7 +1880,7 @@ const heroes = {
     element: element.ice,
     classType: classType.mage,
     baseAtk: 957,
-    barrier: () => Number(document.getElementById(`atk`).value),
+    barrier: (hero) => hero.getAtk(),
     skills: {
       s1: {
         rate: 1,
@@ -2398,7 +2398,7 @@ const heroes = {
     element: element.light,
     classType: classType.mage,
     baseAtk: 1252,
-    barrier: () => Number(document.getElementById(`atk`).value),
+    barrier: (hero) => hero.getAtk(),
     skills: {
       s1: {
         rate: 1,
@@ -3434,7 +3434,7 @@ const heroes = {
     classType: classType.mage,
     baseAtk: 1316,
     form: [elements.target_hp_pc, elements.s3_stack],
-    barrier: () => Number(document.getElementById('atk').value)*(1+elements.s3_stack.value()*0.2)*0.375,
+    barrier: (hero) => hero.getAtk()*(1+elements.s3_stack.value()*0.2)*0.375,
     barrierEnhance: 's2',
     atkUp: () => 1 + elements.s3_stack.value()*0.2,
     skills: {
@@ -4259,7 +4259,7 @@ const heroes = {
     baseAtk: 1039,
     form: [elements.target_burn_detonate],
     dot: [dot.burn],
-    barrier: () => Number(document.getElementById(`atk`).value)*0.6,
+    barrier: (hero) => hero.getAtk()*0.6,
     barrierEnhance: 's2',
     info: infoLabel('carrot_balance'),
     skills: {
