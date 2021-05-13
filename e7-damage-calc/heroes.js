@@ -3690,7 +3690,7 @@ const heroes = {
             case 1: return 1.9;
             case 2: return 1.6;
             case 3: return 1.3;
-            default: return 1;
+            default: return 0;
           }
         },
         multTip: () => ({ per_fewer_target: 30 }),
