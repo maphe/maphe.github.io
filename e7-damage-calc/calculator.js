@@ -227,7 +227,7 @@ class Hero {
     }
     const target = document.getElementById('target').checked ? Number(document.getElementById('target').value) : 1.0;
 
-    let dmgMod = 1.0 + getGlobalDamageMult(this) + this.artifact.getDamageMultiplier(skill) + (skill.mult ? skill.mult(soulburn)-1 : 0);
+    let dmgMod = 1.0 + getGlobalDamageMult(this) + this.artifact.getDamageMultiplier(skill, skillId) + (skill.mult ? skill.mult(soulburn)-1 : 0);
 
     return ((this.getAtk(skillId)*rate + flatMod)*dmgConst + flatMod2) * pow * skillEnhance * elemAdv * target * dmgMod;
   }
@@ -364,8 +364,8 @@ class Artifact {
     return artifacts[this.id].scale ? artifacts[this.id].scale[Math.floor(document.getElementById('artifact-lvl').value/3)] : artifacts[this.id].value;
   }
 
-  getDamageMultiplier(skill) {
-    if(!this.applies(skill)) return 0;
+  getDamageMultiplier(skill, skillId) {
+    if(!this.applies(skill, skillId)) return 0;
     if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.damage) {
       return 0;
     }

@@ -29,6 +29,13 @@ const artifacts = {
     scale: [0.08, 0.088, 0.096, 0.104, 0.112, 0.12, 0.128, 0.136, 0.144, 0.152, 0.16],
     type: artifactDmgType.damage
   },
+  ancient_sheath: {
+    id: 'ancient_sheath',
+    name: 'Ancient Sheath',
+    type: artifactDmgType.damage,
+    scale: [0.08, 0.088, 0.096, 0.104, 0.112, 0.12, 0.128, 0.136, 0.144, 0.152, 0.16],
+    applies: (_, skillId) => skillId === 's1',
+  },
   black_hand_of_the_goddess: {
     id: 'black_hand_of_the_goddess',
     name: 'Black Hand of the Goddess',
