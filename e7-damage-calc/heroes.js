@@ -2606,6 +2606,62 @@ const heroes = {
       }
     }
   },
+  ilynav: {
+    name: 'Ilynav',
+    element: element.fire,
+    classType: classType.knight,
+    baseAtk: 957,
+    form: [elements.caster_max_hp],
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.08,
+        flatTip: () => ({ caster_max_hp: 8 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 1,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.18,
+        flatTip: () => ({ caster_max_hp: 18 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 0.7,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.12,
+        flatTip: () => ({ caster_max_hp: 12 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
+      }
+    }
+  },
+  inferno_khawazu: {
+    name: 'Inferno Khawazu',
+    element: element.dark,
+    classType: classType.warrior,
+    baseAtk: 1119,
+    form: [elements.caster_vigor, elements.target_burn_detonate],
+    dot: [dot.burn],
+    skills: {
+      s1: {
+        rate: 0.95,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.1,  0.1],
+        single: true,
+      },
+      s3: {
+        rate: 0.7,
+        pow: 1,
+        detonate: dot.burn,
+        detonation: () => 1.2,
+        single: true,
+      }
+    }
+  },
   iseria: {
     name: 'Iseria',
     element: element.earth,

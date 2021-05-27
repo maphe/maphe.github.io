@@ -290,4 +290,11 @@ const artifacts = {
     scale: [0.3, 0.33, 0.36, 0.39, 0.42, 0.45, 0.48, 0.51, 0.54, 0.57, 0.6],
     exclusive: classType.thief
   },
+  wings_of_light_and_shadow: {
+    id: 'wings_of_light_and_shadow',
+    name: 'Wings of Light and Shadow',
+    scale: [0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2],
+    type: artifactDmgType.damage,
+    exclusive: classType.knight,
+  },
 };
