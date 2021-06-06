@@ -87,9 +87,6 @@ const i18n = {
     },
     info: {
       alencia_trample: 'Trample',
-      carrot_balance: '5/13 Balance: S3: 1/1 -> 1.1/1',
-      chaos_sect_balance: '5/13 Balance: S1: 1/0.95 -> 0.85/0.95+4% max HP; S2: 0.8/0.95 -> 0.75/0.95+5% max HP; S3: 1.8/0.9+5% max HP -> 1.2/0.9+10% max HP',
-      mercedes_balance: '5/13 Balance: S1: 0.7/0.95 -> 0.8/0.95',
       lqc_s3_splash: 'S3 Splash',
       s1_extra_attack: 'S1 Extra Attack',
       s2_wave_2: 'S2 Wave 2',
@@ -1628,7 +1625,7 @@ const i18n = {
       sage_baal_and_sezan: '현자 바알 & 세잔',
       schuri: '슈리',
       seaside_bellona: '해변의 벨로나',
-      senya: '세냐',
+      senya: '셰나',
       serila: '세릴라',
       sez: '세즈',
       sinful_angelica: '죄악의 안젤리카',

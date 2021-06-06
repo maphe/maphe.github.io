@@ -968,7 +968,6 @@ const heroes = {
     dot: [dot.burn],
     barrier: (hero) => hero.getAtk()*0.6,
     barrierEnhance: 's2',
-    info: infoLabel('carrot_balance'),
     skills: {
       s1: {
         rate: 1,
@@ -1275,7 +1274,6 @@ const heroes = {
     form: [elements.caster_max_hp, elements.caster_attacked_stack_5],
     dot: [dot.bleed],
     atkUp: () => 1 + elements.caster_attacked_stack_5.value()*0.06,
-    info: infoLabel('chaos_sect_balance'),
     skills: {
       s1: {
         rate: 0.85,
@@ -1435,7 +1433,6 @@ const heroes = {
     baseAtk: 1144,
     form: [elements.caster_max_hp],
     dot: [dot.bleed],
-    info: infoLabel('chaos_sect_balance'),
     skills: {
       s1: {
         rate: 0.85,
@@ -3714,7 +3711,6 @@ const heroes = {
     classType: classType.mage,
     baseAtk: 1187,
     form: [elements.nb_targets, elements.target_hp_pc],
-    info: infoLabel('mercedes_balance'),
     skills: {
       s1: {
         rate: 0.8,
@@ -4317,7 +4313,6 @@ const heroes = {
     dot: [dot.burn],
     barrier: (hero) => hero.getAtk()*0.6,
     barrierEnhance: 's2',
-    info: infoLabel('carrot_balance'),
     skills: {
       s1: {
         pow: 0.95,
