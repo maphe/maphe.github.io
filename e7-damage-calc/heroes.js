@@ -5007,6 +5007,44 @@ const heroes = {
       }
     }
   },
+  straze: {
+    name: 'Straze',
+    element: element.dark,
+    classType: classType.warrior,
+    baseAtk: 1228,
+    form: [elements.nb_targets, elements.target_is_highest_max_hp, /* elements.target_attack */],
+    info: infoLabel('straze'),
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 0.9,
+        pow: 1,
+        mult: () => {
+          switch (elements.nb_targets.value()) {
+            case 1: return 1.6;
+            case 2: return 1.4;
+            case 3: return 1.2;
+            default: return 1;
+          }
+        },
+        multTip: () => ({per_fewer_target: 20}),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
+      s3: {
+        rate: 0.95,
+        pow: 1,
+        penetrate: () => elements.target_is_highest_max_hp.value() ? 0.3 : 0,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
+      },
+    }
+  },
   surin: {
     name: 'Surin',
     element: element.fire,

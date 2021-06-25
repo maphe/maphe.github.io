@@ -21,6 +21,32 @@ const elements = {
     readonly: true,
     value: () => Number(document.getElementById('nb-hits').value)
   },
+  target_attack: {
+    ref: 'target_attack',
+    id: 'target-attack',
+    label: 'Target Attack',
+    type: 'slider',
+    min: 200,
+    max: 10000,
+    default: 2000,
+    value: () => Number(document.getElementById('target-attack').value)
+  },
+  target_atk_up: {
+    ref: 'target_atk_up',
+    id: 'target-atk-up',
+    label: 'Target has Increased Attack',
+    type: 'checkbox',
+    value: () => document.getElementById('target-atk-up').checked,
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_att_up.png'
+  },
+  target_atk_up_great: {
+    ref: 'target_atk_up_great',
+    id: 'target-atk-up-great',
+    label: 'Target has Increased Attack (Great)',
+    type: 'checkbox',
+    value: () => document.getElementById('target-atk-up-great').checked,
+    icon: 'https://epic7x.com/wp-content/uploads/2019/01/greater-attack-icon.png'
+  },
   target_max_hp: {
     ref: 'target_max_hp',
     id: 'target-max-hp',
@@ -33,6 +59,13 @@ const elements = {
       return defPreset.value ? defPreset.options[defPreset.selectedIndex].dataset.hp : 10000
     },
     value: () => Number(document.getElementById('target-max-hp').value)
+  },
+  target_is_highest_max_hp: {
+    ref: 'target_is_highest_max_hp',
+    id: 'target-is-highest-max-hp',
+    label: 'Target is Highest max HP',
+    type: 'checkbox',
+    value: () => document.getElementById('target-is-highest-max-hp').checked
   },
   target_hp_pc: {
     ref: 'target_hp_pc',
@@ -606,6 +639,7 @@ const elements = {
 elements.caster_speed.sub_elements = [elements.caster_speed_up];
 elements.caster_defense.sub_elements = [elements.caster_defense_up];
 elements.highest_ally_attack.sub_elements = [elements.ally_atk_up, elements.ally_atk_up_great];
+elements.target_attack.sub_elements = [elements.target_atk_up, elements.target_atk_up_great];
 
 const slide = (fieldId) => {
   document.getElementById(fieldId).value = document.getElementById(`${fieldId}-slide`).value;
