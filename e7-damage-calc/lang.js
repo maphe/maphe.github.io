@@ -53,6 +53,7 @@ const i18n = {
       afterMathDmg: 'Aftermath Dmg',
       extraDmg: 'Extra Dmg',
       custom: {
+        caster_target_atk_diff: '{v}% Attack Difference',
         all_fire: '{v}% Team Fire',
         caster_defense: '{v}% Defense',
         caster_left_hp_pc: '{v}% remaining HP%',
@@ -93,7 +94,6 @@ const i18n = {
       s2_counter: 'S2 (Counter)',
       s2_wave_3: 'S2 Wave 3',
       sez_explosion: 'Explosion',
-      straze: 'S3 is missing Defense Penetration scaling above the base 30% (still has not been datamined)',
       victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes',
     }
   },

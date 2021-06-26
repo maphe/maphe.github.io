@@ -5012,8 +5012,7 @@ const heroes = {
     element: element.dark,
     classType: classType.warrior,
     baseAtk: 1228,
-    form: [elements.nb_targets, elements.target_is_highest_max_hp, /* elements.target_attack */],
-    info: infoLabel('straze'),
+    form: [elements.nb_targets, elements.target_is_highest_max_hp, elements.target_attack],
     skills: {
       s1: {
         rate: 1,
@@ -5039,7 +5038,15 @@ const heroes = {
       s3: {
         rate: 0.95,
         pow: 1,
-        penetrate: () => elements.target_is_highest_max_hp.value() ? 0.3 : 0,
+        penetrate: () => {
+          const targetAtk = elements.target_attack.value();
+          const casterAtk = Number(document.getElementById('atk').value)*(1+getGlobalAtkMult());
+
+          const penDiff = (casterAtk-targetAtk)*0.0003;
+
+          return elements.target_is_highest_max_hp.value() ? Math.max(0.3, Math.min(penDiff, 1)) : 0
+        },
+        penetrateTip: () => ({ caster_target_atk_diff: 0.03 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         aoe: true,
       },

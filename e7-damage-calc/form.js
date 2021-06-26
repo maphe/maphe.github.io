@@ -30,6 +30,9 @@ const elements = {
     max: 10000,
     default: 2000,
     value: () => Number(document.getElementById('target-attack').value)
+        * Number(elements.target_atk_up.value() ? 1.5 : 1)
+        * Number(elements.target_atk_up_great.value() ? 1.75 : 1)
+        * Number(elements.target_atk_down.value() ? 0.5 : 1),
   },
   target_atk_up: {
     ref: 'target_atk_up',
@@ -46,6 +49,14 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('target-atk-up-great').checked,
     icon: 'https://epic7x.com/wp-content/uploads/2019/01/greater-attack-icon.png'
+  },
+  target_atk_down: {
+    ref: 'target_atk_down',
+    id: 'target-atk-down',
+    label: 'Target has Decreased Attack',
+    type: 'checkbox',
+    value: () => document.getElementById('target-atk-down').checked,
+    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_att_dn.png'
   },
   target_max_hp: {
     ref: 'target_max_hp',
@@ -639,7 +650,7 @@ const elements = {
 elements.caster_speed.sub_elements = [elements.caster_speed_up];
 elements.caster_defense.sub_elements = [elements.caster_defense_up];
 elements.highest_ally_attack.sub_elements = [elements.ally_atk_up, elements.ally_atk_up_great];
-elements.target_attack.sub_elements = [elements.target_atk_up, elements.target_atk_up_great];
+elements.target_attack.sub_elements = [elements.target_atk_up, elements.target_atk_up_great, elements.target_atk_down];
 
 const slide = (fieldId) => {
   document.getElementById(fieldId).value = document.getElementById(`${fieldId}-slide`).value;
