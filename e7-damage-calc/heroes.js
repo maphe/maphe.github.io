@@ -5039,12 +5039,14 @@ const heroes = {
         rate: 0.95,
         pow: 1,
         penetrate: () => {
+          if (!elements.target_is_highest_max_hp.value()) return 0;
+
           const targetAtk = elements.target_attack.value();
           const casterAtk = Number(document.getElementById('atk').value)*(1+getGlobalAtkMult());
 
           const penDiff = (casterAtk-targetAtk)*0.0003;
 
-          return elements.target_is_highest_max_hp.value() ? Math.max(0.3, Math.min(penDiff, 1)) : 0
+          return Math.min(Math.max(0, Math.min(penDiff, 1)) + 0.3, 1);
         },
         penetrateTip: () => ({ caster_target_atk_diff: 0.03 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
