@@ -145,6 +145,8 @@ const getGlobalDefMult = () => {
   return mult;
 };
 
+let currentHero = null;
+
 class Hero {
   constructor(id, artifact) {
     this.id = id;
@@ -159,6 +161,7 @@ class Hero {
     this.barrierEnhance = heroes[id].barrierEnhance;
     this.artifact = artifact;
     this.target = new Target(artifact);
+    currentHero = this;
   }
 
   getModifiers(skillId, soulburn = false) {

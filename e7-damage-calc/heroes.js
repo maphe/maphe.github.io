@@ -3310,7 +3310,7 @@ const heroes = {
       s3: {
         rate: 0.9,
         pow: 1,
-        atk: () =>  elements.highest_ally_attack.value() * (elements.ally_atk_up.value() ? 1.5 : 1) * (elements.ally_atk_up_great.value() ? 1.75 : 1),
+        atk: () =>  elements.highest_ally_attack.value(),
         noBuff: true,
         enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1],
         aoe: true,
@@ -5042,11 +5042,11 @@ const heroes = {
           if (!elements.target_is_highest_max_hp.value()) return 0;
 
           const targetAtk = elements.target_attack.value();
-          const casterAtk = Number(document.getElementById('atk').value)*(1+getGlobalAtkMult());
+          const casterAtk = currentHero.getAtk('s3');
 
           const penDiff = (casterAtk-targetAtk)*0.0003;
 
-          return Math.min(Math.max(0, Math.min(penDiff, 1)) + 0.3, 1);
+          return Math.min(Math.max(0, penDiff) + 0.3, 1);
         },
         penetrateTip: () => ({ caster_target_atk_diff: 0.03 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],

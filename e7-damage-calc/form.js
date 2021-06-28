@@ -581,6 +581,8 @@ const elements = {
     max: 10000,
     default: 4000,
     value: () => Number(document.getElementById('highest-ally-attack').value)
+        * (elements.ally_atk_up.value() ? 1.5 : 1)
+        * (elements.ally_atk_up_great.value() ? 1.75 : 1),
   },
   ally_atk_up: {
     ref: 'ally_atk_up',
