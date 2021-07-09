@@ -194,16 +194,15 @@ const artifacts = {
   shepherd_of_the_hollow: {
     id: 'shepherd_of_the_hollow',
     name: 'Shepherd of the Hollow',
-    scale: [0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2],
+    scale: [0.12, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2, 0.21, 0.22, 0.24],
     type: artifactDmgType.damage,
     exclusive: classType.thief,
-    applies: () => {
-      try {
-        return elements.caster_hp_pc.value() < 25
-      } catch (e) {
-        // in case there's no HP% slider for the selected hero
-        return true;
-      }
+    form: [elements.caster_hp_pc],
+    value: (artiScale) => {
+      if (elements.caster_hp_pc.value() < 25) return artiScale;
+      if (elements.caster_hp_pc.value() < 50) return artiScale*0.83;
+      if (elements.caster_hp_pc.value() < 75) return artiScale*0.66;
+      return artiScale*0.5;
     }
   },
   sigurd_scythe: {

@@ -88,6 +88,7 @@ const i18n = {
     },
     info: {
       alencia_trample: 'Trample',
+      balance_op_sigret: 'Balance Update: Added Speed scaling, lowered Attack scaling: S2: 0.8 -> 0.75 / S3 1.1 -> 1',
       lqc_s3_splash: 'S3 Splash',
       s1_extra_attack: 'S1 Extra Attack',
       s2_wave_2: 'S2 Wave 2',

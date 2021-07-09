@@ -1468,24 +1468,12 @@ const heroes = {
     form: [elements.caster_speed],
     skills: {
       s1: {
-        rate: () => elements.caster_speed_up.value() ? 1.05 : 0.9,
-        pow: () => {
-          if (!elements.caster_speed_up.value()) return 0.95;
-
-          let mult = 0.0;
-          for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
-            mult += heroes.cidd.skills.s2.enhance[i];
-          }
-
-          return 0.95+mult;
-        },
+        rate: () => elements.caster_speed_up.value() ? 1.5 : 0.9,
+        pow: () => elements.caster_speed_up.value() ? 0.9 : 0.95,
         mult: () => 1 + elements.caster_speed.value()*0.00075,
         multTip: () => ({ caster_speed: 0.075 }),
         enhance: [0.05, 0.05, 0.05, 0.1, 0.1],
         single: true,
-      },
-      s2: {
-        enhance: [0.05, 0.05, 0.05, 0.1, 0.15]
       },
       s3: {
         soulburn: true,
@@ -4002,7 +3990,8 @@ const heroes = {
     element: element.dark,
     classType: classType.ranger,
     baseAtk: 1079,
-    form: [elements.target_has_barrier],
+    form: [elements.target_has_barrier, elements.caster_speed],
+    info: infoLabel('balance_op_sigret'),
     skills: {
       s1: {
         rate: 1,
@@ -4011,15 +4000,19 @@ const heroes = {
         single: true,
       },
       s2: {
-        rate: 0.8,
+        rate: 0.75,
         pow: 1,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        multTip: () => ({ caster_speed: 0.075 }),
         penetrate: () => elements.target_has_barrier.value() ? 1.0 : 0.5,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
       },
       s3: {
-        rate: 1.1,
+        rate: 1,
         pow: 1.1,
+        mult: () => 1 + elements.caster_speed.value()*0.001125,
+        multTip: () => ({ caster_speed: 0.1125 }),
         enhance: [0.05, 0, 0, 0, 0.15],
         aoe: true,
       }
