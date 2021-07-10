@@ -373,7 +373,7 @@ class Artifact {
     if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.damage) {
       return 0;
     }
-    return artifacts[this.id].value ? artifacts[this.id].value(this.getValue()) : this.getValue();
+    return typeof artifacts[this.id].value === 'function' ? artifacts[this.id].value(this.getValue()) : this.getValue();
   }
 
   getDefensePenetration(skill) {
