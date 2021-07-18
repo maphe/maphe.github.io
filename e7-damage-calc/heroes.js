@@ -2188,8 +2188,8 @@ const heroes = {
         pow: 1,
         flat: () => elements.caster_defense.value()*1.5,
         flatTip: () => ({ caster_defense: 150 }),
-        mult: () => elements.target_hp_pc.value() < 30 ? 3 : 1,
-        multTip: () => ({ under_threshold: 300 }),
+        mult: () => elements.target_hp_pc.value() < 30 ? 4 : 1,
+        multTip: () => ({ under_threshold: 400 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         single: true,
       }

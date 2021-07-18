@@ -117,7 +117,7 @@ const getGlobalAtkMult = () => {
   return mult + (Number(document.getElementById('atk-pc-up').value)/100);
 };
 
-const getGlobalDamageMult = (hero) => {
+const getGlobalDamageMult = (hero, skill) => {
   let mult = 0.0;
 
   for (let checkboxId of ['rage-set']) {
@@ -129,6 +129,13 @@ const getGlobalDamageMult = (hero) => {
   const selected = defPresetSelector.options[defPresetSelector.selectedIndex];
   if (hero.element === selected.dataset.elemExtraDmg) {
       mult += parseFloat(selected.dataset.extraDmgPc)-1;
+  }
+
+  if (skill.single === true && selected.dataset.singleAtkMult) {
+    mult += parseFloat(selected.dataset.singleAtkMult)-1;
+  }
+  if (skill.single !== true && selected.dataset.nonSingleAtkMult) {
+    mult += parseFloat(selected.dataset.nonSingleAtkMult)-1;
   }
 
   return mult;
@@ -231,7 +238,7 @@ class Hero {
     }
     const target = document.getElementById('target').checked ? Number(document.getElementById('target').value) : 1.0;
 
-    let dmgMod = 1.0 + getGlobalDamageMult(this) + this.artifact.getDamageMultiplier(skill, skillId) + (skill.mult ? skill.mult(soulburn)-1 : 0);
+    let dmgMod = 1.0 + getGlobalDamageMult(this, skill) + this.artifact.getDamageMultiplier(skill, skillId) + (skill.mult ? skill.mult(soulburn)-1 : 0);
 
     return ((this.getAtk(skillId)*rate + flatMod)*dmgConst + flatMod2) * pow * skillEnhance * elemAdv * target * dmgMod;
   }
