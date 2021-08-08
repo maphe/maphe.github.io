@@ -930,7 +930,7 @@ const heroes = {
         pow: 0.95,
         enhance: [0.05, 0.05, 0.05, 0, 0.05, 0.05, 0.1],
         mult: () => 1 + (100 - elements.target_hp_pc.value())*0.01,
-        multTip: () => ({ target_lost_hp_pc: 100 }),
+        multTip: () => ({ target_lost_hp_pc: 1 }),
         single: true,
       }
     }
@@ -4321,8 +4321,6 @@ const heroes = {
         rate: 1,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
-        soulburn: true,
-        aoe: true
       },
       s3: {
         rate: 1.8, 
@@ -4415,7 +4413,6 @@ const heroes = {
       s2: {
         rate: 0.5, 
         pow: 1,
-        enhance: [0,0,0,0,0],
         aoe: true
       },
       s3: {
