@@ -191,6 +191,13 @@ const artifacts = {
     exclusive: classType.ranger,
     applies: (skill) => skill.aoe === true
   },
+  severed_horn_wand: {
+    id: 'severed_horn_wand',
+    name: 'Severed Horn Wand',
+    type: artifactDmgType.attack,
+    exclusive: classType.mage,
+    value: () => 0.15
+  },
   shepherd_of_the_hollow: {
     id: 'shepherd_of_the_hollow',
     name: 'Shepherd of the Hollow',
