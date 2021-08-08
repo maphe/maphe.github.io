@@ -913,6 +913,28 @@ const heroes = {
       },
     }
   },
+  camilla: {
+    name: 'Camilla',
+    element: element.light,
+    classType: classType.warrior,
+    baseAtk: 885,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 1.5,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0.05, 0, 0.05, 0.05, 0.1],
+        mult: () => 1 + (100 - elements.target_hp_pc.value())*0.01,
+        multTip: () => ({ target_lost_hp_pc: 100 }),
+        single: true,
+      }
+    }
+  },
   captain_rikoris: {
     name: 'Captain Rikoris',
     element: element.light,
@@ -1423,6 +1445,23 @@ const heroes = {
         flatTip: () => ({ caster_max_hp: 15 }),
         enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1],
         aoe: true,
+      }
+    }
+  },
+  christy: {
+    name: 'Christy',
+    element: element.earth,
+    classType: classType.knight,
+    baseAtk: 667,
+    form: [elements.caster_max_hp],
+    skills: {
+      s1: {
+        rate: 1.1,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.05,
+        flatTip: () => ({ caster_max_hp: 5 }),
+        enhance: [0, 0.1, 0, 0.1, 0],
+        single: true
       }
     }
   },
@@ -2012,6 +2051,22 @@ const heroes = {
       }
     }
   },
+  emilia: {
+    name: 'Emilia',
+    element: element.ice,
+    classType: classType.soul_weaver,
+    baseAtk: 649,
+    form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value() * 0.15,
+    skills: {
+      s1: {
+        rate: 0.95,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0.05, 0, 0.1, 0.1],
+        single: true
+      }
+    }
+  },
   enott: {
     name: 'Enott',
     element: element.ice,
@@ -2506,6 +2561,32 @@ const heroes = {
         pow: 1.05,
         enhance: [0.1, 0, 0, 0.15],
         single: true,
+      }
+    }
+  },
+  helen: {
+    name: 'Helen',
+    element: element.ice,
+    classType: classType.knight,
+    baseAtk: 685,
+    form: [elements.caster_defense],
+    barrier: () => elements.caster_defense.value()*0.8,
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 1,
+        flat: () => elements.caster_defense.value()*0.8,
+        flatTip: () => ({ caster_defense: 80 }),
+        enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.1],
+        single: true
+      },
+      s2: {
+        rate: 1.2,
+        pow: 1,
+        flat: () => elements.caster_defense.value(),
+        flatTip: () => ({ caster_defense: 100 }),
+        enhance: [0.1, 0.1, 0.1, 0, 0, 0, 0],
+        single: true
       }
     }
   },
@@ -3664,6 +3745,26 @@ const heroes = {
       }
     }
   },
+  melany: {
+    name: 'Melany',
+    element: element.fire,
+    classType: classType.warrior,
+    baseAtk: 951,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.1, 0, 0.1, 0, 0.1],
+        single: true
+      },
+      s3: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true
+      }
+    }
+  },
   melissa: {
     name: 'Melissa',
     element: element.fire,
@@ -4100,6 +4201,29 @@ const heroes = {
       },
     }
   },
+  penelope: {
+    name: 'Penelope',
+    element: element.dark,
+    classType: classType.thief,
+    baseAtk: 1039,
+    form: [elements.attack_skill_stack_3],
+    atkUp: () => 1 + elements.attack_skill_stack_3.value()*0.15,
+    skills: {
+      s1: {
+        soulburn: true,
+        rate: (soulburn) => soulburn? 1.6 : 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 1.8,
+        pow: 1.2,
+        enhance: [0, 0.1, 0, 0, 0],
+        single: true,
+      },
+    }
+  },
   politis: {
     name: 'Politis',
     element: element.fire,
@@ -4187,6 +4311,27 @@ const heroes = {
       }
     }
   },
+  ram:{
+    name: 'Ram',
+    element: element.earth,
+    classType: classType.mage,
+    baseAtk: 1556,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        soulburn: true,
+        aoe: true
+      },
+      s3: {
+        rate: 1.8, 
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true
+      }
+    }
+  },
   ras: {
     name: 'Ras',
     element: element.fire,
@@ -4252,6 +4397,32 @@ const heroes = {
         pow: 1,
         enhance: [0.05, 0.1, 0.15],
         single: true,
+      }
+    }
+  },
+  rem:{
+    name: 'Rem',
+    element: element.ice,
+    classType: classType.warrior,
+    baseAtk: 1208,
+    skills: {
+      s1: {
+        rate: 0.95,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true
+      },
+      s2: {
+        rate: 0.5, 
+        pow: 1,
+        enhance: [0,0,0,0,0],
+        aoe: true
+      },
+      s3: {
+        rate: 1, 
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true
       }
     }
   },
