@@ -4420,7 +4420,7 @@ const heroes = {
         aoe: true
       },
       s3: {
-        rate: 1.8, 
+        rate: 1, 
         pow: 1,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         aoe: true
