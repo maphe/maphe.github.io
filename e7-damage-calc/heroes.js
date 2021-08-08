@@ -4410,7 +4410,6 @@ const heroes = {
         rate: 0.95,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
-        soulburn: true,
         single: true
       },
       s2: {
