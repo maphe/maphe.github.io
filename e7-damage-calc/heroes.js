@@ -1563,7 +1563,8 @@ const heroes = {
     element: element.dark,
     classType: classType.thief,
     baseAtk: 1228,
-    skills: {
+    form: [elements.caster_hp_pc],
+     skills: {
       s1: {
         rate: 1,
         pow: 1,
