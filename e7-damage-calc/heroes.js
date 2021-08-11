@@ -1570,7 +1570,7 @@ const heroes = {
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
       },
-      s1Alt: {
+      s2: {
         rate: 1.2,
         pow: 1,
         mult: () => 1 + (100-elements.caster_hp_pc.value())*0.004,
@@ -1579,6 +1579,7 @@ const heroes = {
         single: true,
       },
       s3: {
+        soulburn: true,
         rate: (soulburn) => soulburn ? 1.25 : 1,
         pow: 1,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
