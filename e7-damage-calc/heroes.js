@@ -1563,7 +1563,7 @@ const heroes = {
     element: element.dark,
     classType: classType.thief,
     baseAtk: 1228,
-    form: [elements.caster_hp_pc],
+    form: [elements.target_hp_pc],
      skills: {
       s1: {
         rate: 1,
@@ -1574,8 +1574,8 @@ const heroes = {
       s2: {
         rate: 1.2,
         pow: 1,
-        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.004,
-        multTip: () => ({ caster_lost_hp_pc: 0.4 }),
+        mult: () => 1 + (100-elements.target_hp_pc.value())*0.004,
+        multTip: () => ({ tagret_lost_hp_pc: 0.4 }),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
       },
