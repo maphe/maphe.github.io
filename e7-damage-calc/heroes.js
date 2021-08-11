@@ -1558,6 +1558,37 @@ const heroes = {
       }
     }
   },
+   closer_charles: {
+    name:  'Closer Charles',
+    element: element.dark,
+    classType: classType.thief,
+    baseAtk: 1228,
+    form: [elements.target_hp_pc],
+     skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s1_alt: {
+        rate: 1.2,
+        pow: 1,
+        name: 'S1 Demolition',
+        mult: () => 1 + (100-elements.target_hp_pc.value())*0.004,
+        multTip: () => ({ tagret_lost_hp_pc: 0.4 }),
+        enhance_from: 's1',
+        single: true,
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.25 : 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
+      }
+    }
+  },
   coli: {
     name: 'Coli',
     element: element.ice,
