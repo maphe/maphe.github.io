@@ -1571,12 +1571,13 @@ const heroes = {
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
       },
-      s2: {
+      s1_alt: {
         rate: 1.2,
         pow: 1,
+        name: 'S1 Demolition',
         mult: () => 1 + (100-elements.target_hp_pc.value())*0.004,
         multTip: () => ({ tagret_lost_hp_pc: 0.4 }),
-        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        enhance_from: 's1',
         single: true,
       },
       s3: {
