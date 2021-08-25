@@ -5302,7 +5302,7 @@ const heroes = {
         rate: 1.2,
         pow: 1,
         detonate: dot.bomb,
-        detonation: () => 1.3,
+        detonation: () => 1.1,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         aoe: true,
       },
