@@ -268,6 +268,20 @@ const heroes = {
       },
     }
   },
+  angel_of_light_angelica: {
+    name: 'Angel of Light Angelica',
+    element: element.light,
+    classType: classType.mage,
+    baseAtk: 957,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.1, 0, 0.1, 0, 0.1],
+        single: true,
+      }
+    }
+  },
   angelic_montmorancy: {
     name: 'Angelic Montmorancy',
     element: element.ice,
@@ -2498,6 +2512,14 @@ const heroes = {
     classType: classType.warrior,
     baseAtk: 1426,
     dot: [dot.bleed],
+    innateAtkUp: () => {
+      let boost = 0.5;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        boost += heroes.gunther.skills.s2.enhance[i];
+      }
+
+      return boost;
+    },
     skills: {
       s1: {
         noCrit: true,
@@ -2505,6 +2527,9 @@ const heroes = {
         pow: 0.85,
         enhance: [0.05, 0.05, 0.1, 0.1, 0.15],
         single: true,
+      },
+      s2: {
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05],
       },
       s3: {
         noCrit: true,
@@ -4347,6 +4372,7 @@ const heroes = {
     element: element.earth,
     classType: classType.mage,
     baseAtk: 1556,
+    innateAtkUp: () => 0.3,
     skills: {
       s1: {
         rate: 1,
@@ -4814,6 +4840,7 @@ const heroes = {
     element: element.earth,
     classType: classType.knight,
     baseAtk: 1445,
+    innateAtkUp: () => 0.3,
     skills: {
       s1: {
         rate: 0.95,
@@ -5241,6 +5268,41 @@ const heroes = {
           return Math.min(Math.max(0, penDiff) + 0.3, 1);
         },
         penetrateTip: () => ({ caster_target_atk_diff: 0.03 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
+      },
+    }
+  },
+  summertime_iseria: {
+    name: 'Summertime Iseria',
+    element: element.fire,
+    classType: classType.ranger,
+    baseAtk: 1203,
+    form: [elements.target_bomb_detonate],
+    dot: [dot.bomb],
+    innateAtkUp: () => {
+      let boost = 0.35;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        boost += heroes.summertime_iseria.skills.s2.enhance[i];
+      }
+
+      return boost;
+    },
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s2: {
+        enhance: [0.02, 0.02, 0.03, 0.03, 0.05],
+      },
+      s3: {
+        rate: 1.2,
+        pow: 1,
+        detonate: dot.bomb,
+        detonation: () => 1.3,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         aoe: true,
       },

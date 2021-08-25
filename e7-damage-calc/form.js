@@ -234,6 +234,18 @@ const elements = {
     value: () => Number(document.getElementById('target-burn-detonate').value),
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blaze.png'
   },
+  target_bomb_detonate: {
+    ref: 'target_bomb_detonate',
+    id: 'target-bomb-detonate',
+    label: 'Bomb effects to Detonate',
+    type: 'slider',
+    min: 0,
+    max: 15,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('target-bomb-detonate').value),
+    icon: 'https://epic7x.com/wp-content/uploads/2019/07/bomb.png'
+  },
   caster_max_hp: {
     ref: 'caster_max_hp',
     id: 'caster-max-hp',

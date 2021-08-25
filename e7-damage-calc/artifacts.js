@@ -148,7 +148,7 @@ const artifacts = {
   kaladra: {
     id: 'kaladra',
     name: 'Kal\'adra',
-    scale: [0.15, 0.17, 0.18, 0.2, 0.21, 0.23, 0.24, 0.26, 0.27, 0.29, 0.3],
+    scale: [0.15, 0.17, 0.18, 0.2, 0.21, 0.23, 0.24, 0.26, 0.27, 0.28, 0.3],
     type: artifactDmgType.damage,
     exclusive: classType.mage
   },
