@@ -5294,6 +5294,7 @@ const heroes = {
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
         single: true,
+        noCrit: true,
       },
       s2: {
         enhance: [0.02, 0.02, 0.03, 0.03, 0.05],
@@ -5305,6 +5306,7 @@ const heroes = {
         detonation: () => 1.1,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         aoe: true,
+        noCrit: true,
       },
     }
   },
