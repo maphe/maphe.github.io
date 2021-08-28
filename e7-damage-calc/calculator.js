@@ -225,8 +225,8 @@ class Hero {
       atkMod = 1
           + getGlobalAtkMult()
           + (this.atkUp !== undefined ? this.atkUp() - 1 : 0)
-          + (this.innateAtkUp !== undefined ? this.innateAtkUp() : 0);
-          + this.artifact.getAttackBoost()
+          + (this.innateAtkUp !== undefined ? this.innateAtkUp() : 0)
+          + this.artifact.getAttackBoost();
     }
 
     return (atk+atkImprint)*atkMod;
@@ -386,7 +386,9 @@ class Artifact {
   }
 
   getValue() {
-    return artifacts[this.id].scale ? artifacts[this.id].scale[Math.floor(document.getElementById('artifact-lvl').value/3)] : artifacts[this.id].value;
+    return artifacts[this.id].scale
+        ? artifacts[this.id].scale[Math.floor(document.getElementById('artifact-lvl').value/3)]
+        : artifacts[this.id].value;
   }
 
   getDamageMultiplier(skill, skillId) {
