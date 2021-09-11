@@ -317,11 +317,11 @@ const heroes = {
     element: element.dark,
     classType: classType.warrior,
     baseAtk: 975,
-    form: [elements.caster_max_hp],
+    form: [elements.caster_max_hp, elements.dead_people],
     skills: {
       s1: {
         soulburn: true,
-        rate: (soulburn) => soulburn ? 1.8 : 1,
+        rate: (soulburn) => soulburn ? 2 : 1,
         pow: 0.95,
         flat: (soulburn) => elements.caster_max_hp.value() * (soulburn ? 0.2 : 0.12),
         flatTip: (soulburn) => ({ caster_max_hp: soulburn ? 20 : 12 }),
@@ -333,6 +333,8 @@ const heroes = {
         pow: 0.95,
         flat: () => elements.caster_max_hp.value() * 0.2,
         flatTip: () => ({ caster_max_hp: 20 }),
+        mult: () => 1 + Math.min(elements.dead_people.value(), 3)*0.25,
+        multTip: () => ({ dead_people: 25 }),
         enhance: [0.05, 0.05, 0, 0.05, 0.1, 0.1],
         single: true,
       }
@@ -3654,7 +3656,8 @@ const heroes = {
     },
     skills: {
       s1: {
-        rate: () => elements.nb_hits.value()*0.7,
+        soulburn: true,
+        rate: (soulburn) => (soulburn ? 3 : elements.nb_hits.value())*0.7,
         pow: 0.95,
         enhance: [0.05, 0.05, 0.05, 0.1, 0.1],
         single: true,
@@ -3663,9 +3666,9 @@ const heroes = {
         enhance: [0.01, 0.02, 0.02, 0.02, 0.03]
       },
       s3: {
-        soulburn: true,
-        rate: (soulburn) => soulburn ? 2.2 : 1.5,
+        rate: 1.1,
         pow: 1.05,
+        penetrate: () => 0.5,
         enhance: [0.05, 0, 0.1, 0, 0.1],
         elemAdv: () => true,
         single: true,
@@ -3855,7 +3858,8 @@ const heroes = {
     element: element.fire,
     classType: classType.mage,
     baseAtk: 1187,
-    form: [elements.nb_targets, elements.target_hp_pc],
+    form: [elements.nb_targets, elements.target_hp_pc, elements.caster_immense_power],
+    atkUp: () => elements.caster_immense_power.value() ? 1.15 : 1,
     skills: {
       s1: {
         rate: 0.8,
@@ -3887,7 +3891,7 @@ const heroes = {
             case 1: return 1.9;
             case 2: return 1.6;
             case 3: return 1.3;
-            default: return 0;
+            default: return 1;
           }
         },
         multTip: () => ({ per_fewer_target: 30 }),
@@ -3895,11 +3899,12 @@ const heroes = {
         aoe: true,
       },
       s3: {
-        rate: 1.2,
-        pow: 0.8,
+        rate: 1.15,
+        pow: 0.95,
+        critDmgBoost: () => 0.2,
         mult: () => 1 + (100-elements.target_hp_pc.value())*0.003,
         multTip: () => ({ caster_lost_hp_pc: 0.3 }),
-        enhance: [0.1, 0.1, 0, 0.15, 0.15],
+        enhance: [0.05, 0.05, 0, 0.1, 0.15],
         aoe: true,
       }
     }

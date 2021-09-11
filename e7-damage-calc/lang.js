@@ -65,6 +65,7 @@ const i18n = {
         caster_speed: '{v}% Speed',
         caster_hp_pc_under_hp_threshold: '{v}% HP% [below threshold]',
         caster_vs_target_hp_diff: 'Caster vs Target HP Diff: {v}%/1000hp',
+        dead_people: '{v}% per dead hero',
         elemental_advantage: '{v}% Elem. Adv.',
         per_crit_hit: '{v}% per Critical Hit',
         per_target: '{v}% per Target',
