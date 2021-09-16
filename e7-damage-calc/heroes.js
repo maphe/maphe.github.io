@@ -734,6 +734,39 @@ const heroes = {
       }
     }
   },
+  belian: {
+    name: 'Belian',
+    element: element.light,
+    classType: classType.knight,
+    form: [elements.caster_max_hp],
+    baseAtk: 821,
+    skills: {
+      s1: {
+        rate: 0.6,
+        pow: 1.05,
+        flat: () => elements.caster_max_hp.value()*0.09,
+        flatTip: () => ({ caster_max_hp: 9 }),
+        enhance: [0.05, 0, 0.05, 0, 0.05, 0, 0.1],
+        aoe: true,
+      },
+      s1_extra: {
+        name: 'S1 Incursion',
+        rate: 0.6,
+        pow: 1.3,
+        flat: () => elements.caster_max_hp.value()*0.045,
+        flatTip: () => ({ caster_max_hp: 4.5 }),
+        enhance_from: 's1',
+        aoe: true,
+      },
+      s3: {
+        rate: 0.6,
+        pow: 1.3,
+        flat: () => elements.caster_max_hp.value()*0.12,
+        flatTip: () => ({ caster_max_hp: 12 }),
+        aoe: true,
+      }
+    }
+  },
   bellona: {
     name: 'Bellona',
     element: element.earth,
