@@ -160,6 +160,14 @@ const artifacts = {
     exclusive: classType.mage,
     applies: (skill) => skill.aoe === true
   },
+  merciless_glutton: {
+    id: 'merciless_glutton',
+    name: 'Merciless Glutton',
+    scale: [0.08, 0.088, 0.096, 0.104, 0.112, 0.12, 0.128, 0.136, 0.144, 0.152, 0.16],
+    type: artifactDmgType.damage,
+    exclusive: classType.warrior,
+    applies: (skill) => skill.single === true
+  },
   portrait_of_the_saviors: {
     id: 'portrait_of_the_saviors',
     name: 'Portrait of the Saviors',
