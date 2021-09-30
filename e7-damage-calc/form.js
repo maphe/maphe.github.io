@@ -17,7 +17,7 @@ const elements = {
     type: 'slider',
     min: 1,
     max: 3,
-    default: 3,
+    default: 1,
     readonly: true,
     value: () => Number(document.getElementById('nb-hits').value)
   },
@@ -234,6 +234,18 @@ const elements = {
     value: () => Number(document.getElementById('target-burn-detonate').value),
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blaze.png'
   },
+  target_bomb_detonate: {
+    ref: 'target_bomb_detonate',
+    id: 'target-bomb-detonate',
+    label: 'Bomb effects to Detonate',
+    type: 'slider',
+    min: 0,
+    max: 15,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('target-bomb-detonate').value),
+    icon: 'https://epic7x.com/wp-content/uploads/2019/07/bomb.png'
+  },
   caster_max_hp: {
     ref: 'caster_max_hp',
     id: 'caster-max-hp',
@@ -388,6 +400,15 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('caster-enrage') ? document.getElementById('caster-enrage').checked : false,
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_madness.png'
+  },
+  caster_immense_power: {
+    ref: 'caster_immense_power',
+    id: 'caster-immense-power',
+    label: 'Caster has Immense Power',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-immense-power')
+        ? document.getElementById('caster-immense-power').checked
+        : false,
   },
   caster_stealth: {
     ref: 'caster_stealth',

@@ -163,6 +163,7 @@ class Hero {
     this.baseAtk = heroes[id].baseAtk || 0;
     this.dot = heroes[id].dot;
     this.atkUp = heroes[id].atkUp;
+    this.innateAtkUp = heroes[id].innateAtkUp;
     this.element = heroes[id].element;
     this.barrier = heroes[id].barrier;
     this.barrierEnhance = heroes[id].barrierEnhance;
@@ -211,13 +212,21 @@ class Hero {
   getAtk(skillId) {
     const skill = skillId !== undefined ? this.skills[skillId] : undefined;
 
-    const atk = (skill !== undefined && skill.atk !== undefined) ? skill.atk() : this.atk;
+    let atk = (skill !== undefined && skill.atk !== undefined) ? skill.atk() : this.atk;
+
+    if (this.innateAtkUp !== undefined) {
+      atk = atk / (1+this.innateAtkUp());
+    }
 
     let atkImprint = 0;
     let atkMod = 1;
     if (skill === undefined || skill.noBuff !== true) {
       atkImprint = this.baseAtk * (Number(document.getElementById('atk-pc-imprint').value) / 100);
-      atkMod = 1 + getGlobalAtkMult() + (this.atkUp !== undefined ? this.atkUp() - 1 : 0) + this.artifact.getAttackBoost();
+      atkMod = 1
+          + getGlobalAtkMult()
+          + (this.atkUp !== undefined ? this.atkUp() - 1 : 0)
+          + (this.innateAtkUp !== undefined ? this.innateAtkUp() : 0)
+          + this.artifact.getAttackBoost();
     }
 
     return (atk+atkImprint)*atkMod;
@@ -238,7 +247,10 @@ class Hero {
     }
     const target = document.getElementById('target').checked ? Number(document.getElementById('target').value) : 1.0;
 
-    let dmgMod = 1.0 + getGlobalDamageMult(this, skill) + this.artifact.getDamageMultiplier(skill, skillId) + (skill.mult ? skill.mult(soulburn)-1 : 0);
+    let dmgMod = 1.0
+        + getGlobalDamageMult(this, skill)
+        + this.artifact.getDamageMultiplier(skill, skillId)
+        + (skill.mult ? skill.mult(soulburn)-1 : 0);
 
     return ((this.getAtk(skillId)*rate + flatMod)*dmgConst + flatMod2) * pow * skillEnhance * elemAdv * target * dmgMod;
   }
@@ -312,6 +324,8 @@ class Hero {
         return elements.target_bleed_detonate.value()*skill.detonation()*this.getDotDamage(dot.bleed);
       case dot.burn:
         return elements.target_burn_detonate.value()*skill.detonation()*this.getDotDamage(dot.burn);
+      case dot.bomb:
+        return elements.target_bomb_detonate.value()*skill.detonation()*this.getDotDamage(dot.bomb);
       default: return 0;
     }
   }
@@ -372,7 +386,9 @@ class Artifact {
   }
 
   getValue() {
-    return artifacts[this.id].scale ? artifacts[this.id].scale[Math.floor(document.getElementById('artifact-lvl').value/3)] : artifacts[this.id].value;
+    return artifacts[this.id].scale
+        ? artifacts[this.id].scale[Math.floor(document.getElementById('artifact-lvl').value/3)]
+        : artifacts[this.id].value;
   }
 
   getDamageMultiplier(skill, skillId) {
