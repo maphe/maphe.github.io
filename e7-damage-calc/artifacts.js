@@ -244,6 +244,13 @@ const artifacts = {
     exclusive: classType.thief,
     applies: (skill) => skill.aoe === true,
   },
+  sword_of_winter_shadow: {
+    id: 'sword_of_winter_shadow',
+    name: 'Sword of Winder Shadow',
+    type: artifactDmgType.attack,
+    exclusive: classType.thief,
+    value: () => 0.15
+  },
   sword_of_the_morning: {
     id: 'sword_of_the_morning',
     name: 'Sword of the Morning',
