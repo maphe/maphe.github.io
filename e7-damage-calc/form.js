@@ -333,6 +333,17 @@ const elements = {
     readonly: true,
     value: () => Number(document.getElementById('caster-nb-buff').value)
   },
+  allies_nb_buff: {
+    ref: 'allies_nb_buff',
+    id: 'allies-nb-buff',
+    label: 'Buffs on All Allies',
+    type: 'slider',
+    min: 0,
+    max: 25,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('allies-nb-buff').value)
+  },
   caster_has_debuff: {
     ref: 'caster_has_debuff',
     id: 'caster-has-debuff',

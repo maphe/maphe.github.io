@@ -95,6 +95,7 @@ const getModTooltip = (hero, skillId, soulburn = false) => {
   if (values.afterMathFormula !== null) content += `${skillLabel('afterMathFormula')}/${skillLabel('pen')}: <b class="float-right">${Math.round(values.afterMathFormula.penetrate*100)}%</b><br/>`;
   if (values.afterMathDmg !== null) content += `${skillLabel('afterMathDmg')}: <b class="float-right">${Math.round(values.afterMathDmg)}</b><br/>`;
   if (values.extraDmg != null) content += `${skillLabel('extraDmg')}: <span class="float-right">${values.extraDmgTip} <b>${Math.round(values.extraDmg)}</b><br/>`;
+  if (values.fixed != null) content += `${skillLabel('fixed')}: <span class="float-right">${values.fixedTip} <b>${Math.round(values.fixed)}</b><br/>`;
   return content;
 }
 
@@ -190,7 +191,9 @@ class Hero {
       afterMathFormula: skill.afterMath !== undefined ? skill.afterMath(soulburn) : null,
       afterMathDmg: skill.afterMath !== undefined ? this.getAfterMathSkillDamage(skillId, hitTypes.crit) : null,
       extraDmg: skill.extraDmg !== undefined ? skill.extraDmg() : null,
-      extraDmgTip: skill.extraDmgTip !== undefined ? getSkillModTip(skill.extraDmgTip(soulburn)) : ''
+      extraDmgTip: skill.extraDmgTip !== undefined ? getSkillModTip(skill.extraDmgTip(soulburn)) : '',
+      fixed: skill.fixed !== undefined ? skill.fixed(hitTypes.crit) : null,
+      fixedTip: skill.fixedTip !== undefined ? getSkillModTip(skill.fixedTip()) : null,
     }
   }
 
@@ -202,10 +205,10 @@ class Hero {
     const hit = this.offensivePower(skillId, soulburn) * this.target.defensivePower(skill);
     const critDmg = Math.min((this.crit / 100)+critDmgBuff, 3.5)+(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0)+(this.artifact.getCritDmgBoost()||0);
     return {
-      crit: skill.noCrit ? null : Math.round(hit*critDmg + this.getAfterMathDamage(skillId, hitTypes.crit)),
-      crush: skill.noCrit || skill.onlyCrit ? null : Math.round(hit*1.3 + this.getAfterMathDamage(skillId, hitTypes.crush)),
-      normal: skill.onlyCrit ? null : Math.round(hit + this.getAfterMathDamage(skillId, hitTypes.normal)),
-      miss: skill.noMiss ? null : Math.round(hit*0.75 + this.getAfterMathDamage(skillId, hitTypes.miss))
+      crit: skill.noCrit ? null : Math.round(hit*critDmg + (skill.fixed !== undefined ? skill.fixed(hitTypes.crit) : 0) + this.getAfterMathDamage(skillId, hitTypes.crit)),
+      crush: skill.noCrit || skill.onlyCrit ? null : Math.round(hit*1.3 + (skill.fixed !== undefined ? skill.fixed(hitTypes.crush) : 0) + this.getAfterMathDamage(skillId, hitTypes.crush)),
+      normal: skill.onlyCrit ? null : Math.round(hit + (skill.fixed !== undefined ? skill.fixed(hitTypes.normal) : 0) + this.getAfterMathDamage(skillId, hitTypes.normal)),
+      miss: skill.noMiss ? null : Math.round(hit*0.75 + (skill.fixed !== undefined ? skill.fixed(hitTypes.miss) : 0) + this.getAfterMathDamage(skillId, hitTypes.miss))
     };
   }
 

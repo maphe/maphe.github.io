@@ -3988,6 +3988,32 @@ const heroes = {
       }
     }
   },
+  milim: {
+    name: 'Milim',
+    element: element.fire,
+    classType: classType.mage,
+    baseAtk: 1359,
+    skills: {
+      s1: {
+        rate: 1.1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 1,
+        pow: 1,
+        aoe: true,
+      },
+      s3: {
+        rate: 1.7,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        noTrans: true,
+        single: true,
+      },
+    }
+  },
   mirsa: {
     name: 'Mirsa',
     element: element.light,
@@ -4680,6 +4706,35 @@ const heroes = {
       }
     }
   },
+  rimuru: {
+    name: 'Rimuru',
+    element: element.earth,
+    classType: classType.warrior,
+    baseAtk: 1119,
+    form: [elements.allies_nb_buff],
+    skills: {
+      s1: {
+        rate: 1.1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 1.65,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 1.8,
+        pow: 1,
+        fixed: (hitType) => (hitType !== hitTypes.miss) ? Math.min(5000+(elements.allies_nb_buff.value()*625), 10000) : 0,
+        fixedTip: () => ({ allies_buff: 625 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+    }
+  },
   rin: {
     name: 'Rin',
     element: element.earth,
@@ -4942,6 +4997,28 @@ const heroes = {
         enhance: [0.05, 0.1, 0, 0, 0.1, 0.1],
         single: true,
       }
+    }
+  },
+  shuna: {
+    name: 'Shuna',
+    element: element.fire,
+    classType: classType.soul_weaver,
+    form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value()*0.18,
+    barrierEnhance: 's2',
+    baseAtk: 649,
+    skills: {
+      s1: {
+        rate: 0.75,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.025,
+        flatTip: () => ({ caster_max_hp: 2.5 }),
+        enhance: [0.1, 0, 0.1, 0, 0.1],
+        single: true,
+      },
+      s2: {
+        enhance: [0.1, 0.1, 0, 0.1, 0.1]
+      },
     }
   },
   seaside_bellona: {
@@ -5288,6 +5365,28 @@ const heroes = {
         enhance: [0.05, 0.05, 0, 0.05, 0.1, 0.1],
         single: true,
       }
+    }
+  },
+  spirit_eye_celine: {
+    name: 'Spirit Eye Celine',
+    element: element.light,
+    classType: classType.thief,
+    baseAtk: 1158,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s1_bis: {
+        name: infoLabel('ml_celine_nimble_sword'),
+        rate: 1.3,
+        pow: 0.9,
+        penetrate: () => 0.35,
+        enhance_from: 's1',
+        single: true,
+      },
     }
   },
   straze: {
