@@ -961,6 +961,7 @@ const heroes = {
     element: element.light,
     classType: classType.warrior,
     baseAtk: 885,
+    form: [elements.target_hp_pc],
     skills: {
       s1: {
         rate: 1,
