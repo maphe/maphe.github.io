@@ -852,17 +852,11 @@ const heroes = {
     baseAtk: 1138,
     form: [elements.caster_hp_pc],
     atkUp: () => {
-      let mult = 1;
-      let boost = 0.167;
+      let boost = 0.0051;
       for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
-        boost += 0.167 * heroes.blood_blade_karin.skills.s2.enhance[i];
+        boost += 0.0051 * heroes.blood_blade_karin.skills.s2.enhance[i];
       }
-
-      if (elements.caster_hp_pc.value() < 75) mult += boost;
-      if (elements.caster_hp_pc.value() < 50) mult += boost;
-      if (elements.caster_hp_pc.value() < 25) mult += boost;
-
-      return mult;
+      return 1+(100-elements.caster_hp_pc.value())*boost;
     },
     skills: {
       s1: {
@@ -3830,8 +3824,8 @@ const heroes = {
       s2: {
         rate: 1.5,
         pow: 1,
-        flat: () => 0.07*elements.caster_max_hp.value(),
-        flatTip: () => ({ caster_max_hp: 7 }),
+        flat: () => 0.09*elements.caster_max_hp.value(),
+        flatTip: () => ({ caster_max_hp: 9 }),
         enhance: [0.05, 0, 0, 0, 0.1, 0.15],
         single: true,
       }
