@@ -372,6 +372,7 @@ const i18n = {
   zhTW: {
     heroes: {
       achates: '雅卡泰絲',
+      adin: '艾庭',
       adlay: '亞迪賴',
       adventurer_ras: '冒險家拉斯',
       ainos: '艾諾斯',
@@ -568,6 +569,7 @@ const i18n = {
       senya:'賽娜',
       serila: '塞麗拉',
       sez: '賽茲',
+      shadow_knight_pyllis: '黑騎士費莉絲',
       shadow_rose: '暗影蘿季',
       shooting_star_achates: '流星雅卡泰絲',
       shuna: '朱菜',
@@ -943,6 +945,7 @@ const i18n = {
   zhCN: {
     heroes: {
       achates: '雅卡泰丝',
+      adin: '艾庭',
       adlay: '亚迪赖',
       adventurer_ras: '冒险家拉斯',
       ainos: '艾诺斯',
@@ -1139,6 +1142,7 @@ const i18n = {
       senya:'赛娜',
       serila: '塞丽拉',
       sez: '赛兹',
+      shadow_knight_pyllis: '黑骑士费莉丝',
       shadow_rose: '暗影萝季',
       shooting_star_achates: '流星雅卡泰丝',
       shuna: '朱菜',
