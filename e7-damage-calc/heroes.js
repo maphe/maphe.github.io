@@ -36,6 +36,42 @@ const heroes = {
       },
     }
   },
+  adin: {
+    name: 'Adin',
+    element: element.earth,
+    classType: classType.thief,
+    baseAtk: 1081,
+    form: [elements.nb_targets],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 0.8,
+        pow: 1,
+        mult: () => {
+          switch (elements.nb_targets.value()) {
+            case 3: return 1.2;
+            case 2: return 1.4;
+            case 1: return 1.6;
+            default: return 1;
+          }
+        },
+        multTip: () => ({ per_fewer_target: 20 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
+      },
+      s3: {
+        rate: 1.8,
+        pow: 1.05,
+        enhance: [0.1, 0.1, 0, 0.15, 0.15],
+        single: true,
+      },
+    }
+  },
   adlay: {
     name: 'Adlay',
     element: element.earth,
