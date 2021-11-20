@@ -5777,7 +5777,7 @@ const heroes = {
     element: element.earth,
     classType: classType.thief,
     baseAtk: 1283,
-    form: [elements.caster_speed],
+    form: [elements.caster_speed, elements.exclusive_equipment_2],
     skills: {
       s1: {
         rate: 0.85,
@@ -5798,6 +5798,7 @@ const heroes = {
         pow: 1,
         mult: (soulburn) => 1 + elements.caster_speed.value()*(soulburn ? 0.0009 : 0.00075),
         multTip: (soulburn) => ({ caster_speed: soulburn ? 0.09 : 0.075 }),
+        exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         aoe: true,
       }
