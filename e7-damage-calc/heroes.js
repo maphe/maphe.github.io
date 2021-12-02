@@ -6025,6 +6025,7 @@ const heroes = {
     form: [elements.target_has_buff],
     skills: {
       s1: {
+        soulburn: true,
         rate: (soulburn) => soulburn ? 1.8 : 1.1,
         pow: 1,
         mult: () => elements.target_has_buff.value() ? 1.3 : 1,
