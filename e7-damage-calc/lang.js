@@ -1524,6 +1524,7 @@ const i18n = {
   kr: {
     heroes: {
       achates: '아카테스',
+      adin: '아딘',
       adlay: '아들라이',
       adventurer_ras: '모험가 라스',
       ains: '에인즈',
@@ -1754,6 +1755,7 @@ const i18n = {
       watcher_schuri: '주시자 슈리',
       yufine: '유피네',
       yuna: '유나',
+      zahhak: '자하크',
       zealot_carmainerose: '전도자 카마인로즈',
       zeno: '제노',
       zerato: '제라토',
