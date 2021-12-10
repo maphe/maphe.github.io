@@ -1643,7 +1643,7 @@ const heroes = {
     element: element.dark,
     classType: classType.thief,
     baseAtk: 1228,
-    form: [elements.target_hp_pc],
+    form: [elements.target_hp_pc, elements.caster_perception],
      skills: {
       s1: {
         rate: 1,
@@ -1732,6 +1732,20 @@ const heroes = {
         mult: () => 1 + (100-elements.target_hp_pc.value())*0.005,
         multTip: () => ({ target_lost_hp_pc: 50 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.15],
+        single: true,
+      }
+    }
+  },
+  conqueror_lilias: {
+    name: 'Conqueror Lilias',
+    element: element.light,
+    classType: classType.warrior,
+    baseAtk: 885,
+    skills: {
+      s1: {
+        rate: 1.2,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
       }
     }
@@ -2832,7 +2846,7 @@ const heroes = {
     element: element.dark,
     classType: classType.warrior,
     baseAtk: 1119,
-    form: [elements.caster_vigor, elements.target_burn_detonate],
+    form: [elements.target_burn_detonate],
     dot: [dot.burn],
     skills: {
       s1: {
@@ -3076,7 +3090,7 @@ const heroes = {
     element: element.fire,
     classType: classType.warrior,
     baseAtk: 966,
-    form: [elements.caster_max_hp, elements.caster_vigor],
+    form: [elements.caster_max_hp],
     dot: [dot.burn],
     skills: {
       s1: {
@@ -5809,7 +5823,7 @@ const heroes = {
     element: element.earth,
     classType: classType.thief,
     baseAtk: 1228,
-    form: [elements.caster_nb_focus],
+    form: [elements.caster_nb_focus, elements.caster_perception],
     skills: {
       s1: {
         rate: 1,

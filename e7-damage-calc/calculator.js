@@ -102,13 +102,9 @@ const getModTooltip = (hero, skillId, soulburn = false) => {
 const getGlobalAtkMult = () => {
   let mult = 0.0;
 
-  for (let checkboxId of ['atk-down', 'atk-up', 'atk-up-great']) {
+  for (let checkboxId of ['atk-down', 'atk-up', 'atk-up-great', 'vigor']) {
     const elem = document.getElementById(checkboxId);
     mult += elem.checked ? Number(elem.value)-1 : 0.0;
-  }
-
-  if (elements.caster_vigor.value()) {
-    mult += 0.3;
   }
 
   if (elements.caster_enrage.value()) {
@@ -203,7 +199,10 @@ class Hero {
 
     const skill = this.skills[skillId];
     const hit = this.offensivePower(skillId, soulburn) * this.target.defensivePower(skill);
-    const critDmg = Math.min((this.crit / 100)+critDmgBuff, 3.5)+(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0)+(this.artifact.getCritDmgBoost()||0);
+    const critDmg = Math.min((this.crit / 100)+critDmgBuff, 3.5)
+        +(skill.critDmgBoost ? skill.critDmgBoost(soulburn) : 0)
+        +(this.artifact.getCritDmgBoost()||0)
+        +(elements.caster_perception.value() ? 0.15 : 0);
     return {
       crit: skill.noCrit ? null : Math.round(hit*critDmg + (skill.fixed !== undefined ? skill.fixed(hitTypes.crit) : 0) + this.getAfterMathDamage(skillId, hitTypes.crit)),
       crush: skill.noCrit || skill.onlyCrit ? null : Math.round(hit*1.3 + (skill.fixed !== undefined ? skill.fixed(hitTypes.crush) : 0) + this.getAfterMathDamage(skillId, hitTypes.crush)),

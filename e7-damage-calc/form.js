@@ -396,13 +396,16 @@ const elements = {
     value: () => document.getElementById('caster-invincible').checked,
     icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_invincible.png'
   },
-  caster_vigor: {
-    ref: 'caster_vigor',
-    id: 'caster-vigor',
-    label: 'Caster has Vigor',
+  caster_perception: {
+    ref: 'caster_perception',
+    id: 'caster-perception',
+    label: 'Caster has Perception',
     type: 'checkbox',
-    value: () => document.getElementById('caster-vigor') ? document.getElementById('caster-vigor').checked : false,
-    icon: 'https://epic7x.com/wp-content/uploads/2019/02/vigor.png'
+    value: () => document.getElementById('caster-perception') ? document.getElementById('caster-perception').checked : false,
+    icon: 'https://epic7x.com/wp-content/uploads/2021/05/Perception.png'
+  },
+  caster_vigor: {
+    value: () => document.getElementById('vigor') ? document.getElementById('vigor').checked : false,
   },
   caster_enrage: {
     ref: 'caster_enrage',
