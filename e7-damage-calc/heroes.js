@@ -1707,7 +1707,7 @@ const heroes = {
     element: element.dark,
     classType: classType.warrior,
     baseAtk: 1144,
-    form: [elements.target_hp_pc, elements.attack_skill_stack_5],
+    form: [elements.target_max_hp, elements.target_hp_pc, elements.attack_skill_stack_5],
     atkUp: () => {
       let boost = 0.1;
       for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
@@ -1720,6 +1720,8 @@ const heroes = {
       s1: {
         rate: 1,
         pow: 0.9,
+        flat: () => elements.target_max_hp.value() * 0.02,
+        flatTip: () => ({ target_max_hp: 2 }),
         enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
         single: true,
       },
@@ -1733,6 +1735,26 @@ const heroes = {
         multTip: () => ({ target_lost_hp_pc: 50 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.15],
         single: true,
+      }
+    }
+  },
+  commander_model_laika: {
+    name: 'Commander Model Laika',
+    element: element.earth,
+    classType: classType.ranger,
+    baseAtk: 1182,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 1.1,
+        pow: 1,
+        enhance: [0.05, 0, 0, 0, 0.1, 0.15],
+        aoe: true,
       }
     }
   },
@@ -2944,15 +2966,15 @@ const heroes = {
       s2: {
         rate: 1,
         pow: 1,
-        mult: () => 1 + (elements.nb_targets.value()-1)*0.1,
-        multTip: () => ({ per_target: 10 }),
         enhance: [0.05, 0.05, 0.1, 0.1],
         aoe: true,
       },
       s3: {
         rate: 1,
-        pow: 0.9,
-        enhance: [0.05, 0, 0.1, 0, 0, 0.1, 0.15],
+        pow: 1,
+        mult: () => 1 + (elements.nb_targets.value()-1)*0.1,
+        multTip: () => ({ per_target: 10 }),
+        enhance: [0.05, 0, 0.05, 0, 0, 0.1, 0.1],
         aoe: true,
       }
     }
@@ -3591,7 +3613,7 @@ const heroes = {
     element: element.dark,
     classType: classType.warrior,
     baseAtk: 1144,
-    form: [elements.target_hp_pc, elements.attack_skill_stack_5],
+    form: [elements.target_max_hp, elements.target_hp_pc, elements.attack_skill_stack_5],
     atkUp: () => {
       let boost = 0.1;
       for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
@@ -3604,6 +3626,8 @@ const heroes = {
       s1: {
         rate: 1,
         pow: 0.9,
+        flat: () => elements.target_max_hp.value() * 0.02,
+        flatTip: () => ({ target_max_hp: 2 }),
         enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
         single: true,
       },
