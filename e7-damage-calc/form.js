@@ -344,6 +344,13 @@ const elements = {
     readonly: true,
     value: () => Number(document.getElementById('allies-nb-buff').value)
   },
+  caster_turn: {
+    ref: 'caster_turn',
+    id: 'caster-turn',
+    label: 'Caster\'s Turn',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-turn').checked
+  },
   caster_has_debuff: {
     ref: 'caster_has_debuff',
     id: 'caster-has-debuff',
@@ -606,6 +613,17 @@ const elements = {
     default: 0,
     readonly: true,
     value: () => Number(document.getElementById('dead-people').value)
+  },
+  enemy_counters: {
+    ref: 'enemy_counters',
+    id: 'enemy-counters',
+    label: 'Enemy Counter-attacks',
+    type: 'slider',
+    min: 0,
+    max: 4,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('enemy-counters').value)
   },
   highest_ally_attack: {
     ref: 'highest_ally_attack',

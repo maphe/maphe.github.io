@@ -2668,6 +2668,32 @@ const heroes = {
       }
     }
   },
+  hasol: {
+    name: 'Hasol',
+    element: element.dark,
+    classType: classType.knight,
+    baseAtk: 758,
+    form: [elements.caster_max_hp, elements.enemy_counters, elements.caster_turn],
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 1,
+        fixed: () => elements.caster_turn.value() ? 500 + elements.enemy_counters.value()*1000 : 0,
+        flat: () => elements.caster_max_hp.value()*0.05,
+        flatTip: () => ({ caster_max_hp: 5 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 0.7,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.1,
+        flatTip: () => ({ caster_max_hp: 10 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
+      }
+    }
+  },
   haste: {
     name: 'Haste',
     element: element.fire,
@@ -2903,6 +2929,30 @@ const heroes = {
         rate: 2,
         pow: 0.9,
         enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.1],
+        single: true,
+      }
+    }
+  },
+  januta: {
+    name: 'Januta',
+    element: element.fire,
+    classType: classType.warrior,
+    form: [elements.caster_enrage],
+    baseAtk: 1144,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        mult: () => elements.caster_enrage.value() ? 1.3 : 1,
+        multTip: () => ({ caster_rage: 30 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2.2 : 1.5,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
       }
     }
@@ -4251,6 +4301,34 @@ const heroes = {
       }
     }
   },
+  muwi: {
+    name: 'Muwi',
+    element: element.ice,
+    classType: classType.thief,
+    baseAtk: 1039,
+    dot: [dot.bleed],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s2: {
+        rate: 0.8,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.25 : 1,
+        pow: 1.1,
+        enhance: [0.05, 0, 0, 0, 0.15],
+        aoe: true,
+      }
+    }
+  },
   nemunas: {
     name: 'Nemunas',
     element: element.fire,
@@ -4305,6 +4383,39 @@ const heroes = {
         multTip: () => ({ caster_speed: 0.1125 }),
         enhance: [0.05, 0, 0, 0, 0.15],
         aoe: true,
+      }
+    }
+  },
+  orte: {
+    name: 'Orte',
+    element: element.earth,
+    classType: classType.thief,
+    baseAtk: 857,
+    form: [elements.caster_perception, elements.caster_speed, elements.target_speed],
+    skills: {
+      s1: {
+        rate: 0.65,
+        pow: 0.9,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        multTip: () => ({ caster_speed: 0.075 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 0.7,
+        pow: 0.95,
+        penetrate: () => {
+          const casterSpd = elements.caster_speed.value();
+          const targetSpd = elements.target_speed.value();
+
+          const penDiff = (casterSpd-targetSpd)*0.003;
+          return Math.min(Math.max(0, penDiff) + 0.3, 0.7);
+        },
+        penetrateTip: () => ({ caster_target_spd_diff: 0.3 }),
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        multTip: () => ({ caster_speed: 0.075 }),
+        enhance: [0.05, 0.05, 0.05, 0, 0.05, 0.05, 0.1],
+        single: true,
       }
     }
   },
@@ -5979,6 +6090,27 @@ const heroes = {
         pow: 0.95,
         enhance: [0.05, 0.05, 0, 0.1, 0.15],
         penetrate: () => 1.0,
+        single: true,
+      }
+    }
+  },
+  yoonryoung: {
+    name: 'Yoonryoung',
+    element: element.light,
+    classType: classType.knight,
+    baseAtk: 703,
+    skills: {
+      s1: {
+        rate: 0.8,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s1_bis: {
+        name: infoLabel('yoonryoung_slash'),
+        rate: 0.5,
+        pow: 1,
+        enhance_from: 's1',
         single: true,
       }
     }

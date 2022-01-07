@@ -95,7 +95,7 @@ const getModTooltip = (hero, skillId, soulburn = false) => {
   if (values.afterMathFormula !== null) content += `${skillLabel('afterMathFormula')}/${skillLabel('pen')}: <b class="float-right">${Math.round(values.afterMathFormula.penetrate*100)}%</b><br/>`;
   if (values.afterMathDmg !== null) content += `${skillLabel('afterMathDmg')}: <b class="float-right">${Math.round(values.afterMathDmg)}</b><br/>`;
   if (values.extraDmg != null) content += `${skillLabel('extraDmg')}: <span class="float-right">${values.extraDmgTip} <b>${Math.round(values.extraDmg)}</b><br/>`;
-  if (values.fixed != null) content += `${skillLabel('fixed')}: <span class="float-right">${values.fixedTip} <b>${Math.round(values.fixed)}</b><br/>`;
+  if (values.fixed != null) content += `${skillLabel('fixed')}: <span class="float-right">${values.fixedTip ?? ''} <b>${Math.round(values.fixed)}</b><br/>`;
   return content;
 }
 

@@ -55,6 +55,7 @@ const i18n = {
       fixed: 'Fixed Dmg',
       custom: {
         caster_target_atk_diff: '{v}% Attack Difference',
+        caster_target_spd_diff: '{v}% Speed Difference',
         all_fire: '{v}% Team Fire',
         allies_buff: '+{v} per Buff',
         caster_defense: '{v}% Defense',
@@ -100,6 +101,7 @@ const i18n = {
       s2_wave_3: 'S2 Wave 3',
       sez_explosion: 'Explosion',
       victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes',
+      yoonryoung_slash: 'Dazzling Slash'
     }
   },
   jp: {
