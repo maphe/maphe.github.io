@@ -4205,7 +4205,7 @@ const heroes = {
     element: element.earth,
     classType: classType.knight,
     baseAtk: 957,
-    form: [elements.caster_max_hp, elements.caster_enrage],
+    form: [elements.caster_max_hp, elements.caster_enrage, elements.exclusive_equipment_3],
     skills: {
       s1: {
         rate: 0.7,
@@ -4216,11 +4216,11 @@ const heroes = {
         single: true,
       },
       s3: {
-        soulburn: true,
         rate: 0.7,
         pow: 1,
-        flat: (soulburn) => elements.caster_max_hp.value()*(soulburn ? 0.17 : 0.12),
-        flatTip: (soulburn) => ({ caster_max_hp: (soulburn ? 17 : 12) }),
+        flat: () => elements.caster_max_hp.value()*0.15,
+        flatTip: () => ({ caster_max_hp: 15 }),
+        exEq: () => elements.exclusive_equipment_3.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         aoe: true,
       }
