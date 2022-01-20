@@ -2567,7 +2567,7 @@ const heroes = {
     element: element.dark,
     classType: classType.warrior,
     baseAtk: 1138,
-    form: [elements.dual_attack_stack_5],
+    form: [elements.dual_attack_stack_5, elements.exclusive_equipment_1],
     barrier: (hero) => hero.getAtk()*0.5,
     atkUp: () => 1 + elements.dual_attack_stack_5.value()*0.15,
     skills: {
@@ -2576,6 +2576,7 @@ const heroes = {
         rate: (soulburn) => soulburn ? 1.8 : 1.1,
         pow: 1,
         enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1],
+        exEq: () => elements.exclusive_equipment_1.value() ? 0.1 : 0,
         single: true,
       }
     }
@@ -3627,6 +3628,33 @@ const heroes = {
       }
     }
   },
+  lionheart_cermia: {
+    name: 'Lionheart Cermia',
+    element: element.light,
+    classType: classType.warrior,
+    baseAtk: 966,
+    form: [elements.caster_defense],
+    skills: {
+      s1: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1 : 0.6,
+        pow: 0.9,
+        flat: (soulburn) => elements.caster_defense.value()*(soulburn ? 1.6 : 1.0),
+        flatTip: (soulburn) => ({ caster_defense: (soulburn ? 160 : 100) }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 0.3,
+        pow: 0.9,
+        flat: () => elements.caster_defense.value()*1.35,
+        flatTip: () => ({ caster_defense: 135 }),
+        penetrate: () => 0.5,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
+    }
+  },
   little_queen_charlotte: {
     name: 'Little Queen Charlotte',
     element: element.light,
@@ -3981,7 +4009,7 @@ const heroes = {
     element: element.fire,
     classType: classType.mage,
     baseAtk: 1412,
-    form: [elements.caster_hp_pc],
+    form: [elements.caster_hp_pc, elements.exclusive_equipment_2],
     skills: {
       s1: {
         rate: 1,
@@ -3995,6 +4023,7 @@ const heroes = {
         rate: 1.5,
         pow: 0.95,
         enhance: [0.05, 0.05, 0.05, 0.1, 0.1],
+        exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
         single: true,
       },
       s3: {
@@ -4498,6 +4527,27 @@ const heroes = {
         extraDmgTip: () => ({ target_max_hp: elements.target_has_sleep.value() ? 20 : 0 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.1],
         single: true,
+      },
+    }
+  },
+  peira: {
+    name: 'Peira',
+    element: element.ice,
+    classType: classType.thief,
+    baseAtk: 1075,
+    barrier: () => 180*60,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s2: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
       },
     }
   },
