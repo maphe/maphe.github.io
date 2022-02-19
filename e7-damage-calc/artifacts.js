@@ -21,7 +21,9 @@ const artifacts = {
     scale: [0.16, 0.176, 0.192, 0.208, 0.224, 0.24, 0.256, 0.272, 0.288, 0.304, 0.32],
     type: artifactDmgType.damage,
     exclusive: classType.warrior,
-    applies: (skill) => skill.single === true
+    form: [elements.target_has_barrier],
+    applies: (skill) => skill.single === true,
+    value: (artiScale) => artiScale/(elements.target_has_barrier.value() ? 1 : 2),
   },
   a_symbol_of_unity: {
     id: 'a_symbol_of_unity',
@@ -113,7 +115,7 @@ const artifacts = {
       if (elements.caster_hp_pc.value() < 25) return artiScale;
       if (elements.caster_hp_pc.value() < 50) return artiScale*2/3;
       if (elements.caster_hp_pc.value() < 75) return artiScale/3;
-      return 0;
+      return 0.1;
     }
   },
   exorcist_tonfa: {

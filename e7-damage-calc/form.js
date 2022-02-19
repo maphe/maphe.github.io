@@ -352,6 +352,13 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('caster-turn').checked
   },
+  caster_has_buff: {
+    ref: 'caster_has_buff',
+    id: 'caster-has-buff',
+    label: 'Caster has buff',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-has-buff').checked
+  },
   caster_has_debuff: {
     ref: 'caster_has_debuff',
     id: 'caster-has-debuff',

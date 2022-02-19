@@ -240,7 +240,7 @@ const jp = {
     yufine: 'ユピネ',
     yuna: 'ユナ',
     zahhak: 'ザハーク',
-    zealot_carmainerose: '伝道師 カーマイン・ローズ'
+    zealot_carmainerose: '伝道師 カーマイン・ローズ',
     zeno: 'ゼノ',
     zerato: 'ゼラト',
   },

@@ -661,6 +661,32 @@ const heroes = {
       }
     }
   },
+  bad_cat_armin: {
+    name: 'Bad Cat Armin',
+    element: element.dark,
+    classType: classType.warrior,
+    baseAtk: 912,
+    form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value()*0.15,
+    skills: {
+      s1: {
+        rate: 0.9,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.06,
+        flatTip: () => ({ caster_max_hp: 6 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
+      s3: {
+        rate: 1.3,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.2,
+        flatTip: () => ({ caster_max_hp: 20 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+    }
+  },
   baiken: {
     name: 'Baiken',
     element: element.earth,
@@ -1213,6 +1239,7 @@ const heroes = {
     classType: classType.thief,
     form: [elements.exclusive_equipment_2, elements.exclusive_equipment_3],
     baseAtk: 1228,
+    barrier: (hero) => hero.getAtk()*0.5,
     skills: {
       s1: {
         rate: 1,
@@ -1478,13 +1505,13 @@ const heroes = {
       },
       s2: {
         rate: 0.9,
-        pow: 0.9,
+        pow: 1.2,
         enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
         single: true,
       },
       s3: {
         soulburn: true,
-        rate: (soulburn) => soulburn ? 3.5 : 2,
+        rate: (soulburn) => soulburn ? 3 : 1.7,
         pow: 0.8,
         mult: () => elements.target_magic_nailed.value() ? 1.35 : 1,
         multTip: () => ({ target_magic_nail: 35 }),
@@ -2834,6 +2861,46 @@ const heroes = {
         enhance: [0.05, 0, 0, 0, 0.1, 0.15],
         aoe: true,
       }
+    }
+  },
+  hwayoung: {
+    name: 'Hwayoung',
+    element: element.fire,
+    classType: classType.warrior,
+    baseAtk: 1510,
+    form: [elements.caster_has_buff, elements.caster_max_hp, elements.target_max_hp],
+    barrier: (hero) => hero.getAtk()*0.45,
+    innateAtkUp: () => {
+      let boost = 0.35;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        boost += heroes.hwayoung.skills.s2.enhance[i];
+      }
+      return boost;
+    },
+    skills: {
+      s1: {
+        rate: 0.6,
+        pow: 1,
+        afterMath: () => elements.caster_has_buff.value() ? ({ atkPercent: 0.5, penetrate: 0.7 }) : null,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+        noCrit: true,
+      },
+      s2: {
+        enhance: [0.02, 0.03, 0.03, 0.03, 0.04],
+      },
+      s3: {
+        rate: 0.55,
+        pow: 1,
+        mult: () => elements.caster_max_hp.value() < elements.target_max_hp.value()
+            ? 1 + Math.min((elements.target_max_hp.value() - elements.caster_max_hp.value())*0.00015, 1)
+            : 1,
+        multTip: () => ({ caster_vs_target_hp_diff: 15 }),
+        penetrate: () => 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+        noCrit: true,
+      },
     }
   },
   ian: {
@@ -4388,7 +4455,6 @@ const heroes = {
     classType: classType.ranger,
     baseAtk: 1079,
     form: [elements.target_has_barrier, elements.caster_speed],
-    info: infoLabel('balance_op_sigret'),
     skills: {
       s1: {
         rate: 1,
@@ -4535,7 +4601,13 @@ const heroes = {
     element: element.ice,
     classType: classType.thief,
     baseAtk: 1075,
-    barrier: () => 180*60,
+    barrier: () => {
+      let boost = 1.0;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s3`).value); i++) {
+        boost += heroes.peira.skills.s3.enhance[i];
+      }
+      return 180*boost*60;
+    },
     skills: {
       s1: {
         rate: 1,
@@ -4549,6 +4621,9 @@ const heroes = {
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         aoe: true,
       },
+      s3: {
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+      }
     }
   },
   penelope: {
@@ -5505,11 +5580,19 @@ const heroes = {
     element: element.light,
     classType: classType.mage,
     baseAtk: 1039,
+    form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value()*0.25,
     skills: {
       s1: {
-        rate: 0.8,
+        rate: 0.7,
         pow: 1,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s1_extra: {
+        name: infoLabel('s1_extra_attack'),
+        rate: 0.8,
+        pow: 1.3,
         aoe: true,
       },
       s3: {
