@@ -321,15 +321,15 @@ class Hero {
 
   getDetonateDamage(skillId) {
     const skill = this.skills[skillId];
-    switch (skill.detonate) {
-      case dot.bleed:
-        return elements.target_bleed_detonate.value()*skill.detonation()*this.getDotDamage(dot.bleed);
-      case dot.burn:
-        return elements.target_burn_detonate.value()*skill.detonation()*this.getDotDamage(dot.burn);
-      case dot.bomb:
-        return elements.target_bomb_detonate.value()*skill.detonation()*this.getDotDamage(dot.bomb);
-      default: return 0;
-    }
+
+    const dotTypes = Array.isArray(skill.detonate) ? skill.detonate : [skill.detonate];
+    let damage = 0;
+
+    if (dotTypes.includes(dot.bleed)) damage += elements.target_bleed_detonate.value()*skill.detonation()*this.getDotDamage(dot.bleed);
+    if (dotTypes.includes(dot.burn)) damage += elements.target_burn_detonate.value()*skill.detonation()*this.getDotDamage(dot.burn);
+    if (dotTypes.includes(dot.bomb)) damage += elements.target_bomb_detonate.value()*skill.detonation()*this.getDotDamage(dot.bomb);
+
+    return damage;
   }
 
   getDotDamage(type) {

@@ -4649,6 +4649,30 @@ const heroes = {
       },
     }
   },
+  pirate_captain_flan: {
+    name: 'Pirate Captain Flan',
+    element: element.dark,
+    classType: classType.ranger,
+    baseAtk: 1182,
+    form: [elements.target_burn_detonate, elements.target_bomb_detonate],
+    dot: [dot.burn, dot.bomb],
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 0.95,
+        detonate: [dot.burn, dot.bomb],
+        detonation: () => 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 0.8,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
+    }
+  },
   politis: {
     name: 'Politis',
     element: element.fire,
@@ -6051,6 +6075,75 @@ const heroes = {
         flatTip: () => ({ caster_max_hp: 10 }),
         enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.15],
         aoe: true,
+      }
+    }
+  },
+  verdant_adin: {
+    name: 'Verdant Adin',
+    element: element.earth,
+    classType: classType.thief,
+    baseAtk: 1081,
+    form: [elements.nb_targets, elements.skill_tree_completed],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.95,
+        mult: () => elements.skill_tree_completed.value() ? 1.1 : 1,
+        multTip: () => (elements.skill_tree_completed.value() ? { skill_tree: 10 } : null),
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 0.8,
+        pow: 1,
+        mult: () => {
+          switch (elements.nb_targets.value()) {
+            case 3: return 1.2;
+            case 2: return 1.4;
+            case 1: return 1.6;
+            default: return 1;
+          }
+        },
+        multTip: () => ({ per_fewer_target: 20 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
+      },
+      s3: {
+        rate: 1.8,
+        pow: 1.05,
+        mult: () => elements.skill_tree_completed.value() ? 1.1 : 1,
+        multTip: () => (elements.skill_tree_completed.value() ? { skill_tree: 10 } : null),
+        enhance: [0.1, 0.1, 0, 0.15, 0.15],
+        single: true,
+      },
+    }
+  },
+  vigilante_leader_glenn: {
+    name: 'Vigilante Leader Glenn',
+    element: element.earth,
+    classType: classType.ranger,
+    baseAtk: 920,
+    form: [elements.skill_tree_completed],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        mult: () => elements.skill_tree_completed.value() ? (1.1 + (document.getElementById(`elem-adv`).checked ? 0.25 : 0)) : 1,
+        multTip: () => (elements.skill_tree_completed.value() ? ({
+          skill_tree: 10,
+          ...(document.getElementById(`elem-adv`).checked ? { elemental_advantage: 25 } : {}),
+        }) : null),
+        enhance: [0.05, 0, 0.05, 0, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s2: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2.2 : 1.5,
+        mult: () => elements.skill_tree_completed.value() && document.getElementById(`elem-adv`).checked ? 1.25 : 1,
+        multTip: () => ({ elemental_advantage: 25 }),
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
       }
     }
   },
