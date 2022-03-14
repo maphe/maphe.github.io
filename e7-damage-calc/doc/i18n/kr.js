@@ -322,7 +322,7 @@ const kr = {
     highest_ally_attack: '아군의 가장 높은 공격력',
     ally_atk_up: '아군 공격력 증가',
     ally_atk_up_great: '아군 공격력 증가 (대)',
-    skill_tree_completed: 'Skill Tree Completed',
+    skill_tree_completed: '스킬 트리 완성',
     s3_stack: '3스킬 스택',
     all_allies_fire: '모든 아군이 화염속성',
     exclusive_equipment_1: '전용장비 #1',
