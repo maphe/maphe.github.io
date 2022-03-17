@@ -29,10 +29,15 @@ const elements = {
     min: 200,
     max: 10000,
     default: 2000,
-    value: () => Number(document.getElementById('target-attack').value)
-        * Number(elements.target_atk_up.value() ? 1.5 : 1)
-        * Number(elements.target_atk_up_great.value() ? 1.75 : 1)
-        * Number(elements.target_atk_down.value() ? 0.5 : 1),
+    value: () => {
+      let atkMod = 1
+      + Number(elements.target_atk_up.value() ? 0.5 : 0)
+      + Number(elements.target_atk_up_great.value() ? 0.75 : 0)
+      + Number(elements.target_atk_down.value() ? -0.5 : 0)
+      + Number(document.getElementById('target-vigor').checked ? 0.3 : 0);
+
+      return Number(document.getElementById('target-attack').value)*atkMod;
+    }
   },
   target_atk_up: {
     ref: 'target_atk_up',
@@ -144,7 +149,7 @@ const elements = {
     id: 'target-has-debuff',
     label: 'Target has debuffs',
     type: 'checkbox',
-    value: () => document.getElementById('target-has-debuff').checked
+    value: () => document.getElementById('target-has-debuff')?.checked
   },
   target_has_bleed: {
     ref: 'target_has_bleed',

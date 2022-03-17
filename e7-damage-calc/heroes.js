@@ -3001,6 +3001,37 @@ const heroes = {
       }
     }
   },
+  jack_o: {
+    name: 'Jack-O\'',
+    element: element.fire,
+    classType: classType.warrior,
+    form: [elements.target_has_debuff],
+    baseAtk: 1228,
+    skills: {
+      s1: {
+        rate: 0.75,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s1_extra: {
+        name: infoLabel('s1_extra_attack'),
+        rate: 1.1,
+        pow: 1,
+        enhance_from: 's1',
+        single: true,
+      },
+      s3: {
+        rate: 0.95,
+        pow: 1,
+        mult: () => elements.target_has_debuff.value() ? 1.3 : 1,
+        multTip: () => ({ target_has_debuff: 30 }),
+        penetrate: () => 0.5,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      }
+    }
+  },
   januta: {
     name: 'Januta',
     element: element.fire,

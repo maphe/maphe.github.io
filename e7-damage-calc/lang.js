@@ -23,6 +23,7 @@ const i18n = {
       fighter_maya: 'f.maya fmaya',
       general_purrgis: 'g.purrgis gpurrgis',
       holiday_yufine: 'hufine',
+      jack_o: 'jacko',
       judge_kise: 'j.kise jkise',
       maid_chloe: 'ml.chloe mlchloe',
       martial_artist_ken: 'ml.ken mlken',

@@ -147,6 +147,14 @@ const artifacts = {
     type: artifactDmgType.damage,
     exclusive: classType.ranger,
   },
+  jack_o_symbol: {
+    id: 'jack_o_symbol',
+    name: 'Jack-O\'s Symbol',
+    scale: [0.12, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2, 0.21, 0.22, 0.24],
+    type: artifactDmgType.damage,
+    exclusive: classType.warrior,
+    applies: (skill) => skill.single === true && elements.target_has_debuff.value() !== false,
+  },
   kaladra: {
     id: 'kaladra',
     name: 'Kal\'adra',

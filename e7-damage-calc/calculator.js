@@ -141,7 +141,7 @@ const getGlobalDamageMult = (hero, skill) => {
 const getGlobalDefMult = () => {
   let mult = 1.0;
 
-  for (let checkboxId of ['def-up', 'def-down']) {
+  for (let checkboxId of ['def-up', 'def-down', 'target-vigor']) {
     const elem = document.getElementById(checkboxId);
     mult += elem.checked ? Number(elem.value) : 0.0;
   }
