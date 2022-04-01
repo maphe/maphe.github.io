@@ -93,6 +93,7 @@ const i18n = {
     },
     info: {
       alencia_trample: 'Trample',
+      aria_scaling: 'Heads up: Crit Damage scaling out of lost HP% is probably wrong. Skill multipliers are accurate.',
       balance_op_sigret: 'Balance Update: Added Speed scaling, lowered Attack scaling: S2: 0.8 -> 0.75 / S3 1.1 -> 1',
       lqc_s3_splash: 'S3 Splash',
       ml_celine_nimble_sword: 'Nimble Sword',

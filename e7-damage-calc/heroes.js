@@ -456,6 +456,33 @@ const heroes = {
       }
     }
   },
+  aria: {
+    name: 'Aria',
+    element: element.ice,
+    classType: classType.mage,
+    baseAtk: 1039,
+    form: [elements.caster_hp_pc, elements.caster_defense],
+    barrier: () => elements.caster_defense.value()*0.8,
+    info: infoLabel('aria_scaling'),
+    skills: {
+      s1: {
+        rate: 0.6,
+        pow: 1,
+        flat: () => elements.caster_defense.value()*0.7,
+        flatTip: () => ({ caster_defense: 70 }),
+        critDmgBoost: () => (100-elements.caster_hp_pc.value())*0.005,
+        enhance: [0.05, 0.05, 0, 0.05, 0, 0.05, 0.1],
+      },
+      s2: {
+        rate: 0.6,
+        pow: 1.3,
+        flat: () => elements.caster_defense.value()*1.15,
+        flatTip: () => ({ caster_defense: 115 }),
+        critDmgBoost: () => (100-elements.caster_hp_pc.value())*0.005,
+        aoe: true,
+      }
+    }
+  },
   armin: {
     name: 'Armin',
     element: element.earth,

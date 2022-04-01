@@ -17,7 +17,7 @@ const artifacts = {
   },
   a_little_queens_crown: {
     id: 'a_little_queens_crown',
-    name: 'A Little Queen\'s Crown',
+    name: 'A Little Queen\'s Huge Crown',
     scale: [0.16, 0.176, 0.192, 0.208, 0.224, 0.24, 0.256, 0.272, 0.288, 0.304, 0.32],
     type: artifactDmgType.damage,
     exclusive: classType.warrior,
