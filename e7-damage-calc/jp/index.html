@@ -29,9 +29,6 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
             <a class="navbar-brand">エピックセブン　ダメージ計算機</a>
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks</a>
-                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" lang="jp">
                         日本語 <span class="flag flag-jp"> </span>
@@ -46,14 +43,22 @@
             </ul>
         </nav>
         <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks <i class="fas fa-external-link-alt fa-xs"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="effectiveness.html">効果発動率計算機</a>
+                </li>
+            </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item nav-link">
-                    <a class="nav-link p-0" target="_blank" href="https://www.buymeacoffee.com/maphe" data-toggle="tooltip" title="Buy me a Coffee" data-placement="left">
-                        <i class="fas fa-mug-hot fa-lg"></i>
+                    <a class="btn btn-sm btn-outline-secondary" target="_blank" href="https://www.buymeacoffee.com/maphe" data-toggle="tooltip" title="Buy me a Coffee" data-placement="left">
+                        Donate <i class="fas fa-mug-hot fa-lg"></i>
                     </a>
                 </li>
                 <li class="nav-item nav-link">
-                    <div class="custom-control custom-switch">
+                    <div class="custom-control custom-switch mt-1">
                         <input type="checkbox" class="custom-control-input" id="dark-switch">
                         <label class="custom-control-label" for="dark-switch">
                             <span class="d-none d-sm-inline">Dark Mode</span>
@@ -206,28 +211,28 @@
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="crit-dmg-up" value="0.5" onchange="resolve()">
                             <label class="custom-control-label" for="crit-dmg-up">
-                                <img src="https://epic7x.com/wp-content/uploads/2019/03/increase-critical-hit-damage.png" width="20" height="20" /> Increased Critical Hit Damage
+                                <img src="https://epic7x.com/wp-content/uploads/2019/03/increase-critical-hit-damage.png" width="20" height="20" /> クリティカルダメージUP
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="vigor" value="1.3" onchange="resolve()">
                             <label class="custom-control-label" for="vigor">
-                                <img src="https://epic7x.com/wp-content/uploads/2019/02/vigor.png" width="20" height="20" /> Vigor
+                                <img src="https://epic7x.com/wp-content/uploads/2019/02/vigor.png" width="20" height="20" /> 覇気
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="rage-set" value="1.3" onchange="resolve()">
                             <label class="custom-control-label" for="rage-set">
-                                <img src="https://epic7x.com/wp-content/themes/epic7x/assets/img/Rage-set.png" width="20" height="20" /> 憤怒セット効果
+                                <img src="https://epic7x.com/wp-content/themes/epic7x/assets/img/Rage-set.png" width="20" height="20" /> 憤怒セット
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="pen-set" value="0.15" onchange="resolve()">
                             <label class="custom-control-label" for="pen-set">
-                                <img src="https://www.e7leaks.com/datamine/penset.png" width="20" height="20" /> Penetration Set
+                                <img src="https://www.e7leaks.com/datamine/penset.png" width="20" height="20" /> 貫通セット
                             </label>
                         </div>
                     </div>
@@ -265,46 +270,46 @@
                             <option value="">自由入力</option>
                             <option data-divider="true"></option>
                             <optgroup label="ワイバーン 11">
-                                <option value="blaze-dragona-11" data-def="984" data-hp="14158" data-subtext="14158 hp/163 spd">Blaze Dragona</option>
-                                <option value="blood-ridge-naga-11" data-def="1183" data-hp="11851" data-subtext="11851 hp/144 spd">Blood Ridge Naga</option>
+                                <option value="blaze-dragona-11" data-def="984" data-hp="14158" data-subtext="14158 hp/163 spd">ブレイズドラゴナー</option>
+                                <option value="blood-ridge-naga-11" data-def="1183" data-hp="11851" data-subtext="11851 hp/144 spd">血稜のナーガ</option>
                                 <option value="wyvern-11" data-def="1254" data-hp="150452" data-subtext="150452 hp/208 spd" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.3">ワイバーン</option>
                             </optgroup>
                             <optgroup label="ワイバーン 13">
-                                <option value="blaze-dragona-13" data-def="1392" data-hp="20241" data-subtext="20241 hp/175 spd">Blaze Dragona</option>
-                                <option value="blood-ridge-naga-13" data-def="1340" data-hp="13554" data-subtext="13554 hp/154 spd">Blood Ridge Naga</option>
+                                <option value="blaze-dragona-13" data-def="1392" data-hp="20241" data-subtext="20241 hp/175 spd">ブレイズドラゴナー</option>
+                                <option value="blood-ridge-naga-13" data-def="1340" data-hp="13554" data-subtext="13554 hp/154 spd">血稜のナーガ</option>
                                 <option value="wyvern-13" data-def="1940" data-hp="233578" data-subtext="233578 hp/242 spd" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.3">ワイバーン</option>
                             </optgroup>
                             <optgroup label="ゴーレム 11">
-                                <option value="raqix-flying-troop-11" data-def="891" data-hp="12528" data-subtext="12528 hp">Raqix Flying Troop</option>
-                                <option value="mossy-testudo-11" data-def="1077" data-hp="15015" data-subtext="15015 hp">Mossy Testudo</option>
+                                <option value="raqix-flying-troop-11" data-def="891" data-hp="12528" data-subtext="12528 hp">ラキスの飛行兵</option>
+                                <option value="mossy-testudo-11" data-def="1077" data-hp="15015" data-subtext="15015 hp">緑苔のテストゥード</option>
                                 <option value="golem-11" data-def="1306" data-hp="101983" data-subtext="101983 hp" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.3">ゴーレム</option>
                             </optgroup>
                             <optgroup label="ゴーレム 13">
-                                <option value="raqix-flying-troop-13" data-def="1007" data-hp="14743" data-subtext="14743 hp/188 spd">Raqix Flying Troop</option>
-                                <option value="mossy-testudo-13" data-def="1221" data-hp="17172" data-subtext="17172 hp">Mossy Testudo</option>
+                                <option value="raqix-flying-troop-13" data-def="1007" data-hp="14743" data-subtext="14743 hp/188 spd">ラキスの飛行兵</option>
+                                <option value="mossy-testudo-13" data-def="1221" data-hp="17172" data-subtext="17172 hp">緑苔のテストゥード</option>
                                 <option value="golem-13" data-def="1550" data-hp="158553" data-subtext="158553 hp" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.3">ゴーレム</option>
                             </optgroup>
                             <optgroup label="バンシー 11">
                                 <option value="mystychain-11" data-def="1101" data-hp="9631" data-subtext="9631 hp/154 spd">ミスティー・チェイン</option>
-                                <option value="icy-dark-broom-11" data-def="1101" data-hp="9631" data-subtext="9631 hp/152 spd">Icy Dark Broom</option>
+                                <option value="icy-dark-broom-11" data-def="1101" data-hp="9631" data-subtext="9631 hp/152 spd">雹のダークブルーム</option>
                                 <option value="banshee-11" data-def="1289" data-hp="60624" data-subtext="60624 hp/160 spd" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.3">バンシー</option>
                             </optgroup>
                             <optgroup label="バンシー 13">
                                 <option value="mystychain-13" data-def="1248" data-hp="11015" data-subtext="11015 hp/174 spd">ミスティー・チェイン</option>
-                                <option value="icy-dark-broom-13" data-def="1248" data-hp="11015" data-subtext="11015 hp/174 spd">Icy Dark Broom</option>
+                                <option value="icy-dark-broom-13" data-def="1248" data-hp="11015" data-subtext="11015 hp/174 spd">雹のダークブルーム</option>
                                 <option value="banshee-13" data-def="1977" data-hp="115703" data-subtext="115703 hp/203 spd" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.3">バンシー</option>
                             </optgroup>
                             <optgroup label="Azimanak 11">
-                                <option value="striker-raqix-warlord-11" data-def="1030" data-hp="12812" data-subtext="12812 hp/211 spd">Striker Warlord</option>
-                                <option value="karax-charger-11" data-def="1150" data-hp="20814" data-subtext="20814 hp/149 spd">Karax Charger</option>
+                                <option value="striker-raqix-warlord-11" data-def="1030" data-hp="12812" data-subtext="12812 hp/211 spd">ラキスの戦闘兵長</option>
+                                <option value="karax-charger-11" data-def="1150" data-hp="20814" data-subtext="20814 hp/149 spd">カラックスの突撃兵</option>
                                 <option value="egg-11" data-def="540" data-hp="8098" data-subtext="8098 hp">たまご</option>
-                                <option value="azimanak-11" data-def="1825" data-hp="87729" data-subtext="87729 hp">Azimanak</option>
+                                <option value="azimanak-11" data-def="1825" data-hp="87729" data-subtext="87729 hp">アジマナク</option>
                             </optgroup>
                             <optgroup label="Azimanak 13">
-                                <option value="striker-raqix-warlord-13" data-def="1134" data-hp="14653" data-subtext="14653 hp/218 spd">Striker Warlord</option>
-                                <option value="karax-charger-13" data-def="1297" data-hp="23805" data-subtext="23805 hp/176 spd">Karax Charger</option>
+                                <option value="striker-raqix-warlord-13" data-def="1134" data-hp="14653" data-subtext="14653 hp/218 spd">ラキスの戦闘兵長</option>
+                                <option value="karax-charger-13" data-def="1297" data-hp="23805" data-subtext="23805 hp/176 spd">カラックスの突撃兵</option>
                                 <option value="egg-13" data-def="600" data-hp="9156" data-subtext="9156 hp">たまご</option>
-                                <option value="azimanak-13" data-def="2822" data-hp="134511" data-subtext="134511 hp">Azimanak</option>
+                                <option value="azimanak-13" data-def="2822" data-hp="134511" data-subtext="134511 hp">アジマナク</option>
                             </optgroup>
                         </select>
                     </div>
@@ -313,15 +318,15 @@
                             <option value="none" data-reduc="0" data-trans="0" data-defup="0">ダメージ軽減/身代わり効果なし</option>
                             <option data-divider="true"></option>
                             <optgroup label="ダメージ軽減">
-                                <option value="proof-of-valor-init" data-reduc="30" data-subtext="30%">武勇の証 (初期状態)</option>
-                                <option value="proof-of-valor-down" data-reduc="15" data-subtext="15%">武勇の証 (5回ヒット後)</option>
+                                <option value="proof-of-valor-init" data-reduc="30" data-subtext="30%">勇猛の証拠 (初期状態)</option>
+                                <option value="proof-of-valor-down" data-reduc="15" data-subtext="15%">勇猛の証拠 (5回ヒット後)</option>
                                 <option value="adamant-shield" data-reduc="16" data-subtext="16%">アダマントシールド (Max)</option>
                                 <option value="draco-plate" data-reduc="16" data-subtext="16%">龍鱗の鎧 (Max)</option>
                                 <option value="elena" data-reduc="15" data-subtext="15%">エレナ (スキル2パッシブ)</option>
                                 <option value="c-armin" data-reduc="15" data-subtext="15%">紅焔のアーミン (スキル2パッシブ)</option>
                             </optgroup>
                             <optgroup label="ダメージ身代わり">
-                                <option value="ss-bellona" data-trans="30" data-subtext="30%">浜辺のヴェローナ (スキル2パッシブ)</option>
+                                <option value="ss-bellona" data-trans="30" data-subtext="30%">海辺のヴェローナ (スキル2パッシブ)</option>
                                 <option value="aurius" data-trans="20" data-defup="10" data-subtext="20% (+10% 防御力)">アウリウス (Max)</option>
                                 <option value="t-crozet" data-trans="40" data-subtext="40%">無法者 クロゼ (スキル2パッシブ)</option>
                                 <option value="eaton" data-trans="30" data-subtext="30%">イートン (スキル2パッシブ)</option>
@@ -425,7 +430,7 @@
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="target-vigor" value="0.3" onchange="resolve()">
                             <label class="custom-control-label" for="target-vigor">
-                                <img src="https://epic7x.com/wp-content/uploads/2019/02/vigor.png" width="20" height="20" /> Vigor
+                                <img src="https://epic7x.com/wp-content/uploads/2019/02/vigor.png" width="20" height="20" /> 覇気
                             </label>
                         </div>
 
@@ -485,7 +490,7 @@
                 </span>
                 <span id="artifact-dmg-block" class="badge badge-light float-right">
                     <i class="fas fa-tools"></i> <span id="artifact-dmg"></span>
-                    <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="Damage coming from Artifact, already included in the table below"></i>
+                    <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="遺物によるダメージ (以下の表には加算済み)"></i>
                 </span>
             </h4>
             <div>

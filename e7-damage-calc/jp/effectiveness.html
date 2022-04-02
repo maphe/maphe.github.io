@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="jp">
+    <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-VBQ8W4W1QK"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-VBQ8W4W1QK', { 'page_title' : 'effectiveness', 'page_path': '/e7-damage-calc/jp/effectiveness' });
+        </script>
+
+        <meta charset="utf-8" />
+        <meta name="keywords" content="エピックセブン　ダメージ　計算機, エピなな　ダメージ 計算機, Epic Seven ダメージ 計算機" />
+        <meta name="description" content="エピックセブン用ダメージ計算機。英雄のステータスを入力してスキルダメージの計算を行います。" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/css/flag-icon.min.css">
+        <link rel="stylesheet" href="../style.css" />
+        <link rel="stylesheet" href="../flags.css" />
+        <!-- IE -->
+        <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+        <!-- other browsers -->
+        <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+
+        <title>エピックセブン 効果発動率計算機</title>
+    </head>
+    <body class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+            <a class="navbar-brand">エピックセブン 効果発動率計算機</a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks <i class="fas fa-external-link-alt fa-xs"></i></a>
+                </li>
+            </ul>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html"><i class="fas fa-angle-double-left"></i> ダメージ計算機</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item nav-link">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="dark-switch">
+                        <label class="custom-control-label" for="dark-switch">
+                            <span class="d-none d-sm-inline">Dark Mode</span>
+                            <i class="fas fa-adjust d-inline d-sm-none mt-1"></i>
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div>
+            <form id="stats">
+                <div class="stat-block">
+                    <div class="form-group row col-sm-12">
+                        <label for="hit-chance" class="col-md-9 col-form-label form-control-sm"><h5>攻撃の命中率 (%)</h5></label>
+                        <div class="input-group input-group-sm col-md-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" type="button" id="hit-chance-minus" onclick="minus('hit-chance')">&minus;</button>
+                            </div>
+                            <input type="number" class="form-control text-center" id="hit-chance" value="100" onkeyup="update('hit-chance')">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="hit-chance-plus" onclick="plus('hit-chance')">&plus;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row col-sm-12">
+                        <input type="range" class="custom-range" id="hit-chance-slide" min="0" max="100" value="100" step="5" oninput="slide('hit-chance')">
+                    </div>
+                </div>
+                <div class="stat-block">
+                    <div class="form-group row col-sm-12">
+                        <label for="effect-chance" class="col-md-9 col-form-label form-control-sm"><h5>スキルの効果発動率 (%)</h5></label>
+                        <div class="input-group input-group-sm col-md-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" type="button" id="effect-chance-minus" onclick="minus('effect-chance')">&minus;</button>
+                            </div>
+                            <input type="number" class="form-control text-center" id="effect-chance" value="100" onkeyup="update('effect-chance')">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="effect-chance-plus" onclick="plus('effect-chance')">&plus;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row col-sm-12">
+                        <input type="range" class="custom-range" id="effect-chance-slide" min="0" max="100" value="100" step="5" oninput="slide('effect-chance')">
+                    </div>
+                </div>
+                <div class="stat-block">
+                    <div class="form-group row col-sm-12">
+                        <label for="effectiveness" class="col-md-9 col-form-label form-control-sm"><h5>術者の効果命中率</h5></label>
+                        <div class="input-group input-group-sm col-md-3">
+                            <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary" type="button" id="effectiveness-minus" onclick="minus('effectiveness')">&minus;</button>
+                            </div>
+                            <input type="number" class="form-control text-center" id="effectiveness" value="0" onkeyup="update('effectiveness')">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="effectiveness-plus" onclick="plus('effectiveness')">&plus;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row col-sm-12">
+                        <input type="range" class="custom-range" id="effectiveness-slide" min="0" max="400" value="0" oninput="slide('effectiveness')">
+                    </div>
+                </div>
+                <div class="stat-block">
+                    <div class="form-group row col-sm-12">
+                        <label for="effect-resistance" class="col-md-9 col-form-label form-control-sm"><h5>対象の効果抵抗率</h5></label>
+                        <div class="input-group input-group-sm col-md-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary" type="button" id="effect-resistance-minus" onclick="minus('effect-resistance')">&minus;</button>
+                            </div>
+                            <input type="number" class="form-control text-center" id="effect-resistance" value="0" onkeyup="update('effect-resistance')">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" id="effect-resistance-plus" onclick="plus('effect-resistance')">&plus;</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row col-sm-12">
+                        <input type="range" class="custom-range" id="effect-resistance-slide" min="0" max="400" value="0" oninput="slide('effect-resistance')">
+                    </div>
+                </div>
+            </form>
+
+            <div>
+                <div class="row text-center">
+                    <div class="col-sm-3">
+                        <div class="card border-success mb-3">
+                            <div class="card-header">
+                                最終発動率
+                                <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="攻撃命中率とスキル効果発動率も考慮した確率"></i>
+                            </div>
+                            <div class="card-body text-success">
+                                <p class="card-text">
+                                    <h2><span id="landing"></span>%</h2>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 offset-md-3">
+                        <div class="card-group">
+                            <div class="card border-info">
+                                <div class="card-header">
+                                    命中率
+                                    <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="攻撃が命中し効果が発動したときの発動率 (= 効果命中率と効果抵抗率のみで算出した確率)"></i>
+                                </div>
+                                <div class="card-body text-info">
+                                    <p class="card-text">
+                                        <h2><span id="passing-res"></span>%</h2>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="card border-danger">
+                                <div class="card-header">
+                                    抵抗率
+                                    <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="攻撃が命中し効果が発動したときの抵抗率"></i>
+                                </div>
+                                <div class="card-body text-danger">
+                                    <p class="card-text">
+                                        <h2><span id="resist"></span>%</h2>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/js/all.min.js"></script>
+        <script src="../lang.js"></script>
+        <script src="../effectiveness.js"></script>
+        <script src="../form.js"></script>
+    </body>
+</html>
