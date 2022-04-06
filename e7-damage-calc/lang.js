@@ -491,6 +491,7 @@ const i18n = {
       aramintha: '雅拉敏塔',
       arbiter_vildred: '執行官維德瑞',
       archdemon_shadow: '魔神的暗影',
+      aria:'艾莉雅',
       armin: '亞敏',
       arowell: '雅洛薇',
       assassin_cartuja: '殺手卡爾圖哈',
@@ -726,6 +727,7 @@ const i18n = {
       aramintha: '火響指 火法',
       arbiter_vildred: '暗刺 暗帝 暗25 暗弟',
       archdemon_shadow: '魔神女主',
+      aria:'水奶法',
       armin: '木敏 阿敏',
       assassin_cartuja: '暗熊',
       assassin_cidd: '暗席德',
@@ -1038,6 +1040,7 @@ const i18n = {
     },
     info: {
       alencia_trample: '扼殺',
+      aria_scaling: '注意: 基於損失生命百分比的暴擊傷害補償可能不正確. 但技能倍率是正確的.',
       lqc_s3_splash: 'S3 濺射傷害',
       ml_celine_nimble_sword: '快劍',
       s1_extra_attack: 'S1 追加攻擊',
