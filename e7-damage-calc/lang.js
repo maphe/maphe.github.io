@@ -929,6 +929,7 @@ const i18n = {
       exorcist_tonfa: '鬥鬼的拐棍',
       hell_cutter: '地獄切割機',
       iron_fan: '鐵扇',
+      jack_o_symbol: '潔克‧歐的象徵',
       kaladra: '嘉拉特拉',
       last_teatime: '最後的下午茶',
       merciless_glutton: '無情的大食客',
