@@ -1032,6 +1032,8 @@ const i18n = {
       extraDmg: '額外傷害',
       fixed: '固定傷害',
       custom: {
+        caster_target_atk_diff: '攻擊力差異 {v}%',
+        caster_target_spd_diff: '速度差異 {v}%',
         all_fire: '{v}% 全體我軍火屬性',
         allies_buff: '+{v} 我軍每個Buff數量',
         caster_defense: '{v}% 自身防禦力',
@@ -1072,10 +1074,11 @@ const i18n = {
       ml_celine_nimble_sword: '快劍',
       s1_extra_attack: 'S1 追加攻擊',
       s2_wave_2: 'S2 第二波',
-      s2_wave_3: 'S2 第三波',
       s2_counter: 'S2 (反擊)',
+      s2_wave_3: 'S2 第三波',
       sez_explosion: '濺射傷害',
       victorious_flag: '必須勾選屬性克製才能看到效果, 對光暗英雄無效.',
+      yoonryoung_slash: '閃光砍擊'
     }
   },
   zhCN: {
