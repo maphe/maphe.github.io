@@ -4,7 +4,8 @@ const artifactDmgType = {
   aftermath: 'aftermath',
   attack: 'attack',
   critDmgBoost: 'crit-dmg-boost',
-  flat: 'flat'
+  flat: 'flat',
+  burn: 'burn'
 };
 
 const artifacts = {
@@ -154,6 +155,12 @@ const artifacts = {
     type: artifactDmgType.damage,
     exclusive: classType.warrior,
     applies: (skill) => skill.single === true && elements.target_has_debuff.value() !== false,
+  },
+  junkyard_dog:{
+    id: 'junkyard_dog',
+    name: 'Junkyard Dog',
+    type: artifactDmgType.burn,
+    exclusive: classType.warrior
   },
   kaladra: {
     id: 'kaladra',

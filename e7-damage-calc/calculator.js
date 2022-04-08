@@ -168,6 +168,11 @@ class Hero {
     this.barrierEnhance = heroes[id].barrierEnhance;
     this.artifact = artifact;
     this.target = new Target(artifact);
+
+    if (artifact.id && artifacts[artifact.id].type == artifactDmgType.burn && (this.dot || []).indexOf(dot.burn) == -1) {
+      this.dot = (this.dot || []).concat(dot.burn);
+    }
+
     currentHero = this;
   }
 
