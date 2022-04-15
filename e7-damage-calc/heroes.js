@@ -381,11 +381,15 @@ const heroes = {
     element: element.fire,
     classType: classType.mage,
     baseAtk: 1197,
+    form: [elements.target_burn_detonate],
     dot: [dot.burn],
+    barrier: (hero) => hero.getAtk()*1.2,
     skills: {
       s1: {
         rate: 1,
         pow: 1.05,
+        detonate: [dot.burn],
+        detonation: () => 1,
         enhance: [0.1, 0, 0, 0.15],
         single: true,
       },
@@ -489,6 +493,7 @@ const heroes = {
     classType: classType.knight,
     baseAtk: 721,
     form: [elements.caster_defense],
+    barrier: () => elements.caster_defense.value()*0.7,
     skills: {
       s1: {
         rate: 0.8,
@@ -497,14 +502,6 @@ const heroes = {
         flatTip: () => ({ caster_defense: 60 }),
         enhance: [0.05, 0.05, 0, 0, 0.1, 0.1, 0.1],
         single: true,
-      },
-      s2: {
-        rate: 0.3,
-        pow: 0.9,
-        flat: () => elements.caster_defense.value()*0.5,
-        flatTip: () => ({ caster_defense: 50 }),
-        enhance: [0.05, 0.1, 0.1, 0, 0, 0.15],
-        aoe: true,
       }
     }
   },
@@ -1728,29 +1725,26 @@ const heroes = {
     element: element.ice,
     classType: classType.thief,
     baseAtk: 1138,
-    form: [elements.caster_speed],
+    form: [elements.target_bleed_detonate, elements.target_bomb_detonate],
+    dot: [dot.bleed, dot.bomb],
     skills: {
       s1: {
         rate: 0.8,
         pow: 0.9,
-        mult: () => 1 + elements.caster_speed.value()*0.00075,
-        multTip: () => ({ caster_speed: 0.075 }),
         enhance: [0.05, 0.05, 0.05, 0.1, 0.1],
         single: true,
       },
       s2: {
-        rate: 1.2,
+        rate: 0.8,
         pow: 0.9,
-        mult: () => 1 + elements.caster_speed.value()*0.00075,
-        multTip: () => ({ caster_speed: 0.075 }),
+        detonate: [dot.bleed, dot.bomb],
+        detonation: () => 1,
         enhance: [0.05, 0.05, 0.05, 0.1, 0.15],
         single: true,
       },
       s3: {
-        rate: 1.5,
+        rate: 0.3,
         pow: 0.9,
-        mult: () => 1 + elements.caster_speed.value()*0.001125,
-        multTip: () => ({ caster_speed: 0.1125 }),
         enhance: [0.05, 0.1, 0, 0.1, 0.15],
         single: true,
       }
@@ -1945,8 +1939,8 @@ const heroes = {
         soulburn: true,
         rate: 0,
         pow: 0.95,
-        flat: (soulburn) => elements.caster_max_hp.value()*(soulburn ? 0.34 : 0.2),
-        flatTip: (soulburn) => ({ caster_max_hp: soulburn ? 34 : 20 }),
+        flat: (soulburn) => elements.caster_max_hp.value()*(soulburn ? 0.375 : 0.25),
+        flatTip: (soulburn) => ({ caster_max_hp: soulburn ? 37.5 : 25 }),
         penetrate: () => 1.0,
         enhance: [0.05, 0.05, 0, 0.05, 0.1, 0.1],
         single: true,
@@ -2640,7 +2634,7 @@ const heroes = {
     element: element.light,
     classType: classType.mage,
     baseAtk: 1252,
-    barrier: (hero) => hero.getAtk(),
+    barrier: (hero) => hero.getAtk()*0.6,
     skills: {
       s1: {
         rate: 1,
@@ -2656,9 +2650,9 @@ const heroes = {
       },
       s3: {
         soulburn: true,
-        rate: (soulburn) => soulburn ? 2.3 : 1.8,
-        pow: 0.95,
-        enhance: [0.1, 0, 0, 0.1, 0.15],
+        rate: 1.8,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
         single: true,
       }
     }
@@ -3888,7 +3882,7 @@ const heroes = {
     element: element.earth,
     classType: classType.mage,
     baseAtk: 1412,
-    form: [elements.caster_invincible, elements.exclusive_equipment_3],
+    form: [elements.caster_invincible, elements.exclusive_equipment_1, elements.exclusive_equipment_3],
     skills: {
       s1: {
         rate: 1,
@@ -3899,14 +3893,15 @@ const heroes = {
       s2: {
         rate: 1.65,
         pow: 1.05,
+        exEq: () => elements.exclusive_equipment_1.value() ? 0.1 : 0,
         enhance: [0.1, 0, 0, 0, 0.15],
         single: true,
       },
       s3: {
         soulburn: true,
-        rate: (soulburn) => soulburn ? 1.1 : 0.85,
+        rate: 0.85,
         pow: 0.95,
-        penetrate: () => elements.caster_invincible.value() ? 0.5 : 0.2,
+        penetrate: () => elements.caster_invincible.value() ? 0.6 : 0.3,
         exEq: () => elements.exclusive_equipment_3.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.15],
         aoe: true,
@@ -5595,10 +5590,11 @@ const heroes = {
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         single: true,
       },
-      s2: {
+      s1_extra: {
+        name: infoLabel('s1_extra_attack'),
         rate: 0.5,
-        pow: 1,
-        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        pow: 1.3,
+        enhance_from: 's1',
         aoe: true,
       },
       s3: {
