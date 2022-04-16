@@ -5,7 +5,7 @@ const artifactDmgType = {
   attack: 'attack',
   critDmgBoost: 'crit-dmg-boost',
   flat: 'flat',
-  burn: 'burn'
+  dot: 'dot'
 };
 
 const artifacts = {
