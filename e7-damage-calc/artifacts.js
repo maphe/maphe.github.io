@@ -159,7 +159,8 @@ const artifacts = {
   junkyard_dog:{
     id: 'junkyard_dog',
     name: 'Junkyard Dog',
-    type: artifactDmgType.burn,
+    type: artifactDmgType.dot,
+    dot: [dot.burn],
     exclusive: classType.warrior
   },
   kaladra: {
