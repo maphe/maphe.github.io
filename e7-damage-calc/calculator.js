@@ -160,7 +160,7 @@ class Hero {
     this.crit = Number(document.getElementById('crit').value);
     this.skills = heroes[id].skills;
     this.baseAtk = heroes[id].baseAtk || 0;
-    this.dot = heroes[id].dot;
+    this.dot = [...(heroes[id].dot || []), ...(artifact?.getDoT() || [])];
     this.atkUp = heroes[id].atkUp;
     this.innateAtkUp = heroes[id].innateAtkUp;
     this.element = heroes[id].element;
@@ -168,10 +168,6 @@ class Hero {
     this.barrierEnhance = heroes[id].barrierEnhance;
     this.artifact = artifact;
     this.target = new Target(artifact);
-
-    if (artifact.id && artifacts[artifact.id].type == artifactDmgType.burn && (this.dot || []).indexOf(dot.burn) == -1) {
-      this.dot = (this.dot || []).concat(dot.burn);
-    }
 
     currentHero = this;
   }
@@ -447,5 +443,13 @@ class Artifact {
       return 0;
     }
     return artifacts[this.id].flat(this.getValue());
+  }
+
+  getDoT() {
+    if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.dot) {
+      return null;
+    }
+    
+    return artifacts[this.id].dot;
   }
 }

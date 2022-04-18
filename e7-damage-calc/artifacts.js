@@ -254,6 +254,13 @@ const artifacts = {
     exclusive: classType.knight,
     applies: (_, skillId) => skillId === 's1',
   },
+  star_of_the_deep_sea:{
+    id: 'star_of_the_deep_sea',
+    name: 'Star of the Deep Sea',
+    type: artifactDmgType.dot,
+    dot: [dot.bomb],
+    exclusive: classType.ranger
+  },
   sword_of_summer_twilight: {
     id: 'sword_of_summer_twilight',
     name: 'Sword of Summer Twilight',
@@ -290,6 +297,13 @@ const artifacts = {
     scale: [0.18, 0.198, 0.216, 0.234, 0.252, 0.27, 0.288, 0.306, 0.324, 0.342, 0.36],
     type: artifactDmgType.damage,
     exclusive: classType.mage,
+  },
+  torn_sleeve:{
+    id: 'torn_sleeve',
+    name: 'Torn Sleeve',
+    type: artifactDmgType.dot,
+    dot: [dot.bleed],
+    exclusive: classType.thief
   },
   uberius_tooth: {
     id: 'uberius_tooth',
