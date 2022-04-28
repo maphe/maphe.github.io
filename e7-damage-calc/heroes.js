@@ -5927,6 +5927,38 @@ const heroes = {
       }
     }
   },
+  taeyou: {
+    name: 'Taeyou',
+    element: element.ice,
+    classType: classType.warrior,
+    baseAtk: 1039,
+    form: [elements.caster_speed, elements.caster_enrage],
+    skills: {
+      s1: {
+        soulburn: true,
+        rate: (sb) => sb ? 1.65 : 0.98,
+        pow: 0.9,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        multTip: () => ({ caster_speed: 0.075 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s1_extra: {
+        name: infoLabel('s1_extra_attack'),
+        rate: 1.2,
+        pow: 1.3,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        multTip: () => ({ caster_speed: 0.075 }),
+        single: true,
+      },
+      s3: {
+        rate: 1,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1, 0.1],
+        aoe: true,
+      },
+    }
+  },
   tamarinne: {
     name: 'Tamarinne',
     element: element.fire,
