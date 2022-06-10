@@ -198,8 +198,8 @@ const heroes = {
       s1: {
         rate: 0.5,
         pow: 1,
-        flat: () => elements.caster_max_hp.value()*0.1,
-        flatTip: () => ({ caster_max_hp: 10 }),
+        flat: () => elements.caster_max_hp.value()*0.08,
+        flatTip: () => ({ caster_max_hp: 8 }),
         enhance: [0.05, 0, 0.1, 0, 0.15],
         single: true,
       },
@@ -207,8 +207,8 @@ const heroes = {
         name: infoLabel('alencia_trample'),
         rate: 0.5,
         pow: 1,
-        flat: () => elements.caster_max_hp.value()*0.12,
-        flatTip: () => ({ caster_max_hp: 12 }),
+        flat: () => elements.caster_max_hp.value()*0.11,
+        flatTip: () => ({ caster_max_hp: 11 }),
         enhance: [0.05, 0, 0.1, 0, 0.15],
         single: true,
       },
@@ -1549,7 +1549,7 @@ const heroes = {
     element: element.ice,
     classType: classType.warrior,
     baseAtk: 966,
-    form: [elements.caster_max_hp],
+    form: [elements.caster_max_hp, elements.caster_full_focus],
     skills: {
       s1: {
         rate: 0.5,
@@ -1560,12 +1560,11 @@ const heroes = {
         single: true,
       },
       s2: {
-        soulburn: true,
         rate: 0.5,
         pow: 1,
-        flat: (soulburn) => elements.caster_max_hp.value()*(soulburn ? 0.23 : 0.15),
-        flatTip: (soulburn) => ({ caster_max_hp: (soulburn ? 23 : 15) }),
-        penetrate: () => 0.5,
+        flat: () => elements.caster_max_hp.value()*(elements.caster_full_focus.value() ? 0.15 : 0.11),
+        flatTip: () => ({ caster_max_hp: (elements.caster_full_focus.value() ? 15 : 11) }),
+        penetrate: () => 0.7,
         enhance: [0.05, 0.1, 0.15],
         single: true,
       },
@@ -2765,7 +2764,7 @@ const heroes = {
         single: true,
       },
       s3: {
-        rate: 1,
+        rate: 1.2,
         pow: 1,
         mult: () => {
           switch (elements.nb_targets.value()) {
@@ -2862,6 +2861,34 @@ const heroes = {
         enhance: [0.05, 0.05, 0, 0.05, 0.15],
         aoe: true,
       }
+    }
+  },
+  holy_flame_adin: {
+    name: 'Holy Flame Adin',
+    element: element.fire,
+    classType: classType.thief,
+    baseAtk: 1081,
+    form: [elements.skill_tree_completed],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.95,
+        mult: () => elements.skill_tree_completed.value() ? 1.1 : 1,
+        multTip: () => (elements.skill_tree_completed.value() ? { skill_tree: 10 } : null),
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 0.8,
+        pow: 1,
+        aoe: true,
+      },
+      s3: {
+        rate: 1.8,
+        pow: 1.05,
+        enhance: [0.1, 0.1, 0, 0.15, 0.15],
+        single: true,
+      },
     }
   },
   hurado: {
@@ -3899,7 +3926,7 @@ const heroes = {
       },
       s3: {
         soulburn: true,
-        rate: 0.85,
+        rate: 0.9,
         pow: 0.95,
         penetrate: () => elements.caster_invincible.value() ? 0.6 : 0.3,
         exEq: () => elements.exclusive_equipment_3.value() ? 0.1 : 0,
@@ -5731,7 +5758,7 @@ const heroes = {
     element: element.dark,
     classType: classType.mage,
     baseAtk: 1197,
-    form: [elements.target_nb_debuff, elements.dead_people],
+    form: [elements.target_nb_debuff, elements.dead_people, elements.s3_on_cooldown],
     atkUp: () => {
       let buff = 0.07;
       for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
@@ -5744,6 +5771,7 @@ const heroes = {
         rate: 1.2,
         pow: 1,
         enhance: [0.05, 0, 0.05, 0, 0.05, 0.15],
+        single: () => elements.s3_on_cooldown.value(),
       },
       s2: {
         enhance: [0.005, 0.01, 0.015],
@@ -6350,31 +6378,23 @@ const heroes = {
     element: element.light,
     classType: classType.ranger,
     baseAtk: 930,
-    form: [elements.caster_speed],
-    dot: [dot.bleed],
     skills: {
       s1: {
-        rate: 1,
+        rate: 1.2,
         pow: 1,
-        mult: () => 1 + elements.caster_speed.value()*0.00075,
-        multTip: () => ({ caster_speed: 0.075 }),
         enhance: [0.05, 0.1, 0, 0, 0.15],
         single: true,
       },
       s2: {
-        rate: 1,
+        rate: 1.3,
         pow: 0.9,
-        mult: () => 1 + elements.caster_speed.value()*0.00075,
-        multTip: () => ({ caster_speed: 0.075 }),
         enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
         single: true,
       },
       s3: {
-        rate: 1.8,
+        rate: 2,
         pow: 0.8,
-        mult: () => 1 + elements.caster_speed.value()*0.001125,
-        multTip: () => ({ caster_speed: 0.1125 }),
-        enhance: [0.1, 0.1, 0, 0.15, 0.15],
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
         single: true,
       }
     }

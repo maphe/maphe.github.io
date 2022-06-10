@@ -23,7 +23,7 @@ const artifacts = {
     type: artifactDmgType.damage,
     exclusive: classType.warrior,
     form: [elements.target_has_barrier],
-    applies: (skill) => skill.single === true,
+    applies: (skill) => getSkillType(skill) === skillTypes.single,
     value: (artiScale) => artiScale/(elements.target_has_barrier.value() ? 1 : 2),
   },
   a_symbol_of_unity: {
@@ -154,7 +154,7 @@ const artifacts = {
     scale: [0.12, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2, 0.21, 0.22, 0.24],
     type: artifactDmgType.damage,
     exclusive: classType.warrior,
-    applies: (skill) => skill.single === true && elements.target_has_debuff.value() !== false,
+    applies: (skill) => (getSkillType(skill) === skillTypes.single) && elements.target_has_debuff.value() !== false,
   },
   junkyard_dog:{
     id: 'junkyard_dog',
@@ -176,7 +176,7 @@ const artifacts = {
     scale: [0.07, 0.077, 0.084, 0.091, 0.098, 0.105, 0.112, 0.119, 0.126, 0.133, 0.14],
     type: artifactDmgType.damage,
     exclusive: classType.mage,
-    applies: (skill) => skill.aoe === true
+    applies: (skill) => getSkillType(skill) === skillTypes.aoe,
   },
   merciless_glutton: {
     id: 'merciless_glutton',
@@ -184,7 +184,7 @@ const artifacts = {
     scale: [0.08, 0.088, 0.096, 0.104, 0.112, 0.12, 0.128, 0.136, 0.144, 0.152, 0.16],
     type: artifactDmgType.damage,
     exclusive: classType.warrior,
-    applies: (skill) => skill.single === true
+    applies: (skill) => getSkillType(skill) === skillTypes.single,
   },
   portrait_of_the_saviors: {
     id: 'portrait_of_the_saviors',
@@ -198,7 +198,7 @@ const artifacts = {
     scale: [0.08, 0.088, 0.096, 0.104, 0.112, 0.12, 0.128, 0.136, 0.144, 0.152, 0.16],
     type: artifactDmgType.damage,
     exclusive: classType.ranger,
-    applies: (skill) => skill.aoe === true
+    applies: (skill) => getSkillType(skill) === skillTypes.aoe,
   },
   radiant_forever: {
     id: 'radiant_forever',
@@ -206,7 +206,7 @@ const artifacts = {
     scale: [0.25, 0.275, 0.3, 0.325, 0.35, 0.375, 0.4, 0.425, 0.45, 0.475, 0.5],
     type: artifactDmgType.damage,
     exclusive: classType.mage,
-    applies: (skill) => skill.aoe === true
+    applies: (skill) => getSkillType(skill) === skillTypes.aoe
   },
   reingar_special_drink: {
     id: 'reingar_special_drink',
@@ -215,7 +215,7 @@ const artifacts = {
     atkPercent: 0.3,
     penetrate: 0.7,
     exclusive: classType.ranger,
-    applies: (skill) => skill.aoe === true
+    applies: (skill) => getSkillType(skill) === skillTypes.aoe
   },
   severed_horn_wand: {
     id: 'severed_horn_wand',
@@ -254,6 +254,13 @@ const artifacts = {
     exclusive: classType.knight,
     applies: (_, skillId) => skillId === 's1',
   },
+  spear_of_purification: {
+    id: 'spear_of_purification',
+    name: 'Spear of Purification',
+    type: artifactDmgType.attack,
+    scale: [0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2],
+    exclusive: classType.warrior,
+  },
   star_of_the_deep_sea:{
     id: 'star_of_the_deep_sea',
     name: 'Star of the Deep Sea',
@@ -267,7 +274,7 @@ const artifacts = {
     scale: [0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2],
     type: artifactDmgType.penetrate,
     exclusive: classType.thief,
-    applies: (skill) => skill.aoe === true,
+    applies: (skill) => getSkillType(skill) === skillTypes.aoe,
   },
   sword_of_winter_shadow: {
     id: 'sword_of_winter_shadow',
@@ -312,7 +319,7 @@ const artifacts = {
     atkPercent: 0.45,
     penetrate: 0.7,
     exclusive: classType.warrior,
-    applies: (skill) => skill.single === true,
+    applies: (skill) => getSkillType(skill) === skillTypes.single,
   },
   victorious_flag: {
     id: 'victorious_flag',

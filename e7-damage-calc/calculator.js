@@ -5,6 +5,16 @@ const hitTypes = {
   normal: 'normal',
   miss: 'miss',
 };
+const skillTypes = {
+  single: 'single',
+  aoe: 'aoe',
+}
+
+const getSkillType = (skill) => {
+  if (skill.single !== undefined && ((typeof skill.single === 'function') ? skill.single() : skill.single) === true) return skillTypes.single;
+  if (skill.aoe !== undefined && ((typeof skill.aoe === 'function') ? skill.aoe() : skill.aoe) === true) return skillTypes.aoe;
+  return undefined;
+}
 
 const resolve = () => {
   const artifact = new Artifact(document.getElementById('artifact').value);
@@ -130,10 +140,10 @@ const getGlobalDamageMult = (hero, skill) => {
       mult += parseFloat(selected.dataset.extraDmgPc)-1;
   }
 
-  if (skill.single === true && selected.dataset.singleAtkMult) {
+  if (getSkillType(skill) === skillTypes.single && selected.dataset.singleAtkMult) {
     mult += parseFloat(selected.dataset.singleAtkMult)-1;
   }
-  if (skill.single !== true && selected.dataset.nonSingleAtkMult) {
+  if (getSkillType(skill) !== skillTypes.single && selected.dataset.nonSingleAtkMult) {
     mult += parseFloat(selected.dataset.nonSingleAtkMult)-1;
   }
 
@@ -363,7 +373,7 @@ class Target {
   getPenetration(skill) {
     const base = skill && skill.penetrate ? skill.penetrate() : 0;
     const artifact = this.casterArtifact.getDefensePenetration(skill);
-    const set = skill.single && document.getElementById('pen-set') && document.getElementById('pen-set').checked
+    const set = (getSkillType(skill) === skillTypes.single) && document.getElementById('pen-set') && document.getElementById('pen-set').checked
         ? Number(document.getElementById('pen-set').value)
         : 0;
 

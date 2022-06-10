@@ -674,6 +674,14 @@ const elements = {
     default: true,
     value: () => document.getElementById('skill-tree-completed').checked,
   },
+  s3_on_cooldown: {
+    ref: 's3_on_cooldown',
+    id: 's3-on-cooldown',
+    label: 'S3 on Cooldown',
+    type: 'checkbox',
+    default: true,
+    value: () => document.getElementById('s3-on-cooldown').checked,
+  },
   s3_stack: {
     ref: 's3_stack',
     id: 's3-stack',
