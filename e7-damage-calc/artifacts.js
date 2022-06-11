@@ -301,9 +301,10 @@ const artifacts = {
   time_matter: {
     id: 'time_matter',
     name: 'Time Matter',
-    scale: [0.18, 0.198, 0.216, 0.234, 0.252, 0.27, 0.288, 0.306, 0.324, 0.342, 0.36],
+    scale: [0.12, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2, 0.21, 0.22, 0.24],
     type: artifactDmgType.damage,
     exclusive: classType.mage,
+    value: (artiScale) => (artiScale / 2) + artiScale,
   },
   torn_sleeve:{
     id: 'torn_sleeve',

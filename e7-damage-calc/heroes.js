@@ -3746,7 +3746,7 @@ const heroes = {
     element: element.earth,
     classType: classType.warrior,
     baseAtk: 1119,
-    form: [elements.target_has_buff, elements.exclusive_equipment_1, elements.exclusive_equipment_3],
+    form: [elements.exclusive_equipment_1, elements.exclusive_equipment_3],
     dot: [dot.bleed],
     skills: {
       s1: {
@@ -3759,8 +3759,6 @@ const heroes = {
       s2: {
         rate: 1.5,
         pow: 1,
-        mult: () => 1 + (elements.target_has_buff.value() ? 0 : 0.2),
-        multTip: () => ({ target_debuff: 20 }),
         enhance: [0.05, 0, 0.1, 0, 0.15],
         single: true,
       },
