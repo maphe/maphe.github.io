@@ -6468,8 +6468,36 @@ const heroes = {
         rate: 2,
         pow: 0.95,
         mult: () => elements.target_has_buff.value() ? 1.5 : 1.0,
-        multTip: () => ({ target_has_buff: 50 }),
+        multTip: () => ({target_has_buff: 50}),
         enhance: [0.05, 0.05, 0, 0.05, 0.1, 0.1],
+        single: true,
+      }
+    }
+  },
+  yulha: {
+    name: 'Yulha',
+    element: element.earth,
+    classType: classType.knight,
+    baseAtk: 894,
+    form: [elements.caster_max_hp, elements.caster_hp],
+    barrier: () => elements.caster_max_hp.value() * 0.35,
+    skills: {
+      s1: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value() * 0.1,
+        flatTip: () => ({caster_max_hp: 10}),
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => 0.31 * Math.max(elements.caster_max_hp.value() - elements.caster_hp.value(), 0),
+        flatTip: () => ({caster_lost_hp: 31}),
+        penetrate: () => 1.0,
+        noCrit: true,
+        noTrans: true,
         single: true,
       }
     }
