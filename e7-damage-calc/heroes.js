@@ -6496,6 +6496,7 @@ const heroes = {
         flat: () => 0.31 * Math.max(elements.caster_max_hp.value() - elements.caster_hp.value(), 0),
         flatTip: () => ({caster_lost_hp: 31}),
         penetrate: () => 1.0,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
         noCrit: true,
         noTrans: true,
         single: true,
