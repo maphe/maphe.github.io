@@ -98,6 +98,7 @@ const i18n = {
       lqc_s3_splash: 'S3 Splash',
       ml_celine_nimble_sword: 'Nimble Sword',
       s1_extra_attack: 'S1 Extra Attack',
+      s1_soulburn: 'S1 Soulburn',
       s2_wave_2: 'S2 Wave 2',
       s2_counter: 'S2 (Counter)',
       s2_wave_3: 'S2 Wave 3',

@@ -5843,11 +5843,11 @@ const heroes = {
           const targetAtk = elements.target_attack.value();
           const casterAtk = currentHero.getAtk('s3');
 
-          const penDiff = (casterAtk-targetAtk)*0.0003;
+          const penDiff = (casterAtk - targetAtk) * 0.0003;
 
           return Math.min(Math.max(0, penDiff) + 0.3, 1);
         },
-        penetrateTip: () => ({ caster_target_atk_diff: 0.03 }),
+        penetrateTip: () => ({caster_target_atk_diff: 0.03}),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         aoe: true,
       },
@@ -5946,11 +5946,40 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 1 : 0.8,
         pow: 0.8,
-        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.005 + (100-elements.target_hp_pc.value())*0.0015,
-        multTip: () => ({ caster_lost_hp_pc: 50, target_lost_hp_pc: 15 }),
+        mult: () => 1 + (100 - elements.caster_hp_pc.value()) * 0.005 + (100 - elements.target_hp_pc.value()) * 0.0015,
+        multTip: () => ({caster_lost_hp_pc: 50, target_lost_hp_pc: 15}),
         enhance: [0.05, 0.05, 0.1, 0, 0.1, 0.1, 0.1],
         aoe: true,
       }
+    }
+  },
+  sylvan_sage_vivian: {
+    name: 'Sylvan Sage Vivian',
+    element: element.light,
+    classType: classType.mage,
+    baseAtk: 1359,
+    form: [elements.attack_skill_stack_3],
+    atkUp: () => 1 + elements.attack_skill_stack_3.value() * 0.15,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s1_soulburn: {
+        name: infoLabel('s1_soulburn'),
+        rate: 1,
+        pow: 1,
+        enhance_from: 's1',
+        aoe: true,
+      },
+      s3: {
+        rate: 1.1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
     }
   },
   taeyou: {
