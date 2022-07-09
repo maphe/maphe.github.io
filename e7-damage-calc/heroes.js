@@ -5853,6 +5853,45 @@ const heroes = {
       },
     }
   },
+  summer_disciple_alexa: {
+    name: 'Summer\'s Disciple Alexa',
+    element: element.ice,
+    classType: classType.thief,
+    baseAtk: 1081,
+    form: [elements.skill_tree_completed, elements.target_nb_debuff, elements.target_max_hp],
+    atkUp: () => elements.skill_tree_completed.value() ? 1.03 : 1,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.1, 0.15],
+        single: true,
+      },
+      s1_extra: {
+        name: infoLabel('s1_extra_attack'),
+        rate: 0.75,
+        pow: 1,
+        single: true,
+      },
+      s2: {
+        rate: 1,
+        pow: 1,
+        mult: () => 1 + (elements.skill_tree_completed.value() ? 0.1 : 0),
+        multTip: () => ({skill_tree: 5}),
+        enhance: [0.05, 0, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 1.5,
+        pow: 0.9,
+        mult: () => 1 + elements.target_nb_debuff.value() * 0.15,
+        multTip: () => ({per_target_debuff: 15}),
+        flat2: () => elements.skill_tree_completed.value() ? (elements.target_max_hp.value() * 0.05) : 0,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1, 0.1],
+        single: true,
+      }
+    }
+  },
   summertime_iseria: {
     name: 'Summertime Iseria',
     element: element.fire,

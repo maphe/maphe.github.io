@@ -1066,7 +1066,10 @@ $(() => {
     };
 
     artiSelector.onchange = () => {
-      buildArtifact(artifacts[artiSelector.value]);
+      const hero = heroes[heroSelector.value];
+      const artifact = {...artifacts[artiSelector.value]};
+      dedupeForm(hero, artifact);
+      buildArtifact(artifact);
       resolve();
       gtag('event', 'pick', {
         event_category: 'Artifact',

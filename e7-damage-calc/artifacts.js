@@ -71,7 +71,7 @@ const artifacts = {
     scale: [0.015, 0.0165, 0.018, 0.0195, 0.021, 0.0225, 0.024, 0.0255, 0.027, 0.0285, 0.03],
     type: artifactDmgType.flat,
     form: [elements.target_max_hp],
-    flat: (artiScale) => elements.target_max_hp.value()*artiScale
+    flat: (artiScale) => elements.target_max_hp.value() * artiScale
   },
   dignus_orb: {
     id: 'dignus_orb',
