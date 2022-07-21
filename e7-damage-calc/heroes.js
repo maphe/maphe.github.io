@@ -5549,6 +5549,26 @@ const heroes = {
       },
     }
   },
+  sharun: {
+    name: 'Sharun',
+    element: element.earth,
+    classType: classType.soul_weaver,
+    baseAtk: 640,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
+      },
+    }
+  },
   sigret: {
     name: 'Sigret',
     element: element.ice,
@@ -5850,6 +5870,29 @@ const heroes = {
         penetrateTip: () => ({caster_target_atk_diff: 0.03}),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         aoe: true,
+      },
+    }
+  },
+  summer_break_charlotte: {
+    name: 'Summer Break Charlotte',
+    element: element.ice,
+    classType: classType.knight,
+    baseAtk: 957,
+    form: [elements.target_hp_pc],
+    skills: {
+      s1: {
+        rate: 0.9,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 1.8,
+        pow: 1,
+        mult: () => 1 + (100 - elements.target_hp_pc.value()) * 0.0035,
+        multTip: () => ({target_lost_hp_pc: 35}),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
       },
     }
   },
