@@ -178,6 +178,13 @@ const artifacts = {
     exclusive: classType.mage,
     applies: (skill) => getSkillType(skill) === skillTypes.aoe,
   },
+  mature_sunglasses: {
+    id: 'mature_sunglasses',
+    name: 'Mature Sunglasses',
+    scale: [0.15, 0.17, 0.18, 0.2, 0.21, 0.23, 0.24, 0.26, 0.27, 0.29, 0.3],
+    type: artifactDmgType.critDmgBoost,
+    exclusive: classType.knight
+  },
   merciless_glutton: {
     id: 'merciless_glutton',
     name: 'Merciless Glutton',
