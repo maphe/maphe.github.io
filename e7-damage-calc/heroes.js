@@ -5554,12 +5554,18 @@ const heroes = {
     element: element.earth,
     classType: classType.soul_weaver,
     baseAtk: 640,
+    form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value() * 0.1,
+    barrierEnhance: 's2',
     skills: {
       s1: {
         rate: 1,
         pow: 1,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         single: true,
+      },
+      s2: {
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
       },
       s3: {
         rate: 1,
