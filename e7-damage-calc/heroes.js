@@ -2353,13 +2353,13 @@ const heroes = {
       s1: {
         rate: 1,
         pow: 1,
-        enhance: [0.05, 0, 0.05, 0, 0.1],
+        enhance: [0.05, 0, 0.1, 0, 0.15],
         single: true,
       },
       s2: {
         rate: 0.7,
         pow: 1,
-        enhance: [0.05, 0, 0.05, 0, 0.15],
+        enhance: [0.05, 0, 0.1, 0, 0.15],
         aoe: true,
       },
       s3: {
