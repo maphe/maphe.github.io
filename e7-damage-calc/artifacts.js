@@ -139,7 +139,14 @@ const artifacts = {
     scale: [0.02, 0.022, 0.024, 0.026, 0.028, 0.03, 0.032, 0.034, 0.036, 0.038, 0.04],
     form: [elements.turn_stack],
     exclusive: classType.warrior,
-    value: (artiScale) => elements.turn_stack.value()*artiScale
+    value: (artiScale) => elements.turn_stack.value() * artiScale
+  },
+  ignition_cloth_gloves: {
+    id: 'ignition_cloth_gloves',
+    name: 'Ignition Cloth Gloves',
+    type: artifactDmgType.attack,
+    scale: [0.07, 0.077, 0.084, 0.091, 0.098, 0.105, 0.112, 0.119, 0.126, 0.133, 0.14],
+    exclusive: classType.mage,
   },
   iron_fan: {
     id: 'iron_fan',

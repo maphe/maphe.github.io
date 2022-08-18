@@ -511,25 +511,21 @@ const heroes = {
     classType: classType.knight,
     baseAtk: 758,
     form: [elements.caster_max_hp],
-    barrier: () => elements.caster_max_hp.value()*0.09,
-    barrierEnhance: 's2',
+    barrier: () => elements.caster_max_hp.value() * 0.2,
     skills: {
       s1: {
         rate: 0.7,
         pow: 0.95,
-        flat: () => elements.caster_max_hp.value()*0.02,
-        flatTip: () => ({ caster_max_hp: 2 }),
+        flat: () => elements.caster_max_hp.value() * 0.05,
+        flatTip: () => ({caster_max_hp: 5}),
         enhance: [0.05, 0.05, 0, 0.1, 0, 0.15],
         single: true,
       },
-      s2: {
-        enhance: [0.02, 0.02, 0.02]
-      },
       s3: {
-        rate: 1.5,
+        rate: 0.75,
         pow: 0.95,
-        flat: () => elements.caster_max_hp.value()*0.05,
-        flatTip: () => ({ caster_max_hp: 5 }),
+        flat: () => elements.caster_max_hp.value() * 0.15,
+        flatTip: () => ({caster_max_hp: 15}),
         enhance: [0.05, 0.05, 0, 0.1, 0, 0.15],
         single: true,
       }
@@ -1078,7 +1074,7 @@ const heroes = {
         single: true,
       },
       s3: {
-        rate: 0.85,
+        rate: 0.9,
         pow: 1,
         enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1],
         aoe: true,
@@ -1805,6 +1801,43 @@ const heroes = {
       }
     }
   },
+  commander_pavel: {
+    name: 'Commander Pavel',
+    element: element.light,
+    classType: classType.ranger,
+    form: [elements.target_attack],
+    baseAtk: 1327,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 0.75,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
+      s3: {
+        rate: 0.75,
+        pow: 1,
+        penetrate: () => {
+          const targetAtk = elements.target_attack.value();
+          const casterAtk = currentHero.getAtk('s3');
+
+          const penDiff = (casterAtk - targetAtk) * 0.000117;
+
+          return Math.min(Math.max(0, penDiff), 0.7);
+        },
+        penetrateTip: () => ({caster_target_atk_diff: 0.0117}),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        noTrans: true,
+        single: true,
+      }
+    }
+  },
   conqueror_lilias: {
     name: 'Conqueror Lilias',
     element: element.light,
@@ -2176,6 +2209,51 @@ const heroes = {
       }
     }
   },
+  edward_elric: {
+    name: 'Edward Elric',
+    element: element.fire,
+    classType: classType.warrior,
+    baseAtk: 984,
+    form: [elements.caster_max_hp, elements.attack_skill_stack_3],
+    barrier: () => {
+      const scale = [0, 0.1, 0, 0.15, 0];
+      let boost = 1.0;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s1`).value); i++) {
+        boost += scale[i];
+      }
+
+      return elements.caster_max_hp.value() * 0.08 * boost;
+    },
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value() * 0.1,
+        flatTip: () => ({caster_max_hp: 10}),
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s2: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value() * 0.05,
+        flatTip: () => ({caster_max_hp: 5}),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true
+      },
+      s3: {
+        rate: 1.2,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value() * 0.25,
+        flatTip: () => ({caster_max_hp: 25}),
+        mult: () => 1 + elements.attack_skill_stack_3.value() * 0.2,
+        multTip: () => ({per_stack: 20}),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        noTrans: true,
+        single: true
+      }
+    }
+  },
   elena: {
     name: 'Elena',
     element: element.ice,
@@ -2300,7 +2378,8 @@ const heroes = {
         single: true,
       },
       s2: {
-        rate: 1.4,
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 2 : 1.4,
         pow: 1,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
@@ -2308,8 +2387,8 @@ const heroes = {
       s3: {
         rate: 1.6,
         pow: 1,
-        mult: () => elements.caster_max_hp.value() < elements.target_max_hp.value() ? 1 + Math.min((elements.target_max_hp.value() - elements.caster_max_hp.value())*0.00009, 0.6) : 1,
-        multTip: () => ({ caster_vs_target_hp_diff: 9 }),
+        mult: () => elements.caster_max_hp.value() < elements.target_max_hp.value() ? 1 + Math.min((elements.target_max_hp.value() - elements.caster_max_hp.value()) * 0.0001, 0.7) : 1,
+        multTip: () => ({caster_vs_target_hp_diff: 10}),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         single: true,
       }
@@ -2357,7 +2436,7 @@ const heroes = {
         single: true,
       },
       s2: {
-        rate: 0.7,
+        rate: 0.9,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
         aoe: true,
@@ -2850,7 +2929,7 @@ const heroes = {
     dot: [dot.burn],
     skills: {
       s1: {
-        rate: 0.7,
+        rate: 0.8,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
         aoe: true,
@@ -4374,6 +4453,26 @@ const heroes = {
       }
     }
   },
+  moon_bunny_dominiel: {
+    name: 'Moon Bunny Dominiel',
+    element: element.light,
+    classType: classType.soul_weaver,
+    baseAtk: 649,
+    form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value() * 0.21,
+    barrierEnhance: 's2',
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.9,
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s2: {
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1, 0.1]
+      },
+    }
+  },
   mort: {
     name: 'Mort',
     element: element.earth,
@@ -5086,7 +5185,7 @@ const heroes = {
         single: true,
       },
       s3: {
-        rate: 0.6,
+        rate: 0.9,
         pow: 1,
         enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1],
         aoe: true,
@@ -5160,9 +5259,29 @@ const heroes = {
       s2: {
         rate: 0.7,
         pow: 1,
-        flat: () => elements.caster_max_hp.value()*0.07,
-        flatTip: () => ({ caster_max_hp: 7 }),
+        flat: () => elements.caster_max_hp.value() * 0.07,
+        flatTip: () => ({caster_max_hp: 7}),
         enhance: [0.05, 0.05, 0, 0, 0.1, 0.1],
+        single: true,
+      }
+    }
+  },
+  riza_hawkeye: {
+    name: 'Riza Hawkeye',
+    element: element.ice,
+    classType: classType.ranger,
+    baseAtk: 1003,
+    skills: {
+      s1: {
+        rate: 1.15,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s2: {
+        rate: 2,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
         single: true,
       }
     }
@@ -5286,10 +5405,46 @@ const heroes = {
       s1: {
         rate: 0.5,
         pow: 1,
-        flat: () => elements.caster_defense.value()*0.7,
-        flatTip: () => ({ caster_defense: 70 }),
+        flat: () => elements.caster_defense.value() * 0.7,
+        flatTip: () => ({caster_defense: 70}),
         enhance: [0.05, 0.1, 0, 0, 0.15],
         single: true,
+      }
+    }
+  },
+  roy_mustang: {
+    name: 'Roy Mustang',
+    element: element.fire,
+    classType: classType.mage,
+    baseAtk: 1412,
+    form: [elements.caster_has_flame_alchemist, elements.nb_targets],
+    atkUp: () => elements.caster_has_flame_alchemist.value() ? 1.2 : 1,
+    skills: {
+      s1: {
+        rate: 0.8,
+        pow: 1,
+        penetrate: () => elements.caster_has_flame_alchemist.value() ? 0.5 : 0,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 1.2,
+        pow: 0.9,
+        mult: () => {
+          switch (elements.nb_targets.value()) {
+            case 3:
+              return 1.2;
+            case 2:
+              return 1.4;
+            case 1:
+              return 1.6;
+            default:
+              return 1;
+          }
+        },
+        multTip: () => ({per_fewer_target: 20}),
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.15],
+        aoe: true,
       }
     }
   },
@@ -5299,13 +5454,13 @@ const heroes = {
     classType: classType.soul_weaver,
     baseAtk: 621,
     form: [elements.caster_max_hp],
-    barrier: () => elements.caster_max_hp.value()*0.2,
+    barrier: () => elements.caster_max_hp.value() * 0.2,
     skills: {
       s1: {
         rate: 0.81,
         pow: 0.95,
-        flat: () => elements.caster_max_hp.value()*0.07,
-        flatTip: () => ({ caster_max_hp: 7 }),
+        flat: () => elements.caster_max_hp.value() * 0.07,
+        flatTip: () => ({caster_max_hp: 7}),
         enhance: [0.05, 0, 0.05, 0, 0.1, 0.15],
         single: true,
       }
@@ -5367,6 +5522,7 @@ const heroes = {
     classType: classType.knight,
     baseAtk: 1445,
     innateAtkUp: () => 0.3,
+    barrier: (hero) => hero.getAtk() * 0.25,
     skills: {
       s1: {
         rate: 0.95,

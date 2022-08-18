@@ -371,6 +371,13 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('caster-has-debuff').checked
   },
+  caster_has_flame_alchemist: {
+    ref: 'caster_has_flame_alchemist',
+    id: 'caster-has-flame-alchemist',
+    label: 'Caster has Flame Alchemist',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-has-flame-alchemist').checked
+  },
   caster_full_focus: {
     ref: 'caster_full_focus',
     id: 'caster-full-focus',
