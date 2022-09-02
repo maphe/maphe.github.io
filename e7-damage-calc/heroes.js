@@ -2234,10 +2234,10 @@ const heroes = {
         single: true,
       },
       s2: {
-        rate: 0.5,
+        rate: 0.7,
         pow: 1,
-        flat: () => elements.caster_max_hp.value() * 0.05,
-        flatTip: () => ({caster_max_hp: 5}),
+        flat: () => elements.caster_max_hp.value() * 0.08,
+        flatTip: () => ({caster_max_hp: 8}),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         aoe: true
       },
@@ -5609,6 +5609,37 @@ const heroes = {
         enhance: [0.05, 0, 0, 0, 0.1, 0.15],
         aoe: true,
       }
+    }
+  },
+  serene_purity_adin: {
+    name: 'Serene Purity Adin',
+    element: element.ice,
+    classType: classType.thief,
+    baseAtk: 1081,
+    form: [elements.skill_tree_completed],
+    skills: {
+      s1: {
+        rate: 0.85,
+        pow: 1.05,
+        mult: () => elements.skill_tree_completed.value() ? 1.1 : 1,
+        multTip: () => (elements.skill_tree_completed.value() ? {skill_tree: 10} : null),
+        enhance: [0.05, 0, 0.1, 0, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 0.6,
+        pow: 1,
+        mult: () => elements.skill_tree_completed.value() ? 1.1 : 1,
+        multTip: () => (elements.skill_tree_completed.value() ? {skill_tree: 10} : null),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
+      s3: {
+        rate: 1.3,
+        pow: 1.05,
+        enhance: [0.1, 0, 0, 0, 0.15],
+        single: true,
+      },
     }
   },
   serila: {
