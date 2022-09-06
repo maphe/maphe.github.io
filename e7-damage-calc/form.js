@@ -371,6 +371,13 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('caster-has-debuff').checked
   },
+  caster_has_flame_alchemist: {
+    ref: 'caster_has_flame_alchemist',
+    id: 'caster-has-flame-alchemist',
+    label: 'Caster has Flame Alchemist',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-has-flame-alchemist').checked
+  },
   caster_full_focus: {
     ref: 'caster_full_focus',
     id: 'caster-full-focus',
@@ -673,6 +680,14 @@ const elements = {
     type: 'checkbox',
     default: true,
     value: () => document.getElementById('skill-tree-completed').checked,
+  },
+  s3_on_cooldown: {
+    ref: 's3_on_cooldown',
+    id: 's3-on-cooldown',
+    label: 'S3 on Cooldown',
+    type: 'checkbox',
+    default: true,
+    value: () => document.getElementById('s3-on-cooldown').checked,
   },
   s3_stack: {
     ref: 's3_stack',
@@ -1058,7 +1073,10 @@ $(() => {
     };
 
     artiSelector.onchange = () => {
-      buildArtifact(artifacts[artiSelector.value]);
+      const hero = heroes[heroSelector.value];
+      const artifact = {...artifacts[artiSelector.value]};
+      dedupeForm(hero, artifact);
+      buildArtifact(artifact);
       resolve();
       gtag('event', 'pick', {
         event_category: 'Artifact',

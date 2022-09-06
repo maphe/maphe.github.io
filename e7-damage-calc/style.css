@@ -1,3 +1,15 @@
+#right-banner {
+    display: none;
+}
+
+@media (min-width: 1700px) {
+    #right-banner {
+        display: block;
+        float: right;
+        margin-right: -290px;
+    }
+}
+
 .stat-block {
     padding: 7px 0 1px 10px;
     background-color: whitesmoke;
