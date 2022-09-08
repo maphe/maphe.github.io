@@ -4002,7 +4002,6 @@ const heroes = {
         single: true,
       },
       s3: {
-        soulburn: true,
         rate: 0.9,
         pow: 0.95,
         penetrate: () => elements.caster_invincible.value() ? 0.6 : 0.3,
