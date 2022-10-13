@@ -2822,7 +2822,7 @@ const heroes = {
     element: element.dark,
     classType: classType.knight,
     baseAtk: 758,
-    form: [elements.caster_max_hp, elements.enemy_counters, elements.caster_turn],
+    form: [elements.caster_max_hp, elements.enemy_counters],
     barrier: () => {
       return elements.caster_max_hp.value() * 0.2;
     },
