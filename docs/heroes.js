@@ -4989,6 +4989,7 @@ const heroes = {
         rate: 1,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true
       },
       s3: {
         rate: 1.8, 
@@ -6097,11 +6098,11 @@ const heroes = {
           const targetAtk = elements.target_attack.value();
           const casterAtk = currentHero.getAtk('s3');
 
-          const penDiff = (casterAtk - targetAtk) * 0.0003;
+          const penDiff = (casterAtk - targetAtk) * 0.00035;
 
           return Math.min(Math.max(0, penDiff) + 0.3, 1);
         },
-        penetrateTip: () => ({caster_target_atk_diff: 0.03}),
+        penetrateTip: () => ({caster_target_atk_diff: 0.035}),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         aoe: true,
       },
