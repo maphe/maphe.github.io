@@ -606,6 +606,29 @@ const heroes = {
       }
     }
   },
+  astromancer_elena: {
+    name: 'Astromancer Elena',
+    element: element.light,
+    classType: classType.ranger,
+    baseAtk: 1079,
+    form: [elements.target_has_debuff],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.9,
+        mult: () => elements.target_has_debuff.value() ? 1.2 : 1,
+        multTip: () => ({ target_has_debuff: 20 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 1.1,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1, 0.1],
+        aoe: true,
+      }
+    }
+  },
   auxiliary_lots: {
     name: 'Auxiliary Lots',
     element: element.dark,
@@ -3956,6 +3979,26 @@ const heroes = {
         rate: 1,
         pow: 1,
         enhance: [0.05, 0, 0, 0.1, 0.15],
+        single: true,
+      }
+    }
+  },
+  lua: {
+    name: 'Lua',
+    element: element.ice,
+    classType: classType.ranger,
+    baseAtk: 993,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 1.5,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
       }
     }
