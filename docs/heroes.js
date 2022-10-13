@@ -4993,7 +4993,7 @@ const heroes = {
         rate: 1,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
-        single: true
+        // add soulburn aoe condition?
       },
       s3: {
         rate: 1.8, 
