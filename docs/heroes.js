@@ -2823,6 +2823,9 @@ const heroes = {
     classType: classType.knight,
     baseAtk: 758,
     form: [elements.caster_max_hp, elements.enemy_counters, elements.caster_turn],
+    barrier: () => {
+      return elements.caster_max_hp.value() * 0.2;
+    },
     skills: {
       s1: {
         rate: 0.7,
