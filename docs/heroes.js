@@ -471,19 +471,17 @@ const heroes = {
     info: infoLabel('aria_scaling'),
     skills: {
       s1: {
-        rate: 0.6,
+        rate: 0.7,
         pow: 1,
-        flat: () => elements.caster_defense.value()*0.7,
-        flatTip: () => ({ caster_defense: 70 }),
-        critDmgBoost: () => (100-elements.caster_hp_pc.value())*0.005,
+        flat: () => elements.caster_defense.value()*0.85,
+        flatTip: () => ({ caster_defense: 85 }),
         enhance: [0.05, 0.05, 0, 0.05, 0, 0.05, 0.1],
       },
       s2: {
-        rate: 0.6,
+        rate: 0.7,
         pow: 1.3,
-        flat: () => elements.caster_defense.value()*1.15,
-        flatTip: () => ({ caster_defense: 115 }),
-        critDmgBoost: () => (100-elements.caster_hp_pc.value())*0.005,
+        flat: () => elements.caster_defense.value()*1.4,
+        flatTip: () => ({ caster_defense: 140 }),
         aoe: true,
       }
     }
