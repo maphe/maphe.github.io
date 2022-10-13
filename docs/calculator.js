@@ -33,7 +33,13 @@ const resolve = () => {
 
   if (hero.barrier) {
     document.getElementById(`barrier-block`).style.display = 'inline-block';
-    document.getElementById(`barrier`).innerText = Math.round(hero.getBarrierStrength()).toString();
+    barrierText = Math.round(hero.getBarrierStrength()).toString();
+
+    if (hero.barrier2) {
+      document.getElementById(`barrier`).innerText = `${hero.barrierSkills[0]}: ${barrierText} / ${hero.barrierSkills[1]}: ${Math.round(hero.getBarrier2Strength()).toString()}`;
+    } else {
+      document.getElementById(`barrier`).innerText = barrierText;
+    }
   }
 
   const artiDmg = hero.getAfterMathArtifactDamage();
@@ -174,7 +180,9 @@ class Hero {
     this.atkUp = heroes[id].atkUp;
     this.innateAtkUp = heroes[id].innateAtkUp;
     this.element = heroes[id].element;
+    this.barrierSkills = heroes[id].barrierSkills;
     this.barrier = heroes[id].barrier;
+    this.barrier2 = heroes[id].barrier2;
     this.barrierEnhance = heroes[id].barrierEnhance;
     this.artifact = artifact;
     this.target = new Target(artifact);
@@ -360,6 +368,11 @@ class Hero {
 
   getBarrierStrength() {
     return this.barrier(this)*(this.barrierEnhance ? this.getSkillEnhanceMult(this.barrierEnhance) : 1);
+  }
+
+  getBarrier2Strength() {
+    // For now only Roana needs this and her barrier does not scale with enhances
+    return this.barrier2(this); // *(this.barrier2Enhance ? this.getSkillEnhanceMult(this.barrier2Enhance) : 1);
   }
 }
 

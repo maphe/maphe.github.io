@@ -5364,6 +5364,7 @@ const heroes = {
     classType: classType.soul_weaver,
     baseAtk: 621,
     form: [elements.caster_max_hp],
+    barrierSkills: ['S1', 'S3'],
     barrier: () => {
       const scale = [0, 0.05, 0, 0.1, 0, 0.1, 0];
       let boost = 1.0;
@@ -5372,6 +5373,9 @@ const heroes = {
       }
 
       return elements.caster_max_hp.value()*0.1*boost;
+    },
+    barrier2: () => {
+      return elements.caster_max_hp.value()*0.15
     },
     skills: {
       s1: {
