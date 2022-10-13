@@ -174,6 +174,7 @@ class Hero {
     this.id = id;
     this.atk = Number(document.getElementById('atk').value);
     this.crit = Number(document.getElementById('crit').value);
+    this.bonus = Number(document.getElementById('bonus-damage').value);
     this.skills = heroes[id].skills;
     this.baseAtk = heroes[id].baseAtk || 0;
     this.dot = [...(heroes[id].dot || []), ...(artifact?.getDoT() || [])];
@@ -273,6 +274,7 @@ class Hero {
 
     let dmgMod = 1.0
         + getGlobalDamageMult(this, skill)
+        + this.bonus / 100
         + this.artifact.getDamageMultiplier(skill, skillId)
         + (skill.mult ? skill.mult(soulburn)-1 : 0);
 

@@ -191,6 +191,24 @@
                         </div>
                     </div>
 
+                    <div class="stat-block">
+                        <div class="form-group row col-sm-12">
+                            <label for="bonus-damage" class="col-md-9 col-form-label form-control-sm"><h5>Damage Increase (%) <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="Example: Weakness Shared, Exploiting Weak Points"></i></h5></label>
+                            <div class="input-group input-group-sm col-md-3">
+                                <div class="input-group-prepend">
+                                    <button class="btn btn-outline-secondary" type="button" id="bonus-minus" onclick="minus('bonus-damage')">&minus;</button>
+                                </div>
+                                <input type="number" class="form-control text-center" id="bonus-damage" value="0" onkeyup="update('bonus-damage')">
+                                <div class="input-group-append">
+                                    <button class="btn btn-outline-secondary" type="button" id="bonus-plus" onclick="plus('bonus-damage')">&plus;</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row col-sm-12">
+                            <input type="range" class="custom-range" id="bonus-damage-slide" min="0" max="100" value="0" oninput="slide('bonus-damage')">
+                        </div>
+                    </div>
+
                     <div class="form-group col-sm-12">
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="elem-adv" value="1.1" onchange="resolve()">
@@ -480,6 +498,13 @@
                             <input class="custom-control-input" type="checkbox" id="target" value="1.15" onchange="resolve()">
                             <label class="custom-control-label" for="target">
                                 <img src="https://epic7x.com/wp-content/uploads/2018/12/target-debuff-e7.png" width="20" height="20" /> Target
+                            </label>
+                        </div>
+
+                        <div class="custom-control custom-checkbox custom-control-inline buff-block">
+                            <input class="custom-control-input" type="checkbox" id="weakness-shared" value="1.1" onchange="resolve()">
+                            <label class="custom-control-label" for="weakness-shared">
+                                <img src="https://epic7x.com/wp-content/uploads/2021/05/Weakness-Shared.png" width="20" height="20" /> Weakness Shared
                             </label>
                         </div>
                     </div>
