@@ -467,7 +467,7 @@ const heroes = {
     classType: classType.mage,
     baseAtk: 1039,
     form: [elements.caster_hp_pc, elements.caster_defense],
-    barrier: () => elements.caster_defense.value()*0.8,
+    barrier: () => elements.caster_defense.value()*1.0,
     info: infoLabel('aria_scaling'),
     skills: {
       s1: {
@@ -2822,12 +2822,15 @@ const heroes = {
     element: element.dark,
     classType: classType.knight,
     baseAtk: 758,
-    form: [elements.caster_max_hp, elements.enemy_counters, elements.caster_turn],
+    form: [elements.caster_max_hp, elements.enemy_counters],
+    barrier: () => {
+      return elements.caster_max_hp.value() * 0.2;
+    },
     skills: {
       s1: {
         rate: 0.7,
         pow: 1,
-        fixed: () => elements.caster_turn.value() ? 500 + elements.enemy_counters.value()*1000 : 0,
+        fixed: () => 500 + elements.enemy_counters.value()*1000,
         flat: () => elements.caster_max_hp.value()*0.05,
         flatTip: () => ({ caster_max_hp: 5 }),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
@@ -2836,6 +2839,7 @@ const heroes = {
       s3: {
         rate: 0.7,
         pow: 1,
+        fixed: () => 500 + elements.enemy_counters.value()*1000,
         flat: () => elements.caster_max_hp.value()*0.1,
         flatTip: () => ({ caster_max_hp: 10 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
@@ -4989,6 +4993,7 @@ const heroes = {
         rate: 1,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
+        // add soulburn aoe condition?
       },
       s3: {
         rate: 1.8, 
@@ -5363,6 +5368,7 @@ const heroes = {
     classType: classType.soul_weaver,
     baseAtk: 621,
     form: [elements.caster_max_hp],
+    barrierSkills: ['S1', 'S3'],
     barrier: () => {
       const scale = [0, 0.05, 0, 0.1, 0, 0.1, 0];
       let boost = 1.0;
@@ -5371,6 +5377,9 @@ const heroes = {
       }
 
       return elements.caster_max_hp.value()*0.1*boost;
+    },
+    barrier2: () => {
+      return elements.caster_max_hp.value()*0.15
     },
     skills: {
       s1: {
@@ -6097,11 +6106,11 @@ const heroes = {
           const targetAtk = elements.target_attack.value();
           const casterAtk = currentHero.getAtk('s3');
 
-          const penDiff = (casterAtk - targetAtk) * 0.0003;
+          const penDiff = (casterAtk - targetAtk) * 0.00035;
 
           return Math.min(Math.max(0, penDiff) + 0.3, 1);
         },
-        penetrateTip: () => ({caster_target_atk_diff: 0.03}),
+        penetrateTip: () => ({caster_target_atk_diff: 0.035}),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         aoe: true,
       },
