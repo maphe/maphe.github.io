@@ -2830,7 +2830,7 @@ const heroes = {
       s1: {
         rate: 0.7,
         pow: 1,
-        fixed: () => elements.caster_turn.value() ? 500 + elements.enemy_counters.value()*1000 : 0,
+        fixed: () => 500 + elements.enemy_counters.value()*1000,
         flat: () => elements.caster_max_hp.value()*0.05,
         flatTip: () => ({ caster_max_hp: 5 }),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
@@ -2839,6 +2839,7 @@ const heroes = {
       s3: {
         rate: 0.7,
         pow: 1,
+        fixed: () => 500 + elements.enemy_counters.value()*1000,
         flat: () => elements.caster_max_hp.value()*0.1,
         flatTip: () => ({ caster_max_hp: 10 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
