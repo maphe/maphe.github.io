@@ -5076,8 +5076,9 @@ const heroes = {
         single: true,
       },
       s3: {
-        rate: 1.2,
+        rate: 0.85,
         pow: 0.95,
+        penetrate: () => 0.5,
         enhance: [0.05, 0.05, 0, 0.05, 0.05],
         aoe: true,
       }
