@@ -467,7 +467,7 @@ const heroes = {
     classType: classType.mage,
     baseAtk: 1039,
     form: [elements.caster_hp_pc, elements.caster_defense],
-    barrier: () => elements.caster_defense.value()*0.8,
+    barrier: () => elements.caster_defense.value()*1.0,
     info: infoLabel('aria_scaling'),
     skills: {
       s1: {
