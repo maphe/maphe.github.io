@@ -5,7 +5,7 @@ const resolve = () => {
     const fasterUnitPush = Number(document.getElementById('fast-unit-push').value);
     const fasterUnitTurns = Number(document.getElementById('fast-unit-turns').value);
     
-    // fast Speed = slow Speed * Unit CR / Target CR
+    // fast Speed = slow Speed * fast CR / slow CR
     const slowerUnitCR = 0.95 - slowerUnitPush / 100;
     const fasterUnitCR = (1 * fasterUnitTurns) - fasterUnitPush / 100;
     const CRRatio = fasterUnitCR / slowerUnitCR;
