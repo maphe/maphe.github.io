@@ -63,12 +63,12 @@ const resolve = () => {
     if (slowerUnitSpeed > slowUnitMaxSpeed || fasterUnitSpeed < fastUnitMinSpeed) {
         updateClasses(false);
         recommendation = 'Units are improperly tuned, and the desired turn order isn\'t guaranteed.\n' +
-                         (formattedMaxSpeed !== 'Impossible' ? `Slower unit needs at least ${slowerUnitSpeed - slowUnitMaxSpeed} less speed` : '') +
+                         (formattedMaxSpeed !== 'Impossible' ? `Slower Unit needs at least ${slowerUnitSpeed - slowUnitMaxSpeed} less speed` : '') +
                          (!(formattedMaxSpeed === 'Impossible' || formattedMinSpeed === 'Impossible') ? ' or ' : '') +
                          (formattedMinSpeed !== 'Impossible' ? `Faster Unit needs at least ${fastUnitMinSpeed - fasterUnitSpeed} more speed.` : '');
     } else {
         updateClasses(true);
-        recommendation = 'Units are properly tuned, and the faster unit will always move first.'
+        recommendation = 'Units are properly tuned, and the Faster Unit will always move first.'
         if (slowerUnitSpeed < slowUnitMaxSpeed || fasterUnitSpeed > fastUnitMinSpeed) {
             recommendation += `\nSlower Unit can have up to ${slowUnitMaxSpeed - slowerUnitSpeed} more speed` +
                               ` or Faster Unit can have up to ${fasterUnitSpeed - fastUnitMinSpeed} less speed.`;
