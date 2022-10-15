@@ -19,8 +19,18 @@ const resolve = () => {
     const slowUnitMaxSpeed = Math.max(Math.floor(fasterUnitSpeed / CRRatio), 0);
     const fastUnitMinSpeed =  Math.max(Math.ceil(slowerUnitSpeed * CRRatio), 0);
 
-    // TODO: implement suggestion box
+
     let recommendation = '';
+
+    if (slowerUnitSpeed > slowUnitMaxSpeed || fasterUnitSpeed < fastUnitMinSpeed) {
+        recommendation = 'Units are improperly tuned, and the desired turn order isn\'t guaranteed.' +
+                         `\nSlower unit needs at least ${slowerUnitSpeed - slowUnitMaxSpeed} less speed or Faster Unit needs at least ${fastUnitMinSpeed - fasterUnitSpeed} more speed.`
+    } else {
+        recommendation = 'Units are properly tuned, and the faster unit will always move first.'
+        if (slowerUnitSpeed < slowUnitMaxSpeed || fasterUnitSpeed > fastUnitMinSpeed) {
+            recommendation += `\nSlower Unit can have up to ${slowUnitMaxSpeed - slowerUnitSpeed} more speed or Faster Unit can have up to ${fasterUnitSpeed - fastUnitMinSpeed} less speed.`;
+        }
+    }
   
     document.getElementById('slow-max-speed').innerText = slowUnitMaxSpeed.toString();
     document.getElementById('fast-min-speed').innerText = fastUnitMinSpeed.toString();
