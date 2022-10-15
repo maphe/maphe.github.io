@@ -31,6 +31,7 @@ updateClasses = (correctTune = false) => {
 }
 
 const resolve = () => {
+    // fetch input values
     const slowerUnitSpeed = Number(slowerUnitSpeedInput.value);
     const slowerUnitPush = Number(slowerUnitPushInput.value);
     
@@ -52,11 +53,13 @@ const resolve = () => {
     const slowUnitMaxSpeed = Math.floor(fasterUnitSpeed / CRRatio);
     const fastUnitMinSpeed =  Math.ceil(slowerUnitSpeed * CRRatio);
 
+    // set output text to 'Impossible' in edge cases
     const formattedMaxSpeed = slowUnitMaxSpeed <= 0 || slowUnitMaxSpeed == 'Infinity' ? 'Impossible' : slowUnitMaxSpeed.toString();
     const formattedMinSpeed = fastUnitMinSpeed <= 0 || fastUnitMinSpeed == 'Infinity' ? 'Impossible' : fastUnitMinSpeed.toString();
 
     let recommendation = '';
 
+    // generate recommendation and update styling accordingly
     if (slowerUnitSpeed > slowUnitMaxSpeed || fasterUnitSpeed < fastUnitMinSpeed) {
         updateClasses(false);
         recommendation = 'Units are improperly tuned, and the desired turn order isn\'t guaranteed.\n' +

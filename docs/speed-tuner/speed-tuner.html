@@ -153,27 +153,8 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-6 half-left">
-                        <!-- <div class="stat-block">
-                            <div class="form-group row col-sm-12">
-                                <label for="slow-unit-push" class="col-md-7 col-form-label form-control-sm">
-                                    <h5>Slower Unit CR Push <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="The speed of the unit who should move second"></i></h5>
-                                </label>
-                                <div class="input-group input-group-sm col-md-5">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary" type="button" id="slow-unit-push-minus" onclick="minus('slow-unit-push')">&minus;</button>
-                                    </div>
-                                    <input type="number" class="form-control text-center" id="slow-unit-push" value="0" onkeyup="update('slow-unit-push')">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button" id="slow-unit-push-plus" onclick="plus('slow-unit-push')">&plus;</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row col-sm-12">
-                                <input type="range" class="custom-range" id="slow-unit-push-slide" min="0" max="100" value="0" oninput="slide('slow-unit-push')">
-                            </div>
-                        </div> -->
-                    </div>
+                    <!-- This div is a placeholder to allow the turn input to align right -->
+                    <div class="col-sm-6 half-left"></div>
                     <div class="col-sm-6 half-right">
                         <div class="stat-block">
                             <div class="form-group row col-sm-12">
@@ -200,12 +181,11 @@
 
             
             <div class="row text-center">
-                <!-- <div class="col-sm-3"> -->
                 <div class="col-sm-6 half-left">
                     <div id="slow-max-speed-box" class="card border-success mb-3">
                         <div class="card-header">
                             Slower Unit Max Speed
-                            <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="This is considering hit chance and skill effect chance"></i>
+                            <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="The maximum speed the Slower Unit may be, assuming the Faster Unit's speed remains unchanged."></i>
                         </div>
                         <div class="card-body">
                             <p class="card-text">
@@ -215,22 +195,18 @@
                     </div>
                 </div>
 
-                <!-- <div class="col-sm-6 offset-md-3"> -->
                 <div class="col-sm-6 half-right">
-                    <!-- <div class="card-group"> -->
                         <div id="fast-min-speed-box" class="card border-success">
                             <div class="card-header">
                                 Faster Unit Min Speed
-                                <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="This is the chance of landing the effect, aka. pass the resistance check, regardless of the skill effect chance or hit chance"></i>
+                                <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="The minimum speed the Faster Unit may be, assuming the Slower Unit's speed remains unchanged."></i>
                             </div>
-                            <!-- <div class="card-body text-info"> -->
                                 <div class="card-body">
                                 <p class="card-text">
                                     <h2><span id="fast-min-speed" class="text-success"></span></h2>
                                 </p>
                             </div>
                         </div>
-                    <!-- </div> -->
                 </div>
             </div>
             <div class="card border-info text-center">
