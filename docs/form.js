@@ -1014,9 +1014,8 @@ $(() => {
       buildArtifact(artifact);
       resolve();
       window.dataLayer.push({
-        'event': 'pick',
-        'event_category': 'hero',
-        'event_value': hero.name
+        'event': 'select_hero',
+        'hero': hero.name
       });
       // console.log(window.dataLayer)
       // gtag('event', 'pick', {
