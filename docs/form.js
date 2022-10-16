@@ -1013,6 +1013,12 @@ $(() => {
       refreshArtifactList(hero);
       buildArtifact(artifact);
       resolve();
+      window.dataLayer.push({
+        'event': 'pick',
+        'event_category': 'hero',
+        'event_value': hero.name
+      });
+      // console.log(window.dataLayer)
       // gtag('event', 'pick', {
       //   event_category: 'Hero',
       //   event_label: heroSelector.value,
