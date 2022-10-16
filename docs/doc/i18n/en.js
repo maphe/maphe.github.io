@@ -160,6 +160,7 @@ const en = {
     tieria: '',
     troublemaker_crozet: '',
     tywin: '',
+    unbound_knight_arowell: '',
     vildred: '',
     violet: '',
     vivian: '',

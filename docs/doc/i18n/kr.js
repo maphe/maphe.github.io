@@ -174,6 +174,7 @@ const kr = {
     tieria: '디에리아',
     troublemaker_crozet: '무법자 크로제',
     tywin: '타이윈',
+    unbound_knight_arowell: '자유기사 아로웰',
     vildred: '빌트레드',
     violet: '비올레토',
     vivian: '비비안',

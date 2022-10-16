@@ -234,6 +234,7 @@ const jp = {
     top_model_luluca: '最強モデル ルルカ',
     troublemaker_crozet: '無法者 クロゼ',
     tywin: 'タイウィン',
+    unbound_knight_arowell: '自由騎士 アロウェル',
     vildred: 'ヴィルドレッド',
     violet: 'ヴィオレタ',
     vivian: 'ヴィヴィアン',

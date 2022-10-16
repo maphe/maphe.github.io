@@ -6545,6 +6545,34 @@ const heroes = {
       }
     }
   },
+  unbound_knight_arowell: {
+    name: 'Unbound Knight Arowell',
+    element: element.light,
+    classType: classType.knight,
+    baseAtk: 758,
+    form: [elements.caster_max_hp, elements.skill_tree_completed],
+    barrier: () => elements.caster_max_hp.value() * 0.2,
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 0.95,
+        flat: () => elements.caster_max_hp.value() * 0.05,
+        flatTip: () => ({caster_max_hp: 5}),
+        enhance: [0.05, 0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 0.75,
+        pow: 0.95,
+        flat: () => elements.caster_max_hp.value() * 0.15,
+        flatTip: () => ({caster_max_hp: 15}),
+        mult: () => elements.skill_tree_completed.value() ? 1.1 : 1,
+        multTip: () => ({ skill_tree: 10 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      }
+    }
+  },
   verdant_adin: {
     name: 'Verdant Adin',
     element: element.earth,
