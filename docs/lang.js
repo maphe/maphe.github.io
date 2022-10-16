@@ -1969,6 +1969,7 @@ const i18n = {
       schuri: '슈리',
       seaside_bellona: '해변의 벨로나',
       senya: '셰나',
+      serene_purity_adin: '청현의 아딘',
       serila: '세릴라',
       sez: '세즈',
       shadow_rose: '그림자 로제',
