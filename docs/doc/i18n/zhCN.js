@@ -173,6 +173,7 @@ const zhCN = {
     tieria: '黛莉亚',
     troublemaker_crozet: '不法之徒克罗泽',
     tywin: '泰温',
+    unbound_knight_arowell: '自由骑士雅洛薇',
     vildred: '维德瑞',
     violet: '菲奥雷托',
     vivian: '薇薇安',

@@ -185,6 +185,7 @@ const zhTW = {
     tieria: '黛莉亞',
     troublemaker_crozet: '不法之徒克羅澤',
     tywin: '泰溫',
+    unbound_knight_arowell: '自由騎士雅洛薇',
     vildred: '維德瑞',
     violet: '菲奧雷托',
     vivian: '薇薇安',
