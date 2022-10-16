@@ -1013,10 +1013,10 @@ $(() => {
       refreshArtifactList(hero);
       buildArtifact(artifact);
       resolve();
-      gtag('event', 'pick', {
-        event_category: 'Hero',
-        event_label: heroSelector.value,
-      });
+      // gtag('event', 'pick', {
+      //   event_category: 'Hero',
+      //   event_label: heroSelector.value,
+      // });
       refreshCompareBadge();
     };
 
@@ -1031,10 +1031,10 @@ $(() => {
           hpInput.value = selected.dataset.hp;
           update(elements.target_max_hp.id)
         }
-        gtag('event', 'pick', {
-          event_category: 'Defense',
-          event_label: selected.value,
-        });
+        // gtag('event', 'pick', {
+        //   event_category: 'Defense',
+        //   event_label: selected.value,
+        // });
       }
     };
 
@@ -1054,10 +1054,10 @@ $(() => {
           document.getElementById('def-pc-up').value = selected.dataset.defup;
           update('def-pc-up');
         }
-        gtag('event', 'pick', {
-          event_category: 'Damage Reduction',
-          event_label: selected.value,
-        });
+        // gtag('event', 'pick', {
+        //   event_category: 'Damage Reduction',
+        //   event_label: selected.value,
+        // });
       }
     };
 
@@ -1078,10 +1078,10 @@ $(() => {
       dedupeForm(hero, artifact);
       buildArtifact(artifact);
       resolve();
-      gtag('event', 'pick', {
-        event_category: 'Artifact',
-        event_label: artiSelector.value,
-      });
+      // gtag('event', 'pick', {
+      //   event_category: 'Artifact',
+      //   event_label: artiSelector.value,
+      // });
     };
 
     const hero = heroes[heroSelector.value];
@@ -1108,10 +1108,10 @@ $(() => {
     initTheme();
     darkSwitch.addEventListener('change', function(event) {
       applyTheme();
-      gtag('event', 'switch', {
-        event_category: 'Theme',
-        event_label: darkSwitch.checked ? 'dark' : 'light',
-      });
+      // gtag('event', 'switch', {
+      //   event_category: 'Theme',
+      //   event_label: darkSwitch.checked ? 'dark' : 'light',
+      // });
     });
     function initTheme() {
       const darkThemeSelected =

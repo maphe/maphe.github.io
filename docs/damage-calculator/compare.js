@@ -42,10 +42,10 @@ const addToComparePool = () => {
   heroSets[document.getElementById('damage-mem-name').value] = dmg;
   allSets[hero.id] = heroSets;
   localStorage.setItem('heroes', JSON.stringify(allSets));
-  gtag('event', 'save', {
-    event_category: 'Hero',
-    event_label: hero.id,
-  });
+  // gtag('event', 'save', {
+  //   event_category: 'Hero',
+  //   event_label: hero.id,
+  // });
   refreshCompareBadge();
 };
 
@@ -79,10 +79,10 @@ const compare = (heroId) => {
 
   document.getElementById('compare-splash').style.display = 'none';
   document.getElementById('damage-comparison-block').style.display = 'block';
-  gtag('event', 'compare', {
-    event_category: 'Hero',
-    event_label: heroId,
-  });
+  // gtag('event', 'compare', {
+  //   event_category: 'Hero',
+  //   event_label: heroId,
+  // });
 };
 
 const clearCompare = (heroId) => {
