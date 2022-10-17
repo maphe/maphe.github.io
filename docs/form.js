@@ -1031,10 +1031,10 @@ $(() => {
           hpInput.value = selected.dataset.hp;
           update(elements.target_max_hp.id)
         }
-        // gtag('event', 'pick', {
-        //   event_category: 'Defense',
-        //   event_label: selected.value,
-        // });
+        window.dataLayer.push({
+          'event': 'select_preset_def',
+          'def_unit': selected.value
+        });
       }
     };
 
@@ -1053,11 +1053,12 @@ $(() => {
         if (selected.dataset.defup !== undefined) {
           document.getElementById('def-pc-up').value = selected.dataset.defup;
           update('def-pc-up');
+        
         }
-        // gtag('event', 'pick', {
-        //   event_category: 'Damage Reduction',
-        //   event_label: selected.value,
-        // });
+        window.dataLayer.push({
+          'event': 'select_preset_dmg_red',
+          'dmg_red': selected.value
+        });
       }
     };
 
@@ -1108,10 +1109,10 @@ $(() => {
     initTheme();
     darkSwitch.addEventListener('change', function(event) {
       applyTheme();
-      // gtag('event', 'switch', {
-      //   event_category: 'Theme',
-      //   event_label: darkSwitch.checked ? 'dark' : 'light',
-      // });
+      window.dataLayer.push({
+        'event': 'toggle_dark_mode',
+        'dark_mode': darkSwitch.checked ? 'on' : 'off'
+      });
     });
     function initTheme() {
       const darkThemeSelected =
