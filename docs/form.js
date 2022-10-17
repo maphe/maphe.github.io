@@ -1017,11 +1017,6 @@ $(() => {
         'event': 'select_hero',
         'hero': hero.name
       });
-      // console.log(window.dataLayer)
-      // gtag('event', 'pick', {
-      //   event_category: 'Hero',
-      //   event_label: heroSelector.value,
-      // });
       refreshCompareBadge();
     };
 
@@ -1083,10 +1078,10 @@ $(() => {
       dedupeForm(hero, artifact);
       buildArtifact(artifact);
       resolve();
-      // gtag('event', 'pick', {
-      //   event_category: 'Artifact',
-      //   event_label: artiSelector.value,
-      // });
+      window.dataLayer.push({
+        'event': 'select_artifact',
+        'artifact': artifact.name
+      });
     };
 
     const hero = heroes[heroSelector.value];
