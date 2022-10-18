@@ -206,6 +206,12 @@ const artifacts = {
     scale: [0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2],
     type: artifactDmgType.damage
   },
+  prelude_to_a_new_era: {
+    id: 'prelude_to_a_new_era',
+    name: 'Prelude to a New Era',
+    value: 0.2,
+    type: artifactDmgType.damage
+  },
   otherworldly_machinery: {
     id: 'otherworldly_machinery',
     name: 'Otherworldly Machinery',
