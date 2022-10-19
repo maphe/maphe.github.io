@@ -58,8 +58,9 @@
             </ul>
         </nav>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            To use the speed tuner, input the current speed of your slower and faster unit, as well as any Combat Readiness increase that will be applied.
+            To use the speed tuner, input the current speed of your slower and/or faster unit, as well as any Combat Readiness increase that will be applied.
             <br>The tuner will calculate how the units' speeds need to be adjusted to guarantee turn order.
+            <br><br>In Faster Unit Pushes mode, set the speed of the slower and/or faster unit and the CR push to calculate the speed needed for the slower unit to move next.
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
@@ -133,11 +134,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 half-right">
+                    <div id="fast-cr-div" class="col-sm-6 half-right">
                         <div class="stat-block">
                             <div class="form-group row col-sm-12">
                                 <label for="fast-unit-push" class="col-md-7 col-form-label form-control-sm">
-                                    <h5>Faster Unit CR Push (%) <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="The amount of combat readiness increase granted to the faster unit"></i></h5>
+                                    <h5>Faster Unit CR Push (%) <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="The amount of combat readiness increase granted to the faster unit before the Slower Unit takes a turn"></i></h5>
                                 </label>
                                 <div class="input-group input-group-sm col-md-5">
                                     <div class="input-group-prepend">
@@ -157,9 +158,8 @@
                 </div>
 
                 <div class="row">
-                    <!-- This div is a placeholder to allow the turn input to align right -->
                     <div class="col-sm-6 half-left"></div>
-                    <div class="col-sm-6 half-right">
+                    <div id="fast-turns-div" class="col-sm-6 half-right">
                         <div class="stat-block">
                             <div class="form-group row col-sm-12">
                                 <label for="fast-unit-turns" class="col-md-7 col-form-label form-control-sm">
@@ -183,13 +183,25 @@
                 </div>
             </form>
 
+            <div class="form-group col-sm-12">
+                <div class="custom-control custom-checkbox custom-control-inline buff-block">
+                    <input class="custom-control-input" type="checkbox" id="faster-pushes" onchange="resolve(); fasterPushesToggled()">
+                    <label class="custom-control-label" for="faster-pushes">Faster Unit pushes Slower Unit</label>
+                </div>
+                <div class="custom-control custom-checkbox custom-control-inline buff-block">
+                    <input class="custom-control-input" type="checkbox" id="stigma-or-politis" onchange="resolve(); stigmaPolitisToggled()">
+                    <label class="custom-control-label" for="stigma-or-politis">
+                        <img src="https://epic7x.com/wp-content/uploads/2021/11/Stigma.png" width="20" height="20" /> Stigma / <img src="https://epic7x.com/wp-content/uploads/2021/01/Politis-icon.png" width="20" height="20" /> Enemy Politis
+                    </label>
+                </div>
+            </div>
+            
             
             <div class="row text-center">
                 <div class="col-sm-6 half-left">
                     <div id="slow-max-speed-box" class="card border-success mb-3">
-                        <div class="card-header">
+                        <div id="slow-output-label" class="card-header">
                             Slower Unit Max Speed
-                            <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="The maximum speed the Slower Unit may be, assuming the Faster Unit's speed remains unchanged."></i>
                         </div>
                         <div class="card-body">
                             <p class="card-text">
@@ -201,9 +213,8 @@
 
                 <div class="col-sm-6 half-right">
                         <div id="fast-min-speed-box" class="card border-success">
-                            <div class="card-header">
+                            <div id="fast-output-label" class="card-header">
                                 Faster Unit Min Speed
-                                <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="The minimum speed the Faster Unit may be, assuming the Slower Unit's speed remains unchanged."></i>
                             </div>
                                 <div class="card-body">
                                 <p class="card-text">
