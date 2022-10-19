@@ -14,7 +14,7 @@ const slowerUnitPushInput = document.getElementById('slow-unit-push');
 let fasterUnitPushInput = document.getElementById('fast-unit-push');
 let fasterUnitTurnsInput = document.getElementById('fast-unit-turns');
 
-const fasterPushesSlowerInput = document.getElementById('faster-pushes');
+const fasterPushesSlowerInput = document.getElementById('faster-pushes-switch');
 const stigmaOrPolitisInput = document.getElementById('stigma-or-politis');
 
 const fastCRDiv = document.getElementById('fast-cr-div');
@@ -76,7 +76,6 @@ fasterPushesToggled = () => {
         'event': 'toggle_faster_pushes',
         'faster_pushes': fasterPushesSlowerInput.checked ? 'on' : 'off'
     });
-    console.log(window.dataLayer)
 }
 
 stigmaPolitisToggled = () => {
@@ -84,7 +83,6 @@ stigmaPolitisToggled = () => {
         'event': 'toggle_stigma_politis',
         'stigma_politis': stigmaOrPolitisInput.checked ? 'on' : 'off'
     });
-    console.log(window.dataLayer)
 }
 
 // style output text and outlines
