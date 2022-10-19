@@ -1803,8 +1803,8 @@ const heroes = {
       }
     }
   },
-  commander_model_laika: {
-    name: 'Commander Model Laika',
+  command_model_laika: {
+    name: 'Command Model Laika',
     element: element.earth,
     classType: classType.ranger,
     baseAtk: 1182,

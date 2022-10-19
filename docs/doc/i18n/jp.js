@@ -65,7 +65,7 @@ const jp = {
     closer_charles: '終結者 チャールズ',
     coli: 'コリー',
     commander_lorina: '指揮官 ロリーナ',
-    commander_model_laika: '指揮型 ライカ',
+    command_model_laika: '指揮型 ライカ',
     conqueror_lilias: '征服者 リリアス',
     corvus: 'コルヴス',
     crescent_moon_rin: '三日月の舞姫 リン',
