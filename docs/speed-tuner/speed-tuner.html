@@ -66,6 +66,14 @@
             </button>
         </div>
         <div>
+            <div class="form-group col-sm-12">
+                <div class="custom-control custom-switch mt-1">
+                    <input type="checkbox" class="custom-control-input" id="faster-pushes-switch" onchange="resolve(); fasterPushesToggled()">
+                    <label class="custom-control-label" for="faster-pushes-switch">
+                        <strong>Faster Unit pushes Slower Unit</strong>
+                    </label>
+                </div>
+            </div>
             <form id="stats">
                 <div class="row">
                     <div class="col-sm-6 half-left">
@@ -184,10 +192,6 @@
             </form>
 
             <div class="form-group col-sm-12">
-                <div class="custom-control custom-checkbox custom-control-inline buff-block">
-                    <input class="custom-control-input" type="checkbox" id="faster-pushes" onchange="resolve(); fasterPushesToggled()">
-                    <label class="custom-control-label" for="faster-pushes">Faster Unit pushes Slower Unit</label>
-                </div>
                 <div class="custom-control custom-checkbox custom-control-inline buff-block">
                     <input class="custom-control-input" type="checkbox" id="stigma-or-politis" onchange="resolve(); stigmaPolitisToggled()">
                     <label class="custom-control-label" for="stigma-or-politis">
