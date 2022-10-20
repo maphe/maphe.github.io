@@ -63,51 +63,6 @@
                     <div class="col-sm-6 half-left">
                         <div class="stat-block">
                             <div class="form-group row col-sm-12">
-                                <label for="first-build-hp" class="col-md-7 col-form-label form-control-sm">
-                                    <h5>First Build HP</h5>
-                                </label>
-                                <div class="input-group input-group-sm col-md-5">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary" type="button" id="first-build-hp-minus" onclick="minus('first-build-hp')">&minus;</button>
-                                    </div>
-                                    <input type="number" class="form-control text-center" id="first-build-hp" value="1000" onkeyup="update('first-build-hp')">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button" id="first-build-hp-plus" onclick="plus('first-build-hp')">&plus;</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row col-sm-12">
-                                <input type="range" class="custom-range" id="first-build-hp-slide" min="1000" max="50000" value="1000" oninput="slide('first-build-hp')">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 half-right">
-                        <div class="stat-block">
-                            <div class="form-group row col-sm-12">
-                                <label for="second-build-hp" class="col-md-7 col-form-label form-control-sm">
-                                    <h5>Second Build HP</h5>
-                                </label>
-                                <div class="input-group input-group-sm col-md-5">
-                                    <div class="input-group-prepend">
-                                        <button class="btn btn-outline-secondary" type="button" id="second-build-hp-minus" onclick="minus('second-build-hp')">&minus;</button>
-                                    </div>
-                                    <input type="number" class="form-control text-center" id="second-build-hp" value="1000" onkeyup="update('second-build-hp')">
-                                    <div class="input-group-append">
-                                        <button class="btn btn-outline-secondary" type="button" id="second-build-hp-plus" onclick="plus('second-build-hp')">&plus;</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group row col-sm-12">
-                                <input type="range" class="custom-range" id="second-build-hp-slide" min="1000" max="50000" value="1000" oninput="slide('second-build-hp')">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-6 half-left">
-                        <div class="stat-block">
-                            <div class="form-group row col-sm-12">
                                 <label for="first-build-def" class="col-md-7 col-form-label form-control-sm">
                                     <h5>First Build Defense</h5>
                                 </label>
@@ -115,14 +70,14 @@
                                     <div class="input-group-prepend">
                                         <button class="btn btn-outline-secondary" type="button" id="first-build-def-minus" onclick="minus('first-build-def')">&minus;</button>
                                     </div>
-                                    <input type="number" class="form-control text-center" id="first-build-def" value="200" onkeyup="update('first-build-def')">
+                                    <input type="number" class="form-control text-center" id="first-build-def" value="1000" onkeyup="update('first-build-def')">
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary" type="button" id="first-build-def-plus" onclick="plus('first-build-def')">&plus;</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row col-sm-12">
-                                <input type="range" class="custom-range" id="first-build-def-slide" min="200" max="5000" value="200" oninput="slide('first-build-def')">
+                                <input type="range" class="custom-range" id="first-build-def-slide" min="200" max="5000" value="1000" oninput="slide('first-build-def')">
                             </div>
                         </div>
                     </div>
@@ -136,14 +91,59 @@
                                     <div class="input-group-prepend">
                                         <button class="btn btn-outline-secondary" type="button" id="second-build-def-minus" onclick="minus('second-build-def')">&minus;</button>
                                     </div>
-                                    <input type="number" class="form-control text-center" id="second-build-def" value="200" onkeyup="update('second-build-def')">
+                                    <input type="number" class="form-control text-center" id="second-build-def" value="1000" onkeyup="update('second-build-def')">
                                     <div class="input-group-append">
                                         <button class="btn btn-outline-secondary" type="button" id="second-build-def-plus" onclick="plus('second-build-def')">&plus;</button>
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row col-sm-12">
-                                <input type="range" class="custom-range" id="second-build-def-slide" min="200" max="5000" value="200" oninput="slide('second-build-def')">
+                                <input type="range" class="custom-range" id="second-build-def-slide" min="200" max="5000" value="1000" oninput="slide('second-build-def')">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 half-left">
+                        <div class="stat-block">
+                            <div class="form-group row col-sm-12">
+                                <label for="first-build-hp" class="col-md-7 col-form-label form-control-sm">
+                                    <h5>First Build HP</h5>
+                                </label>
+                                <div class="input-group input-group-sm col-md-5">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" id="first-build-hp-minus" onclick="minus('first-build-hp')">&minus;</button>
+                                    </div>
+                                    <input type="number" class="form-control text-center" id="first-build-hp" value="10000" onkeyup="update('first-build-hp')">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="first-build-hp-plus" onclick="plus('first-build-hp')">&plus;</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row col-sm-12">
+                                <input type="range" class="custom-range" id="first-build-hp-slide" min="1000" max="50000" value="10000" oninput="slide('first-build-hp')">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 half-right">
+                        <div class="stat-block">
+                            <div class="form-group row col-sm-12">
+                                <label for="second-build-hp" class="col-md-7 col-form-label form-control-sm">
+                                    <h5>Second Build HP</h5>
+                                </label>
+                                <div class="input-group input-group-sm col-md-5">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" id="second-build-hp-minus" onclick="minus('second-build-hp')">&minus;</button>
+                                    </div>
+                                    <input type="number" class="form-control text-center" id="second-build-hp" value="10000" onkeyup="update('second-build-hp')">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="second-build-hp-plus" onclick="plus('second-build-hp')">&plus;</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row col-sm-12">
+                                <input type="range" class="custom-range" id="second-build-hp-slide" min="1000" max="50000" value="10000" oninput="slide('second-build-hp')">
                             </div>
                         </div>
                     </div>
