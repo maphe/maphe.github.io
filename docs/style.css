@@ -110,6 +110,12 @@ body .popover {
     border-color: #cacbcc;
 }
 
+.corner-info {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.25rem;
+}
+
 /* Dark Theme */
 
 [data-theme="dark"] {
