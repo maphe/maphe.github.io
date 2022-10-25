@@ -3234,13 +3234,10 @@ const heroes = {
     element: element.ice,
     classType: classType.mage,
     baseAtk: 1063,
-    form: [elements.target_nb_debuff],
     skills: {
       s1: {
         rate: 1,
         pow: 0.95,
-        mult: () => 1 + elements.target_nb_debuff.value()*0.1,
-        multTip: () => ({ per_target_debuff: 10 }),
         enhance: [0.05, 0.05, 0.1, 0.15],
         single: true,
       },
