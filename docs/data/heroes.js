@@ -4886,12 +4886,14 @@ const heroes = {
         detonation: () => 1,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
+        noCrit: true,
       },
       s3: {
         rate: 0.8,
         pow: 1,
         enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1],
         aoe: true,
+        noCrit: true,
       },
     }
   },

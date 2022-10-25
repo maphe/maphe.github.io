@@ -20,7 +20,6 @@ const torrentSetToggled = () => {
   window.dataLayer.push({
     'event': 'toggle_torrent_set'
   });
-  console.log(window.dataLayer)
 }
 
 const resolve = () => {
