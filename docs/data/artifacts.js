@@ -230,7 +230,7 @@ const artifacts = {
   },
   reingar_special_drink: {
     id: 'reingar_special_drink',
-    name: 'Reingar’s Special Drink',
+    name: 'Reingar\'s Special Drink',
     type: artifactDmgType.aftermath,
     atkPercent: 0.3,
     penetrate: 0.7,
@@ -335,7 +335,7 @@ const artifacts = {
   },
   uberius_tooth: {
     id: 'uberius_tooth',
-    name: 'Uberius’s Tooth',
+    name: 'Uberius\'s Tooth',
     type: artifactDmgType.aftermath,
     atkPercent: 0.45,
     penetrate: 0.7,
