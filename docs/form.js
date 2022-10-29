@@ -1081,7 +1081,8 @@ $(() => {
       resolve();
       window.dataLayer.push({
         'event': 'select_artifact',
-        'artifact': artifact.name
+        'artifact': artifact.name,
+        'hero': heroes[heroSelector.value]?.name === 'Achates' ? 'None' : heroes[heroSelector.value]?.name || 'None' // Nobody's actually calculating for Achates damage...
       });
     };
 
