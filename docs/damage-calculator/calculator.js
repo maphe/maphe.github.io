@@ -24,8 +24,6 @@ manageSetForms = () => {
     const elem = document.getElementById(checkboxId);
     if (elem.checked) {
       setForms.push(elements[`${checkboxId.replace('-', '_')}_stack`])
-    } else {
-
     }
   }
 
