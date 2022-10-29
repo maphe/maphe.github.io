@@ -16,6 +16,12 @@ const getSkillType = (skill) => {
   return undefined;
 }
 
+const torrentSetToggled = () => {
+  window.dataLayer.push({
+    'event': 'toggle_torrent_set'
+  });
+}
+
 const resolve = () => {
   const artifact = new Artifact(document.getElementById('artifact').value);
   const hero = new Hero(document.getElementById('hero').value, artifact);
@@ -135,7 +141,7 @@ const getGlobalAtkMult = () => {
 const getGlobalDamageMult = (hero, skill) => {
   let mult = 0.0;
 
-  for (let checkboxId of ['rage-set']) {
+  for (let checkboxId of ['rage-set', 'torrent-set']) {
     const elem = document.getElementById(checkboxId);
     mult += elem.checked ? Number(elem.value)-1 : 0.0;
   }
