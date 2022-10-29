@@ -728,7 +728,21 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('exclusive-equipment-3').checked,
   },
+  torrent_set_stack: {
+    ref: 'torrent_set_stack',
+    id: 'torrent-set-stack',
+    label: 'Torrent Set',
+    type: 'slider',
+    min: 1,
+    max: 3,
+    default: 1,
+    readonly: true,
+    value: () => Number(document.getElementById('torrent-set-stack').value)
+  },
 };
+
+// declare this function now so it can be implemented in calculator.js but used here
+let manageSetForms
 
 elements.caster_speed.sub_elements = [elements.caster_speed_up];
 elements.caster_defense.sub_elements = [elements.caster_defense_up];
@@ -839,6 +853,9 @@ const build = (hero) => {
   } else {
     specificBlock.parentElement.style.display = 'none';
   }
+
+  // This will remove the initial Number Of Sets header
+  manageSetForms();
 
   const molagoraBlock = document.getElementById('molagora-block');
   molagoraBlock.innerHTML = '';
