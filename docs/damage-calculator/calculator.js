@@ -17,8 +17,10 @@ const getSkillType = (skill) => {
 }
 
 const torrentSetToggled = () => {
+  const torrentSetInput = document.getElementById('torrent-set');
   window.dataLayer.push({
-    'event': 'toggle_torrent_set'
+    'event': 'toggle_torrent_set',
+    'torrent_set': torrentSetInput.checked ? 'on' : 'off'
   });
 }
 
