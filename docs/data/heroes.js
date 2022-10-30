@@ -714,7 +714,7 @@ const heroes = {
       s1: {
         rate: 0.9,
         pow: 1,
-        flat: () => elements.caster_max_hp.value()*0.06,
+        flat: () => elements.caster_max_hp.value() * 0.06,
         flatTip: () => ({ caster_max_hp: 6 }),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         aoe: true,
@@ -722,8 +722,8 @@ const heroes = {
       s3: {
         rate: 1.3,
         pow: 1,
-        flat: () => elements.caster_max_hp.value()*0.2,
-        flatTip: () => ({ caster_max_hp: 20 }),
+        flat: () => elements.caster_max_hp.value() * 0.16,
+        flatTip: () => ({ caster_max_hp: 16 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         single: true,
       },
@@ -3057,9 +3057,9 @@ const heroes = {
     },
     skills: {
       s1: {
-        rate: 0.6,
+        rate: 0.8,
         pow: 1,
-        afterMath: () => elements.caster_has_buff.value() ? ({ atkPercent: 0.5, penetrate: 0.7 }) : null,
+        afterMath: (hitType) => elements.caster_has_buff.value() && hitType !== hitTypes.miss ? ({ atkPercent: 0.25, penetrate: 0 }) : null,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
         noCrit: true,
@@ -3068,19 +3068,12 @@ const heroes = {
         enhance: [0.01, 0.02, 0.02, 0.02, 0.03],
       },
       s3: {
-        // rate: 0.55,
-        rate: 1.27,
+        rate: 1.25,
         pow: 1,
-        // mult: () => elements.caster_max_hp.value() < elements.target_max_hp.value()
-        //     ? 1 + Math.min((elements.target_max_hp.value() - elements.caster_max_hp.value())*0.00015, 1)
-        //     : 1,
-        // mult: () => 1.27,
-        // multTip: () => ({ caster_vs_target_hp_diff: 15 }),
-        // penetrate: () => 1,
         penetrate:() => elements.caster_max_hp.value() < elements.target_max_hp.value()
-            ? Math.min((elements.target_max_hp.value() - elements.caster_max_hp.value())*0.00009, 1)
+            ? Math.min((elements.target_max_hp.value() - elements.caster_max_hp.value()) * 0.000091, 1)
             : 0,
-        penetrateTip: () => ({ caster_vs_target_hp_diff: 9 }),
+        penetrateTip: () => ({ caster_vs_target_hp_diff: 9.1 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         single: true,
         noCrit: true,
@@ -3325,10 +3318,13 @@ const heroes = {
     element: element.ice,
     classType: classType.mage,
     baseAtk: 1063,
+    form: [elements.target_nb_debuff],
     skills: {
       s1: {
         rate: 1,
         pow: 0.95,
+        mult: () => 1 + elements.target_nb_debuff.value()*0.1,
+        multTip: () => ({ per_target_debuff: 10 }),
         enhance: [0.05, 0.05, 0.1, 0.15],
         single: true,
       },
@@ -6740,14 +6736,14 @@ const heroes = {
     form: [elements.caster_speed, elements.exclusive_equipment_2],
     skills: {
       s1: {
-        rate: 0.85,
+        rate: 0.9,
         pow: 0.95,
         mult: () => 1 + elements.caster_speed.value()*0.00075,
         multTip: () => ({ caster_speed: 0.075 }),
         enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
       },
       s2: {
-        rate: 0.5,
+        rate: 0.7,
         pow: 1,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         aoe: true,
@@ -6756,8 +6752,8 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 1.1 : 0.85,
         pow: 1,
-        mult: (soulburn) => 1 + elements.caster_speed.value()*(soulburn ? 0.0009 : 0.00075),
-        multTip: (soulburn) => ({ caster_speed: soulburn ? 0.09 : 0.075 }),
+        mult: () => 1 + elements.caster_speed.value() * 0.001125,
+        multTip: () => ({ caster_speed: 0.1125 }),
         exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         aoe: true,
