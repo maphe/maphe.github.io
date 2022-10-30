@@ -6648,7 +6648,8 @@ const heroes = {
         single: true,
       },
       s3: {
-        rate: 0.75,
+        // rate: 0.75, // This looks like it was just updated on the sheet as well
+        rate: 0.7,
         pow: 0.95,
         flat: () => elements.caster_max_hp.value() * 0.15,
         flatTip: () => ({caster_max_hp: 15}),
