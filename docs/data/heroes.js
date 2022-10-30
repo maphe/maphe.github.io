@@ -714,6 +714,32 @@ const heroes = {
       s1: {
         rate: 0.9,
         pow: 1,
+        flat: () => elements.caster_max_hp.value() * 0.06,
+        flatTip: () => ({ caster_max_hp: 6 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
+      s3: {
+        rate: 1.3,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value() * 0.16,
+        flatTip: () => ({ caster_max_hp: 16 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+    }
+  },
+  bad_cat_armin_old: {
+    name: 'Bad Cat Armin (Pre-Balance)',
+    element: element.dark,
+    classType: classType.warrior,
+    baseAtk: 912,
+    form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value()*0.15,
+    skills: {
+      s1: {
+        rate: 0.9,
+        pow: 1,
         flat: () => elements.caster_max_hp.value()*0.06,
         flatTip: () => ({ caster_max_hp: 6 }),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
@@ -2749,7 +2775,6 @@ const heroes = {
         single: true,
       },
       s3: {
-        soulburn: true,
         rate: 1.8,
         pow: 1,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
@@ -3020,6 +3045,45 @@ const heroes = {
     name: 'Hwayoung',
     element: element.fire,
     classType: classType.warrior,
+    baseAtk: 1342,
+    form: [elements.caster_has_buff, elements.caster_max_hp, elements.target_max_hp],
+    barrier: (hero) => hero.getAtk()*0.45,
+    innateAtkUp: () => {
+      let boost = 0.20;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        boost += heroes.hwayoung.skills.s2.enhance[i];
+      }
+      return boost;
+    },
+    skills: {
+      s1: {
+        rate: 0.8,
+        pow: 1,
+        afterMath: (hitType) => elements.caster_has_buff.value() && hitType !== hitTypes.miss ? ({ atkPercent: 0.25, penetrate: 0 }) : null,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+        noCrit: true,
+      },
+      s2: {
+        enhance: [0.01, 0.02, 0.02, 0.02, 0.03],
+      },
+      s3: {
+        rate: 1.25,
+        pow: 1,
+        penetrate:() => elements.caster_max_hp.value() < elements.target_max_hp.value()
+            ? Math.min((elements.target_max_hp.value() - elements.caster_max_hp.value()) * 0.000091, 1)
+            : 0,
+        penetrateTip: () => ({ caster_vs_target_hp_diff: 9.1 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+        noCrit: true,
+      },
+    }
+  },
+  hwayoung_old: {
+    name: 'Hwayoung (Pre-Balance)',
+    element: element.fire,
+    classType: classType.warrior,
     baseAtk: 1510,
     form: [elements.caster_has_buff, elements.caster_max_hp, elements.target_max_hp],
     barrier: (hero) => hero.getAtk()*0.45,
@@ -3231,6 +3295,26 @@ const heroes = {
   },
   jena: {
     name: 'Jena',
+    element: element.ice,
+    classType: classType.mage,
+    baseAtk: 1063,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0.1, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: (soulburn) => soulburn ? 1.1 : 0.85,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0, 0.1, 0, 0.15],
+        aoe: true,
+      }
+    }
+  },
+  jena_old: {
+    name: 'Jena (Pre-Balance)',
     element: element.ice,
     classType: classType.mage,
     baseAtk: 1063,
@@ -4886,12 +4970,14 @@ const heroes = {
         detonation: () => 1,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
+        noCrit: true,
       },
       s3: {
         rate: 0.8,
         pow: 1,
         enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1],
         aoe: true,
+        noCrit: true,
       },
     }
   },
@@ -6644,6 +6730,38 @@ const heroes = {
   },
   vildred: {
     name: 'Vildred',
+    element: element.earth,
+    classType: classType.thief,
+    baseAtk: 1283,
+    form: [elements.caster_speed, elements.exclusive_equipment_2],
+    skills: {
+      s1: {
+        rate: 0.9,
+        pow: 0.95,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        multTip: () => ({ caster_speed: 0.075 }),
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1]
+      },
+      s2: {
+        rate: 0.7,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
+      s3: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.1 : 0.85,
+        pow: 1,
+        mult: () => 1 + elements.caster_speed.value() * 0.001125,
+        multTip: () => ({ caster_speed: 0.1125 }),
+        exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
+      }
+    }
+  },
+  vildred_old: {
+    name: 'Vildred (Pre-Balance)',
     element: element.earth,
     classType: classType.thief,
     baseAtk: 1283,
