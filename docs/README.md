@@ -1,5 +1,7 @@
 ## Changelog
 
+<strong>Oct. 29 2022 Update:</strong> Added Arunka (Unreleased). Updated Hwayoung, Vildred, Pirate Captain Flan, Bad Cat Armin, and Jena from 10/27 balance patch. Previous versions will remain available for comparison for the time being.<br>
+<strong>Oct. 28 2022 Update:</strong> Added Torrent Set.<br>
 <strong>Oct. 20 2022 Update:</strong> Added Effective HP Calculator.<br>
 <strong>Oct. 18 2022 Update:</strong> Added Faster Unit Pushes mode and Stigma/Politis toggle to Speed Tuner (Beta).<br>
 <strong>Oct. 17 2022 Update:</strong> Added Prelude to a New Era. Added missing artifact name translations for JP, TW, and CN.<br>
