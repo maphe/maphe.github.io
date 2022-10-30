@@ -3342,7 +3342,7 @@ const heroes = {
         single: true,
       },
       s3: {
-        rate: (soulburn) => soulburn ? 1.1 : 0.85,
+        rate: 0.85,
         pow: 0.95,
         enhance: [0.05, 0.05, 0, 0, 0.1, 0, 0.15],
         aoe: true,
@@ -3365,6 +3365,7 @@ const heroes = {
         single: true,
       },
       s3: {
+        soulburn: true,
         rate: (soulburn) => soulburn ? 1.1 : 0.85,
         pow: 0.95,
         enhance: [0.05, 0.05, 0, 0, 0.1, 0, 0.15],
