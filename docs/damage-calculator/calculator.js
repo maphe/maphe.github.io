@@ -9,6 +9,7 @@ const skillTypes = {
   single: 'single',
   aoe: 'aoe',
 }
+let setForms = [];
 
 const getSkillType = (skill) => {
   if (skill.single !== undefined && ((typeof skill.single === 'function') ? skill.single() : skill.single) === true) return skillTypes.single;
@@ -16,10 +17,41 @@ const getSkillType = (skill) => {
   return undefined;
 }
 
+// manageSetForms is already declared in form.js which is loaded first
+manageSetForms = () => {
+  setForms = [];
+  for (let checkboxId of ['torrent-set']) {
+    const elem = document.getElementById(checkboxId);
+    if (elem.checked) {
+      setForms.push(elements[`${checkboxId.replace('-', '_')}_stack`])
+    }
+  }
+
+  const numSetsBlock = document.getElementById('set-num-block');
+  if (setForms.length) {
+    numSetsBlock.innerHTML = '';
+    for (let elem of setForms) {
+      buildElement(elem, numSetsBlock);
+    }
+    numSetsBlock.parentElement.style.display = 'block';
+  } else {
+    numSetsBlock.parentElement.style.display = 'none';
+  }
+}
+
 const torrentSetToggled = () => {
+  const torrentSetInput = document.getElementById('torrent-set');
   window.dataLayer.push({
-    'event': 'toggle_torrent_set'
+    'event': 'toggle_torrent_set',
+    'torrent_set': torrentSetInput.checked ? 'on' : 'off'
   });
+
+  // reset value to 1 when toggling torrent set off
+  if (!torrentSetInput.checked) {
+    const torrentSetNumInput = document.getElementById('torrent-set-stack');
+    torrentSetNumInput.value = 1;
+  }
+  manageSetForms();
 }
 
 const resolve = () => {
@@ -143,7 +175,8 @@ const getGlobalDamageMult = (hero, skill) => {
 
   for (let checkboxId of ['rage-set', 'torrent-set']) {
     const elem = document.getElementById(checkboxId);
-    mult += elem.checked ? Number(elem.value)-1 : 0.0;
+    mult += elem.checked ? Number(elem.value) * (document.getElementById(`${checkboxId}-stack`)?.value || 1)
+                         : 0.0;
   }
 
   const defPresetSelector = document.getElementById('def-preset');
