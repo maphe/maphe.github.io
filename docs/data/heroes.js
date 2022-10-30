@@ -2452,7 +2452,7 @@ const heroes = {
     element: element.earth,
     classType: classType.thief,
     baseAtk: 1228,
-    form: [elements.target_max_hp, elements.caster_max_hp],
+    form: [elements.caster_max_hp, elements.target_max_hp],
     barrier: (hero) => hero.getAtk()*1.2,
     skills: {
       s1: {
