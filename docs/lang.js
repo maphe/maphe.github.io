@@ -114,6 +114,7 @@ const i18n = {
         target_bleed: 'Target Bleed: {v}%',
         target_debuff: 'Target Debuff: {v}%',
         target_has_buff: 'Target has Buff: {v}%',
+        target_has_barrier: 'Target has Barrier: {v}%',
         target_has_debuff: 'Target has Debuff: {v}%',
         target_has_no_buff: 'Target has no Buff: {v}%',
         target_lost_hp_pc: '{v}% Target lost HP%',
@@ -125,7 +126,7 @@ const i18n = {
     },
     info: {
       alencia_trample: 'Trample',
-      aria_scaling: 'Heads up: Crit Damage scaling out of lost HP% is probably wrong. Skill multipliers are accurate.',
+      arunka_expose: 'Expose',
       balance_op_sigret: 'Balance Update: Added Speed scaling, lowered Attack scaling: S2: 0.8 -> 0.75 / S3 1.1 -> 1',
       lqc_s3_splash: 'S3 Splash',
       ml_celine_nimble_sword: 'Nimble Sword',
@@ -135,12 +136,14 @@ const i18n = {
       s2_counter: 'S2 (Counter)',
       s2_wave_3: 'S2 Wave 3',
       sez_explosion: 'Explosion',
+      unreleased_hero: '<strong>Notice:</strong> This hero is not yet released, and skill multipliers are subject to change.',
       victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes',
       yoonryoung_slash: 'Dazzling Slash'
     }
   },
   jp: {
     heroes: {
+      arunka: 'アルンカ (未発表)',
       // Pre-Balance versions: (前のバージョン)
       hwayoung_old: 'フィナス (前のバージョン)',
       vildred_old: 'ヴィルドレッド (前のバージョン)',
@@ -532,10 +535,15 @@ const i18n = {
       s1_soulburn: 'S1 魂力解放',
       s2_soulburn: 'S2 魂力解放',
       s3_soulburn: 'S3 魂力解放',
+      // TODO: Fix the rest of these for Japanese
+      custom: {
+        target_has_barrier: 'ターゲットにバリアあり: {v}%',
+      }
     },
+    
     info: {
       alencia_trample: '圧殺',
-      aria_scaling: '注意: 生命力が低いほどクリティカルダメージがUPするというのは恐らく誤っています。スキル倍率は正確です。',
+      arunka_expose: 'えぐり',
       lqc_s3_splash: 'S3 スプラッシュダメージ',
       ml_celine_nimble_sword: '快剣',
       s1_extra_attack: 'S1 追加攻撃',
@@ -544,12 +552,14 @@ const i18n = {
       s2_counter: 'S2 (反撃)',
       s2_wave_3: 'S2 3回目',
       sez_explosion: 'スプラッシュダメージ',
+      unreleased_hero: '<strong>注意:</strong> このヒーローはまだリリースされておらず、スキル乗数は変更される可能性があります。',
       victorious_flag: 'この古代遺物の効果を得るには"有利属性"を有効にする必要があります。なお、光/闇属性の英雄には発動しません。',
       yoonryoung_slash: '閃光斬り'
     }
   },
   zhTW: {
     heroes: {
+      arunka: '亞露嘉 (未發布)',
       // Pre-Balance versions: (以前的版本)
       hwayoung_old: '和英 (以前的版本)',
       vildred_old: '維德瑞 (以前的版本)',
@@ -1166,6 +1176,7 @@ const i18n = {
         target_bleed: '目標流血: {v}%',
         target_debuff: '目標Debuff: {v}%',
         target_has_buff: '目標有Buff: {v}%',
+        target_has_barrier: '目標有防護罩: {v}%',
         target_has_debuff: '目標有Debuff: {v}%',
         target_has_no_buff: '目標沒有Buff: {v}%',
         target_lost_hp_pc: '{v}% 目標失去生命值百分比',
@@ -1177,7 +1188,7 @@ const i18n = {
     },
     info: {
       alencia_trample: '扼殺',
-      aria_scaling: '注意: 基於損失生命百分比的暴擊傷害補償可能不正確. 但技能倍率是正確的.',
+      arunka_expose: '揭露',
       lqc_s3_splash: 'S3 濺射傷害',
       ml_celine_nimble_sword: '快劍',
       s1_extra_attack: 'S1 追加攻擊',
@@ -1185,12 +1196,14 @@ const i18n = {
       s2_counter: 'S2 (反擊)',
       s2_wave_3: 'S2 第三波',
       sez_explosion: '濺射傷害',
+      unreleased_hero: '<strong>注意</strong>：該英雄尚未發布，技能倍數可能會發生變化。',
       victorious_flag: '必須勾選屬性克製才能看到效果, 對光暗英雄無效.',
       yoonryoung_slash: '閃光砍擊'
     }
   },
   zhCN: {
     heroes: {
+      arunka: '亞露嘉 (未发布)', // TODO: Update with simplified name on release
       // Pre-Balance versions: (以前的版本)
       hwayoung_old: '和英 (以前的版本)',
       vildred_old: '维德瑞 (以前的版本)',
@@ -1809,6 +1822,7 @@ const i18n = {
         skill_tree: '技能树: {v}%',
         target_bleed: '目标流血: {v}%',
         target_debuff: '目标Debuff: {v}%',
+        target_has_barrier: '目标有防护罩',
         target_has_buff: '目标有Buff: {v}%',
         target_has_debuff: '目标有Debuff: {v}%',
         target_has_no_buff: '目标没有Buff: {v}%',
@@ -1821,7 +1835,7 @@ const i18n = {
     },
     info: {
       alencia_trample: '扼杀',
-      aria_scaling: '注意：基于损失生命百分比的暴击伤害补偿可能不正确。但技能倍率是正确的.',
+      arunka_expose: '揭露', // TODO: Update with simplified name on relesase
       lqc_s3_splash: 'S3 溅射伤害',
       ml_celine_nimble_sword: '快剑',
       s1_extra_attack: 'S1 追加攻击',
@@ -1830,12 +1844,14 @@ const i18n = {
       s2_wave_3: 'S2 第三波',
       s2_counter: 'S2 (反击)',
       sez_explosion: '溅射伤害',
+      unreleased_hero: '<strong>注意</strong>：该英雄尚未发布，技能倍数可能会发生变化。',
       victorious_flag: '必须勾选属性克制才能看到效果, 对光暗英雄无效.',
       yoonryoung_slash: '闪光砍击'
       }
   },
   kr: {
     heroes: {
+      arunka: '아룬카 (미공개)',
       // Pre-Balance versions: (이전 버전)
       hwayoung_old: '화영 (이전 버전)',
       vildred_old: '빌트레드 (이전 버전)',
@@ -2377,6 +2393,7 @@ const i18n = {
         skill_tree: '스킬 트리: {v}%',
         target_bleed: '대상 출혈효과: {v}%',
         target_debuff: '대상 약화효과: {v}%',
+        target_has_barrier: '대상에게 보호막이 있음',
         target_has_buff: '대상 강화효과 소유: {v}%',
         target_has_debuff: '대상 약화효과 소유: {v}%',
         target_has_no_buff: '대상에게 강화효과 없음: {v}%',
@@ -2389,7 +2406,7 @@ const i18n = {
     },
     info: {
       alencia_trample: '압살',
-      aria_scaling: '주의: 잃은 체력% 비례 치명타 피해 보정이 잘못되었을 수 있습니다. 스킬 계수는 정확합니다.',
+      arunka_expose: '파헤치기',
       lqc_s3_splash: '스킬 3 스플래시',
       ml_celine_nimble_sword: '쾌검',
       s1_extra_attack: '스킬 1 추가 공격',
@@ -2398,6 +2415,7 @@ const i18n = {
       s2_wave_3: '스킬 2 3타',
       s2_counter: '스킬 2 (카운터)',
       sez_explosion: '컨빅션 폭발',
+      unreleased_hero: '<strong>알림</strong>: 이 영웅은 아직 출시되지 않았으며 스킬 배율이 변경될 수 있습니다.',
       victorious_flag: '아티팩트의 효과를 보려면 상성 우위가 활성화되어야 합니다; 암/광속성에는 적용되지 않습니다.',
       yoonryoung_slash: '섬광베기'
     }
