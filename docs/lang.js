@@ -67,7 +67,7 @@ const i18n = {
       summertime_iseria: 'siseria seaseria',
       taranor_guard: 'tg',
       tempest_surin: 'tsurin t.surin',
-      top_model_luluca: 'tomoca',
+      top_model_luluca: 'tomoca tml',
       troublemaker_crozet: 'ml.crozet mlcrozet',
       wanderer_silk: 'ml.silk mlsilk',
     },
