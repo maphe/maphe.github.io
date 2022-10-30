@@ -467,8 +467,7 @@ const heroes = {
     classType: classType.mage,
     baseAtk: 1039,
     form: [elements.caster_hp_pc, elements.caster_defense],
-    barrier: () => elements.caster_defense.value()*1.0,
-    info: infoLabel('aria_scaling'),
+    barrier: () => elements.caster_defense.value() * 1.0,
     skills: {
       s1: {
         rate: 0.7,
@@ -528,6 +527,43 @@ const heroes = {
         enhance: [0.05, 0.05, 0, 0.1, 0, 0.15],
         single: true,
       }
+    }
+  },
+  arunka: {
+    name: 'Arunka (Unreleased)',
+    element: element.earth,
+    classType: classType.warrior,
+    baseAtk: 1570,
+    form: [elements.target_has_barrier],
+    info: infoLabel('unreleased_hero'),
+    dot: [dot.bleed],
+    innateAtkUp: () => 0.30,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+        noCrit: true,
+      },
+      s1_bis: {
+        name: infoLabel('arunka_expose'),
+        rate: 1.3,
+        pow: 1.3,
+        // enhance_from: 's1', Presumed not to inherit from s1 mola since the pow is so high already
+        single: true,
+        noCrit: true,
+      },
+      s3: {
+        rate: 0.9,
+        pow: 1,
+        penetrate: () => 0.7,
+        mult: () => elements.target_has_barrier.value() ? 2.2 : 1,
+        multTip: () => ({ target_has_barrier: 120 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+        noCrit: true,
+      },
     }
   },
   assassin_cartuja: {
