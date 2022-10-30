@@ -45,7 +45,7 @@ const elements = {
     label: 'Target has Increased Attack',
     type: 'checkbox',
     value: () => document.getElementById('target-atk-up').checked,
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_att_up.png'
+    icon: './assets/buffs/attack-buff.png'
   },
   target_atk_up_great: {
     ref: 'target_atk_up_great',
@@ -53,7 +53,7 @@ const elements = {
     label: 'Target has Increased Attack (Great)',
     type: 'checkbox',
     value: () => document.getElementById('target-atk-up-great').checked,
-    icon: 'https://epic7x.com/wp-content/uploads/2019/01/greater-attack-icon.png'
+    icon: './assets/buffs/greater-attack-buff.png'
   },
   target_atk_down: {
     ref: 'target_atk_down',
@@ -61,7 +61,7 @@ const elements = {
     label: 'Target has Decreased Attack',
     type: 'checkbox',
     value: () => document.getElementById('target-atk-down').checked,
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_att_dn.png'
+    icon: './assets/debuffs/attack-debuff.png'
   },
   target_max_hp: {
     ref: 'target_max_hp',
@@ -157,7 +157,7 @@ const elements = {
     label: 'Target has Bleed',
     type: 'checkbox',
     value: () => document.getElementById('target-has-bleed').checked,
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blood.png'
+    icon: './assets/bleed-debuff.png'
   },
   target_has_sleep: {
     ref: 'target_has_sleep',
@@ -165,7 +165,7 @@ const elements = {
     label: 'Target has Sleep',
     type: 'checkbox',
     value: () => document.getElementById('target-has-sleep').checked,
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_sleep.png'
+    icon: './assets/debuffs/sleep-debuff.png'
   },
   target_has_provoke: {
     ref: 'target_has_provoke',
@@ -173,7 +173,7 @@ const elements = {
     label: 'Target is Provoked',
     type: 'checkbox',
     value: () => document.getElementById('target-has-provoke').checked,
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_provoke.png'
+    icon: './assets/debuffs/provoke-debuff.png'
   },
   target_has_target: {
     ref: 'target_has_target',
@@ -185,7 +185,7 @@ const elements = {
     label: 'Target is stunned',
     type: 'checkbox',
     value: () => document.getElementById('target-is-stunned').checked,
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_stun.png'
+    icon: './assets/debuffs/stun-debuff.png'
   },
   target_has_barrier: {
     ref: 'target_has_barrier',
@@ -193,7 +193,7 @@ const elements = {
     label: 'Target has Barrier',
     type: 'checkbox',
     value: () => document.getElementById('target-has-barrier').checked,
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_protect.png'
+    icon: './assets/buffs/barrier-buff.png'
   },
   target_magic_nailed: {
     ref: 'target_magic_nailed',
@@ -201,7 +201,7 @@ const elements = {
     label: 'Magic Nail on Target',
     type: 'checkbox',
     value: () => document.getElementById('target-magic-nailed').checked,
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_nail.png'
+    icon: './assets/debuffs/nail-debuff.png'
   },
   target_nb_bleed: {
     ref: 'target_nb_bleed',
@@ -213,7 +213,7 @@ const elements = {
     default: 0,
     readonly: true,
     value: () => Number(document.getElementById('target-nb-bleed').value),
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blood.png'
+    icon: './assets/debuffs/bleed-debuff.png'
   },
   target_bleed_detonate: {
     ref: 'target_bleed_detonate',
@@ -225,7 +225,7 @@ const elements = {
     default: 0,
     readonly: true,
     value: () => Number(document.getElementById('target-bleed-detonate').value),
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blood.png'
+    icon: './assets/debuffs/bleed-debuff.png'
   },
   target_burn_detonate: {
     ref: 'target_burn_detonate',
@@ -237,7 +237,7 @@ const elements = {
     default: 0,
     readonly: true,
     value: () => Number(document.getElementById('target-burn-detonate').value),
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_blaze.png'
+    icon: './assets/debuffs/burn-debuff.png'
   },
   target_bomb_detonate: {
     ref: 'target_bomb_detonate',
@@ -249,7 +249,7 @@ const elements = {
     default: 0,
     readonly: true,
     value: () => Number(document.getElementById('target-bomb-detonate').value),
-    icon: 'https://epic7x.com/wp-content/uploads/2019/07/bomb.png'
+    icon: './assets/debuffs/bomb-debuff.png'
   },
   caster_max_hp: {
     ref: 'caster_max_hp',
@@ -308,7 +308,7 @@ const elements = {
     label: 'Increased Defense',
     type: 'checkbox',
     value: () => document.getElementById('caster-defense-up').checked,
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_def_up.png'
+    icon: './assets/buffs/defense-buff.png'
   },
   caster_speed: {
     ref: 'caster_speed',
@@ -326,7 +326,7 @@ const elements = {
     label: 'Increased Speed',
     type: 'checkbox',
     value: () => document.getElementById('caster-speed-up').checked,
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_speed_up.png'
+    icon: './assets/buffs/speed-buff.png'
   },
   caster_nb_buff: {
     ref: 'caster_nb_buff',
@@ -421,7 +421,7 @@ const elements = {
     label: 'Caster is Invincible',
     type: 'checkbox',
     value: () => document.getElementById('caster-invincible').checked,
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_invincible.png'
+    icon: './assets/buffs/invincible-buff.png'
   },
   caster_perception: {
     ref: 'caster_perception',
@@ -429,7 +429,7 @@ const elements = {
     label: 'Caster has Perception',
     type: 'checkbox',
     value: () => document.getElementById('caster-perception') ? document.getElementById('caster-perception').checked : false,
-    icon: 'https://epic7x.com/wp-content/uploads/2021/05/Perception.png'
+    icon: './assets/buffs/perception-buff.png'
   },
   caster_vigor: {
     value: () => document.getElementById('vigor') ? document.getElementById('vigor').checked : false,
@@ -440,7 +440,7 @@ const elements = {
     label: 'Caster has Rage',
     type: 'checkbox',
     value: () => document.getElementById('caster-enrage') ? document.getElementById('caster-enrage').checked : false,
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_madness.png'
+    icon: './assets/buffs/rage-buff.png'
   },
   caster_immense_power: {
     ref: 'caster_immense_power',
@@ -457,7 +457,7 @@ const elements = {
     label: 'Caster has Stealth',
     type: 'checkbox',
     value: () => document.getElementById('caster-stealth').checked,
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_hide.png'
+    icon: './assets/buffs/stealth-buff.png'
   },
   critical_hit_stack: {
     ref: 'critical_hit_stack',
@@ -663,7 +663,7 @@ const elements = {
     label: 'Ally has Increased Attack',
     type: 'checkbox',
     value: () => document.getElementById('ally-atk-up').checked,
-    icon: 'https://epic7x.com/wp-content/uploads/2018/12/stic_att_up.png'
+    icon: './assets/buffs/attack-buff.png'
   },
   ally_atk_up_great: {
     ref: 'ally_atk_up_great',
@@ -671,7 +671,7 @@ const elements = {
     label: 'Ally has Increased Attack (Great)',
     type: 'checkbox',
     value: () => document.getElementById('ally-atk-up-great').checked,
-    icon: 'https://epic7x.com/wp-content/uploads/2019/01/greater-attack-icon.png'
+    icon: './assets/buffs/greater-attack-buff.png'
   },
   skill_tree_completed: {
     ref: 'skill_tree_completed',
@@ -974,7 +974,7 @@ const buildElement = (elem, parent) => {
 };
 
 const elemIcon = (elem) => {
-  return `<img src='https://epic7x.com/wp-content/themes/epic-seven/assets/img/${elem.charAt(0).toUpperCase() + elem.slice(1)}.png' width='20', height='20' alt='${elem}' />`
+  return `<img src='${['jp', 'kr', 'zh', 'zhTW'].some(locale => window.location.href.includes(locale)) ? '.' : ''}./assets/elements/${elem}.png' width='20', height='20' alt='${elem}' />`
 };
 
 const antiElemIcon = (elem) => {
@@ -988,14 +988,7 @@ const antiElemIcon = (elem) => {
 };
 
 const classIcon = (type) => {
-  switch (type) {
-    case classType.warrior: return `<img src='https://epic7x.com/wp-content/themes/epic-seven/assets/img/Warrior.png' width='18', height='18' alt='${type}' />`;
-    case classType.thief: return `<img src='https://epic7x.com/wp-content/themes/epic-seven/assets/img/Thief.png' width='18', height='18' alt='${type}' />`;
-    case classType.soul_weaver: return `<img src='https://epic7x.com/wp-content/themes/epic-seven/assets/img/Soul%20Weaver.png' width='18', height='18' alt='${type}' />`;
-    case classType.knight: return `<img src='https://epic7x.com/wp-content/themes/epic-seven/assets/img/Knight.png' width='18', height='18' alt='${type}' />`;
-    case classType.ranger: return `<img src='https://epic7x.com/wp-content/themes/epic-seven/assets/img/Ranger.png' width='18', height='18' alt='${type}' />`;
-    case classType.mage: return `<img src='https://epic7x.com/wp-content/themes/epic-seven/assets/img/Mage.png' width='18', height='18' alt='${type}' />`;
-  }
+  return `<img src='${['jp', 'kr', 'zh', 'zhTW'].some(locale => window.location.href.includes(locale)) ? '.' : ''}./assets/classes/${type.replace('_', '-')}.png' width='18', height='18' alt='${type}' />`
 };
 
 const dedupeForm = (hero, artifact) => {
