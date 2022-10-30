@@ -114,6 +114,7 @@ const i18n = {
         target_bleed: 'Target Bleed: {v}%',
         target_debuff: 'Target Debuff: {v}%',
         target_has_buff: 'Target has Buff: {v}%',
+        target_has_barrier: 'Target has Barrier: {v}%',
         target_has_debuff: 'Target has Debuff: {v}%',
         target_has_no_buff: 'Target has no Buff: {v}%',
         target_lost_hp_pc: '{v}% Target lost HP%',
@@ -534,7 +535,12 @@ const i18n = {
       s1_soulburn: 'S1 魂力解放',
       s2_soulburn: 'S2 魂力解放',
       s3_soulburn: 'S3 魂力解放',
+      // TODO: Fix the rest of these for Japanese
+      custom: {
+        target_has_barrier: 'ターゲットにバリアあり: {v}%',
+      }
     },
+    
     info: {
       alencia_trample: '圧殺',
       arunka_expose: 'えぐり',
@@ -1170,6 +1176,7 @@ const i18n = {
         target_bleed: '目標流血: {v}%',
         target_debuff: '目標Debuff: {v}%',
         target_has_buff: '目標有Buff: {v}%',
+        target_has_barrier: '目標有防護罩: {v}%',
         target_has_debuff: '目標有Debuff: {v}%',
         target_has_no_buff: '目標沒有Buff: {v}%',
         target_lost_hp_pc: '{v}% 目標失去生命值百分比',
@@ -1815,6 +1822,7 @@ const i18n = {
         skill_tree: '技能树: {v}%',
         target_bleed: '目标流血: {v}%',
         target_debuff: '目标Debuff: {v}%',
+        target_has_barrier: '目标有防护罩',
         target_has_buff: '目标有Buff: {v}%',
         target_has_debuff: '目标有Debuff: {v}%',
         target_has_no_buff: '目标没有Buff: {v}%',
@@ -2385,6 +2393,7 @@ const i18n = {
         skill_tree: '스킬 트리: {v}%',
         target_bleed: '대상 출혈효과: {v}%',
         target_debuff: '대상 약화효과: {v}%',
+        target_has_barrier: '대상에게 보호막이 있음',
         target_has_buff: '대상 강화효과 소유: {v}%',
         target_has_debuff: '대상 약화효과 소유: {v}%',
         target_has_no_buff: '대상에게 강화효과 없음: {v}%',
