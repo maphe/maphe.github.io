@@ -153,6 +153,7 @@ try {
     console.log(error);
 }
 
+// Put form values in queryParams
 let pendingUpdate;
 updateQueryParamsWhenStable = async () => {
     pendingUpdate = Date.now();
