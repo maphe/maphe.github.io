@@ -1,3 +1,14 @@
+// declare form defaults, for reference
+formDefaults = {
+    'slowerSpeed': 200,
+    'slowerPush': 0,
+    'fasterSpeed': 220,
+    'fasterPush': 0,
+    'fasterTurns': 1,
+    'fasterPushesSlower': false,
+    'stigmaPolitis': false
+}
+
 // get elements from page
 //should be fine here since no elements are ever added to or removed from the DOM after inital load
 const slowSpeedBox = document.getElementById('slow-max-speed-box');
@@ -25,6 +36,32 @@ let fasterTurnsSlide = document.getElementById('fast-unit-turns-slide');
 
 const fastCRDiv = document.getElementById('fast-cr-div');
 const fastTurnsDiv = document.getElementById('fast-turns-div');
+
+// get values from the various inputs
+const getInputValues = () => {
+    const inputValues = {};
+    inputValues.slowerSpeed = Number(slowerSpeedInput.value);
+    inputValues.slowerPush = Number(slowerPushInput.value);
+    inputValues.fasterSpeed = Number(fasterSpeedInput.value);
+    inputValues.fasterPush = Number(fasterPushInput?.value || '0');
+    inputValues.fasterTurns = Number(fasterTurnsInput?.value || '1');
+    inputValues.fasterPushesSlower = fasterPushesSlowerInput.checked;
+    inputValues.stigmaPolitis = stigmaPolitisInput.checked;
+
+    return inputValues;
+}
+
+const nonPermanentInputs = ['fasterPush', 'fasterTurns']
+const getNonPermanentInputs = () => {
+    inputs = {
+        'fasterPushInput': document.getElementById('fast-unit-push'),
+        'fasterTurnsInput': document.getElementById('fast-unit-turns'),
+        'fasterPushSlide': document.getElementById('fast-unit-push-slide'),
+        'fasterTurnsSlide': document.getElementById('fast-unit-turns-slide')
+    };
+
+    return inputs;
+};
 
 fasterPushesSlowUpdate = () => {
     fastCRDiv.innerHTML = '';
@@ -77,32 +114,79 @@ fasterPushesSlowUpdate = () => {
         fasterPushSlide = document.getElementById('fast-unit-push-slide');
         fasterTurnsSlide = document.getElementById('fast-unit-turns-slide');
     }
-}
+};
 
 fasterPushesSlowerInput.addEventListener('change', fasterPushesSlowUpdate);
 
-const queryParams = new URLSearchParams(window.location.search);
 const numberParams = ['slowerSpeed', 'slowerPush', 'fasterSpeed', 'fasterPush', 'fasterTurns']
-const boolParams = ['fasterPushesSlower', 'stigmaPolitis']
+const boolParams = ['fasterPushesSlower', 'stigmaPolitis'];
+let queryParams;
 
-// Fill form values from queryParams
-numberParams.forEach((param) => {
-    let paramVal = queryParams.get(param);
-    if (paramVal) {
-        eval(`${param}Input`).value = Number(paramVal);
-        eval(`${param}Slide`).value = Number(paramVal);
-    }
-});
+try {
+    queryParams = new URLSearchParams(window.location.search);
+    const currentInputs = getNonPermanentInputs();
+    // Fill form values from queryParams
+    numberParams.forEach((param) => {
+        let paramVal = queryParams.get(param);
+        if (paramVal && paramVal !== formDefaults[param]) {
+            if (nonPermanentInputs.includes(param)) {
+                currentInputs[`${param}Input`].value = Number(paramVal);
+                currentInputs[`${param}Slide`].value = Number(paramVal);
+            } else {
+                eval(`${param}Input`).value = Number(paramVal);
+                eval(`${param}Slide`).value = Number(paramVal);
+            }
+        }
+    });
+    
+    boolParams.forEach((param) => {
+        let paramVal = queryParams.get(param)?.toLowerCase() === 'true';
+        if (paramVal && paramVal !== formDefaults[param]) {
+            eval(`${param}Input`).checked = true;
 
-boolParams.forEach((param) => {
-    let paramVal = queryParams.get(param)?.toLowerCase() === 'true';
-    if (paramVal) {
-        eval(`${param}Input`).checked = true;
+            if (param === 'fasterPushesSlower') {
+                fasterPushesSlowUpdate();
+            }
+        }
+    });
+} catch (error) {
+    console.log(error);
+}
+
+let pendingUpdate;
+updateQueryParamsWhenStable = async () => {
+    pendingUpdate = Date.now();
+    // consider form values stable after 1 second
+    while (Date.now() - pendingUpdate < 1000) {
+        await new Promise(r => setTimeout(r, 1000));
     }
-    if (param === 'fasterPushesSlower') {
-        fasterPushesSlowUpdate();
+
+    const inputValues = getInputValues();
+    // Update queryParams from form values
+    numberParams.forEach((param) => {
+        if (inputValues[param] !== formDefaults[param]) {
+            queryParams.set(param, inputValues[param]);
+        } else {
+            queryParams.delete(param);
+        }
+    });
+    
+    boolParams.forEach((param) => {
+        if (inputValues[param] !== formDefaults[param]) {
+            queryParams.set(param, inputValues[param]);
+        } else {
+            queryParams.delete(param);
+        }
+    });
+
+    // finally, update the url with new queryparams (using pushState to avoid actually loading the page again)
+    if (window.history.pushState) {
+        const newURL = new URL(window.location.href);
+        newURL.search = queryParams.toString();
+        window.history.pushState({ path: newURL.href }, '', newURL.href);
     }
-});
+    pendingUpdate = null;
+}
 
 fasterPushesToggled = () => {
     window.dataLayer.push({
@@ -150,16 +234,7 @@ correctTune = (slowSpeed, slowSpeedReq, fastSpeed, fastSpeedReq, fastPushes) => 
 }
 
 const resolve = () => {
-
-    // fetch input values
-    const slowerUnitSpeed = Number(slowerSpeedInput.value);
-    const slowerUnitPush = Number(slowerPushInput.value) * (stigmaPolitisInput.checked ? 0.5 : 1);
-    
-    const fasterUnitSpeed = Number(fasterSpeedInput.value);
-    const fasterUnitPush = Number(fasterPushInput?.value || '0') * (stigmaPolitisInput.checked ? 0.5 : 1);
-    const fasterUnitTurns = Number(fasterTurnsInput.value);
-
-    const fasterPushes = fasterPushesSlowerInput.checked;
+    const inputValues = getInputValues();
     
     /* 
      * GENERAL FORMULA: fast Speed = slow Speed * fast CR / slow CR
@@ -173,23 +248,23 @@ const resolve = () => {
      * Take the floor of max speed and ceil of min speed for safety since we can't have fractional speed
      */
     let slowUnitSpeedReq, fastUnitSpeedReq;
-    if (fasterPushes) {
-        const slowerUnitCR = 1 - (slowerUnitPush / 100);
+    if (inputValues.fasterPushesSlower) {
+        const slowerUnitCR = 1 - ((inputValues.slowerPush * (stigmaPolitisInput.checked ? 0.5 : 1)) / 100);
         const fasterUnitCR = 0.95;
         const CRRatio = fasterUnitCR / slowerUnitCR;
 
-        slowUnitSpeedReq = Math.ceil(fasterUnitSpeed / CRRatio); // min speed
-        fastUnitSpeedReq =  Math.floor(slowerUnitSpeed * CRRatio); // max speed
+        slowUnitSpeedReq = Math.ceil(inputValues.fasterSpeed / CRRatio); // min speed
+        fastUnitSpeedReq =  Math.floor(inputValues.slowerSpeed * CRRatio); // max speed
 
         slowOutputLabel.innerText = 'Slower Unit Min Speed';
         fastOutputLabel.innerText = 'Faster Unit Max Speed';
     } else {
-        const slowerUnitCR = 0.95 - (slowerUnitPush / 100);
-        const fasterUnitCR = fasterUnitTurns - (fasterUnitPush / 100);
+        const slowerUnitCR = 0.95 - ((inputValues.slowerPush * (stigmaPolitisInput.checked ? 0.5 : 1)) / 100);
+        const fasterUnitCR = inputValues.fasterTurns - ((inputValues.fasterPush * (inputValues.stigmaPolitis ? 0.5 : 1)) / 100);
         const CRRatio = fasterUnitCR / slowerUnitCR;
 
-        slowUnitSpeedReq = Math.floor(fasterUnitSpeed / CRRatio); // max speed
-        fastUnitSpeedReq =  Math.ceil(slowerUnitSpeed * CRRatio); // min speed
+        slowUnitSpeedReq = Math.floor(inputValues.fasterSpeed / CRRatio); // max speed
+        fastUnitSpeedReq =  Math.ceil(inputValues.slowerSpeed * CRRatio); // min speed
 
         slowOutputLabel.innerText = 'Slower Unit Max Speed';
         fastOutputLabel.innerText = 'Faster Unit Min Speed';
@@ -203,27 +278,37 @@ const resolve = () => {
     let recommendation = '';
 
     // generate recommendation and update styling accordingly
-    if (slowerUnitSpeed > fasterUnitSpeed) {
+    if (inputValues.slowerSpeed > inputValues.fasterSpeed) {
         updateClasses(false);
         formattedSlowSpeed = 'Impossible';
         formattedFastSpeed = 'Impossible';
         recommendation = 'Faster Unit speed must be greater than Slower Unit speed.';
-    } else if (correctTune(slowerUnitSpeed, slowUnitSpeedReq, fasterUnitSpeed, fastUnitSpeedReq, fasterPushes)) {
+    } else if (correctTune(inputValues.slowerSpeed, slowUnitSpeedReq, inputValues.fasterSpeed, fastUnitSpeedReq, inputValues.fasterPushesSlower)) {
         updateClasses(false);
-        recommendation = `Units are improperly tuned, and ${fasterPushes ? 'the slower unit may not have 100% CR after the Faster Unit pushes' : 'the desired turn order isn\'t guaranteed'}.\n` +
-                         (formattedSlowSpeed !== 'Impossible' ? `Slower Unit needs at least ${Math.abs(slowerUnitSpeed - slowUnitSpeedReq)} ${fasterPushes ? 'more' : 'less'} speed` : '') +
+        recommendation = `Units are improperly tuned, and ${inputValues.fasterPushesSlower ? 'the slower unit may not have 100% CR after the Faster Unit pushes' : 'the desired turn order isn\'t guaranteed'}.\n` +
+                         (formattedSlowSpeed !== 'Impossible' ? `Slower Unit needs at least ${Math.abs(inputValues.slowerSpeed - slowUnitSpeedReq)} ${inputValues.fasterPushesSlower ? 'more' : 'less'} speed` : '') +
                          (!(formattedSlowSpeed === 'Impossible' || formattedFastSpeed === 'Impossible') ? ' or ' : '') +
-                         (formattedFastSpeed !== 'Impossible' ? `Faster Unit needs at least ${Math.abs(fastUnitSpeedReq - fasterUnitSpeed)} ${fasterPushes ? 'less' : 'more'} speed.` : '');
+                         (formattedFastSpeed !== 'Impossible' ? `Faster Unit needs at least ${Math.abs(fastUnitSpeedReq - inputValues.fasterSpeed)} ${inputValues.fasterPushesSlower ? 'less' : 'more'} speed.` : '');
     } else {
         updateClasses(true);
-        recommendation = `Units are properly tuned, and ${fasterPushes ? 'the Slower Unit will have at least 100% CR after the Faster Unit pushes' : 'the Faster Unit will always move first'}.`
-        if (slowerUnitSpeed !== slowUnitSpeedReq || fasterUnitSpeed !== fastUnitSpeedReq) {
-            recommendation += `\nSlower Unit can have up to ${Math.abs(slowUnitSpeedReq - slowerUnitSpeed)} ${fasterPushes ? 'less' : 'more'} speed` +
-                              ` or Faster Unit can have up to ${Math.abs(fasterUnitSpeed - fastUnitSpeedReq)} ${fasterPushes ? 'more' : 'less'} speed.`;
+        recommendation = `Units are properly tuned, and ${inputValues.fasterPushesSlower ? 'the Slower Unit will have at least 100% CR after the Faster Unit pushes' : 'the Faster Unit will always move first'}.`
+        if (inputValues.slowerSpeed !== slowUnitSpeedReq || inputValues.fasterSpeed !== fastUnitSpeedReq) {
+            recommendation += `\nSlower Unit can have up to ${Math.abs(slowUnitSpeedReq - inputValues.slowerSpeed)} ${inputValues.fasterPushesSlower ? 'less' : 'more'} speed` +
+                              ` or Faster Unit can have up to ${Math.abs(inputValues.fasterSpeed - fastUnitSpeedReq)} ${inputValues.fasterPushesSlower ? 'more' : 'less'} speed.`;
         }
     }
   
     slowSpeedOutput.innerText = formattedSlowSpeed;
     fastSpeedOutput.innerText = formattedFastSpeed;
     recommendationOutput.innerText = recommendation;
+
+    if (queryParams) {
+        if (pendingUpdate === null) {
+            updateQueryParamsWhenStable();
+        } else if (pendingUpdate === undefined) { // don't queue an update on initial load
+            pendingUpdate = null;
+        } else {
+            pendingUpdate = Date.now();
+        }
+    }
   }
