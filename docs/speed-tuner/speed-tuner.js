@@ -274,18 +274,18 @@ const resolve = () => {
         updateClasses(false);
         formattedSlowSpeed = 'Impossible';
         formattedFastSpeed = 'Impossible';
-        recommendation = 'Faster unit speed must be greater than slower unit speed.';
+        recommendation = 'The faster unit\'s speed must be greater than slower unit\'s speed.';
     } else if (correctTune(inputValues.slowerSpeed, slowUnitSpeedReq, inputValues.fasterSpeed, fastUnitSpeedReq, inputValues.fasterPushesSlower)) {
         updateClasses(false);
         recommendation = `Units are improperly tuned, and ${inputValues.fasterPushesSlower ? 'the slower unit may not have 100% CR after the faster unit pushes' : 'the desired turn order isn\'t guaranteed'}.\n` +
-                         (formattedSlowSpeed !== 'Impossible' ? `The slower unit needs at least ${Math.abs(inputValues.slowerSpeed - slowUnitSpeedReq)} ${inputValues.fasterPushesSlower ? 'more' : 'less'} speed` : '') +
+                         (formattedSlowSpeed !== 'Impossible' ? `<br>The slower unit needs at least ${Math.abs(inputValues.slowerSpeed - slowUnitSpeedReq)} ${inputValues.fasterPushesSlower ? 'more' : 'less'} speed` : '') +
                          (!(formattedSlowSpeed === 'Impossible' || formattedFastSpeed === 'Impossible') ? ' <strong>OR</strong> ' : '') +
                          (formattedFastSpeed !== 'Impossible' ? `the faster unit needs at least ${Math.abs(fastUnitSpeedReq - inputValues.fasterSpeed)} ${inputValues.fasterPushesSlower ? 'less' : 'more'} speed.` : '');
     } else {
         updateClasses(true);
-        recommendation = `Units are properly tuned, and ${inputValues.fasterPushesSlower ? 'the slower unit will have at least 100% CR after the faster unit pushes' : 'the faster unit will always move first'}.`
+        recommendation = `Units are properly tuned, and ${inputValues.fasterPushesSlower ? 'the slower unit will have at least 100% CR after the faster unit pushes' : 'the faster unit will always move before the slower unit'}.`
         if (inputValues.slowerSpeed !== slowUnitSpeedReq || inputValues.fasterSpeed !== fastUnitSpeedReq) {
-            recommendation += `\nThe slower unit can have up to ${Math.abs(slowUnitSpeedReq - inputValues.slowerSpeed)} ${inputValues.fasterPushesSlower ? 'less' : 'more'} speed` +
+            recommendation += `<br>The slower unit can have up to ${Math.abs(slowUnitSpeedReq - inputValues.slowerSpeed)} ${inputValues.fasterPushesSlower ? 'less' : 'more'} speed` +
                               ` <strong>OR</strong> the faster unit can have up to ${Math.abs(inputValues.fasterSpeed - fastUnitSpeedReq)} ${inputValues.fasterPushesSlower ? 'more' : 'less'} speed.`;
         }
     }
