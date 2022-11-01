@@ -91,13 +91,11 @@ numberParams.forEach((param) => {
     if (paramVal) {
         eval(`${param}Input`).value = Number(paramVal);
         eval(`${param}Slide`).value = Number(paramVal);
-    } else {
-        console.log(`${param} not present`)
     }
 });
 
 boolParams.forEach((param) => {
-    let paramVal = queryParams.get(param).toLowerCase() === 'true';
+    let paramVal = queryParams.get(param)?.toLowerCase() === 'true';
     if (paramVal) {
         eval(`${param}Input`).checked = true;
     }
