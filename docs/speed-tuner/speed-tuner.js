@@ -274,7 +274,7 @@ const resolve = () => {
         updateClasses(false);
         formattedSlowSpeed = 'Impossible';
         formattedFastSpeed = 'Impossible';
-        recommendation = 'The faster unit\'s speed must be greater than slower unit\'s speed.';
+        recommendation = 'The faster unit\'s speed must be greater than the slower unit\'s speed.';
     } else if (correctTune(inputValues.slowerSpeed, slowUnitSpeedReq, inputValues.fasterSpeed, fastUnitSpeedReq, inputValues.fasterPushesSlower)) {
         updateClasses(false);
         recommendation = `Units are improperly tuned, and ${inputValues.fasterPushesSlower ? 'the slower unit may not have 100% CR after the faster unit pushes' : 'the desired turn order isn\'t guaranteed'}.\n` +
