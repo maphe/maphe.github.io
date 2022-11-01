@@ -8,19 +8,25 @@ const fastSpeedOutput = document.getElementById('fast-min-speed');
 const fastOutputLabel = document.getElementById('fast-output-label');
 const recommendationOutput =  document.getElementById('recommendation');
 
-const slowerUnitSpeedInput = document.getElementById('slow-unit-speed');
-const fasterUnitSpeedInput = document.getElementById('fast-unit-speed');
-const slowerUnitPushInput = document.getElementById('slow-unit-push');
-let fasterUnitPushInput = document.getElementById('fast-unit-push');
-let fasterUnitTurnsInput = document.getElementById('fast-unit-turns');
+const slowerSpeedInput = document.getElementById('slow-unit-speed');
+const fasterSpeedInput = document.getElementById('fast-unit-speed');
+const slowerPushInput = document.getElementById('slow-unit-push');
+let fasterPushInput = document.getElementById('fast-unit-push');
+let fasterTurnsInput = document.getElementById('fast-unit-turns');
 
 const fasterPushesSlowerInput = document.getElementById('faster-pushes-switch');
-const stigmaOrPolitisInput = document.getElementById('stigma-or-politis');
+const stigmaPolitisInput = document.getElementById('stigma-or-politis');
+
+const slowerSpeedSlide = document.getElementById('slow-unit-speed-slide');
+const fasterSpeedSlide = document.getElementById('fast-unit-speed-slide');
+const slowerPushSlide = document.getElementById('slow-unit-push-slide');
+let fasterPushSlide = document.getElementById('fast-unit-push-slide');
+let fasterTurnsSlide = document.getElementById('fast-unit-turns-slide');
 
 const fastCRDiv = document.getElementById('fast-cr-div');
 const fastTurnsDiv = document.getElementById('fast-turns-div');
 
-fasterPushesSlowerInput.addEventListener('change', function() {
+fasterPushesSlowUpdate = () => {
     fastCRDiv.innerHTML = '';
     fastTurnsDiv.innerHTML = '';
 
@@ -66,8 +72,37 @@ fasterPushesSlowerInput.addEventListener('change', function() {
             </div>
         </div>`
         );
-        fasterUnitPushInput = document.getElementById('fast-unit-push');
-        fasterUnitTurnsInput = document.getElementById('fast-unit-turns');
+        fasterPushInput = document.getElementById('fast-unit-push');
+        fasterTurnsInput = document.getElementById('fast-unit-turns');
+        fasterPushSlide = document.getElementById('fast-unit-push-slide');
+        fasterTurnsSlide = document.getElementById('fast-unit-turns-slide');
+    }
+}
+
+fasterPushesSlowerInput.addEventListener('change', fasterPushesSlowUpdate);
+
+const queryParams = new URLSearchParams(window.location.search);
+const numberParams = ['slowerSpeed', 'slowerPush', 'fasterSpeed', 'fasterPush', 'fasterTurns']
+const boolParams = ['fasterPushesSlower', 'stigmaPolitis']
+
+// Fill form values from queryParams
+numberParams.forEach((param) => {
+    let paramVal = queryParams.get(param);
+    if (paramVal) {
+        eval(`${param}Input`).value = Number(paramVal);
+        eval(`${param}Slide`).value = Number(paramVal);
+    } else {
+        console.log(`${param} not present`)
+    }
+});
+
+boolParams.forEach((param) => {
+    let paramVal = queryParams.get(param).toLowerCase() === 'true';
+    if (paramVal) {
+        eval(`${param}Input`).checked = true;
+    }
+    if (param === 'fasterPushesSlower') {
+        fasterPushesSlowUpdate();
     }
 });
 
@@ -81,7 +116,7 @@ fasterPushesToggled = () => {
 stigmaPolitisToggled = () => {
     window.dataLayer.push({
         'event': 'toggle_stigma_politis',
-        'stigma_politis': stigmaOrPolitisInput.checked ? 'on' : 'off'
+        'stigma_politis': stigmaPolitisInput.checked ? 'on' : 'off'
     });
 }
 
@@ -117,13 +152,14 @@ correctTune = (slowSpeed, slowSpeedReq, fastSpeed, fastSpeedReq, fastPushes) => 
 }
 
 const resolve = () => {
+
     // fetch input values
-    const slowerUnitSpeed = Number(slowerUnitSpeedInput.value);
-    const slowerUnitPush = Number(slowerUnitPushInput.value) * (stigmaOrPolitisInput.checked ? 0.5 : 1);
+    const slowerUnitSpeed = Number(slowerSpeedInput.value);
+    const slowerUnitPush = Number(slowerPushInput.value) * (stigmaPolitisInput.checked ? 0.5 : 1);
     
-    const fasterUnitSpeed = Number(fasterUnitSpeedInput.value);
-    const fasterUnitPush = Number(fasterUnitPushInput?.value || '0') * (stigmaOrPolitisInput.checked ? 0.5 : 1);
-    const fasterUnitTurns = Number(fasterUnitTurnsInput.value);
+    const fasterUnitSpeed = Number(fasterSpeedInput.value);
+    const fasterUnitPush = Number(fasterPushInput?.value || '0') * (stigmaPolitisInput.checked ? 0.5 : 1);
+    const fasterUnitTurns = Number(fasterTurnsInput.value);
 
     const fasterPushes = fasterPushesSlowerInput.checked;
     
