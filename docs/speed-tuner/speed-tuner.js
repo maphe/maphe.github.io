@@ -149,6 +149,15 @@ try {
             }
         }
     });
+    
+    const queryString = queryParams.toString()
+    if (queryString.length) {
+        window.dataLayer.push({
+            'event': 'loaded_query_params',
+            'page': 'speed_tuner',
+            'loaded_params': queryString
+        });
+    }
 } catch (error) {
     console.log(error);
 }
