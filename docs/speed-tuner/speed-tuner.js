@@ -51,18 +51,6 @@ const getInputValues = () => {
     return inputValues;
 }
 
-const nonPermanentInputs = ['fasterPush', 'fasterTurns']
-const getNonPermanentInputs = () => {
-    inputs = {
-        'fasterPushInput': document.getElementById('fast-unit-push'),
-        'fasterTurnsInput': document.getElementById('fast-unit-turns'),
-        'fasterPushSlide': document.getElementById('fast-unit-push-slide'),
-        'fasterTurnsSlide': document.getElementById('fast-unit-turns-slide')
-    };
-
-    return inputs;
-};
-
 fasterPushesSlowUpdate = () => {
     fastCRDiv.innerHTML = '';
     fastTurnsDiv.innerHTML = '';
@@ -124,18 +112,12 @@ let queryParams;
 
 try {
     queryParams = new URLSearchParams(window.location.search);
-    const currentInputs = getNonPermanentInputs();
     // Fill form values from queryParams
     numberParams.forEach((param) => {
         let paramVal = queryParams.get(param);
         if (paramVal && paramVal !== formDefaults[param]) {
-            if (nonPermanentInputs.includes(param)) {
-                currentInputs[`${param}Input`].value = Number(paramVal);
-                currentInputs[`${param}Slide`].value = Number(paramVal);
-            } else {
-                eval(`${param}Input`).value = Number(paramVal);
-                eval(`${param}Slide`).value = Number(paramVal);
-            }
+            eval(`${param}Input`).value = Number(paramVal);
+            eval(`${param}Slide`).value = Number(paramVal);
         }
     });
     
