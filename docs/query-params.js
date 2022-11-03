@@ -6,7 +6,7 @@
  * 
  * Vars managed only in this .js file:
  * queryParams: URLSearchParams
- * pendingUpdate: Number millis time of last input
+ * updateRequestTime: Number millis time of last input
  * 
  * Vars to be set in page .js files:
  * formDefaults: String -> value map of form default values
@@ -22,7 +22,7 @@ let numberParams = []
 let boolParams = [];
 let paramCallbacks = {};
 let queryParams;
-let pendingUpdate;
+let updateRequestTime;
 let page;
 
 // get values from the various inputs
@@ -93,10 +93,10 @@ const loadQueryParams = () => {
  */
 const formUpdated = () => {
     if (queryParams) {
-        if (pendingUpdate === undefined) { // don't queue an update on the initial load
-            pendingUpdate = null;
-        } else if (pendingUpdate) {
-            pendingUpdate = Date.now();
+        if (updateRequestTime === undefined) { // don't queue an update on the initial load
+            updateRequestTime = null;
+        } else if (updateRequestTime) {
+            updateRequestTime = Date.now();
         } else {
             updateQueryParamsWhenStable();
         }
@@ -109,8 +109,8 @@ const formUpdated = () => {
 const updateQueryParamsWhenStable = async () => {
 
     // debounce input for 1 second then update form values when stable
-    pendingUpdate = Date.now();
-    while (Date.now() - pendingUpdate < 1000) {
+    updateRequestTime = Date.now();
+    while (Date.now() - updateRequestTime < 1000) {
         await new Promise(r => setTimeout(r, 1000));
     }
 
@@ -138,5 +138,5 @@ const updateQueryParamsWhenStable = async () => {
         newURL.search = queryParams.toString();
         window.history.pushState({ path: newURL.href }, '', newURL.href);
     }
-    pendingUpdate = null;
+    updateRequestTime = null;
 }

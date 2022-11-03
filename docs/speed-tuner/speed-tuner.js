@@ -37,20 +37,6 @@ let fasterTurnsSlide = document.getElementById('fast-unit-turns-slide');
 const fastCRDiv = document.getElementById('fast-cr-div');
 const fastTurnsDiv = document.getElementById('fast-turns-div');
 
-// get values from the various inputs
-// const getInputValues = () => {
-//     const inputValues = {};
-//     inputValues.slowerSpeed = Number(slowerSpeedInput.value);
-//     inputValues.slowerPush = Number(slowerPushInput.value);
-//     inputValues.fasterSpeed = Number(fasterSpeedInput.value);
-//     inputValues.fasterPush = Number(fasterPushInput?.value || '0');
-//     inputValues.fasterTurns = Number(fasterTurnsInput?.value || '1');
-//     inputValues.fasterPushesSlower = fasterPushesSlowerInput.checked;
-//     inputValues.stigmaPolitis = stigmaPolitisInput.checked;
-
-//     return inputValues;
-// }
-
 fasterPushesSlowUpdate = () => {
     fastCRDiv.innerHTML = '';
     fastTurnsDiv.innerHTML = '';
@@ -114,76 +100,6 @@ paramCallbacks = {
 }
 
 loadQueryParams();
-
-// try {
-//     queryParams = new URLSearchParams(window.location.search);
-//     // Fill form values from queryParams
-//     numberParams.forEach((param) => {
-//         let paramVal = queryParams.get(param);
-//         if (paramVal && paramVal !== formDefaults[param]) {
-//             eval(`${param}Input`).value = Number(paramVal);
-//             eval(`${param}Slide`).value = Number(paramVal);
-//         }
-//     });
-    
-//     boolParams.forEach((param) => {
-//         let paramVal = queryParams.get(param)?.toLowerCase() === 'true';
-//         if (paramVal && paramVal !== formDefaults[param]) {
-//             eval(`${param}Input`).checked = true;
-
-//             if (param === 'fasterPushesSlower') {
-//                 fasterPushesSlowUpdate();
-//             }
-//         }
-//     });
-    
-//     const queryString = queryParams.toString()
-//     if (queryString.length) {
-//         window.dataLayer.push({
-//             'event': 'loaded_query_params',
-//             'page': 'speed_tuner',
-//             'loaded_params': queryString
-//         });
-//     }
-// } catch (error) {
-//     console.log(error);
-// }
-
-// Put form values in queryParams
-// let pendingUpdate;
-// updateQueryParamsWhenStable = async () => {
-//     pendingUpdate = Date.now();
-//     // consider form values stable after 1 second
-//     while (Date.now() - pendingUpdate < 1000) {
-//         await new Promise(r => setTimeout(r, 1000));
-//     }
-
-//     const inputValues = getInputValues();
-//     // Update queryParams from form values
-//     numberParams.forEach((param) => {
-//         if (inputValues[param] !== formDefaults[param]) {
-//             queryParams.set(param, inputValues[param]);
-//         } else {
-//             queryParams.delete(param);
-//         }
-//     });
-    
-//     boolParams.forEach((param) => {
-//         if (inputValues[param] !== formDefaults[param]) {
-//             queryParams.set(param, inputValues[param]);
-//         } else {
-//             queryParams.delete(param);
-//         }
-//     });
-
-//     // finally, update the url with new queryparams (using pushState to avoid actually loading the page again)
-//     if (window.history.pushState) {
-//         const newURL = new URL(window.location.href);
-//         newURL.search = queryParams.toString();
-//         window.history.pushState({ path: newURL.href }, '', newURL.href);
-//     }
-//     pendingUpdate = null;
-// }
 
 fasterPushesToggled = () => {
     window.dataLayer.push({
