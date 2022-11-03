@@ -1,10 +1,28 @@
-const increaseIcon = '<i class="fas fa-angle-double-up"></i>';
-const decreaseIcon = '<i class="fas fa-angle-double-down"></i>';
+// set up vars for query params
+formDefaults = {
+  'firstBuildHP': 10000,
+  'secondBuildHP': 10000,
+  'firstBuildDef': 1000,
+  'secondBuildDef': 1000,
+}
+
 const firstBuildHPInput = document.getElementById('first-build-hp');
 const secondBuildHPInput = document.getElementById('second-build-hp');
+const firstBuildHPSlide = document.getElementById('first-build-hp-slide');
+const secondBuildHPSlide = document.getElementById('second-build-hp-slide');
 
 const firstBuildDefInput = document.getElementById('first-build-def');
 const secondBuildDefInput = document.getElementById('second-build-def');
+const firstBuildDefSlide = document.getElementById('first-build-def-slide');
+const secondBuildDefSlide = document.getElementById('second-build-def-slide');
+
+numberParams = ['firstBuildHP', 'secondBuildHP', 'firstBuildDef', 'secondBuildDef']
+page = 'ehp_calc';
+
+loadQueryParams();
+
+const increaseIcon = '<i class="fas fa-angle-double-up"></i>';
+const decreaseIcon = '<i class="fas fa-angle-double-down"></i>';
 
 const firstEHPBox = document.getElementById('first-ehp-box');
 const secondEHPBox = document.getElementById('second-ehp-box');
@@ -37,14 +55,10 @@ const updateClasses = (first, second) => {
 }
 
 const resolve = () => {
-  const firstHP = Number(firstBuildHPInput.value);
-  const firstDef = Number(firstBuildDefInput.value);
+  const inputValues = getInputValues();
 
-  const secondHP = Number(secondBuildHPInput.value);
-  const secondDef = Number(secondBuildDefInput.value);
-
-  const firstEHP = Math.floor(firstHP * (firstDef / 300 + 1));
-  const secondEHP = Math.floor(secondHP * (secondDef / 300 + 1));
+  const firstEHP = Math.floor(inputValues.firstBuildHP * (inputValues.firstBuildDef / 300 + 1));
+  const secondEHP = Math.floor(inputValues.secondBuildHP * (inputValues.secondBuildDef / 300 + 1));
 
   const firstRelativePct = (Math.abs((firstEHP / secondEHP) - 1) * 100).toFixed(1);
   const secondRelativePct = (Math.abs((secondEHP / firstEHP) - 1) * 100).toFixed(1);
@@ -56,4 +70,6 @@ const resolve = () => {
   secondBuildPct.innerHTML = (firstEHP !== secondEHP ? (secondEHP > firstEHP ? ` ${increaseIcon} ${secondRelativePct}%` : ` ${decreaseIcon} ${secondRelativePct}%`) : '');
 
   updateClasses(firstEHP, secondEHP);
+
+  formUpdated()
 }
