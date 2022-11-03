@@ -530,12 +530,11 @@ const heroes = {
     }
   },
   arunka: {
-    name: 'Arunka (Unreleased)',
+    name: 'Arunka',
     element: element.earth,
     classType: classType.warrior,
     baseAtk: 1570,
     form: [elements.target_has_barrier],
-    info: infoLabel('unreleased_hero'),
     dot: [dot.bleed],
     innateAtkUp: () => 0.30,
     skills: {

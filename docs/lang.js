@@ -143,7 +143,7 @@ const i18n = {
   },
   jp: {
     heroes: {
-      arunka: 'アルンカ (未発表)',
+      // Unreleased units: (未発表)
       // Pre-Balance versions: (前のバージョン)
       hwayoung_old: 'フィナス (前のバージョン)',
       vildred_old: 'ヴィルドレッド (前のバージョン)',
@@ -171,6 +171,7 @@ const i18n = {
       aria: 'アリア',
       armin: 'アーミン',
       arowell: 'アロウェル',
+      arunka: 'アルンカ',
       assassin_cartuja: '暗幕殺法 カルトゥハ',
       assassin_cidd: '暗殺者 シダー',
       assassin_coli: '静寂のコリー',
@@ -559,7 +560,7 @@ const i18n = {
   },
   zhTW: {
     heroes: {
-      arunka: '亞露嘉 (未發布)',
+      // Unreleased units: (未發布)
       // Pre-Balance versions: (以前的版本)
       hwayoung_old: '和英 (以前的版本)',
       vildred_old: '維德瑞 (以前的版本)',
@@ -587,6 +588,7 @@ const i18n = {
       aria: '艾莉雅',
       armin: '亞敏',
       arowell: '雅洛薇',
+      arunka: '亞露嘉',
       assassin_cartuja: '殺手卡爾圖哈',
       assassin_cidd: '殺手席德',
       assassin_coli: '殺手可麗',
@@ -1203,7 +1205,7 @@ const i18n = {
   },
   zhCN: {
     heroes: {
-      arunka: '亞露嘉 (未发布)', // TODO: Update with simplified name on release
+      // Unreleased units: (未发布)
       // Pre-Balance versions: (以前的版本)
       hwayoung_old: '和英 (以前的版本)',
       vildred_old: '维德瑞 (以前的版本)',
@@ -1231,6 +1233,7 @@ const i18n = {
       aria: '艾莉雅',
       armin: '亚敏',
       arowell: '雅洛薇',
+      arunka: '亞露嘉', // TODO: Update with simplified name on release
       assassin_cartuja: '杀手卡尔图哈',
       assassin_cidd: '杀手席德',
       assassin_coli: '杀手可丽',
@@ -1851,7 +1854,7 @@ const i18n = {
   },
   kr: {
     heroes: {
-      arunka: '아룬카 (미공개)',
+      // Unreleased units: (미공개)
       // Pre-Balance versions: (이전 버전)
       hwayoung_old: '화영 (이전 버전)',
       vildred_old: '빌트레드 (이전 버전)',
@@ -1879,6 +1882,7 @@ const i18n = {
       aria: '아리아',
       armin: '아밍',
       arowell: '아로웰',
+      arunka: '아룬카',
       assassin_cartuja: '암살자 카르투하',
       assassin_cidd: '암살자 시더',
       assassin_coli: '암살자 콜리',
