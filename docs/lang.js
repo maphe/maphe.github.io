@@ -1233,7 +1233,7 @@ const i18n = {
       aria: '艾莉雅',
       armin: '亚敏',
       arowell: '雅洛薇',
-      arunka: '亞露嘉', // TODO: Update with simplified name on release
+      arunka: '亚露嘉',
       assassin_cartuja: '杀手卡尔图哈',
       assassin_cidd: '杀手席德',
       assassin_coli: '杀手可丽',
@@ -1838,7 +1838,7 @@ const i18n = {
     },
     info: {
       alencia_trample: '扼杀',
-      arunka_expose: '揭露', // TODO: Update with simplified name on relesase
+      arunka_expose: '揭露',
       lqc_s3_splash: 'S3 溅射伤害',
       ml_celine_nimble_sword: '快剑',
       s1_extra_attack: 'S1 追加攻击',
