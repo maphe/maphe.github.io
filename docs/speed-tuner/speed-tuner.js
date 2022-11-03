@@ -1,4 +1,4 @@
-// declare form defaults, for reference
+// declare form defaults, for use in queryparams
 formDefaults = {
     'slowerSpeed': 200,
     'slowerPush': 0,
@@ -92,6 +92,7 @@ fasterPushesSlowUpdate = () => {
 
 fasterPushesSlowerInput.addEventListener('change', fasterPushesSlowUpdate);
 
+// set up vars for query params
 numberParams = ['slowerSpeed', 'slowerPush', 'fasterSpeed', 'fasterPush', 'fasterTurns']
 boolParams = ['fasterPushesSlower', 'stigmaPolitis'];
 page = 'speed_tuner';
