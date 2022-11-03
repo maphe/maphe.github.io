@@ -93,12 +93,12 @@ const loadQueryParams = () => {
  */
 const formUpdated = () => {
     if (queryParams) {
-        if (updateRequestTime === undefined) { // don't queue an update on the initial load
-            updateRequestTime = null;
-        } else if (updateRequestTime) {
+        if (updateRequestTime) {
             updateRequestTime = Date.now();
-        } else {
+        } else if (updateRequestTime === null) {
             updateQueryParamsWhenStable();
+        } else {
+            updateRequestTime = null; // don't queue an update on the initial load
         }
     }
 }
