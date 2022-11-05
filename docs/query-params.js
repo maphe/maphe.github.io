@@ -29,11 +29,11 @@ let page;
 const getInputValues = () => {
     const inputValues = {};
     numberParams.forEach((param) => {
-        inputValues[param] = Number(eval(`${param}Input`)?.value || formDefaults[param])
+        inputValues[param] = Number(Function(`"use strict";return ${param}Input`)()?.value || formDefaults[param])
     });
 
     boolParams.forEach((param) => {
-        inputValues[param] = eval(`${param}Input`)?.checked || false;
+        inputValues[param] = Function(`"use strict";return ${param}Input`)()?.checked || false;
     });
 
     return inputValues;
@@ -52,7 +52,7 @@ const loadQueryParams = async () => {
         for (const param of boolParams) {
             let paramVal = queryParams.get(param)?.toLowerCase() === 'true';
             if (paramVal && paramVal !== formDefaults[param]) {
-                eval(`${param}Input`).checked = true;
+                Function(`"use strict";return ${param}Input`)().checked = true;
 
                 // check for any callbacks that need to be executed
                 if (paramsWithCallbacks.includes(param)) {
@@ -69,8 +69,8 @@ const loadQueryParams = async () => {
         for (const param of numberParams) {
             let paramVal = queryParams.get(param);
             if (paramVal && paramVal !== formDefaults[param]) {
-                eval(`${param}Input`).value = Number(paramVal);
-                eval(`${param}Slide`).value = Number(paramVal);
+                Function(`"use strict";return ${param}Input`)().value = Number(paramVal);
+                Function(`"use strict";return ${param}Slide`)().value = Number(paramVal);
 
                 // check for any callbacks that need to be executed
                 if (paramsWithCallbacks.includes(param)) {

@@ -1,6 +1,6 @@
 // set up vars for query params
 formDefaults = {
-  // come back and do the top menu bar (hero, arti, preset)
+  // come back and do the selectors (hero, arti, preset atk/cd, preset target, preset dmg reduce)
   'atk': 2500,
   'atkPcImprint': 0,
   'atkPcUp': 0,
@@ -15,15 +15,24 @@ formDefaults = {
   'rageSet': false,
   'penSet': false,
   'torrentSet': false,
-  'torrentSetStack': 1
+  'torrentSetStack': 1,
+  'def': 1000,
+  'defPcUp': 0,
+  'dmgReduc': 0,
+  'dmgTrans': 0,
+  'defUp': false,
+  'targetVigor': false,
+  'defDown': false,
+  'target': false
 }
 
 numberParams = [
-  'atk', 'atkPcImprint', 'atkPcUp', 'crit', 'bonusDamage', 'torrentSetStack'
+  'atk', 'atkPcImprint', 'atkPcUp', 'crit', 'bonusDamage', 'torrentSetStack', 'def',
+  'defPcUp', 'dmgReduc', 'dmgTrans'
 ]
 boolParams = [
   'elemAdv', 'atkDown', 'atkUp', 'atkUpGreat', 'critDmgUp', 'vigor', 'rageSet',
-  'penSet', 'torrentSet'
+  'penSet', 'torrentSet', 'defUp', 'targetVigor', 'defDown', 'target'
 ]
 page = 'dmg_calc';
 
@@ -43,6 +52,14 @@ const rageSetInput = document.getElementById('rage-set');
 const penSetInput = document.getElementById('pen-set');
 const torrentSetInput = document.getElementById('torrent-set');
 let torrentSetStackInput = document.getElementById('torrent-set-stack');
+const defInput = document.getElementById('def');
+const defPcUpInput = document.getElementById('def-pc-up');
+const dmgReducInput = document.getElementById('dmg-reduc');
+const dmgTransInput = document.getElementById('dmg-trans');
+const defUpInput = document.getElementById('def-up');
+const targetVigorInput = document.getElementById('target-vigor');
+const defDownInput = document.getElementById('def-down');
+const targetInput = document.getElementById('target');
 
 // slides
 const atkSlide = document.getElementById('atk-slide');
@@ -51,6 +68,10 @@ const atkPcUpSlide = document.getElementById('atk-pc-up-slide');
 const critSlide = document.getElementById('crit-slide');
 const bonusDamageSlide = document.getElementById('bonus-damage-slide');
 let torrentSetStackSlide = document.getElementById('torrent-set-stack-slide');
+const defSlide = document.getElementById('def-slide');
+const defPcUpSlide = document.getElementById('def-pc-up-slide');
+const dmgReducSlide = document.getElementById('dmg-reduc-slide');
+const dmgTransSlide = document.getElementById('dmg-trans-slide');
 
 // declare inputValues up here since it'll be used in multiple places
 let inputValues
