@@ -1,3 +1,60 @@
+// set up vars for query params
+formDefaults = {
+  // come back and do the top menu bar (hero, arti, preset)
+  'atk': 2500,
+  'atkPcImprint': 0,
+  'atkPcUp': 0,
+  'crit': 250,
+  'bonusDamage': 0,
+  'elemAdv': false,
+  'atkDown': false,
+  'atkUp': false,
+  'atkUpGreat': false,
+  'critDmgUp': false,
+  'vigor': false,
+  'rageSet': false,
+  'penSet': false,
+  'torrentSet': false,
+  'torrentSetStack': 1
+}
+
+numberParams = [
+  'atk', 'atkPcImprint', 'atkPcUp', 'crit', 'bonusDamage', 'torrentSetStack'
+]
+boolParams = [
+  'elemAdv', 'atkDown', 'atkUp', 'atkUpGreat', 'critDmgUp', 'vigor', 'rageSet',
+  'penSet', 'torrentSet'
+]
+page = 'dmg_calc';
+
+// regular inputs
+const atkInput = document.getElementById('atk');
+const atkPcImprintInput = document.getElementById('atk-pc-imprint');
+const atkPcUpInput = document.getElementById('atk-pc-up');
+const critInput = document.getElementById('crit');
+const bonusDamageInput = document.getElementById('bonus-damage');
+const elemAdvInput = document.getElementById('elem-adv');
+const atkDownInput = document.getElementById('atk-down');
+const atkUpInput = document.getElementById('atk-up');
+const atkUpGreatInput = document.getElementById('atk-up-great');
+const critDmgUpInput = document.getElementById('crit-dmg-up');
+const vigorInput = document.getElementById('vigor');
+const rageSetInput = document.getElementById('rage-set');
+const penSetInput = document.getElementById('pen-set');
+const torrentSetInput = document.getElementById('torrent-set');
+let torrentSetStackInput = document.getElementById('torrent-set-stack');
+
+// slides
+const atkSlide = document.getElementById('atk-slide');
+const atkPcImprintSlide = document.getElementById('atk-pc-imprint-slide');
+const atkPcUpSlide = document.getElementById('atk-pc-up-slide');
+const critSlide = document.getElementById('crit-slide');
+const bonusDamageSlide = document.getElementById('bonus-damage-slide');
+let torrentSetStackSlide = document.getElementById('torrent-set-stack-slide');
+
+// declare inputValues up here since it'll be used in multiple places
+let inputValues
+
 const dmgConst = 1.871;
 const hitTypes = {
   crit: 'crit',
@@ -18,24 +75,33 @@ const getSkillType = (skill) => {
 }
 
 // manageSetForms is already declared in form.js which is loaded first
-manageSetForms = () => {
+const stackingSets = ['torrent-set']
+const manageSetForms = () => {
   setForms = [];
-  for (let checkboxId of ['torrent-set']) {
-    const elem = document.getElementById(checkboxId);
+  for (const set of stackingSets) {
+    const elem = document.getElementById(set);
     if (elem.checked) {
-      setForms.push(elements[`${checkboxId.replace('-', '_')}_stack`])
+      setForms.push(elements[`${set.replace('-', '_')}_stack`])
     }
   }
 
-  const numSetsBlock = document.getElementById('set-num-block');
+  const setNumHolder = document.getElementById('set-num-holder');
   if (setForms.length) {
+    setNumHolder.style.display = 'block';
+    setNumHolder.innerHTML = `<h4>Number of Sets</h4>
+                              <div id="set-num-block"></div>
+                              <hr />`
+    const numSetsBlock = document.getElementById('set-num-block');
     numSetsBlock.innerHTML = '';
     for (let elem of setForms) {
       buildElement(elem, numSetsBlock);
     }
-    numSetsBlock.parentElement.style.display = 'block';
+    
+    // fetch all set stack inputs here
+    torrentSetStackInput = document.getElementById('torrent-set-stack');
+    torrentSetStackSlide = document.getElementById('torrent-set-stack-slide');
   } else {
-    numSetsBlock.parentElement.style.display = 'none';
+    setNumHolder.style.display = 'none';
   }
 }
 
@@ -46,15 +112,21 @@ const torrentSetToggled = () => {
     'torrent_set': torrentSetInput.checked ? 'on' : 'off'
   });
 
-  // reset value to 1 when toggling torrent set off
+  // reset value when toggling torrent set off
   if (!torrentSetInput.checked) {
     const torrentSetNumInput = document.getElementById('torrent-set-stack');
-    torrentSetNumInput.value = 1;
+    torrentSetNumInput.value = formDefaults.torrentSetStack;
   }
   manageSetForms();
 }
 
+paramCallbacks = {
+  'torrentSet': {'fxn': torrentSetToggled}
+}
+loadQueryParams();
+
 const resolve = () => {
+  inputValues = getInputValues();
   const artifact = new Artifact(document.getElementById('artifact').value);
   const hero = new Hero(document.getElementById('hero').value, artifact);
 
@@ -123,6 +195,8 @@ const resolve = () => {
       }
     }
   }
+
+  formUpdated();
 };
 
 const displayDmg = (damage, type) => {
@@ -155,29 +229,28 @@ const getModTooltip = (hero, skillId, soulburn = false) => {
   return content;
 }
 
+const attackMods = ['atkDown', 'atkUp', 'atkUpGreat', 'vigor'];
 const getGlobalAtkMult = () => {
   let mult = 0.0;
 
-  for (let checkboxId of ['atk-down', 'atk-up', 'atk-up-great', 'vigor']) {
-    const elem = document.getElementById(checkboxId);
-    mult += elem.checked ? Number(elem.value)-1 : 0.0;
-  }
+  attackMods.forEach((mod) => {
+    mult += inputValues[mod] ? battleConstants[mod] - 1 : 0.0;
+  });
 
   if (elements.caster_enrage.value()) {
     mult += 0.1;
   }
 
-  return mult + (Number(document.getElementById('atk-pc-up').value)/100);
+  return mult + (inputValues.atkPcUp / 100);
 };
 
+const damageMultSets = ['rageSet', 'torrentSet'];
 const getGlobalDamageMult = (hero, skill) => {
   let mult = 0.0;
 
-  for (let checkboxId of ['rage-set', 'torrent-set']) {
-    const elem = document.getElementById(checkboxId);
-    mult += elem.checked ? Number(elem.value) * (document.getElementById(`${checkboxId}-stack`)?.value || 1)
-                         : 0.0;
-  }
+  damageMultSets.forEach((set) => {
+    mult += inputValues[set] ? battleConstants[set] * (inputValues[`${set}Stack`] || 1) : 0.0;
+  })
 
   const defPresetSelector = document.getElementById('def-preset');
   const selected = defPresetSelector.options[defPresetSelector.selectedIndex];
@@ -211,9 +284,9 @@ let currentHero = null;
 class Hero {
   constructor(id, artifact) {
     this.id = id;
-    this.atk = Number(document.getElementById('atk').value);
-    this.crit = Number(document.getElementById('crit').value);
-    this.bonus = Number(document.getElementById('bonus-damage').value);
+    this.atk = inputValues.atk;
+    this.crit = inputValues.crit;
+    this.bonus = inputValues.bonusDamage;
     this.skills = heroes[id].skills;
     this.baseAtk = heroes[id].baseAtk || 0;
     this.dot = [...(heroes[id].dot || []), ...(artifact?.getDoT() || [])];
@@ -256,8 +329,7 @@ class Hero {
   }
 
   getDamage(skillId, soulburn = false) {
-    const critDmgUpBox = document.getElementById('crit-dmg-up');
-    const critDmgBuff = critDmgUpBox && critDmgUpBox.checked ? Number(critDmgUpBox.value) : 0.0;
+    const critDmgBuff = inputValues.critDmgUp ? battleConstants.critDmgUp : 0.0;
 
     const skill = this.skills[skillId];
     const hit = this.offensivePower(skillId, soulburn) * this.target.defensivePower(skill);
@@ -279,13 +351,13 @@ class Hero {
     let atk = (skill !== undefined && skill.atk !== undefined) ? skill.atk() : this.atk;
 
     if (this.innateAtkUp !== undefined) {
-      atk = atk / (1+this.innateAtkUp());
+      atk = atk / (1 + this.innateAtkUp());
     }
 
     let atkImprint = 0;
     let atkMod = 1;
     if (skill === undefined || skill.noBuff !== true) {
-      atkImprint = this.baseAtk * (Number(document.getElementById('atk-pc-imprint').value) / 100);
+      atkImprint = this.baseAtk * (inputValues.atkPcImprint / 100);
       atkMod = 1
           + getGlobalAtkMult()
           + (this.atkUp !== undefined ? this.atkUp() - 1 : 0)
@@ -306,8 +378,9 @@ class Hero {
     const pow = (typeof skill.pow === 'function') ? skill.pow(soulburn) : skill.pow;
     const skillEnhance = this.getSkillEnhanceMult(skillId);
     let elemAdv = 1.0;
-    if (document.getElementById('elem-adv').checked || (typeof skill.elemAdv === 'function') && skill.elemAdv() === true) {
-      elemAdv = Number(document.getElementById('elem-adv').value);
+    // TODO: remove typeof? don't use === for skill.elemAdv if it's always returning bool
+    if (inputValues.elemAdv || (typeof skill.elemAdv === 'function') && skill.elemAdv() === true) {
+      elemAdv = battleConstants.elemAdv;
     }
     const target = document.getElementById('target').checked ? Number(document.getElementById('target').value) : 1.0;
 

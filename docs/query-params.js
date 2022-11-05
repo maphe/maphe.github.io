@@ -44,12 +44,29 @@ const getInputValues = () => {
  * Call this function after fetching relevant inputs from the dom and
  * assigning them to variables as described above
  */
-const loadQueryParams = () => {
+const loadQueryParams = async () => {
     const paramsWithCallbacks = Object.keys(paramCallbacks);
     try {
         queryParams = new URLSearchParams(window.location.search);
+
+        for (const param of boolParams) {
+            let paramVal = queryParams.get(param)?.toLowerCase() === 'true';
+            if (paramVal && paramVal !== formDefaults[param]) {
+                eval(`${param}Input`).checked = true;
+
+                // check for any callbacks that need to be executed
+                if (paramsWithCallbacks.includes(param)) {
+                    if (paramCallbacks[param].wait) {
+                        await paramCallbacks[param].fxn();
+                    } else {
+                        paramCallbacks[param].fxn();
+                    }
+                }
+            }
+        }
+
         // Fill form values from queryParams
-        numberParams.forEach((param) => {
+        for (const param of numberParams) {
             let paramVal = queryParams.get(param);
             if (paramVal && paramVal !== formDefaults[param]) {
                 eval(`${param}Input`).value = Number(paramVal);
@@ -60,19 +77,7 @@ const loadQueryParams = () => {
                     paramCallbacks[param]();
                 }
             }
-        });
-        
-        boolParams.forEach((param) => {
-            let paramVal = queryParams.get(param)?.toLowerCase() === 'true';
-            if (paramVal && paramVal !== formDefaults[param]) {
-                eval(`${param}Input`).checked = true;
-    
-                // check for any callbacks that need to be executed
-                if (paramsWithCallbacks.includes(param)) {
-                    paramCallbacks[param]();
-                }
-            }
-        });
+        }
         
         // push event to dataLayer
         const queryString = queryParams.toString()

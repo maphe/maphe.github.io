@@ -741,9 +741,6 @@ const elements = {
   },
 };
 
-// declare this function now so it can be implemented in calculator.js but used here
-let manageSetForms
-
 elements.caster_speed.sub_elements = [elements.caster_speed_up];
 elements.caster_defense.sub_elements = [elements.caster_defense_up];
 elements.highest_ally_attack.sub_elements = [elements.ally_atk_up, elements.ally_atk_up_great];
@@ -853,9 +850,6 @@ const build = (hero) => {
   } else {
     specificBlock.parentElement.style.display = 'none';
   }
-
-  // This will remove the initial Number Of Sets header
-  manageSetForms();
 
   const molagoraBlock = document.getElementById('molagora-block');
   molagoraBlock.innerHTML = '';
