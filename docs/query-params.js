@@ -68,6 +68,7 @@ const loadQueryParams = async () => {
     try {
         queryParams = new URLSearchParams(window.location.search);
 
+        // Fill form values from queryParams
         for (const param of selectorParams) {
             let paramVal = queryParams.get(param);
             if (paramVal && paramVal !== formDefaults[param]) {
@@ -81,23 +82,57 @@ const loadQueryParams = async () => {
         }
 
         for (const param of boolParams) {
-            let paramVal = queryParams.get(param)?.toLowerCase() === 'true';
-            if (paramVal && paramVal !== (formDefaults[param] || false)) {
-                const element = Function(`"use strict";return ${param}Input`)();
-                element.checked = true;
-                const event = new Event('change');
-                element.dispatchEvent(event);
-                // element.onchange(true);
-            }
+            let paramVal = queryParams.get(param)
+            if (paramVal !== null) {
+                paramVal = queryParams.get(param)?.toLowerCase() === 'true';
+                if (paramVal && paramVal !== (formDefaults[param] || false)) {
+                    const element = Function(`"use strict";return ${param}Input`)();
+                    element.checked = paramVal;
+                    const event = new Event('change');
+                    element.dispatchEvent(event);
+                }
+            } 
         }
 
-        // Fill form values from queryParams
         for (const param of numberParams) {
             let paramVal = queryParams.get(param);
-            if (paramVal && paramVal !== formDefaults[param]) {
+            if (paramVal && paramVal !== formDefaults[param].toString()) {
+                console.log(paramVal)
                 const element = Function(`"use strict";return ${param}Input`)();
                 element.value = Number(paramVal);
                 Function(`"use strict";return ${param}Slide`)().value = Number(paramVal);
+            }
+        }
+
+        if (page === 'dmg_calc') {
+            const heroElement = document.getElementById('hero');
+            const artifactElement = document.getElementById('artifact');
+
+            for (const heroSpecific of heroes[heroElement.value].form || []) {
+                const isBoolean = heroSpecific.type === 'checkbox';
+                let paramVal = queryParams.get(heroSpecific.id);
+
+                if (isBoolean && paramVal !== null) {
+                    paramVal = paramVal?.toLowerCase() === 'true';
+                }
+
+                const defaultVal = isBoolean ? heroSpecific.default || false : heroSpecific.default.toString();
+
+                if (paramVal !== null && paramVal !== defaultVal) {
+                    const element = document.getElementById(heroSpecific.id);
+                    
+                    if (heroSpecific.type === 'checkbox') {
+                        element.checked = paramVal;
+                        const event = new Event('change');
+                        element.dispatchEvent(event);
+                    } else {
+                        element.value = Number(paramVal);
+                        const slideElement = document.getElementById(`${heroSpecific.id}-slide`);
+                        slideElement.value = Number(paramVal);
+                        const event = new Event('change');
+                        element.dispatchEvent(event);
+                    }
+                }
             }
         }
         
