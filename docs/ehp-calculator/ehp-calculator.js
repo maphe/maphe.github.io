@@ -19,8 +19,6 @@ const secondBuildDefSlide = document.getElementById('second-build-def-slide');
 numberParams = ['firstBuildHP', 'secondBuildHP', 'firstBuildDef', 'secondBuildDef']
 page = 'ehp_calc';
 
-loadQueryParams();
-
 const increaseIcon = '<i class="fas fa-angle-double-up"></i>';
 const decreaseIcon = '<i class="fas fa-angle-double-down"></i>';
 

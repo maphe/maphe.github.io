@@ -12,7 +12,6 @@
  * formDefaults: String -> value map of form default values
  * numberParams: String[] of params corresponding to numerical inputs
  * boolParams: String[] of params corresponding to boolean inputs
- * paramCallbacks: String -> function map for params whose value may require additional functions
  * page: String of the page name to send in the dataLayer event
  */
 
@@ -21,7 +20,6 @@ let formDefaults;
 let selectorParams = [];
 let numberParams = [];
 let boolParams = [];
-let paramCallbacks = {};
 let queryParams;
 let updateRequestTime;
 let page;
@@ -57,7 +55,7 @@ const getInputValues = () => {
  * assigning them to variables as described above
  */
 const loadQueryParams = async () => {
-    const paramsWithCallbacks = Object.keys(paramCallbacks);
+    // const paramsWithCallbacks = Object.keys(paramCallbacks);
 
     try {
         queryParams = new URLSearchParams(window.location.search);
@@ -67,17 +65,10 @@ const loadQueryParams = async () => {
             if (paramVal && paramVal !== formDefaults[param]) {
                 const element = Function(`"use strict";return ${param}Selector`)()
                 element.value = paramVal;
-                element.onchange(paramVal); // number is slightly wrong after loading hero from param and also it doesn't show the hero selected in selector
+                const event = new Event('change');
+                element.dispatchEvent(event);
+                // element.onchange(paramVal); // number is slightly wrong after loading hero from param and also it doesn't show the hero selected in selector
                 $(`#${element.id}`).selectpicker('refresh');
-
-                // check for any callbacks that need to be executed
-                if (paramsWithCallbacks.includes(param)) {
-                    if (paramCallbacks[param].wait) {
-                        await paramCallbacks[param].fxn();
-                    } else {
-                        paramCallbacks[param].fxn();
-                    }
-                }
             }
         }
 
@@ -86,7 +77,9 @@ const loadQueryParams = async () => {
             if (paramVal && paramVal !== (formDefaults[param] || false)) {
                 const element = Function(`"use strict";return ${param}Input`)();
                 element.checked = true;
-                element.onchange(true);
+                const event = new Event('change');
+                element.dispatchEvent(event);
+                // element.onchange(true);
             }
         }
 
@@ -113,7 +106,9 @@ const loadQueryParams = async () => {
         console.log(`Could not load queryParams: ${error}`);
     }
     loadingQueryParams = false;
-    resolve();
+    if (!!resolve) {
+        resolve();
+    }
     $('.initial-hide').removeClass('initial-hide')
     $('.initial-show').hide()
 }
@@ -144,10 +139,19 @@ const updateQueryParamsWhenStable = async () => {
         await new Promise(r => setTimeout(r, 1000));
     }
 
-    const inputValues = getInputValues(useFormElements);
+    const inputValues = getInputValues();
+
     // Update queryParams from form values
     selectorParams.forEach((param) => {
         if (inputValues[param] !== formDefaults[param]) {
+            queryParams.set(param, inputValues[param]);
+        } else {
+            queryParams.delete(param);
+        }
+    });
+
+    boolParams.forEach((param) => {
+        if (inputValues[param] !== (formDefaults[param] || false)) {
             queryParams.set(param, inputValues[param]);
         } else {
             queryParams.delete(param);

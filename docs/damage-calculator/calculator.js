@@ -137,9 +137,6 @@ const torrentSetToggled = () => {
   manageSetForms();
 }
 
-paramCallbacks = {
-  'torrentSet': {'fxn': torrentSetToggled}
-}
 // loadQueryParams(true);
 
 const resolve = () => {

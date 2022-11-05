@@ -18,8 +18,6 @@ const effResSlide = document.getElementById('effect-resistance-slide');
 numberParams = ['hitChance', 'procChance', 'eff', 'effRes']
 page = 'effectiveness_calc';
 
-loadQueryParams();
-
 const resolve = () => {
   const inputValues = getInputValues();
 
