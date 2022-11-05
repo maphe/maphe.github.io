@@ -6,33 +6,26 @@ formDefaults = {
   'atkPcUp': 0,
   'crit': 250,
   'bonusDamage': 0,
-  'elemAdv': false,
-  'atkDown': false,
-  'atkUp': false,
-  'atkUpGreat': false,
-  'critDmgUp': false,
-  'vigor': false,
-  'rageSet': false,
-  'penSet': false,
-  'torrentSet': false,
   'torrentSetStack': 1,
   'def': 1000,
   'defPcUp': 0,
   'dmgReduc': 0,
   'dmgTrans': 0,
-  'defUp': false,
-  'targetVigor': false,
-  'defDown': false,
-  'target': false
+  'hero': 'achates',
+  'artifact': undefined,
+  'atkPreset': undefined
 }
 
-numberParams = [
-  'atk', 'atkPcImprint', 'atkPcUp', 'crit', 'bonusDamage', 'torrentSetStack', 'def',
-  'defPcUp', 'dmgReduc', 'dmgTrans'
+selectorParams = [
+  'hero', 'artifact', 'atkPreset'
 ]
 boolParams = [
   'elemAdv', 'atkDown', 'atkUp', 'atkUpGreat', 'critDmgUp', 'vigor', 'rageSet',
   'penSet', 'torrentSet', 'defUp', 'targetVigor', 'defDown', 'target'
+]
+numberParams = [
+  'atk', 'atkPcImprint', 'atkPcUp', 'crit', 'bonusDamage', 'torrentSetStack', 'def',
+  'defPcUp', 'dmgReduc', 'dmgTrans'
 ]
 page = 'dmg_calc';
 
@@ -60,6 +53,9 @@ const defUpInput = document.getElementById('def-up');
 const targetVigorInput = document.getElementById('target-vigor');
 const defDownInput = document.getElementById('def-down');
 const targetInput = document.getElementById('target');
+const heroSelector = document.getElementById('hero');
+const artifactSelector = document.getElementById('artifact');
+const atkPresetSelector = document.getElementById('atk-preset');
 
 // slides
 const atkSlide = document.getElementById('atk-slide');
@@ -95,7 +91,6 @@ const getSkillType = (skill) => {
   return undefined;
 }
 
-// manageSetForms is already declared in form.js which is loaded first
 const stackingSets = ['torrent-set']
 const manageSetForms = () => {
   setForms = [];
@@ -144,10 +139,13 @@ const torrentSetToggled = () => {
 paramCallbacks = {
   'torrentSet': {'fxn': torrentSetToggled}
 }
-loadQueryParams();
+// loadQueryParams(true);
 
 const resolve = () => {
-  inputValues = getInputValues();
+  if (loadingQueryParams) {
+    return; // don't resolve until params are loaded
+  }
+  inputValues = getInputValues(true);
   const artifact = new Artifact(document.getElementById('artifact').value);
   const hero = new Hero(document.getElementById('hero').value, artifact);
 
@@ -217,7 +215,7 @@ const resolve = () => {
     }
   }
 
-  formUpdated();
+  formUpdated(true);
 };
 
 const displayDmg = (damage, type) => {

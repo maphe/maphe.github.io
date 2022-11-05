@@ -17,23 +17,35 @@
  */
 
 // initial setup
-let formDefaults
-let numberParams = []
+let formDefaults;
+let selectorParams = [];
+let numberParams = [];
 let boolParams = [];
 let paramCallbacks = {};
 let queryParams;
 let updateRequestTime;
 let page;
+let loadingQueryParams = true;
+let useFormElements = false;
+
+window.addEventListener('load', () => {
+    loadQueryParams();
+});
 
 // get values from the various inputs
 const getInputValues = () => {
     const inputValues = {};
-    numberParams.forEach((param) => {
-        inputValues[param] = Number(Function(`"use strict";return ${param}Input`)()?.value || formDefaults[param])
+
+    selectorParams.forEach((param) => {
+        inputValues[param] = Function(`"use strict";return ${param}Selector`)()?.value || formDefaults[param];
     });
 
     boolParams.forEach((param) => {
         inputValues[param] = Function(`"use strict";return ${param}Input`)()?.checked || false;
+    });
+
+    numberParams.forEach((param) => {
+        inputValues[param] = Number(Function(`"use strict";return ${param}Input`)()?.value || formDefaults[param])
     });
 
     return inputValues;
@@ -46,12 +58,32 @@ const getInputValues = () => {
  */
 const loadQueryParams = async () => {
     const paramsWithCallbacks = Object.keys(paramCallbacks);
+
     try {
         queryParams = new URLSearchParams(window.location.search);
 
+        for (const param of selectorParams) {
+            let paramVal = queryParams.get(param);
+            if (paramVal && paramVal !== formDefaults[param]) {
+                const element = Function(`"use strict";return ${param}Selector`)()
+                element.value = paramVal;
+                element.onchange(paramVal); // number is slightly wrong after loading hero from param and also it doesn't show the hero selected in selector
+                $(`#${element.id}`).selectpicker('refresh');
+
+                // check for any callbacks that need to be executed
+                if (paramsWithCallbacks.includes(param)) {
+                    if (paramCallbacks[param].wait) {
+                        await paramCallbacks[param].fxn();
+                    } else {
+                        paramCallbacks[param].fxn();
+                    }
+                }
+            }
+        }
+
         for (const param of boolParams) {
             let paramVal = queryParams.get(param)?.toLowerCase() === 'true';
-            if (paramVal && paramVal !== formDefaults[param]) {
+            if (paramVal && paramVal !== (formDefaults[param] || false)) {
                 Function(`"use strict";return ${param}Input`)().checked = true;
 
                 // check for any callbacks that need to be executed
@@ -91,6 +123,10 @@ const loadQueryParams = async () => {
     } catch (error) {  // probably only going to reach here on some ancient browser that won't load the site properly anyway
         console.log(`Could not load queryParams: ${error}`);
     }
+    loadingQueryParams = false;
+    resolve();
+    $('.initial-hide').removeClass('initial-hide')
+    $('.initial-show').hide()
 }
 
 /*
@@ -101,7 +137,7 @@ const formUpdated = () => {
         if (updateRequestTime) {
             updateRequestTime = Date.now();
         } else if (updateRequestTime === null) {
-            updateQueryParamsWhenStable();
+            updateQueryParamsWhenStable(useFormElements);
         } else {
             updateRequestTime = null; // don't queue an update on the initial load
         }
@@ -119,17 +155,17 @@ const updateQueryParamsWhenStable = async () => {
         await new Promise(r => setTimeout(r, 1000));
     }
 
-    const inputValues = getInputValues();
+    const inputValues = getInputValues(useFormElements);
     // Update queryParams from form values
-    numberParams.forEach((param) => {
+    selectorParams.forEach((param) => {
         if (inputValues[param] !== formDefaults[param]) {
             queryParams.set(param, inputValues[param]);
         } else {
             queryParams.delete(param);
         }
     });
-    
-    boolParams.forEach((param) => {
+
+    numberParams.forEach((param) => {
         if (inputValues[param] !== formDefaults[param]) {
             queryParams.set(param, inputValues[param]);
         } else {

@@ -122,6 +122,59 @@ body .popover {
     bottom: 0.25rem;
 }
 
+.initial-hide {
+    display: none;
+    opacity: 0;
+}
+
+.initial-show {
+    display: block;
+}
+
+/* .spinner {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #3498db;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+} */
+
+.spinner-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatebottom;
+    animation-duration: 0.4s
+}
+
+.fade-in {
+    animation-name: fadein;
+    animation-duration: 0.4s;
+}
+
+@keyframes fadein { 
+    from{ opacity:0 } 
+    to{ opacity:1 }
+}
+
+@keyframes animatebottom { 
+    from{ bottom:-100px; opacity:0 } 
+    to{ bottom:0; opacity:1 }
+}
+
 /* Dark Theme */
 
 [data-theme="dark"] {
