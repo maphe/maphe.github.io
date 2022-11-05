@@ -16,8 +16,9 @@ formDefaults = {
   'atkPreset': undefined
 }
 
+// list artifact first to avoid invalid arti selections
 selectorParams = [
-  'hero', 'artifact', 'atkPreset'
+  'artifact', 'hero', 'atkPreset'
 ]
 boolParams = [
   'elemAdv', 'atkDown', 'atkUp', 'atkUpGreat', 'critDmgUp', 'vigor', 'rageSet',

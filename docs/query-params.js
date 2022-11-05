@@ -84,16 +84,9 @@ const loadQueryParams = async () => {
         for (const param of boolParams) {
             let paramVal = queryParams.get(param)?.toLowerCase() === 'true';
             if (paramVal && paramVal !== (formDefaults[param] || false)) {
-                Function(`"use strict";return ${param}Input`)().checked = true;
-
-                // check for any callbacks that need to be executed
-                if (paramsWithCallbacks.includes(param)) {
-                    if (paramCallbacks[param].wait) {
-                        await paramCallbacks[param].fxn();
-                    } else {
-                        paramCallbacks[param].fxn();
-                    }
-                }
+                const element = Function(`"use strict";return ${param}Input`)();
+                element.checked = true;
+                element.onchange(true);
             }
         }
 
@@ -101,13 +94,9 @@ const loadQueryParams = async () => {
         for (const param of numberParams) {
             let paramVal = queryParams.get(param);
             if (paramVal && paramVal !== formDefaults[param]) {
-                Function(`"use strict";return ${param}Input`)().value = Number(paramVal);
+                const element = Function(`"use strict";return ${param}Input`)();
+                element.value = Number(paramVal);
                 Function(`"use strict";return ${param}Slide`)().value = Number(paramVal);
-
-                // check for any callbacks that need to be executed
-                if (paramsWithCallbacks.includes(param)) {
-                    paramCallbacks[param]();
-                }
             }
         }
         
