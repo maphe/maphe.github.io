@@ -38,6 +38,12 @@
     font-size: 1.2rem;
 }
 
+.flex-centered {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 #damage-block {
     position: -webkit-sticky;
     position: sticky;

@@ -36,7 +36,7 @@ boolParams = [
 ]
 page = 'dmg_calc';
 
-// regular inputs
+// regular inputs. This adds a lot of lines, but the dom only needs to be queried once for many inputs.
 const atkInput = document.getElementById('atk');
 const atkPcImprintInput = document.getElementById('atk-pc-imprint');
 const atkPcUpInput = document.getElementById('atk-pc-up');
