@@ -31,10 +31,10 @@ window.addEventListener('load', async () => {
      * Timeout just in case, to help avoid a race condition.
      *
      * In testing, the DOMContentLoaded listener function in form.js takes around 50ms to execute on average.
-     * Maximally, it took 92ms to complete. Timeout for 120ms to ensure form.js is finished before loading queryParams.
+     * Maximally, it took 92ms to complete. Timeout for 115ms to ensure form.js is finished before loading queryParams.
      * Never saw an issue while not using this timeout, but may happen on a slower device.
      */
-    await new Promise(resolve => {setTimeout(() => {resolve();}, 120);});
+    await new Promise(resolve => {setTimeout(() => {resolve();}, 115);});
     loadQueryParams();
 });
 
