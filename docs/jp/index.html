@@ -46,7 +46,7 @@
                 </li>
             </ul>
         </nav>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 initial-hide fade-in">
             <ul class="navbar-nav">
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks <i class="fas fa-external-link-alt fa-xs"></i></a>
@@ -79,7 +79,10 @@
 <!--            </button>-->
 <!--        </div>-->
         <div>
-            <form id="stats">
+            <div class="initial-show spinner-holder">
+                <img src="../assets/icons/loading-spinner.svg" alt="Loading spinner...">
+            </div>
+            <form id="stats" class="initial-hide fade-in">
                 <div id="hero-block">
                     <div class="row">
                         <div class="form-group col-md-4 col-sm-12">
@@ -499,7 +502,7 @@
             </form>
         </div>
 
-        <div id="damage-block">
+        <div id="damage-block" class="initial-hide fade-in">
             <h4>
                 ダメージ
                 <div class="btn-group" role="group">
@@ -544,7 +547,7 @@
             </div>
         </div>
 
-        <footer class="page-footer pt-3 mt-5">
+        <footer class="page-footer pt-3 mt-5 initial-hide fade-in">
             <div class="container-fluid text-center text-md-left">
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
@@ -656,6 +659,7 @@
         <script src="../form.js"></script>
         <script src="../data/heroes.js"></script>
         <script src="../data/artifacts.js"></script>
+        <script src="../query-params.js"></script>
         <script src="../damage-calculator/calculator.js"></script>
     </body>
 </html>

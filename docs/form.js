@@ -994,7 +994,8 @@ const dedupeForm = (hero, artifact) => {
   }
 }
 
-$(() => {
+// jQuery's $(() => {}) was not firing at the right time in Firefox, so use standard DOMContentLoaded
+window.addEventListener('DOMContentLoaded', () => {
   try {
     const heroSelector = document.getElementById('hero');
     const artiSelector = document.getElementById('artifact');

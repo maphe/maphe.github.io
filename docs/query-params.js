@@ -26,7 +26,15 @@ let page;
 let loadingQueryParams = true;
 let useFormElements = false;
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
+    /*
+     * Timeout just in case, to help avoid a race condition.
+     *
+     * In testing, the DOMContentLoaded listener function in form.js takes around 50ms to execute on average.
+     * Maximally, it took 92ms to complete. Timeout for 120ms to ensure form.js is finished before loading queryParams.
+     * Never saw an issue while not using this timeout, but may happen on a slower device.
+     */
+    await new Promise(resolve => {setTimeout(() => {resolve();}, 120);});
     loadQueryParams();
 });
 
@@ -106,9 +114,8 @@ const loadQueryParams = async () => {
         console.log(`Could not load queryParams: ${error}`);
     }
     loadingQueryParams = false;
-    if (!!resolve) {
-        resolve();
-    }
+
+    resolve();
     $('.initial-hide').removeClass('initial-hide')
     $('.initial-show').hide()
 }
