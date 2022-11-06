@@ -59,7 +59,6 @@ const getInputValues = () => {
         const defaultVal =  isBoolean ? param.default || false : param.default;
         const paramVal = isBoolean ? document.getElementById(param.id)?.checked : Number(document.getElementById(param.id)?.value || defaultVal);
         inputValues[param.id] = paramVal;
-        console.log(`param: ${param.id} val: ${inputValues[param.id]}`);
     });
 
     inputValues['artifact-lvl'] = Number(document.getElementById('artifact-lvl')?.value || '30');
@@ -69,7 +68,6 @@ const getInputValues = () => {
         const defaultVal =  isBoolean ? param.default || false : param.default;
         const paramVal = isBoolean ? document.getElementById(param.id)?.checked : Number(document.getElementById(param.id)?.value || defaultVal);
         inputValues[param.id] = paramVal;
-        console.log(`param: ${param.id} val: ${inputValues[param.id]}`);
     });
 
     return inputValues;
@@ -115,7 +113,6 @@ const loadQueryParams = async () => {
         for (const param of numberParams) {
             let paramVal = queryParams.get(param);
             if (paramVal && paramVal !== formDefaults[param].toString()) {
-                console.log(paramVal)
                 const element = Function(`"use strict";return ${param}Input`)();
                 element.value = Number(paramVal);
                 Function(`"use strict";return ${param}Slide`)().value = Number(paramVal);
@@ -271,8 +268,9 @@ const updateQueryParamsWhenStable = async () => {
 
         // fill hero specific fields
         for (const heroSpecific of heroes[heroElement.value]?.form || []) {
+            const heroDefault = typeof heroSpecific.default === 'function' ? heroSpecific.default() : heroSpecific.default;
             const isBoolean = heroSpecific.type === 'checkbox';
-            const defaultVal = isBoolean ? heroSpecific.default || false : heroSpecific.default;
+            const defaultVal = isBoolean ? heroDefault || false : heroDefault;
 
             if (inputValues[heroSpecific.id] !== defaultVal) {
                 queryParams.set(heroSpecific.id, inputValues[heroSpecific.id]);
@@ -281,6 +279,7 @@ const updateQueryParamsWhenStable = async () => {
             }
         }
 
+        // TODO: fix hero specific shit defaults getting setnt to params
         // fill artifact specific fields
         if (inputValues['artifact-lvl'] !== 30) {
             queryParams.set('artifact-lvl', inputValues['artifact-lvl']);
@@ -289,9 +288,10 @@ const updateQueryParamsWhenStable = async () => {
         }
 
         for (const artiSpecific of artifacts[artifactElement.value]?.form || []) {
+            
             const isBoolean = artiSpecific.type === 'checkbox';
-            const defaultVal = isBoolean ? artiSpecific.default || false : artiSpecific.default;
-
+            const artidefault = typeof artiSpecific.default === 'function' ? artiSpecific.default() : artiSpecific.default;
+            const defaultVal = isBoolean ? artidefault || false : artidefault;
             if (inputValues[artiSpecific.id] !== defaultVal) {
                 queryParams.set(artiSpecific.id, inputValues[artiSpecific.id]);
             } else {
@@ -312,7 +312,6 @@ const updateQueryParamsWhenStable = async () => {
 // delete the specified params (such as when changing a hero or arti)
 const deleteParams = (paramsToDelete) => {
     (paramsToDelete || []).forEach((param) => {
-        console.log(`DELETING: ${param}`)
         queryParams.delete(param);
     });
 }
