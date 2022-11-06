@@ -262,12 +262,13 @@ const formUpdated = () => {
 /*
  * Puts form values in queryParams after debouncing input.
  */ 
-const updateQueryParamsWhenStable = async () => {
+const updateQueryParamsWhenStable = async (updateURL=false) => {
 
-    // debounce input for 1 second then update form values when stable
+    // debounce input then update when stable. 1 second if updating URL, else 150ms.
     updateRequestTime = Date.now();
-    while (Date.now() - updateRequestTime < 1000) {
-        await new Promise(r => setTimeout(r, 1000));
+    debounceTime = updateURL ? 1000 : 150;
+    while (Date.now() - updateRequestTime < debounceTime) {
+        await new Promise(r => setTimeout(r, debounceTime));
     }
 
     const inputValues = getInputValues();
@@ -351,11 +352,24 @@ const updateQueryParamsWhenStable = async () => {
         }
     }
 
+    console.log(queryParams.toString())
+    const shareButton = document.getElementById('share-button-text');
+    if (shareButton) {
+        shareButton.innerText = 'Share';
+    }
+
     // finally, update the url with new queryparams (using pushState to avoid actually loading the page again)
     if (window.history.pushState) {
         const newURL = new URL(window.location.href);
-        newURL.search = queryParams.toString();
-        window.history.pushState({ path: newURL.href }, '', newURL.href);
+        if (updateURL) {
+            newURL.search = queryParams.toString();
+            window.history.pushState({ path: newURL.href }, '', newURL.href);
+        } else if (newURL.search) {
+            // clear query params if form updates
+            newURL.search = '';
+            window.history.pushState({ path: newURL.href }, '', newURL.href);
+        }
+        
     }
     updateRequestTime = null;
 }
@@ -365,4 +379,17 @@ const deleteParams = (paramsToDelete) => {
     (paramsToDelete || []).forEach((param) => {
         queryParams.delete(param);
     });
+}
+
+const copyLinkToClipboard = () => {
+    const linkURL = new URL(window.location.href);
+    linkURL.search = queryParams.toString();
+    console.log(typeof linkURL)
+    navigator.clipboard.writeText(linkURL.href);
+
+    const shareButton = document.getElementById('share-button-text');
+    console.log(linkURL.href)
+    if (shareButton) {
+        shareButton.innerText = 'Link Copied!';
+    }
 }

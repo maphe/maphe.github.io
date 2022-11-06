@@ -166,6 +166,25 @@ body .popover {
     to{ bottom:0; opacity:1 }
 }
 
+.icon {
+    width: 1em;
+}
+
+.has-share {
+    display: flex;
+    justify-content: space-between;
+}
+
+.no-pad-sides {
+    padding-left: 0;
+    padding-right: 0;    
+}
+
+.decrease-margin-top {
+    /* The amount of margin bottom the form row has */
+    margin-top: -8px; 
+}
+
 /* Dark Theme */
 
 [data-theme="dark"] {
