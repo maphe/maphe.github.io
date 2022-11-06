@@ -108,6 +108,7 @@ const loadQueryParams = async () => {
             const heroElement = document.getElementById('hero');
             const artifactElement = document.getElementById('artifact');
 
+            // fill hero specific fields
             for (const heroSpecific of heroes[heroElement.value].form || []) {
                 const isBoolean = heroSpecific.type === 'checkbox';
                 let paramVal = queryParams.get(heroSpecific.id);
@@ -121,13 +122,51 @@ const loadQueryParams = async () => {
                 if (paramVal !== null && paramVal !== defaultVal) {
                     const element = document.getElementById(heroSpecific.id);
                     
-                    if (heroSpecific.type === 'checkbox') {
+                    if (isBoolean) {
                         element.checked = paramVal;
                         const event = new Event('change');
                         element.dispatchEvent(event);
                     } else {
                         element.value = Number(paramVal);
                         const slideElement = document.getElementById(`${heroSpecific.id}-slide`);
+                        slideElement.value = Number(paramVal);
+                        const event = new Event('change');
+                        element.dispatchEvent(event);
+                    }
+                }
+            }
+
+            // fill artifact-specific fields
+            const artifactLevel = queryParams.get('artifact-lvl');
+            if (artifactLevel !== null && artifactLevel !== '30' && 0 <= Number(artifactLevel) && Number(artifactLevel) <= 30) {
+                const element = document.getElementById('artifact-lvl');                    
+                element.value = Number(artifactLevel);
+                const slideElement = document.getElementById(`${'artifact-lvl'}-slide`);
+                slideElement.value = Number(artifactLevel);
+                const event = new Event('change');
+                element.dispatchEvent(event);
+            }
+
+            for (const artiSpecific of artifacts[artifactElement.value].form || []) {
+                const isBoolean = artiSpecific.type === 'checkbox';
+                let paramVal = queryParams.get(artiSpecific.id);
+
+                if (isBoolean && paramVal !== null) {
+                    paramVal = paramVal?.toLowerCase() === 'true';
+                }
+
+                const defaultVal = isBoolean ? artiSpecific.default || false : artiSpecific.default.toString();
+
+                if (paramVal !== null && paramVal !== defaultVal) {
+                    const element = document.getElementById(artiSpecific.id);
+                    
+                    if (isBoolean) {
+                        element.checked = paramVal;
+                        const event = new Event('change');
+                        element.dispatchEvent(event);
+                    } else {
+                        element.value = Number(paramVal);
+                        const slideElement = document.getElementById(`${artiSpecific.id}-slide`);
                         slideElement.value = Number(paramVal);
                         const event = new Event('change');
                         element.dispatchEvent(event);
