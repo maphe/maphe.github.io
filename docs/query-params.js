@@ -54,6 +54,24 @@ const getInputValues = () => {
         inputValues[param] = Number(Function(`"use strict";return ${param}Input`)()?.value || formDefaults[param])
     });
 
+    (heroes[inputValues.hero]?.form || []).forEach((param) => {
+        const isBoolean = param.type === 'checkbox'
+        const defaultVal =  isBoolean ? param.default || false : param.default;
+        const paramVal = isBoolean ? document.getElementById(param.id)?.checked : Number(document.getElementById(param.id)?.value || defaultVal);
+        inputValues[param.id] = paramVal;
+        console.log(`param: ${param.id} val: ${inputValues[param.id]}`);
+    });
+
+    inputValues['artifact-lvl'] = Number(document.getElementById('artifact-lvl')?.value || '30');
+
+    (artifacts[inputValues.artifact]?.form || []).forEach((param) => {
+        const isBoolean = param.type === 'checkbox';
+        const defaultVal =  isBoolean ? param.default || false : param.default;
+        const paramVal = isBoolean ? document.getElementById(param.id)?.checked : Number(document.getElementById(param.id)?.value || defaultVal);
+        inputValues[param.id] = paramVal;
+        console.log(`param: ${param.id} val: ${inputValues[param.id]}`);
+    });
+
     return inputValues;
 }
 
@@ -109,7 +127,7 @@ const loadQueryParams = async () => {
             const artifactElement = document.getElementById('artifact');
 
             // fill hero specific fields
-            for (const heroSpecific of heroes[heroElement.value].form || []) {
+            for (const heroSpecific of heroes[heroElement.value]?.form || []) {
                 const isBoolean = heroSpecific.type === 'checkbox';
                 let paramVal = queryParams.get(heroSpecific.id);
 
@@ -147,7 +165,7 @@ const loadQueryParams = async () => {
                 element.dispatchEvent(event);
             }
 
-            for (const artiSpecific of artifacts[artifactElement.value].form || []) {
+            for (const artiSpecific of artifacts[artifactElement.value]?.form || []) {
                 const isBoolean = artiSpecific.type === 'checkbox';
                 let paramVal = queryParams.get(artiSpecific.id);
 
@@ -247,6 +265,41 @@ const updateQueryParamsWhenStable = async () => {
         }
     });
 
+    if (page === 'dmg_calc') {
+        const heroElement = document.getElementById('hero');
+        const artifactElement = document.getElementById('artifact');
+
+        // fill hero specific fields
+        for (const heroSpecific of heroes[heroElement.value]?.form || []) {
+            const isBoolean = heroSpecific.type === 'checkbox';
+            const defaultVal = isBoolean ? heroSpecific.default || false : heroSpecific.default;
+
+            if (inputValues[heroSpecific.id] !== defaultVal) {
+                queryParams.set(heroSpecific.id, inputValues[heroSpecific.id]);
+            } else {
+                queryParams.delete(heroSpecific.id);
+            }
+        }
+
+        // fill artifact specific fields
+        if (inputValues['artifact-lvl'] !== 30) {
+            queryParams.set('artifact-lvl', inputValues['artifact-lvl']);
+        } else {
+            queryParams.delete('artifact-lvl');
+        }
+
+        for (const artiSpecific of artifacts[artifactElement.value]?.form || []) {
+            const isBoolean = artiSpecific.type === 'checkbox';
+            const defaultVal = isBoolean ? artiSpecific.default || false : artiSpecific.default;
+
+            if (inputValues[artiSpecific.id] !== defaultVal) {
+                queryParams.set(artiSpecific.id, inputValues[artiSpecific.id]);
+            } else {
+                queryParams.delete(artiSpecific.id);
+            }
+        }
+    }
+
     // finally, update the url with new queryparams (using pushState to avoid actually loading the page again)
     if (window.history.pushState) {
         const newURL = new URL(window.location.href);
@@ -254,4 +307,12 @@ const updateQueryParamsWhenStable = async () => {
         window.history.pushState({ path: newURL.href }, '', newURL.href);
     }
     updateRequestTime = null;
+}
+
+// delete the specified params (such as when changing a hero or arti)
+const deleteParams = (paramsToDelete) => {
+    (paramsToDelete || []).forEach((param) => {
+        console.log(`DELETING: ${param}`)
+        queryParams.delete(param);
+    });
 }

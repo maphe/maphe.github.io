@@ -531,9 +531,11 @@ class Target {
   }
 }
 
+let currentArtifact = null;
 class Artifact {
   constructor(id) {
     this.id = id ? id : undefined;
+    currentArtifact = this;
   }
 
   applies(skill, skillId = undefined) {

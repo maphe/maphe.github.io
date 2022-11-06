@@ -1011,6 +1011,10 @@ window.addEventListener('DOMContentLoaded', () => {
     }));
 
     heroSelector.onchange = () => {
+      if (currentHero) {
+        deleteParams(heroes[currentHero.id].form?.map(element => element.id));
+      }
+
       const hero = heroes[heroSelector.value];
       const artifact = { ...artifacts[artiSelector.value] };
       dedupeForm(hero, artifact);
@@ -1079,6 +1083,9 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     artiSelector.onchange = () => {
+      if (currentArtifact?.id) {
+        deleteParams(artifacts[currentArtifact.id].form?.map(element => element.id));
+      }
       const hero = heroes[heroSelector.value];
       const artifact = {...artifacts[artiSelector.value]};
       dedupeForm(hero, artifact);
