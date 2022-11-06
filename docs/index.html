@@ -389,23 +389,24 @@
                     <div class="form-group col-md-4 col-sm-12">
                         <select id="dmg-reduc-preset" name="dmg-reduc-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true">
                             <option value="none" data-reduc="0" data-trans="0" data-defup="0">No Damage Reduction/Transfer</option>
+                            <option value="">Manual</option>
                             <option data-divider="true"></option>
                             <optgroup label="Damage Reduction">
-                                <option value="proof-of-valor-init" data-reduc="30" data-subtext="30%">Proof of Valor (Battle start)</option>
-                                <option value="proof-of-valor-down" data-reduc="15" data-subtext="15%">Proof of Valor (After 5 hits)</option>
-                                <option value="adamant-shield" data-reduc="16" data-subtext="16%">Adamant Shield (Max)</option>
-                                <option value="elena" data-reduc="15" data-subtext="15%">Elena (S2 Passive)</option>
-                                <option value="c-armin" data-reduc="15" data-subtext="15%">Crimson Armin (S2 Passive)</option>
-                                <option value="sepulcrum-1" data-reduc="8" data-subtext="8%">Sepulcrum (Max - 1 stack)</option>
-                                <option value="sepulcrum-2" data-reduc="16" data-subtext="16%">Sepulcrum (Max - 2 stacks)</option>
-                                <option value="sepulcrum-3" data-reduc="24" data-subtext="24%">Sepulcrum (Max - 3 stacks)</option>
+                                <option value="proof-of-valor-init" data-reduc="30" data-trans="0" data-defup="0" data-subtext="30%">Proof of Valor (Battle start)</option>
+                                <option value="proof-of-valor-down" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">Proof of Valor (After 5 hits)</option>
+                                <option value="adamant-shield" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">Adamant Shield (Max)</option>
+                                <option value="elena" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">Elena (S2 Passive)</option>
+                                <option value="c-armin" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">Crimson Armin (S2 Passive)</option>
+                                <option value="sepulcrum-1" data-reduc="8" data-trans="0" data-defup="0" data-subtext="8%">Sepulcrum (Max - 1 stack)</option>
+                                <option value="sepulcrum-2" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">Sepulcrum (Max - 2 stacks)</option>
+                                <option value="sepulcrum-3" data-reduc="24" data-trans="0" data-defup="0" data-subtext="24%">Sepulcrum (Max - 3 stacks)</option>
                             </optgroup>
                             <optgroup label="Damage Transfer">
-                                <option value="ss-bellona" data-trans="30" data-subtext="30%">Seaside Bellona (S2 Passive)</option>
-                                <option value="escort" data-trans="30" data-subtext="30%">Escort Buff</option>
-                                <option value="aurius" data-trans="20" data-defup="10" data-subtext="20% (+10% Defense)">Aurius (Max)</option>
-                                <option value="t-crozet" data-trans="40" data-subtext="40%">Troublemaker Crozet (S2 Passive)</option>
-                                <option value="eaton" data-trans="30" data-subtext="30%">Eaton (S2 Passive)</option>
+                                <option value="ss-bellona" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">Seaside Bellona (S2 Passive)</option>
+                                <option value="escort" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">Escort Buff</option>
+                                <option value="aurius" data-trans="20" data-defup="10" data-reduc="0" data-subtext="20% (+10% Defense)">Aurius (Max)</option>
+                                <option value="t-crozet" data-trans="40" data-reduc="0" data-defup="0" data-subtext="40%">Troublemaker Crozet (S2 Passive)</option>
+                                <option value="eaton" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">Eaton (S2 Passive)</option>
                             </optgroup>
                         </select>
                     </div>

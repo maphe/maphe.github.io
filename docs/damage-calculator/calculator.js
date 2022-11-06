@@ -127,7 +127,6 @@ const manageSetForms = () => {
 }
 
 const torrentSetToggled = () => {
-  const torrentSetInput = document.getElementById('torrent-set');
   window.dataLayer.push({
     'event': 'toggle_torrent_set',
     'torrent_set': torrentSetInput.checked ? 'on' : 'off'
@@ -135,8 +134,7 @@ const torrentSetToggled = () => {
 
   // reset value when toggling torrent set off
   if (!torrentSetInput.checked) {
-    const torrentSetNumInput = document.getElementById('torrent-set-stack');
-    torrentSetNumInput.value = formDefaults.torrentSetStack;
+    torrentSetStackInput.value = formDefaults.torrentSetStack;
   }
   manageSetForms();
 }
@@ -148,8 +146,8 @@ const resolve = () => {
     return; // don't resolve until params are loaded
   }
   inputValues = getInputValues(true);
-  const artifact = new Artifact(document.getElementById('artifact').value);
-  const hero = new Hero(document.getElementById('hero').value, artifact);
+  const artifact = new Artifact(inputValues.artifact);
+  const hero = new Hero(inputValues.hero, artifact);
 
   document.getElementById(`barrier-block`).style.display = 'none';
   document.getElementById(`artifact-dmg-block`).style.display = 'none';
@@ -273,7 +271,6 @@ const getGlobalDamageMult = (hero, skill) => {
     mult += inputValues[set] ? battleConstants[set] * (inputValues[`${set}Stack`] || 1) : 0.0;
   })
 
-  const defPresetSelector = document.getElementById('def-preset');
   const selected = defPresetSelector.options[defPresetSelector.selectedIndex];
   if (hero.element === selected.dataset.elemExtraDmg) {
       mult += parseFloat(selected.dataset.extraDmgPc)-1;
@@ -292,9 +289,8 @@ const getGlobalDamageMult = (hero, skill) => {
 const getGlobalDefMult = () => {
   let mult = 1.0;
 
-  for (let checkboxId of ['def-up', 'def-down', 'target-vigor']) {
-    const elem = document.getElementById(checkboxId);
-    mult += elem.checked ? Number(elem.value) : 0.0;
+  for (let defMod of ['defUp', 'defDown', 'targetVigor']) {
+    mult += inputValues[defMod] ? battleConstants[defMod] : 0.0;
   }
 
   return mult;
@@ -403,7 +399,7 @@ class Hero {
     if (inputValues.elemAdv || (typeof skill.elemAdv === 'function') && skill.elemAdv() === true) {
       elemAdv = battleConstants.elemAdv;
     }
-    const target = document.getElementById('target').checked ? Number(document.getElementById('target').value) : 1.0;
+    const target = inputValues.target ? battleConstants.target : 1.0;
 
     let dmgMod = 1.0
         + getGlobalDamageMult(this, skill)
@@ -513,24 +509,22 @@ class Hero {
 
 class Target {
   constructor(casterArtifact) {
-    const defMult = getGlobalDefMult() + Number(document.getElementById('def-pc-up').value)/100;
-    this.def = Number(document.getElementById('def').value)*defMult;
+    const defMult = getGlobalDefMult() + inputValues.defPcUp / 100;
+    this.def = inputValues.def * defMult;
     this.casterArtifact = casterArtifact;
   }
 
   getPenetration(skill) {
     const base = skill && skill.penetrate ? skill.penetrate() : 0;
     const artifact = this.casterArtifact.getDefensePenetration(skill);
-    const set = (getSkillType(skill) === skillTypes.single) && document.getElementById('pen-set') && document.getElementById('pen-set').checked
-        ? Number(document.getElementById('pen-set').value)
-        : 0;
+    const set = (getSkillType(skill) === skillTypes.single) && inputValues['penSet'] ? battleConstants.penSet : 0;
 
     return Math.min(1, (1-base) * (1-set) * (1-artifact));
   }
 
   defensivePower(skill, noReduc = false) {
-    const dmgReduc = noReduc ? 0 : Number(document.getElementById('dmg-reduc').value)/100;
-    const dmgTrans = skill.noTrans === true ? 0 : Number(document.getElementById('dmg-trans').value)/100;
+    const dmgReduc = noReduc ? 0 : inputValues['dmgReduc'] / 100;
+    const dmgTrans = skill.noTrans === true ? 0 : inputValues.dmgTrans / 100;
     return ((1-dmgReduc)*(1-dmgTrans))/(((this.def / 300)*this.getPenetration(skill)) + 1);
   }
 }

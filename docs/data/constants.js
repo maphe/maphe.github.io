@@ -7,5 +7,10 @@ const battleConstants = {
     'vigor': 1.3,
     'critDmgUp': 0.5,
     'rageSet': 0.3,
-    'torrentSet': 0.1
+    'torrentSet': 0.1,
+    'penSet': 0.15,
+    'defUp': 0.6,
+    'defDown': -0.7,
+    'targetVigor': 0.3,
+    'target': 1.15
 }

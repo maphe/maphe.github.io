@@ -748,8 +748,8 @@ elements.target_attack.sub_elements = [elements.target_atk_up, elements.target_a
 
 const slide = (fieldId) => {
   document.getElementById(fieldId).value = document.getElementById(`${fieldId}-slide`).value;
-  resolve();
   resetPreset(fieldId);
+  resolve();
 };
 
 const slideMola = (skillId) => {
@@ -791,6 +791,7 @@ const plus = (fieldId) => {
     input.value = Number(input.value)+inc;
     update(fieldId);
     resetPreset(fieldId);
+    resolve();
   }
 };
 
@@ -807,6 +808,7 @@ const minus = (fieldId) => {
     input.value = Number(input.value)-inc;
     update(fieldId);
     resetPreset(fieldId);
+    resolve();
   }
 };
 
@@ -818,9 +820,10 @@ const minusMola = (skillId) => {
 const resetPreset = (fieldId) => {
   if (fieldId === 'def') {
     $('#def-preset').selectpicker('val', '');
-  }
-  if (fieldId === 'atk' || fieldId === 'crit') {
+  } else if (fieldId === 'atk' || fieldId === 'crit') {
     $('#atk-preset').selectpicker('val', '');
+  } else if (['dmg-reduc', 'dmg-trans', 'def-pc-up'].includes(fieldId)) {
+    $('#dmg-reduc-preset').selectpicker('val', '');
   }
 };
 

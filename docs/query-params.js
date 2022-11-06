@@ -291,7 +291,7 @@ const updateQueryParamsWhenStable = async () => {
     for (const param of numberParams) {
         if (inputValues[param] !== formDefaults[param]) {
             // avoid weird states by removing incompatible params if the applicable selector is filled
-            if ((inputValues['atkPreset'] && (param === 'atk' || param === 'crit')) || (inputValues['defPreset'] && param === 'def') || (inputValues['dmgReducPreset'] && param === 'dmgReduc')) {
+            if ((inputValues['atkPreset'] && (param === 'atk' || param === 'crit')) || (inputValues['defPreset'] && param === 'def') || (inputValues['dmgReducPreset'] && inputValues['dmgReducPreset'] !== 'none' && param === 'dmgReduc')) {
                 queryParams.delete(param);
                 continue;
             }
