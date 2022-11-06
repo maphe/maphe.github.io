@@ -54,6 +54,13 @@ const getInputValues = () => {
         inputValues[param] = Number(Function(`"use strict";return ${param}Input`)()?.value || formDefaults[param])
     });
 
+    for (let i = 1; i < 4; i++ ) {
+        const mola = Number(document.getElementById(`molagora-s${i}`)?.value || -1);
+        if (mola > -1) {
+            inputValues[`molagora-s${i}`] = mola;
+        }
+    }
+
     (heroes[inputValues.hero]?.form || []).forEach((param) => {
         const isBoolean = param.type === 'checkbox'
         const defaultVal =  isBoolean ? param.default || false : param.default;
@@ -122,6 +129,23 @@ const loadQueryParams = async () => {
         if (page === 'dmg_calc') {
             const heroElement = document.getElementById('hero');
             const artifactElement = document.getElementById('artifact');
+            
+            // load in mola params
+            for (let i = 1; i < 4; i++ ) {
+                let paramVal = queryParams.get(`molagora-s${i}`);
+
+                const defaultVal = heroes[heroElement.value]?.skills[`s${i}`]?.enhance.length;
+
+                if (paramVal !== null && defaultVal !== undefined && paramVal !== defaultVal) {
+                    const element = document.getElementById(`molagora-s${i}`);
+                    
+                    element.value = Number(paramVal);
+                    const slideElement = document.getElementById(`molagora-s${i}-slide`);
+                    slideElement.value = Number(paramVal);
+                    const event = new Event('change');
+                    element.dispatchEvent(event);
+                }
+            }
 
             // fill hero specific fields
             for (const heroSpecific of heroes[heroElement.value]?.form || []) {
@@ -265,6 +289,17 @@ const updateQueryParamsWhenStable = async () => {
     if (page === 'dmg_calc') {
         const heroElement = document.getElementById('hero');
         const artifactElement = document.getElementById('artifact');
+
+        for (let i = 1; i < 4; i++ ) {
+
+            const defaultVal = heroes[heroElement.value]?.skills[`s${i}`]?.enhance.length;
+
+            if (defaultVal !== undefined && inputValues[`molagora-s${i}`] !== defaultVal) {
+                queryParams.set(`molagora-s${i}`, inputValues[`molagora-s${i}`]);
+            } else {
+                queryParams.delete(`molagora-s${i}`);
+            }
+        }
 
         // fill hero specific fields
         for (const heroSpecific of heroes[heroElement.value]?.form || []) {
