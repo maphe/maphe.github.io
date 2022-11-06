@@ -351,7 +351,6 @@ const updateQueryParamsWhenStable = async (updateURL=false) => {
         }
     }
 
-    console.log(queryParams.toString())
     const shareButton = document.getElementById('share-button-text');
     if (shareButton) {
         const lang = document.getElementById('root').getAttribute('lang');
@@ -388,11 +387,9 @@ const deleteParams = (paramsToDelete) => {
 const copyLinkToClipboard = () => {
     const linkURL = new URL(window.location.href);
     linkURL.search = queryParams.toString();
-    console.log(typeof linkURL)
     navigator.clipboard.writeText(linkURL.href);
 
     const shareButton = document.getElementById('share-button-text');
-    console.log(shareButton)
     if (shareButton) {
         const lang = document.getElementById('root').getAttribute('lang');
         if (lang === 'en') {
