@@ -42,10 +42,19 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 initial-hide fade-in">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="../index.html"><i class="fas fa-angle-double-left"></i> Damage Calculator</a>
+                    <a class="nav-link" href="../index.html">Damage Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../effectiveness/effectiveness.html">Effectiveness Checker</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../ehp-calculator/ehp-calculator.html">Effective HP Calculator</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto flex-centered">
+                <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
+                    <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">Share</span>
+                </button>
                 <li class="nav-item nav-link">
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="dark-switch">
@@ -76,9 +85,6 @@
                         <strong>Faster Unit pushes Slower Unit</strong>
                     </label>
                 </div>
-                <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
-                    <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">Share</span>
-                </button>
             </div>
             <form id="stats" class="initial-hide fade-in">
                 <div class="row">

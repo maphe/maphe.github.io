@@ -42,10 +42,19 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 initial-hide fade-in">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="../index.html"><i class="fas fa-angle-double-left"></i> Damage Calculator</a>
+                    <a class="nav-link" href="../index.html">Damage Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../speed-tuner/speed-tuner.html">Speed Tuner (Beta)</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../effectiveness/effectiveness.html">Effectiveness Checker</a>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto flex-centered">
+                <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
+                    <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">Share</span>
+                </button>
                 <li class="nav-item nav-link">
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="dark-switch">
@@ -183,12 +192,6 @@
                     </div>
                 </div>
             </div>
-            <span class="has-share decrease-margin-top">
-                <span></span>
-                <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
-                    <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">Share</span>
-                </button>
-            </span>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
