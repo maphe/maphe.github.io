@@ -827,6 +827,16 @@ const resetPreset = (fieldId) => {
   }
 };
 
+document.getElementById('def-pc-up').onchange = () => {
+  resetPreset('def-pc-up');
+}
+document.getElementById('dmg-reduc').onchange = () => {
+  resetPreset('dmg-reduc');
+}
+document.getElementById('dmg-trans').onchange = () => {
+  resetPreset('dmg-trans');
+}
+
 const showHeroInfo = (hero) => {
   const block = document.getElementById('hero-info');
   block.innerHTML = '';

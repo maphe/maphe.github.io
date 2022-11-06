@@ -138,6 +138,11 @@ const loadQueryParams = async () => {
         }
 
         if (page === 'dmg_calc') {
+            // set dmg reduction preset to manual if any of these have a param val
+            if (queryParams.get('dmgReduc') || queryParams.get('defPcUp') || queryParams.get('dmgTrans')) {
+                resetPreset('dmg-reduc');
+            }
+
             const heroElement = document.getElementById('hero');
             const artifactElement = document.getElementById('artifact');
             
