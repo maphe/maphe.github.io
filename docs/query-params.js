@@ -388,8 +388,13 @@ const copyLinkToClipboard = () => {
     navigator.clipboard.writeText(linkURL.href);
 
     const shareButton = document.getElementById('share-button-text');
-    console.log(linkURL.href)
     if (shareButton) {
         shareButton.innerText = 'Link Copied!';
     }
+
+    window.dataLayer.push({
+        'event': 'shared_query_params',
+        'page': page,
+        'shared_params': linkURL.search
+    });
 }
