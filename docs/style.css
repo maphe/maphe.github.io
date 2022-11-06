@@ -188,7 +188,7 @@ body .popover {
 [data-theme="dark"] .navbar-light .navbar-brand,
 [data-theme="dark"] .navbar-light .navbar-nav .nav-link:hover,
 [data-theme="dark"] .dropdown-item,
-[data-theme="dark"] .close,
+[data-theme="dark"] .close-modal,
 [data-theme="dark"] .popover-body {
     color: #eee;
 }
