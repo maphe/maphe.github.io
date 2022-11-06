@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zhTW">
+<html id="root" lang="zhTW">
     <head>
         <script>
             (function(window, document, script, layer, ident) {
@@ -185,6 +185,13 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group col-sm-12 has-share initial-hide fade-in">
+                        <div class="custom-control custom-switch mt-1">
+                        </div>
+                        <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
+                            <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">分享</span>
+                        </button>
                     </div>
                 </div>
             </div>

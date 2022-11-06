@@ -263,10 +263,9 @@ const formUpdated = () => {
  * Puts form values in queryParams after debouncing input.
  */ 
 const updateQueryParamsWhenStable = async (updateURL=false) => {
-
-    // debounce input then update when stable. 1 second if updating URL, else 150ms.
+    // debounce input then update when stable. 1 second if updating URL, else 200ms.
     updateRequestTime = Date.now();
-    debounceTime = updateURL ? 1000 : 150;
+    debounceTime = updateURL ? 1000 : 200;
     while (Date.now() - updateRequestTime < debounceTime) {
         await new Promise(r => setTimeout(r, debounceTime));
     }
@@ -355,7 +354,12 @@ const updateQueryParamsWhenStable = async (updateURL=false) => {
     console.log(queryParams.toString())
     const shareButton = document.getElementById('share-button-text');
     if (shareButton) {
-        shareButton.innerText = 'Share';
+        const lang = document.getElementById('root').getAttribute('lang');
+        if (lang === 'en') {
+            shareButton.innerText = 'Share';
+        } else {
+            shareButton.innerText = i18n[lang].form.share || 'Share';
+        }
     }
 
     // finally, update the url with new queryparams (using pushState to avoid actually loading the page again)
@@ -388,8 +392,14 @@ const copyLinkToClipboard = () => {
     navigator.clipboard.writeText(linkURL.href);
 
     const shareButton = document.getElementById('share-button-text');
+    console.log(shareButton)
     if (shareButton) {
-        shareButton.innerText = 'Link Copied!';
+        const lang = document.getElementById('root').getAttribute('lang');
+        if (lang === 'en') {
+            shareButton.innerText = 'Link Copied!';
+        } else {
+            shareButton.innerText = i18n[lang].form.link_copied || 'Link Copied!';
+        }
     }
 
     window.dataLayer.push({
