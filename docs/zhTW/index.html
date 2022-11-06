@@ -633,11 +633,14 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">傷害比較</h5>
-                        <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close close-modal" data-dismiss="modal" onclick="compareClosed()" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="compare-show spinner-holder">
+                        <img src="../assets/icons/loading-spinner.svg" alt="Loading spinner...">
+                    </div>
+                    <div class="modal-body compare-hide">
                         <p id="compare-splash" style="display: none">目前這個英雄沒有已保存的配裝</p>
                         <div id="damage-comparison-block">
                             <table class="table table-bordered table-sm col-sm-12">
@@ -646,14 +649,14 @@
                                 </thead>
                                 <tbody id="damage-comparison"></tbody>
                             </table>
-                            <span class="text-muted font-italic">此處默認比較的是暴擊傷害，在技能無法觸發暴擊的情況下會比較普通傷害</span>
+                            <span class="text-muted font-italic compare-hide">此處默認比較的是暴擊傷害，在技能無法觸發暴擊的情況下會比較普通傷害</span>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer compare-hide">
                         <button id="clear-compare" type="button" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash-alt"></i> 清除全部
                         </button>
-                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="compareClosed()" data-dismiss="modal">
                             <i class="fas fa-window-close"></i> 關閉
                         </button>
                     </div>

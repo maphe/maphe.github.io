@@ -647,11 +647,14 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">데미지 비교</h5>
-                        <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close close-modal" data-dismiss="modal" onclick="compareClosed()" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="compare-show spinner-holder">
+                        <img src="../assets/icons/loading-spinner.svg" alt="Loading spinner...">
+                    </div>
+                    <div class="modal-body compare-hide">
                         <p id="compare-splash" style="display: none">이 영웅을 위해 저장된 세팅이 없습니다</p>
                         <div id="damage-comparison-block">
                             <table class="table table-bordered table-sm col-sm-12">
@@ -660,14 +663,14 @@
                                 </thead>
                                 <tbody id="damage-comparison"></tbody>
                             </table>
-                            <span class="text-muted font-italic">데미지는 치명타를 기준으로 비교됩니다. 치명타가 발생하지 않는 스킬의 경우 평타로 비교됩니다.</span>
+                            <span class="text-muted font-italic compare-hide">데미지는 치명타를 기준으로 비교됩니다. 치명타가 발생하지 않는 스킬의 경우 평타로 비교됩니다.</span>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer compare-hide">
                         <button id="clear-compare" type="button" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash-alt"></i> 모두 지우기
                         </button>
-                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="compareClosed()" data-dismiss="modal">
                             <i class="fas fa-window-close"></i> 닫기
                         </button>
                     </div>

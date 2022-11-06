@@ -46,7 +46,7 @@
                 </li>
             </ul>
         </nav>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 initial-hide fade-in">
             <ul class="navbar-nav">
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks <i class="fas fa-external-link-alt fa-xs"></i></a>
@@ -76,7 +76,7 @@
             <div class="initial-show spinner-holder">
                 <img src="../assets/icons/loading-spinner.svg" alt="Loading spinner...">
             </div>
-            <form id="stats">
+            <form id="stats" class="initial-hide fade-in">
                 <div id="hero-block">
                     <div class="row">
                         <div class="form-group col-md-4 col-sm-12">
@@ -515,7 +515,7 @@
             </form>
         </div>
 
-        <div id="damage-block">
+        <div id="damage-block" class="initial-hide fade-in">
             <h4>
                 伤害计算
                 <div class="btn-group" role="group" aria-label="Basic example">
@@ -560,7 +560,7 @@
             </div>
         </div>
 
-        <footer class="page-footer pt-3 mt-5">
+        <footer class="page-footer pt-3 mt-5 initial-hide fade-in">
             <div class="container-fluid text-center text-md-left">
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
@@ -631,11 +631,14 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">伤害比较</h5>
-                        <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close close-modal" data-dismiss="modal" onclick="compareClosed()" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="compare-show spinner-holder">
+                        <img src="../assets/icons/loading-spinner.svg" alt="Loading spinner...">
+                    </div>
+                    <div class="modal-body compare-hide">
                         <p id="compare-splash" style="display: none">目前这个英雄没有已保存的配装</p>
                         <div id="damage-comparison-block">
                             <table class="table table-bordered table-sm col-sm-12">
@@ -644,14 +647,14 @@
                                 </thead>
                                 <tbody id="damage-comparison"></tbody>
                             </table>
-                            <span class="text-muted font-italic">此处默认比较的是暴击伤害，在技能无法触发暴击的情况下会比较普通伤害</span>
+                            <span class="text-muted font-italic compare-hide">此处默认比较的是暴击伤害，在技能无法触发暴击的情况下会比较普通伤害</span>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer compare-hide">
                         <button id="clear-compare" type="button" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash-alt"></i> 清除全部
                         </button>
-                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">
+                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" onclick="compareClosed()">
                             <i class="fas fa-window-close"></i> 关闭
                         </button>
                     </div>

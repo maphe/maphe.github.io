@@ -621,11 +621,14 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">ダメージ比較</h5>
-                        <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close close-modal" data-dismiss="modal" onclick="compareClosed()" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="compare-show spinner-holder">
+                        <img src="../assets/icons/loading-spinner.svg" alt="Loading spinner...">
+                    </div>
+                    <div class="modal-body compare-hide">
                         <p id="compare-splash" style="display: none">記録したビルドがありません</p>
                         <div id="damage-comparison-block">
                             <table class="table table-bordered table-sm col-sm-12">
@@ -634,14 +637,14 @@
                                 </thead>
                                 <tbody id="damage-comparison"></tbody>
                             </table>
-                            <span class="text-muted font-italic">クリティカルヒットのダメージを比較します。クリティカルヒットのないスキルの場合代わりにノーマルヒットのダメージを比較します</span>
+                            <span class="text-muted font-italic compare-hide">クリティカルヒットのダメージを比較します。クリティカルヒットのないスキルの場合代わりにノーマルヒットのダメージを比較します</span>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer compare-hide">
                         <button id="clear-compare" type="button" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash-alt"></i> 全部消す
                         </button>
-                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">
+                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" onclick="compareClosed()">
                             <i class="fas fa-window-close"></i> 閉じる
                         </button>
                     </div>

@@ -49,11 +49,30 @@ const addToComparePool = () => {
   refreshCompareBadge();
 };
 
+const unhideModalBody = () => {
+  $('.compare-hide').show()
+  $('.compare-show').hide()
+}
+
+const hideModalBody = () => {
+  $('.compare-hide').hide()
+  $('.compare-show').show()
+}
+
+const compareClosed = () => {
+  // wait for animation to complete so spinner doesn't show up as it's closing
+  setTimeout(() => {
+    hideModalBody();
+  }, 500);
+}
+
 const compare = (heroId) => {
+  hideModalBody();
   const allSets = localStorage.getItem('heroes') ? JSON.parse(localStorage.getItem('heroes')) : {};
   const heroSets = allSets[heroId] || {};
 
   if (Object.keys(heroSets).length === 0) {
+    unhideModalBody();
     document.getElementById('compare-splash').style.display = 'block';
     document.getElementById('damage-comparison-block').style.display = 'none';
     return;
@@ -77,6 +96,7 @@ const compare = (heroId) => {
     $(body).append(`<tr>${html}</tr>`)
   }
 
+  unhideModalBody();
   document.getElementById('compare-splash').style.display = 'none';
   document.getElementById('damage-comparison-block').style.display = 'block';
   window.dataLayer.push({
