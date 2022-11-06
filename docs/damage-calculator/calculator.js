@@ -13,12 +13,14 @@ formDefaults = {
   'dmgTrans': 0,
   'hero': 'achates',
   'artifact': undefined,
-  'atkPreset': undefined
+  'atkPreset': undefined,
+  'defPreset': undefined,
+  'dmgReducPreset': 'none'
 }
 
 // list artifact first to avoid invalid arti selections
 selectorParams = [
-  'artifact', 'hero', 'atkPreset'
+  'artifact', 'hero', 'atkPreset', 'defPreset', 'dmgReducPreset'
 ]
 boolParams = [
   'elemAdv', 'atkDown', 'atkUp', 'atkUpGreat', 'critDmgUp', 'vigor', 'rageSet',
@@ -57,6 +59,8 @@ const targetInput = document.getElementById('target');
 const heroSelector = document.getElementById('hero');
 const artifactSelector = document.getElementById('artifact');
 const atkPresetSelector = document.getElementById('atk-preset');
+const defPresetSelector = document.getElementById('def-preset');
+const dmgReducPresetSelector = document.getElementById('dmg-reduc-preset');
 
 // slides
 const atkSlide = document.getElementById('atk-slide');

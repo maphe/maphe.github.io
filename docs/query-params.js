@@ -118,6 +118,16 @@ const loadQueryParams = async () => {
         }
 
         for (const param of numberParams) {
+            // avoid weird states by removing incompatible params if the applicable selector is filled
+            if ((queryParams.get('atkPreset') && (param === 'atk' || param === 'crit')) || (queryParams.get('defPreset') && param === 'def') || (queryParams.get('dmgReducPreset') && param === 'dmgReduc')) {
+                queryParams.delete(param);
+                if (window.history.pushState) {
+                    const newURL = new URL(window.location.href);
+                    newURL.search = queryParams.toString();
+                    window.history.pushState({ path: newURL.href }, '', newURL.href);
+                }
+                continue;
+            }
             let paramVal = queryParams.get(param);
             if (paramVal && paramVal !== formDefaults[param].toString()) {
                 const element = Function(`"use strict";return ${param}Input`)();
@@ -278,13 +288,18 @@ const updateQueryParamsWhenStable = async () => {
         }
     });
 
-    numberParams.forEach((param) => {
+    for (const param of numberParams) {
         if (inputValues[param] !== formDefaults[param]) {
+            // avoid weird states by removing incompatible params if the applicable selector is filled
+            if ((inputValues['atkPreset'] && (param === 'atk' || param === 'crit')) || (inputValues['defPreset'] && param === 'def') || (inputValues['dmgReducPreset'] && param === 'dmgReduc')) {
+                queryParams.delete(param);
+                continue;
+            }
             queryParams.set(param, inputValues[param]);
         } else {
             queryParams.delete(param);
         }
-    });
+    }
 
     if (page === 'dmg_calc') {
         const heroElement = document.getElementById('hero');
