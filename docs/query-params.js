@@ -54,29 +54,30 @@ const getInputValues = () => {
         inputValues[param] = Number(Function(`"use strict";return ${param}Input`)()?.value || formDefaults[param])
     });
 
-    for (let i = 1; i < 4; i++ ) {
-        const mola = Number(document.getElementById(`molagora-s${i}`)?.value || -1);
-        if (mola > -1) {
-            inputValues[`molagora-s${i}`] = mola;
+    if (page === 'dmg_calc') {
+        for (let i = 1; i < 4; i++ ) {
+            const mola = Number(document.getElementById(`molagora-s${i}`)?.value || -1);
+            if (mola > -1) {
+                inputValues[`molagora-s${i}`] = mola;
+            }
         }
+    
+        (heroes[inputValues.hero]?.form || []).forEach((param) => {
+            const isBoolean = param.type === 'checkbox'
+            const defaultVal =  isBoolean ? param.default || false : param.default;
+            const paramVal = isBoolean ? document.getElementById(param.id)?.checked : Number(document.getElementById(param.id)?.value || defaultVal);
+            inputValues[param.id] = paramVal;
+        });
+    
+        inputValues['artifact-lvl'] = Number(document.getElementById('artifact-lvl')?.value || '30');
+    
+        (artifacts[inputValues.artifact]?.form || []).forEach((param) => {
+            const isBoolean = param.type === 'checkbox';
+            const defaultVal =  isBoolean ? param.default || false : param.default;
+            const paramVal = isBoolean ? document.getElementById(param.id)?.checked : Number(document.getElementById(param.id)?.value || defaultVal);
+            inputValues[param.id] = paramVal;
+        });
     }
-
-    (heroes[inputValues.hero]?.form || []).forEach((param) => {
-        const isBoolean = param.type === 'checkbox'
-        const defaultVal =  isBoolean ? param.default || false : param.default;
-        const paramVal = isBoolean ? document.getElementById(param.id)?.checked : Number(document.getElementById(param.id)?.value || defaultVal);
-        inputValues[param.id] = paramVal;
-    });
-
-    inputValues['artifact-lvl'] = Number(document.getElementById('artifact-lvl')?.value || '30');
-
-    (artifacts[inputValues.artifact]?.form || []).forEach((param) => {
-        const isBoolean = param.type === 'checkbox';
-        const defaultVal =  isBoolean ? param.default || false : param.default;
-        const paramVal = isBoolean ? document.getElementById(param.id)?.checked : Number(document.getElementById(param.id)?.value || defaultVal);
-        inputValues[param.id] = paramVal;
-    });
-
     return inputValues;
 }
 
