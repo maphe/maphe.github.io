@@ -377,23 +377,24 @@
                     <div class="form-group col-md-4 col-sm-12">
                         <select id="dmg-reduc-preset" name="dmg-reduc-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true">
                             <option value="none" data-reduc="0" data-trans="0" data-defup="0">피해량 감소/전이 없음</option>
+                            <option value="">수동</option>
                             <option data-divider="true"></option>
                             <optgroup label="피해량 감소">
-                                <option value="proof-of-valor-init" data-reduc="30" data-subtext="30%">용맹의 증거 (전투 시작시)</option>
-                                <option value="proof-of-valor-down" data-reduc="15" data-subtext="15%">용맹의 증거 (피격 5회 이후)</option>
-                                <option value="adamant-shield" data-reduc="16" data-subtext="16%">아다만트 실드 (풀강)</option>
-                                <option value="elena" data-reduc="15" data-subtext="15%">엘레나 (2스킬 패시브)</option>
-                                <option value="c-armin" data-reduc="15" data-subtext="15%">홍염의 아밍 (2스킬 패시브)</option>
-                                <option value="sepulcrum-1" data-reduc="8" data-subtext="8%">세플크룸 (1스택)</option>
-                                <option value="sepulcrum-2" data-reduc="16" data-subtext="16%">세플크룸 (2스택)</option>
-                                <option value="sepulcrum-3" data-reduc="24" data-subtext="24%">세플크룸 (3스택)</option>
+                                <option value="proof-of-valor-init" data-reduc="30" data-trans="0" data-defup="0" data-subtext="30%">용맹의 증거 (전투 시작시)</option>
+                                <option value="proof-of-valor-down" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">용맹의 증거 (피격 5회 이후)</option>
+                                <option value="adamant-shield" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">아다만트 실드 (풀강)</option>
+                                <option value="elena" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">엘레나 (2스킬 패시브)</option>
+                                <option value="c-armin" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">홍염의 아밍 (2스킬 패시브)</option>
+                                <option value="sepulcrum-1" data-reduc="8" data-trans="0" data-defup="0" data-subtext="8%">세플크룸 (1스택)</option>
+                                <option value="sepulcrum-2" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">세플크룸 (2스택)</option>
+                                <option value="sepulcrum-3" data-reduc="24" data-trans="0" data-defup="0" data-subtext="24%">세플크룸 (3스택)</option>
                             </optgroup>
                             <optgroup label="피해량 전이">
-                                <option value="ss-bellona" data-trans="30" data-subtext="30%">해변의 벨로나 (2스킬 패시브)</option>
-                                <option value="escort" data-trans="30" data-subtext="30%">호위 버프</option>
-                                <option value="aurius" data-trans="20" data-defup="10" data-subtext="20% (+10% 방어력)">아우리우스 (풀강)</option>
-                                <option value="t-crozet" data-trans="40" data-subtext="40%">무법자 크로제 (2스킬 패시브)</option>
-                                <option value="eaton" data-trans="30" data-subtext="30%">이튼 (2스킬 패시브)</option>
+                                <option value="ss-bellona" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">해변의 벨로나 (2스킬 패시브)</option>
+                                <option value="escort" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">호위 버프</option>
+                                <option value="aurius" data-trans="20" data-reduc="0" data-defup="10" data-subtext="20% (+10% 방어력)">아우리우스 (풀강)</option>
+                                <option value="t-crozet" data-trans="40" data-reduc="0" data-defup="0" data-subtext="40%">무법자 크로제 (2스킬 패시브)</option>
+                                <option value="eaton" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">이튼 (2스킬 패시브)</option>
                             </optgroup>
                         </select>
                     </div>

@@ -369,20 +369,21 @@
                     <div class="form-group col-md-4 col-sm-12">
                         <select id="dmg-reduc-preset" name="dmg-reduc-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true">
                             <option value="none" data-reduc="0" data-trans="0" data-defup="0">無減傷 / 無傷害分配</option>
+                            <option value="">手動</option>
                             <option data-divider="true"></option>
                             <optgroup label="減傷">
-                                <option value="proof-of-valor-init" data-reduc="30" data-subtext="30%">勇猛證據 (戰鬥開始時)</option>
-                                <option value="proof-of-valor-down" data-reduc="15" data-subtext="15%">勇猛證據 (效果最低時)</option>
-                                <option value="adamant-shield" data-reduc="16" data-subtext="16%">金剛石盾牌 (滿破時)</option>
-                                <option value="draco-plate" data-reduc="16" data-subtext="16%">龍族板甲 (滿破時)</option>
-                                <option value="elena" data-reduc="15" data-subtext="15%">艾蕾娜 (被動)</option>
-                                <option value="c-armin" data-reduc="15" data-subtext="15%">紅焰亞敏 (被動)</option>
+                                <option value="proof-of-valor-init" data-reduc="30" data-trans="0" data-defup="0" data-subtext="30%">勇猛證據 (戰鬥開始時)</option>
+                                <option value="proof-of-valor-down" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">勇猛證據 (效果最低時)</option>
+                                <option value="adamant-shield" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">金剛石盾牌 (滿破時)</option>
+                                <option value="draco-plate" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">龍族板甲 (滿破時)</option>
+                                <option value="elena" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">艾蕾娜 (被動)</option>
+                                <option value="c-armin" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">紅焰亞敏 (被動)</option>
                             </optgroup>
                             <optgroup label="傷害分配">
-                                <option value="ss-bellona" data-trans="30" data-subtext="30%">海邊的維爾蘿娜 (被動)</option>
-                                <option value="aurius" data-trans="20" data-defup="10" data-subtext="20% (+10% 防禦力)">亞烏利斯 (滿破時)</option>
-                                <option value="t-crozet" data-trans="40" data-subtext="40%">不法之徒克羅澤 (被動)</option>
-                                <option value="eaton" data-trans="30" data-subtext="30%">伊頓 (被動)</option>
+                                <option value="ss-bellona" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">海邊的維爾蘿娜 (被動)</option>
+                                <option value="aurius" data-trans="20" data-reduc="0" data-defup="10" data-subtext="20% (+10% 防禦力)">亞烏利斯 (滿破時)</option>
+                                <option value="t-crozet" data-trans="40" data-reduc="0" data-defup="0" data-subtext="40%">不法之徒克羅澤 (被動)</option>
+                                <option value="eaton" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">伊頓 (被動)</option>
                             </optgroup>
                         </select>
                     </div>
