@@ -741,9 +741,6 @@ const elements = {
   },
 };
 
-// declare this function now so it can be implemented in calculator.js but used here
-let manageSetForms
-
 elements.caster_speed.sub_elements = [elements.caster_speed_up];
 elements.caster_defense.sub_elements = [elements.caster_defense_up];
 elements.highest_ally_attack.sub_elements = [elements.ally_atk_up, elements.ally_atk_up_great];
@@ -751,8 +748,8 @@ elements.target_attack.sub_elements = [elements.target_atk_up, elements.target_a
 
 const slide = (fieldId) => {
   document.getElementById(fieldId).value = document.getElementById(`${fieldId}-slide`).value;
-  resolve();
   resetPreset(fieldId);
+  resolve();
 };
 
 const slideMola = (skillId) => {
@@ -794,6 +791,7 @@ const plus = (fieldId) => {
     input.value = Number(input.value)+inc;
     update(fieldId);
     resetPreset(fieldId);
+    resolve();
   }
 };
 
@@ -810,6 +808,7 @@ const minus = (fieldId) => {
     input.value = Number(input.value)-inc;
     update(fieldId);
     resetPreset(fieldId);
+    resolve();
   }
 };
 
@@ -821,11 +820,25 @@ const minusMola = (skillId) => {
 const resetPreset = (fieldId) => {
   if (fieldId === 'def') {
     $('#def-preset').selectpicker('val', '');
-  }
-  if (fieldId === 'atk' || fieldId === 'crit') {
+  } else if (fieldId === 'atk' || fieldId === 'crit') {
     $('#atk-preset').selectpicker('val', '');
+  } else if (['dmg-reduc', 'dmg-trans', 'def-pc-up'].includes(fieldId)) {
+    $('#dmg-reduc-preset').selectpicker('val', '');
   }
 };
+
+try {
+  document.getElementById('def-pc-up').onchange = () => {
+    resetPreset('def-pc-up');
+  }
+  document.getElementById('dmg-reduc').onchange = () => {
+    resetPreset('dmg-reduc');
+  }
+  document.getElementById('dmg-trans').onchange = () => {
+    resetPreset('dmg-trans');
+  }
+} catch (error) {}
+
 
 const showHeroInfo = (hero) => {
   const block = document.getElementById('hero-info');
@@ -854,15 +867,12 @@ const build = (hero) => {
     specificBlock.parentElement.style.display = 'none';
   }
 
-  // This will remove the initial Number Of Sets header
-  manageSetForms();
-
   const molagoraBlock = document.getElementById('molagora-block');
   molagoraBlock.innerHTML = '';
   for (let id of Object.keys(hero.skills)) {
     const skill = hero.skills[id];
     if (skill.enhance) {
-      $(molagoraBlock).append(`<div class="form-group row col-sm-12">
+      $(molagoraBlock).append(`<div class="form-group flex-centered row col-sm-12">
                         <label for="molagora-${id}" class="col-sm-12 col-md-1 col-form-label form-control-sm text-center mola-skill-label"><h5>${skillLabel(id)}</h5></label>
                         <div class="input-group input-group-sm col-md-2 col-sm-12">
                             <div class="input-group-prepend">
@@ -1000,7 +1010,8 @@ const dedupeForm = (hero, artifact) => {
   }
 }
 
-$(() => {
+// jQuery's $(() => {}) was not firing at the right time in Firefox, so use standard DOMContentLoaded
+window.addEventListener('DOMContentLoaded', () => {
   try {
     const heroSelector = document.getElementById('hero');
     const artiSelector = document.getElementById('artifact');
@@ -1016,6 +1027,10 @@ $(() => {
     }));
 
     heroSelector.onchange = () => {
+      if (currentHero) {
+        deleteParams(heroes[currentHero.id].form?.map(element => element.id));
+      }
+
       const hero = heroes[heroSelector.value];
       const artifact = { ...artifacts[artiSelector.value] };
       dedupeForm(hero, artifact);
@@ -1084,6 +1099,9 @@ $(() => {
     };
 
     artiSelector.onchange = () => {
+      if (currentArtifact?.id) {
+        deleteParams(artifacts[currentArtifact.id].form?.map(element => element.id));
+      }
       const hero = heroes[heroSelector.value];
       const artifact = {...artifacts[artiSelector.value]};
       dedupeForm(hero, artifact);

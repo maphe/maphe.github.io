@@ -38,6 +38,12 @@
     font-size: 1.2rem;
 }
 
+.flex-centered {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
 #damage-block {
     position: -webkit-sticky;
     position: sticky;
@@ -116,6 +122,69 @@ body .popover {
     bottom: 0.25rem;
 }
 
+.initial-hide {
+    display: none;
+    opacity: 0;
+}
+
+.initial-show {
+    display: block;
+}
+
+.spinner-holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+  
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.animate-bottom {
+    position: relative;
+    -webkit-animation-name: animatebottom;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatebottom;
+    animation-duration: 0.4s
+}
+
+.fade-in {
+    animation-name: fadein;
+    animation-duration: 0.15s;
+}
+
+@keyframes fadein { 
+    from{ opacity:0 } 
+    to{ opacity:1 }
+}
+
+@keyframes animatebottom { 
+    from{ bottom:-100px; opacity:0 } 
+    to{ bottom:0; opacity:1 }
+}
+
+.icon {
+    width: 1em;
+}
+
+.has-share {
+    display: flex;
+    justify-content: space-between;
+}
+
+.no-pad-sides {
+    padding-left: 0;
+    padding-right: 0;    
+}
+
+.decrease-margin-top {
+    /* The amount of margin bottom the form row has */
+    margin-top: -8px; 
+}
+
 /* Dark Theme */
 
 [data-theme="dark"] {
@@ -138,7 +207,7 @@ body .popover {
 [data-theme="dark"] .navbar-light .navbar-brand,
 [data-theme="dark"] .navbar-light .navbar-nav .nav-link:hover,
 [data-theme="dark"] .dropdown-item,
-[data-theme="dark"] .close,
+[data-theme="dark"] .close-modal,
 [data-theme="dark"] .popover-body {
     color: #eee;
 }

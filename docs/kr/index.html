@@ -46,7 +46,7 @@
                 </li>
             </ul>
         </nav>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 initial-hide fade-in">
             <ul class="navbar-nav">
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks <i class="fas fa-external-link-alt fa-xs"></i></a>
@@ -80,7 +80,10 @@
 <!--            </button>-->
 <!--        </div>-->
         <div>
-            <form id="stats">
+            <div class="initial-show spinner-holder">
+                <img src="../assets/icons/loading-spinner.svg" alt="Loading spinner...">
+            </div>
+            <form id="stats" class="initial-hide fade-in">
                 <div id="hero-block">
                     <div class="row">
                         <div class="form-group col-md-4 col-sm-12">
@@ -374,23 +377,24 @@
                     <div class="form-group col-md-4 col-sm-12">
                         <select id="dmg-reduc-preset" name="dmg-reduc-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true">
                             <option value="none" data-reduc="0" data-trans="0" data-defup="0">피해량 감소/전이 없음</option>
+                            <option value="">수동</option>
                             <option data-divider="true"></option>
                             <optgroup label="피해량 감소">
-                                <option value="proof-of-valor-init" data-reduc="30" data-subtext="30%">용맹의 증거 (전투 시작시)</option>
-                                <option value="proof-of-valor-down" data-reduc="15" data-subtext="15%">용맹의 증거 (피격 5회 이후)</option>
-                                <option value="adamant-shield" data-reduc="16" data-subtext="16%">아다만트 실드 (풀강)</option>
-                                <option value="elena" data-reduc="15" data-subtext="15%">엘레나 (2스킬 패시브)</option>
-                                <option value="c-armin" data-reduc="15" data-subtext="15%">홍염의 아밍 (2스킬 패시브)</option>
-                                <option value="sepulcrum-1" data-reduc="8" data-subtext="8%">세플크룸 (1스택)</option>
-                                <option value="sepulcrum-2" data-reduc="16" data-subtext="16%">세플크룸 (2스택)</option>
-                                <option value="sepulcrum-3" data-reduc="24" data-subtext="24%">세플크룸 (3스택)</option>
+                                <option value="proof-of-valor-init" data-reduc="30" data-trans="0" data-defup="0" data-subtext="30%">용맹의 증거 (전투 시작시)</option>
+                                <option value="proof-of-valor-down" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">용맹의 증거 (피격 5회 이후)</option>
+                                <option value="adamant-shield" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">아다만트 실드 (풀강)</option>
+                                <option value="elena" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">엘레나 (2스킬 패시브)</option>
+                                <option value="c-armin" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">홍염의 아밍 (2스킬 패시브)</option>
+                                <option value="sepulcrum-1" data-reduc="8" data-trans="0" data-defup="0" data-subtext="8%">세플크룸 (1스택)</option>
+                                <option value="sepulcrum-2" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">세플크룸 (2스택)</option>
+                                <option value="sepulcrum-3" data-reduc="24" data-trans="0" data-defup="0" data-subtext="24%">세플크룸 (3스택)</option>
                             </optgroup>
                             <optgroup label="피해량 전이">
-                                <option value="ss-bellona" data-trans="30" data-subtext="30%">해변의 벨로나 (2스킬 패시브)</option>
-                                <option value="escort" data-trans="30" data-subtext="30%">호위 버프</option>
-                                <option value="aurius" data-trans="20" data-defup="10" data-subtext="20% (+10% 방어력)">아우리우스 (풀강)</option>
-                                <option value="t-crozet" data-trans="40" data-subtext="40%">무법자 크로제 (2스킬 패시브)</option>
-                                <option value="eaton" data-trans="30" data-subtext="30%">이튼 (2스킬 패시브)</option>
+                                <option value="ss-bellona" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">해변의 벨로나 (2스킬 패시브)</option>
+                                <option value="escort" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">호위 버프</option>
+                                <option value="aurius" data-trans="20" data-reduc="0" data-defup="10" data-subtext="20% (+10% 방어력)">아우리우스 (풀강)</option>
+                                <option value="t-crozet" data-trans="40" data-reduc="0" data-defup="0" data-subtext="40%">무법자 크로제 (2스킬 패시브)</option>
+                                <option value="eaton" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">이튼 (2스킬 패시브)</option>
                             </optgroup>
                         </select>
                     </div>
@@ -525,7 +529,7 @@
             </form>
         </div>
 
-        <div id="damage-block">
+        <div id="damage-block" class="initial-hide fade-in">
             <h4>
                 데미지
                 <div class="btn-group" role="group">
@@ -535,6 +539,9 @@
                     <button id="compare-open" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#compareModal">
                         <i class="fas fa-exchange-alt"></i> <span class="d-none d-md-inline">비교</span>
                         <span id="compare-pool-size" class="badge badge-light">0</span>
+                    </button>
+                    <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
+                        <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">공유</span>
                     </button>
                 </div>
                 <span id="barrier-block" class="badge badge-light float-right">
@@ -570,7 +577,7 @@
             </div>
         </div>
 
-        <footer class="page-footer pt-3 mt-5">
+        <footer class="page-footer pt-3 mt-5 initial-hide fade-in">
             <div class="container-fluid text-center text-md-left">
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
@@ -614,7 +621,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">데미지 비교</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -644,11 +651,14 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">데미지 비교</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close close-modal" data-dismiss="modal" onclick="compareClosed()" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="compare-show spinner-holder">
+                        <img src="../assets/icons/loading-spinner.svg" alt="Loading spinner...">
+                    </div>
+                    <div class="modal-body compare-hide">
                         <p id="compare-splash" style="display: none">이 영웅을 위해 저장된 세팅이 없습니다</p>
                         <div id="damage-comparison-block">
                             <table class="table table-bordered table-sm col-sm-12">
@@ -657,14 +667,14 @@
                                 </thead>
                                 <tbody id="damage-comparison"></tbody>
                             </table>
-                            <span class="text-muted font-italic">데미지는 치명타를 기준으로 비교됩니다. 치명타가 발생하지 않는 스킬의 경우 평타로 비교됩니다.</span>
+                            <span class="text-muted font-italic compare-hide">데미지는 치명타를 기준으로 비교됩니다. 치명타가 발생하지 않는 스킬의 경우 평타로 비교됩니다.</span>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer compare-hide">
                         <button id="clear-compare" type="button" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash-alt"></i> 모두 지우기
                         </button>
-                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="compareClosed()" data-dismiss="modal">
                             <i class="fas fa-window-close"></i> 닫기
                         </button>
                     </div>
@@ -682,6 +692,7 @@
         <script src="../form.js"></script>
         <script src="../data/heroes.js"></script>
         <script src="../data/artifacts.js"></script>
-        <script src="../damage-calculator/calculator.js"></script>
+        <script defer src="../query-params.js"></script>
+        <script defer src="../damage-calculator/calculator.js"></script>
     </body>
 </html>

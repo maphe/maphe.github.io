@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html id="root" lang="en">
     <head>
         <script>
             (function(window, document, script, layer, ident) {
@@ -38,14 +38,36 @@
                     <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks <i class="fas fa-external-link-alt fa-xs"></i></a>
                 </li>
             </ul> -->
-        </nav>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="../index.html"><i class="fas fa-angle-double-left"></i> Damage Calculator</a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" lang="en-us">
+                        English <span class="flag flag-us"> </span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="../jp/effectiveness.html" lang="ja">日本語 <span class="flag flag-jp"> </span></a>
+                        <a class="dropdown-item" href="../kr/effectiveness.html" lang="ko">한국어 <span class="flag flag-kr"> </span></a>
+                        <a class="dropdown-item" href="../zhTW/effectiveness.html" lang="zh-tw">繁體中文 <span class="flag flag-tw"> </span></a>
+                        <a class="dropdown-item" href="../zh/effectiveness.html" lang="zh-cn">简体中文 <span class="flag flag-cn"> </span></a>
+                    </div>
                 </li>
             </ul>
-            <ul class="navbar-nav ml-auto">
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 initial-hide fade-in">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.html">Damage Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../speed-tuner/speed-tuner.html">Speed Tuner (Beta)</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../ehp-calculator/ehp-calculator.html">Effective HP Calculator</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto flex-centered">
+                <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
+                    <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">Share</span>
+                </button>
                 <li class="nav-item nav-link">
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="dark-switch">
@@ -58,7 +80,10 @@
             </ul>
         </nav>
         <div>
-            <form id="stats">
+            <div class="initial-show spinner-holder">
+                <img src="../assets/icons/loading-spinner.svg" alt="Loading spinner...">
+            </div>
+            <form id="stats" class="initial-hide fade-in">
                 <div class="stat-block">
                     <div class="form-group row col-sm-12">
                         <label for="hit-chance" class="col-md-9 col-form-label form-control-sm"><h5>Hit Chance (%)</h5></label>
@@ -130,7 +155,7 @@
             </form>
 
             <div>
-                <div class="row text-center">
+                <div class="row text-center initial-hide fade-in">
                     <div class="col-sm-3">
                         <div class="card border-success mb-3">
                             <div class="card-header">
@@ -180,6 +205,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/js/all.min.js"></script>
         <script src="../lang.js"></script>
+        <script src="../query-params.js"></script>
         <script src="effectiveness.js"></script>
         <script src="../form.js"></script>
     </body>

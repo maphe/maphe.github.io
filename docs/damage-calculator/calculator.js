@@ -1,3 +1,83 @@
+// set up vars for query params
+formDefaults = {
+  // come back and do the selectors (hero, arti, preset atk/cd, preset target, preset dmg reduce)
+  'atk': 2500,
+  'atkPcImprint': 0,
+  'atkPcUp': 0,
+  'crit': 250,
+  'bonusDamage': 0,
+  'torrentSetStack': 1,
+  'def': 1000,
+  'defPcUp': 0,
+  'dmgReduc': 0,
+  'dmgTrans': 0,
+  'hero': 'achates',
+  'artifact': undefined,
+  'atkPreset': undefined,
+  'defPreset': undefined,
+  'dmgReducPreset': 'none'
+}
+
+// list artifact first to avoid invalid arti selections
+selectorParams = [
+  'artifact', 'hero', 'atkPreset', 'defPreset', 'dmgReducPreset'
+]
+boolParams = [
+  'elemAdv', 'atkDown', 'atkUp', 'atkUpGreat', 'critDmgUp', 'vigor', 'rageSet',
+  'penSet', 'torrentSet', 'defUp', 'targetVigor', 'defDown', 'target'
+]
+numberParams = [
+  'atk', 'atkPcImprint', 'atkPcUp', 'crit', 'bonusDamage', 'torrentSetStack', 'def',
+  'defPcUp', 'dmgReduc', 'dmgTrans'
+]
+page = 'dmg_calc';
+
+// regular inputs. This adds a lot of lines, but the dom only needs to be queried once for many inputs.
+// might refactor this later cause it is a bit clunky...
+const atkInput = document.getElementById('atk');
+const atkPcImprintInput = document.getElementById('atk-pc-imprint');
+const atkPcUpInput = document.getElementById('atk-pc-up');
+const critInput = document.getElementById('crit');
+const bonusDamageInput = document.getElementById('bonus-damage');
+const elemAdvInput = document.getElementById('elem-adv');
+const atkDownInput = document.getElementById('atk-down');
+const atkUpInput = document.getElementById('atk-up');
+const atkUpGreatInput = document.getElementById('atk-up-great');
+const critDmgUpInput = document.getElementById('crit-dmg-up');
+const vigorInput = document.getElementById('vigor');
+const rageSetInput = document.getElementById('rage-set');
+const penSetInput = document.getElementById('pen-set');
+const torrentSetInput = document.getElementById('torrent-set');
+let torrentSetStackInput = document.getElementById('torrent-set-stack');
+const defInput = document.getElementById('def');
+const defPcUpInput = document.getElementById('def-pc-up');
+const dmgReducInput = document.getElementById('dmg-reduc');
+const dmgTransInput = document.getElementById('dmg-trans');
+const defUpInput = document.getElementById('def-up');
+const targetVigorInput = document.getElementById('target-vigor');
+const defDownInput = document.getElementById('def-down');
+const targetInput = document.getElementById('target');
+const heroSelector = document.getElementById('hero');
+const artifactSelector = document.getElementById('artifact');
+const atkPresetSelector = document.getElementById('atk-preset');
+const defPresetSelector = document.getElementById('def-preset');
+const dmgReducPresetSelector = document.getElementById('dmg-reduc-preset');
+
+// slides
+const atkSlide = document.getElementById('atk-slide');
+const atkPcImprintSlide = document.getElementById('atk-pc-imprint-slide');
+const atkPcUpSlide = document.getElementById('atk-pc-up-slide');
+const critSlide = document.getElementById('crit-slide');
+const bonusDamageSlide = document.getElementById('bonus-damage-slide');
+let torrentSetStackSlide = document.getElementById('torrent-set-stack-slide');
+const defSlide = document.getElementById('def-slide');
+const defPcUpSlide = document.getElementById('def-pc-up-slide');
+const dmgReducSlide = document.getElementById('dmg-reduc-slide');
+const dmgTransSlide = document.getElementById('dmg-trans-slide');
+
+// declare inputValues up here since it'll be used in multiple places
+let inputValues
+
 const dmgConst = 1.871;
 const hitTypes = {
   crit: 'crit',
@@ -17,46 +97,56 @@ const getSkillType = (skill) => {
   return undefined;
 }
 
-// manageSetForms is already declared in form.js which is loaded first
-manageSetForms = () => {
+const stackingSets = ['torrent-set']
+const manageSetForms = () => {
   setForms = [];
-  for (let checkboxId of ['torrent-set']) {
-    const elem = document.getElementById(checkboxId);
+  for (const set of stackingSets) {
+    const elem = document.getElementById(set);
     if (elem.checked) {
-      setForms.push(elements[`${checkboxId.replace('-', '_')}_stack`])
+      setForms.push(elements[`${set.replace('-', '_')}_stack`])
     }
   }
 
-  const numSetsBlock = document.getElementById('set-num-block');
+  const setNumHolder = document.getElementById('set-num-holder');
   if (setForms.length) {
+    setNumHolder.style.display = 'block';
+    setNumHolder.innerHTML = `<h4>Number of Sets</h4>
+                              <div id="set-num-block"></div>
+                              <hr />`
+    const numSetsBlock = document.getElementById('set-num-block');
     numSetsBlock.innerHTML = '';
     for (let elem of setForms) {
       buildElement(elem, numSetsBlock);
     }
-    numSetsBlock.parentElement.style.display = 'block';
+    
+    // fetch all set stack inputs here
+    torrentSetStackInput = document.getElementById('torrent-set-stack');
+    torrentSetStackSlide = document.getElementById('torrent-set-stack-slide');
   } else {
-    numSetsBlock.parentElement.style.display = 'none';
+    setNumHolder.style.display = 'none';
   }
 }
 
 const torrentSetToggled = () => {
-  const torrentSetInput = document.getElementById('torrent-set');
   window.dataLayer.push({
     'event': 'toggle_torrent_set',
     'torrent_set': torrentSetInput.checked ? 'on' : 'off'
   });
 
-  // reset value to 1 when toggling torrent set off
+  // reset value when toggling torrent set off
   if (!torrentSetInput.checked) {
-    const torrentSetNumInput = document.getElementById('torrent-set-stack');
-    torrentSetNumInput.value = 1;
+    torrentSetStackInput.value = formDefaults.torrentSetStack;
   }
   manageSetForms();
 }
 
 const resolve = () => {
-  const artifact = new Artifact(document.getElementById('artifact').value);
-  const hero = new Hero(document.getElementById('hero').value, artifact);
+  if (loadingQueryParams) {
+    return; // don't resolve until params are loaded
+  }
+  inputValues = getInputValues(true);
+  const artifact = new Artifact(inputValues.artifact);
+  const hero = new Hero(inputValues.hero, artifact);
 
   document.getElementById(`barrier-block`).style.display = 'none';
   document.getElementById(`artifact-dmg-block`).style.display = 'none';
@@ -123,6 +213,8 @@ const resolve = () => {
       }
     }
   }
+
+  formUpdated(true);
 };
 
 const displayDmg = (damage, type) => {
@@ -155,31 +247,29 @@ const getModTooltip = (hero, skillId, soulburn = false) => {
   return content;
 }
 
+const attackMods = ['atkDown', 'atkUp', 'atkUpGreat', 'vigor'];
 const getGlobalAtkMult = () => {
   let mult = 0.0;
 
-  for (let checkboxId of ['atk-down', 'atk-up', 'atk-up-great', 'vigor']) {
-    const elem = document.getElementById(checkboxId);
-    mult += elem.checked ? Number(elem.value)-1 : 0.0;
-  }
+  attackMods.forEach((mod) => {
+    mult += inputValues[mod] ? battleConstants[mod] - 1 : 0.0;
+  });
 
   if (elements.caster_enrage.value()) {
     mult += 0.1;
   }
 
-  return mult + (Number(document.getElementById('atk-pc-up').value)/100);
+  return mult + (inputValues.atkPcUp / 100);
 };
 
+const damageMultSets = ['rageSet', 'torrentSet'];
 const getGlobalDamageMult = (hero, skill) => {
   let mult = 0.0;
 
-  for (let checkboxId of ['rage-set', 'torrent-set']) {
-    const elem = document.getElementById(checkboxId);
-    mult += elem.checked ? Number(elem.value) * (document.getElementById(`${checkboxId}-stack`)?.value || 1)
-                         : 0.0;
-  }
+  damageMultSets.forEach((set) => {
+    mult += inputValues[set] ? battleConstants[set] * (inputValues[`${set}Stack`] || 1) : 0.0;
+  })
 
-  const defPresetSelector = document.getElementById('def-preset');
   const selected = defPresetSelector.options[defPresetSelector.selectedIndex];
   if (hero.element === selected.dataset.elemExtraDmg) {
       mult += parseFloat(selected.dataset.extraDmgPc)-1;
@@ -198,9 +288,8 @@ const getGlobalDamageMult = (hero, skill) => {
 const getGlobalDefMult = () => {
   let mult = 1.0;
 
-  for (let checkboxId of ['def-up', 'def-down', 'target-vigor']) {
-    const elem = document.getElementById(checkboxId);
-    mult += elem.checked ? Number(elem.value) : 0.0;
+  for (let defMod of ['defUp', 'defDown', 'targetVigor']) {
+    mult += inputValues[defMod] ? battleConstants[defMod] : 0.0;
   }
 
   return mult;
@@ -211,9 +300,9 @@ let currentHero = null;
 class Hero {
   constructor(id, artifact) {
     this.id = id;
-    this.atk = Number(document.getElementById('atk').value);
-    this.crit = Number(document.getElementById('crit').value);
-    this.bonus = Number(document.getElementById('bonus-damage').value);
+    this.atk = inputValues.atk;
+    this.crit = inputValues.crit;
+    this.bonus = inputValues.bonusDamage;
     this.skills = heroes[id].skills;
     this.baseAtk = heroes[id].baseAtk || 0;
     this.dot = [...(heroes[id].dot || []), ...(artifact?.getDoT() || [])];
@@ -256,8 +345,7 @@ class Hero {
   }
 
   getDamage(skillId, soulburn = false) {
-    const critDmgUpBox = document.getElementById('crit-dmg-up');
-    const critDmgBuff = critDmgUpBox && critDmgUpBox.checked ? Number(critDmgUpBox.value) : 0.0;
+    const critDmgBuff = inputValues.critDmgUp ? battleConstants.critDmgUp : 0.0;
 
     const skill = this.skills[skillId];
     const hit = this.offensivePower(skillId, soulburn) * this.target.defensivePower(skill);
@@ -279,13 +367,13 @@ class Hero {
     let atk = (skill !== undefined && skill.atk !== undefined) ? skill.atk() : this.atk;
 
     if (this.innateAtkUp !== undefined) {
-      atk = atk / (1+this.innateAtkUp());
+      atk = atk / (1 + this.innateAtkUp());
     }
 
     let atkImprint = 0;
     let atkMod = 1;
     if (skill === undefined || skill.noBuff !== true) {
-      atkImprint = this.baseAtk * (Number(document.getElementById('atk-pc-imprint').value) / 100);
+      atkImprint = this.baseAtk * (inputValues.atkPcImprint / 100);
       atkMod = 1
           + getGlobalAtkMult()
           + (this.atkUp !== undefined ? this.atkUp() - 1 : 0)
@@ -306,10 +394,10 @@ class Hero {
     const pow = (typeof skill.pow === 'function') ? skill.pow(soulburn) : skill.pow;
     const skillEnhance = this.getSkillEnhanceMult(skillId);
     let elemAdv = 1.0;
-    if (document.getElementById('elem-adv').checked || (typeof skill.elemAdv === 'function') && skill.elemAdv() === true) {
-      elemAdv = Number(document.getElementById('elem-adv').value);
+    if (inputValues.elemAdv || (typeof skill.elemAdv === 'function') && skill.elemAdv() === true) {
+      elemAdv = battleConstants.elemAdv;
     }
-    const target = document.getElementById('target').checked ? Number(document.getElementById('target').value) : 1.0;
+    const target = inputValues.target ? battleConstants.target : 1.0;
 
     let dmgMod = 1.0
         + getGlobalDamageMult(this, skill)
@@ -419,31 +507,31 @@ class Hero {
 
 class Target {
   constructor(casterArtifact) {
-    const defMult = getGlobalDefMult() + Number(document.getElementById('def-pc-up').value)/100;
-    this.def = Number(document.getElementById('def').value)*defMult;
+    const defMult = getGlobalDefMult() + inputValues.defPcUp / 100;
+    this.def = inputValues.def * defMult;
     this.casterArtifact = casterArtifact;
   }
 
   getPenetration(skill) {
     const base = skill && skill.penetrate ? skill.penetrate() : 0;
     const artifact = this.casterArtifact.getDefensePenetration(skill);
-    const set = (getSkillType(skill) === skillTypes.single) && document.getElementById('pen-set') && document.getElementById('pen-set').checked
-        ? Number(document.getElementById('pen-set').value)
-        : 0;
+    const set = (getSkillType(skill) === skillTypes.single) && inputValues['penSet'] ? battleConstants.penSet : 0;
 
     return Math.min(1, (1-base) * (1-set) * (1-artifact));
   }
 
   defensivePower(skill, noReduc = false) {
-    const dmgReduc = noReduc ? 0 : Number(document.getElementById('dmg-reduc').value)/100;
-    const dmgTrans = skill.noTrans === true ? 0 : Number(document.getElementById('dmg-trans').value)/100;
+    const dmgReduc = noReduc ? 0 : inputValues['dmgReduc'] / 100;
+    const dmgTrans = skill.noTrans === true ? 0 : inputValues.dmgTrans / 100;
     return ((1-dmgReduc)*(1-dmgTrans))/(((this.def / 300)*this.getPenetration(skill)) + 1);
   }
 }
 
+let currentArtifact = null;
 class Artifact {
   constructor(id) {
     this.id = id ? id : undefined;
+    currentArtifact = this;
   }
 
   applies(skill, skillId = undefined) {

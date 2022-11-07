@@ -46,7 +46,7 @@
                 </li>
             </ul>
         </nav>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 initial-hide fade-in">
             <ul class="navbar-nav">
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks <i class="fas fa-external-link-alt fa-xs"></i></a>
@@ -78,8 +78,11 @@
                    <span aria-hidden="true">&times;</span>
                </button>
            </div> -->
-                <div>
-            <form id="stats">
+        <div>
+            <div class="initial-show spinner-holder">
+                <img src="../assets/icons/loading-spinner.svg" alt="Loading spinner...">
+            </div>
+            <form id="stats" class="initial-hide fade-in">
                 <div id="hero-block">
                     <div class="row">
                         <div class="form-group col-md-4 col-sm-12">
@@ -366,20 +369,21 @@
                     <div class="form-group col-md-4 col-sm-12">
                         <select id="dmg-reduc-preset" name="dmg-reduc-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true">
                             <option value="none" data-reduc="0" data-trans="0" data-defup="0">無減傷 / 無傷害分配</option>
+                            <option value="">手動</option>
                             <option data-divider="true"></option>
                             <optgroup label="減傷">
-                                <option value="proof-of-valor-init" data-reduc="30" data-subtext="30%">勇猛證據 (戰鬥開始時)</option>
-                                <option value="proof-of-valor-down" data-reduc="15" data-subtext="15%">勇猛證據 (效果最低時)</option>
-                                <option value="adamant-shield" data-reduc="16" data-subtext="16%">金剛石盾牌 (滿破時)</option>
-                                <option value="draco-plate" data-reduc="16" data-subtext="16%">龍族板甲 (滿破時)</option>
-                                <option value="elena" data-reduc="15" data-subtext="15%">艾蕾娜 (被動)</option>
-                                <option value="c-armin" data-reduc="15" data-subtext="15%">紅焰亞敏 (被動)</option>
+                                <option value="proof-of-valor-init" data-reduc="30" data-trans="0" data-defup="0" data-subtext="30%">勇猛證據 (戰鬥開始時)</option>
+                                <option value="proof-of-valor-down" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">勇猛證據 (效果最低時)</option>
+                                <option value="adamant-shield" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">金剛石盾牌 (滿破時)</option>
+                                <option value="draco-plate" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">龍族板甲 (滿破時)</option>
+                                <option value="elena" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">艾蕾娜 (被動)</option>
+                                <option value="c-armin" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">紅焰亞敏 (被動)</option>
                             </optgroup>
                             <optgroup label="傷害分配">
-                                <option value="ss-bellona" data-trans="30" data-subtext="30%">海邊的維爾蘿娜 (被動)</option>
-                                <option value="aurius" data-trans="20" data-defup="10" data-subtext="20% (+10% 防禦力)">亞烏利斯 (滿破時)</option>
-                                <option value="t-crozet" data-trans="40" data-subtext="40%">不法之徒克羅澤 (被動)</option>
-                                <option value="eaton" data-trans="30" data-subtext="30%">伊頓 (被動)</option>
+                                <option value="ss-bellona" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">海邊的維爾蘿娜 (被動)</option>
+                                <option value="aurius" data-trans="20" data-reduc="0" data-defup="10" data-subtext="20% (+10% 防禦力)">亞烏利斯 (滿破時)</option>
+                                <option value="t-crozet" data-trans="40" data-reduc="0" data-defup="0" data-subtext="40%">不法之徒克羅澤 (被動)</option>
+                                <option value="eaton" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">伊頓 (被動)</option>
                             </optgroup>
                         </select>
                     </div>
@@ -514,7 +518,7 @@
             </form>
         </div>
 
-        <div id="damage-block">
+        <div id="damage-block" class="initial-hide fade-in">
             <h4>
                 傷害計算
                 <div class="btn-group" role="group" aria-label="Basic example">
@@ -524,6 +528,9 @@
                     <button id="compare-open" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#compareModal">
                         <i class="fas fa-exchange-alt"></i> <span class="d-none d-md-inline">比較</span>
                         <span id="compare-pool-size" class="badge badge-light">0</span>
+                    </button>
+                    <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
+                        <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">分享</span>
                     </button>
                 </div>
                 <span id="barrier-block" class="badge badge-light float-right">
@@ -559,7 +566,7 @@
             </div>
         </div>
         
-        <footer class="page-footer pt-3 mt-5">
+        <footer class="page-footer pt-3 mt-5 initial-hide fade-in">
             <div class="container-fluid text-center text-md-left">
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
@@ -600,7 +607,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">傷害比較</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -630,11 +637,14 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">傷害比較</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close close-modal" data-dismiss="modal" onclick="compareClosed()" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="compare-show spinner-holder">
+                        <img src="../assets/icons/loading-spinner.svg" alt="Loading spinner...">
+                    </div>
+                    <div class="modal-body compare-hide">
                         <p id="compare-splash" style="display: none">目前這個英雄沒有已保存的配裝</p>
                         <div id="damage-comparison-block">
                             <table class="table table-bordered table-sm col-sm-12">
@@ -643,14 +653,14 @@
                                 </thead>
                                 <tbody id="damage-comparison"></tbody>
                             </table>
-                            <span class="text-muted font-italic">此處默認比較的是暴擊傷害，在技能無法觸發暴擊的情況下會比較普通傷害</span>
+                            <span class="text-muted font-italic compare-hide">此處默認比較的是暴擊傷害，在技能無法觸發暴擊的情況下會比較普通傷害</span>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer compare-hide">
                         <button id="clear-compare" type="button" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash-alt"></i> 清除全部
                         </button>
-                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="compareClosed()" data-dismiss="modal">
                             <i class="fas fa-window-close"></i> 關閉
                         </button>
                     </div>
@@ -668,6 +678,7 @@
         <script src="../form.js"></script>
         <script src="../data/heroes.js"></script>
         <script src="../data/artifacts.js"></script>
-        <script src="../damage-calculator/calculator.js"></script>
+        <script defer src="../query-params.js"></script>
+        <script defer src="../damage-calculator/calculator.js"></script>
     </body>
 </html>

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html id="root" lang="en">
     <head>
         <script>
@@ -48,7 +49,7 @@
                 </li>
             </ul>
         </nav>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 initial-hide fade-in">
             <ul class="navbar-nav">
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks <i class="fas fa-external-link-alt fa-xs"></i></a>
@@ -60,7 +61,7 @@
                     <a class="nav-link" href="effectiveness/effectiveness.html">Effectiveness Checker</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="ehp-calculator/ehp-calculator.html">Efective HP Calculator</a>
+                    <a class="nav-link" href="ehp-calculator/ehp-calculator.html">Effective HP Calculator</a>
                 </li>
                 <!-- <li class="nav-item">
                     <a class="nav-link" href="ldplayer.html"><b>Play E7 on PC</b></a>
@@ -83,7 +84,7 @@
                 </li>
             </ul>
         </nav>
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <div class="alert alert-warning alert-dismissible fade show initial-hide fade-in" role="alert">
             <strong>Nov. 01 2022 Update:</strong> The Speed Tuner page will now update the URL as you change inputs.  The link can be shared to show another user the results you calculated.<br>
 
             <br> Many thanks to Maphe for creating and maintaing this tool thus far and making it easy for others to pick up. -tyopoyt
@@ -92,7 +93,10 @@
             </button>
         </div>
         <div>
-            <form id="stats">
+            <div class="initial-show spinner-holder">
+                <img src="./assets/icons/loading-spinner.svg" alt="Loading spinner...">
+            </div>
+            <form id="stats" class="initial-hide fade-in">
                 <div id="hero-block">
                     <div class="row">
                         <div class="form-group col-md-4 col-sm-12">
@@ -281,10 +285,7 @@
                         </div>
                     </div>
 
-                    <div>
-                        <h4>Number of Sets</h4>
-                        <div id="set-num-block"></div>
-                        <hr />
+                    <div id="set-num-holder">
                     </div>
                     <hr />
                 </div>
@@ -388,23 +389,24 @@
                     <div class="form-group col-md-4 col-sm-12">
                         <select id="dmg-reduc-preset" name="dmg-reduc-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true">
                             <option value="none" data-reduc="0" data-trans="0" data-defup="0">No Damage Reduction/Transfer</option>
+                            <option value="">Manual</option>
                             <option data-divider="true"></option>
                             <optgroup label="Damage Reduction">
-                                <option value="proof-of-valor-init" data-reduc="30" data-subtext="30%">Proof of Valor (Battle start)</option>
-                                <option value="proof-of-valor-down" data-reduc="15" data-subtext="15%">Proof of Valor (After 5 hits)</option>
-                                <option value="adamant-shield" data-reduc="16" data-subtext="16%">Adamant Shield (Max)</option>
-                                <option value="elena" data-reduc="15" data-subtext="15%">Elena (S2 Passive)</option>
-                                <option value="c-armin" data-reduc="15" data-subtext="15%">Crimson Armin (S2 Passive)</option>
-                                <option value="sepulcrum-1" data-reduc="8" data-subtext="8%">Sepulcrum (Max - 1 stack)</option>
-                                <option value="sepulcrum-2" data-reduc="16" data-subtext="16%">Sepulcrum (Max - 2 stacks)</option>
-                                <option value="sepulcrum-3" data-reduc="24" data-subtext="24%">Sepulcrum (Max - 3 stacks)</option>
+                                <option value="proof-of-valor-init" data-reduc="30" data-trans="0" data-defup="0" data-subtext="30%">Proof of Valor (Battle start)</option>
+                                <option value="proof-of-valor-down" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">Proof of Valor (After 5 hits)</option>
+                                <option value="adamant-shield" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">Adamant Shield (Max)</option>
+                                <option value="elena" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">Elena (S2 Passive)</option>
+                                <option value="c-armin" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">Crimson Armin (S2 Passive)</option>
+                                <option value="sepulcrum-1" data-reduc="8" data-trans="0" data-defup="0" data-subtext="8%">Sepulcrum (Max - 1 stack)</option>
+                                <option value="sepulcrum-2" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">Sepulcrum (Max - 2 stacks)</option>
+                                <option value="sepulcrum-3" data-reduc="24" data-trans="0" data-defup="0" data-subtext="24%">Sepulcrum (Max - 3 stacks)</option>
                             </optgroup>
                             <optgroup label="Damage Transfer">
-                                <option value="ss-bellona" data-trans="30" data-subtext="30%">Seaside Bellona (S2 Passive)</option>
-                                <option value="escort" data-trans="30" data-subtext="30%">Escort Buff</option>
-                                <option value="aurius" data-trans="20" data-defup="10" data-subtext="20% (+10% Defense)">Aurius (Max)</option>
-                                <option value="t-crozet" data-trans="40" data-subtext="40%">Troublemaker Crozet (S2 Passive)</option>
-                                <option value="eaton" data-trans="30" data-subtext="30%">Eaton (S2 Passive)</option>
+                                <option value="ss-bellona" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">Seaside Bellona (S2 Passive)</option>
+                                <option value="escort" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">Escort Buff</option>
+                                <option value="aurius" data-trans="20" data-defup="10" data-reduc="0" data-subtext="20% (+10% Defense)">Aurius (Max)</option>
+                                <option value="t-crozet" data-trans="40" data-reduc="0" data-defup="0" data-subtext="40%">Troublemaker Crozet (S2 Passive)</option>
+                                <option value="eaton" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">Eaton (S2 Passive)</option>
                             </optgroup>
                         </select>
                     </div>
@@ -539,7 +541,7 @@
             </form>
         </div>
 
-        <div id="damage-block">
+        <div id="damage-block" class="initial-hide fade-in">
             <h4>
                 Damage
                 <div class="btn-group" role="group">
@@ -549,6 +551,9 @@
                     <button id="compare-open" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#compareModal">
                         <i class="fas fa-exchange-alt"></i> <span class="d-none d-md-inline">Compare</span>
                         <span id="compare-pool-size" class="badge badge-light">0</span>
+                    </button>
+                    <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
+                        <img class="icon" src="./assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">Share</span>
                     </button>
                 </div>
                 <span id="barrier-block" class="badge badge-light float-right">
@@ -584,7 +589,7 @@
             </div>
         </div>
     
-        <footer class="page-footer pt-3 mt-5">
+        <footer class="page-footer pt-3 mt-5 initial-hide">
             <div class="container-fluid text-center text-md-left">
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
@@ -628,7 +633,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Compare Damage</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
@@ -658,11 +663,14 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Compare Damage</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" class="close close-modal" data-dismiss="modal" onclick="compareClosed()" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="compare-show spinner-holder">
+                        <img src="./assets/icons/loading-spinner.svg" alt="Loading spinner...">
+                    </div>
+                    <div class="modal-body compare-hide">
                         <p id="compare-splash" style="display: none">No builds have been saved yet for this hero</p>
                         <div id="damage-comparison-block">
                             <table class="table table-bordered table-sm col-sm-12">
@@ -671,14 +679,14 @@
                                 </thead>
                                 <tbody id="damage-comparison"></tbody>
                             </table>
-                            <span class="text-muted font-italic">This is comparing critical hit damage, or normal hit if a skill cannot trigger a critical hit</span>
+                            <span class="text-muted font-italic compare-hide">This is comparing critical hit damage, or normal hit if a skill cannot trigger a critical hit</span>
                         </div>
                     </div>
-                    <div class="modal-footer">
+                    <div class="modal-footer compare-hide">
                         <button id="clear-compare" type="button" class="btn btn-danger btn-sm">
                             <i class="fas fa-trash-alt"></i> Clear All
                         </button>
-                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">
+                        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" onclick="compareClosed()">
                             <i class="fas fa-window-close"></i> Close
                         </button>
                     </div>
@@ -696,6 +704,8 @@
         <script src="form.js"></script>
         <script src="data/heroes.js"></script>
         <script src="data/artifacts.js"></script>
-        <script src="damage-calculator/calculator.js"></script>
+        <script src="data/constants.js"></script>
+        <script defer src="query-params.js"></script>
+        <script defer src="damage-calculator/calculator.js"></script>
     </body>
 </html>
