@@ -1,5 +1,6 @@
 ## Changelog
 
+<strong>Nov. 01 2022 Update:</strong> The Speed Tuner page will now update the URL as you change inputs.  The link can be shared to show another user the results you calculated.<br>
 <strong>Nov. 01 2022 Update:</strong> Added query param support to Speed Tuner page.<br>
 <strong>Oct. 30 2022 Update:</strong> Changed to using local images in case one of the other sites is ever down.<br>
 <strong>Oct. 29 2022 Update:</strong> Added Arunka (Unreleased). Updated Hwayoung, Vildred, Pirate Captain Flan, Bad Cat Armin, and Jena from 10/27 balance patch. Previous versions will remain available for comparison for the time being.<br>
