@@ -334,7 +334,6 @@ const updateQueryParamsWhenStable = async (updateURL=false) => {
             }
         }
 
-        // TODO: fix hero specific shit defaults getting setnt to params
         // fill artifact specific fields
         if (inputValues['artifact-lvl'] !== 30) {
             queryParams.set('artifact-lvl', inputValues['artifact-lvl']);
