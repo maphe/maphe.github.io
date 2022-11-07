@@ -52,11 +52,8 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto flex-centered">
-                <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
-                    <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">Share</span>
-                </button>
                 <li class="nav-item nav-link">
-                    <div class="custom-control custom-switch">
+                    <div class="custom-control custom-switch mar-right">
                         <input type="checkbox" class="custom-control-input" id="dark-switch">
                         <label class="custom-control-label" for="dark-switch">
                             <span class="d-none d-sm-inline">Dark Mode</span>
@@ -64,6 +61,9 @@
                         </label>
                     </div>
                 </li>
+                <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
+                    <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">Share</span>
+                </button>
             </ul>
         </nav>
         <div>

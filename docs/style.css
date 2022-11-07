@@ -185,6 +185,10 @@ body .popover {
     margin-top: -8px; 
 }
 
+.mar-right {
+    margin-right: 0.5rem;
+}
+
 /* Dark Theme */
 
 [data-theme="dark"] {
