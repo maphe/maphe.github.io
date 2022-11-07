@@ -827,15 +827,18 @@ const resetPreset = (fieldId) => {
   }
 };
 
-document.getElementById('def-pc-up').onchange = () => {
-  resetPreset('def-pc-up');
-}
-document.getElementById('dmg-reduc').onchange = () => {
-  resetPreset('dmg-reduc');
-}
-document.getElementById('dmg-trans').onchange = () => {
-  resetPreset('dmg-trans');
-}
+try {
+  document.getElementById('def-pc-up').onchange = () => {
+    resetPreset('def-pc-up');
+  }
+  document.getElementById('dmg-reduc').onchange = () => {
+    resetPreset('dmg-reduc');
+  }
+  document.getElementById('dmg-trans').onchange = () => {
+    resetPreset('dmg-trans');
+  }
+} catch (error) {}
+
 
 const showHeroInfo = (hero) => {
   const block = document.getElementById('hero-info');
