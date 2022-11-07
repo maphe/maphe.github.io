@@ -96,11 +96,6 @@ fasterPushesSlowerInput.addEventListener('change', fasterPushesSlowUpdate);
 boolParams = ['fasterPushesSlower', 'stigmaPolitis'];
 numberParams = ['slowerSpeed', 'slowerPush', 'fasterSpeed', 'fasterPush', 'fasterTurns']
 page = 'speed_tuner';
-// paramCallbacks = {
-//     'fasterPushesSlower': fasterPushesSlowUpdate
-// }
-
-// loadQueryParams();
 
 fasterPushesToggled = () => {
     window.dataLayer.push({

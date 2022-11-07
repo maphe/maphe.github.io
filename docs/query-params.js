@@ -10,6 +10,7 @@
  * 
  * Vars to be set in page .js files:
  * formDefaults: String -> value map of form default values
+ * selectorParams: String[] of params corresponding to selector inputs
  * numberParams: String[] of params corresponding to numerical inputs
  * boolParams: String[] of params corresponding to boolean inputs
  * page: String of the page name to send in the dataLayer event
@@ -24,7 +25,6 @@ let queryParams;
 let updateRequestTime;
 let page;
 let loadingQueryParams = true;
-let useFormElements = false;
 
 window.addEventListener('load', async () => {
     /*
@@ -87,7 +87,6 @@ const getInputValues = () => {
  * assigning them to variables as described above
  */
 const loadQueryParams = async () => {
-    // const paramsWithCallbacks = Object.keys(paramCallbacks);
 
     try {
         queryParams = new URLSearchParams(window.location.search);
@@ -257,7 +256,7 @@ const formUpdated = () => {
         if (updateRequestTime) {
             updateRequestTime = Date.now();
         } else if (updateRequestTime === null) {
-            updateQueryParamsWhenStable(useFormElements);
+            updateQueryParamsWhenStable();
         } else {
             updateRequestTime = null; // don't queue an update on the initial load
         }

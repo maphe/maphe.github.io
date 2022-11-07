@@ -33,6 +33,7 @@ numberParams = [
 page = 'dmg_calc';
 
 // regular inputs. This adds a lot of lines, but the dom only needs to be queried once for many inputs.
+// might refactor this later cause it is a bit clunky...
 const atkInput = document.getElementById('atk');
 const atkPcImprintInput = document.getElementById('atk-pc-imprint');
 const atkPcUpInput = document.getElementById('atk-pc-up');
@@ -138,8 +139,6 @@ const torrentSetToggled = () => {
   }
   manageSetForms();
 }
-
-// loadQueryParams(true);
 
 const resolve = () => {
   if (loadingQueryParams) {
@@ -395,7 +394,6 @@ class Hero {
     const pow = (typeof skill.pow === 'function') ? skill.pow(soulburn) : skill.pow;
     const skillEnhance = this.getSkillEnhanceMult(skillId);
     let elemAdv = 1.0;
-    // TODO: remove typeof? don't use === for skill.elemAdv if it's always returning bool
     if (inputValues.elemAdv || (typeof skill.elemAdv === 'function') && skill.elemAdv() === true) {
       elemAdv = battleConstants.elemAdv;
     }
