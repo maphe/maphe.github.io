@@ -143,6 +143,10 @@ correctTune = (slowSpeed, slowSpeedReq, fastSpeed, fastSpeedReq, fastPushes) => 
 }
 
 const resolve = () => {
+    if (loadingQueryParams) {
+        return; // don't resolve until params are loaded
+    }
+
     const inputValues = getInputValues();
     
     /* 

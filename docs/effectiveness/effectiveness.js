@@ -19,6 +19,10 @@ numberParams = ['hitChance', 'procChance', 'eff', 'effRes']
 page = 'effectiveness_calc';
 
 const resolve = () => {
+  if (loadingQueryParams) {
+    return; // don't resolve until params are loaded
+  }
+
   const inputValues = getInputValues();
 
   const hitChance = inputValues.hitChance/100;

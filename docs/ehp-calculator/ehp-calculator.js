@@ -53,6 +53,10 @@ const updateClasses = (first, second) => {
 }
 
 const resolve = () => {
+  if (loadingQueryParams) {
+    return; // don't resolve until params are loaded
+  }
+
   const inputValues = getInputValues();
 
   const firstEHP = Math.floor(inputValues.firstBuildHP * (inputValues.firstBuildDef / 300 + 1));
