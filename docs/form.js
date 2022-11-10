@@ -937,7 +937,7 @@ const refreshArtifactList = (hero) => {
     if (!artiOpt.value) continue;
     const artiExclusive = artifacts[artiOpt.value].exclusive
     const artiHeroExclusive = artifacts[artiOpt.value].hero_exclusive
-    artiOpt.disabled = (artiExclusive && artiExclusive !== hero.classType) || (artiHeroExclusive && !hero.name.endsWith(artiHeroExclusive));
+    artiOpt.disabled = (artiExclusive && artiExclusive !== hero.classType) || (artiHeroExclusive && !artiHeroExclusive.includes(hero.name));
   }
   if (artiSelector.options[artiSelector.selectedIndex].disabled) {
     artiSelector.value = '';
