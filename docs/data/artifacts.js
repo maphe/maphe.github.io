@@ -288,6 +288,16 @@ const artifacts = {
     dot: [dot.bomb],
     exclusive: classType.ranger
   },
+  sword_of_cycling_seasons: {
+    id: 'sword_of_cycling_seasons',
+    name: 'Sword of Cycling Seasons',
+    value: 0.25,
+    type: artifactDmgType.damage,
+    hero_exclusive: 'Adin',
+    applies: (skill) => {
+      return document.getElementById('elem-adv').checked || ((skill.elemAdv !== undefined) && skill.elemAdv() === true);
+    },
+  },
   sword_of_summer_twilight: {
     id: 'sword_of_summer_twilight',
     name: 'Sword of Summer Twilight',
