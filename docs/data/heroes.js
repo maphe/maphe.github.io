@@ -466,7 +466,7 @@ const heroes = {
     element: element.ice,
     classType: classType.mage,
     baseAtk: 1039,
-    form: [elements.caster_hp_pc, elements.caster_defense],
+    form: [elements.caster_defense],
     barrier: () => elements.caster_defense.value() * 1.0,
     skills: {
       s1: {
@@ -1713,12 +1713,12 @@ const heroes = {
     element: element.earth,
     classType: classType.thief,
     baseAtk: 1029,
-    form: [elements.caster_speed],
+    form: [elements.caster_speed, elements.exclusive_equipment_3],
     skills: {
       s1: {
         rate: () => elements.caster_speed_up.value() ? 1.5 : 0.9,
         pow: () => elements.caster_speed_up.value() ? 0.9 : 0.95,
-        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        mult: () => 1 + elements.caster_speed.value() * 0.00075,
         multTip: () => ({ caster_speed: 0.075 }),
         enhance: [0.05, 0.05, 0.05, 0.1, 0.1],
         single: true,
@@ -1727,10 +1727,10 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 2.2 : 1.6,
         pow: 1,
-        mult: () => 1 + elements.caster_speed.value()*0.0021,
+        mult: () => 1 + elements.caster_speed.value() * 0.0021,
         multTip: () => ({ caster_speed: 0.21 }),
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
-        elemAdv: () => elements.caster_speed_up.value(),
+        elemAdv: () => elements.caster_speed_up.value() || elements.exclusive_equipment_3.value(),
         single: true,
       }
     }
