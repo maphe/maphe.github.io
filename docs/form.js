@@ -935,7 +935,9 @@ const refreshArtifactList = (hero) => {
   const artiSelector = document.getElementById('artifact');
   for (const artiOpt of artiSelector.querySelectorAll('option')) {
     if (!artiOpt.value) continue;
-    artiOpt.disabled = artifacts[artiOpt.value].exclusive && (artifacts[artiOpt.value].exclusive !== hero.classType);
+    const artiExclusive = artifacts[artiOpt.value].exclusive
+    const artiHeroExclusive = artifacts[artiOpt.value].hero_exclusive
+    artiOpt.disabled = (artiExclusive && artiExclusive !== hero.classType) || (artiHeroExclusive && !hero.name.endsWith(artiHeroExclusive));
   }
   if (artiSelector.options[artiSelector.selectedIndex].disabled) {
     artiSelector.value = '';
