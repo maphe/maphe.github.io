@@ -312,7 +312,7 @@ const updateQueryParamsWhenStable = async (updateURL=false) => {
 
         for (let i = 1; i < 4; i++ ) {
 
-            const defaultVal = heroes[heroElement.value]?.skills[`s${i}`]?.enhance.length;
+            const defaultVal = heroes[heroElement.value]?.skills[`s${i}`]?.enhance?.length;
 
             if (defaultVal !== undefined && inputValues[`molagora-s${i}`] !== defaultVal) {
                 queryParams.set(`molagora-s${i}`, inputValues[`molagora-s${i}`]);

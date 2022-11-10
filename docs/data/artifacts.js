@@ -293,7 +293,7 @@ const artifacts = {
     name: 'Sword of Cycling Seasons',
     value: 0.25,
     type: artifactDmgType.damage,
-    hero_exclusive: 'Adin',
+    hero_exclusive: [heroes.adin.name, heroes.holy_flame_adin.name, heroes.serene_purity_adin.name, heroes.verdant_adin.name],
     applies: (skill) => {
       return document.getElementById('elem-adv').checked || ((skill.elemAdv !== undefined) && skill.elemAdv() === true);
     },
