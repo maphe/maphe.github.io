@@ -1435,7 +1435,7 @@ const i18n = {
       roy_mustang: '罗伊·马斯坦古',
       ruele_of_light: '光之瑞儿',
       sage_baal_and_sezan: '贤者巴尔&塞尚',
-      savior_adin: '救援者艾庭', // TODO: update with simplified name when available
+      savior_adin: '救援者艾庭',
       schuri: '修里',
       seaside_bellona: '海边的维尔萝娜',
       senya:'赛娜',
