@@ -7266,8 +7266,8 @@ const heroes = {
       s3: {
         rate: 0.2,
         pow: 1,
-        mult: () => 1 + (elements.target_hp_pc.value()) * 0.001875,
-        multTip: () => ({ target_hp_pc: 0.1875 }),
+        flat: () => elements.target_max_hp.value() * 0.001875,
+        flatTip: () => ({ target_max_hp: 0.1875 }),
         penetrate: () => 1,
         single: true,
       },
