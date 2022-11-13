@@ -112,6 +112,7 @@ const i18n = {
         per_target_debuff: '{v}% per Debuff',
         skill_tree: 'Skill Tree: {v}%',
         target_bleed: 'Target Bleed: {v}%',
+        target_current_hp: '{v}% Target current HP',
         target_debuff: 'Target Debuff: {v}%',
         target_has_buff: 'Target has Buff: {v}%',
         target_has_barrier: 'Target has Barrier: {v}%',
