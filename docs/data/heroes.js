@@ -5669,6 +5669,32 @@ const heroes = {
       }
     }
   },
+  savior_adin: {
+    name: 'Savior Adin',
+    element: element.light,
+    classType: classType.thief,
+    baseAtk: 1081,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 0.7,
+        pow: 1.3,
+        aoe: true,
+      },
+      s3: {
+        rate: 1.1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        penetrate: () => 0.5,
+        single: true,
+      },
+    }
+  },
   schuri: {
     name: 'Schuri',
     element: element.fire,
@@ -7214,5 +7240,37 @@ const heroes = {
         aoe: true,
       }
     }
-  }
+  },
+  zio: {
+    name: 'Zio (Unreleased)',
+    element: element.dark,
+    classType: classType.mage,
+    form: [elements.target_hp_pc],
+    info: infoLabel('unreleased_hero'),
+    baseAtk: 1255,
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s1_bis: {
+        name: infoLabel('zio_disappear'),
+        rate: 1,
+        pow: 1,
+        penetrate: () => 0.5,
+        enhance_from: 's1',
+        single: true,
+      },
+      s3: {
+        rate: 0.2,
+        pow: 1,
+        mult: () => 1 + (elements.target_hp_pc.value()) * 0.001875,
+        multTip: () => ({ target_hp_pc: 0.1875 }),
+        penetrate: () => 1,
+        single: true,
+      },
+    }
+  },
 };

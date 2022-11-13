@@ -138,7 +138,8 @@ const i18n = {
       sez_explosion: 'Explosion',
       unreleased_hero: '<strong>Notice:</strong> This hero is not yet released, and skill multipliers are subject to change.',
       victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes',
-      yoonryoung_slash: 'Dazzling Slash'
+      yoonryoung_slash: 'Dazzling Slash',
+      zio_disappear: 'Disappear',
     }
   },
   jp: {
@@ -1435,7 +1436,7 @@ const i18n = {
       roy_mustang: '罗伊·马斯坦古',
       ruele_of_light: '光之瑞儿',
       sage_baal_and_sezan: '贤者巴尔&塞尚',
-      savior_adin: '救援者艾庭', // TODO: update with simplified name when available
+      savior_adin: '救援者艾庭',
       schuri: '修里',
       seaside_bellona: '海边的维尔萝娜',
       senya:'赛娜',
