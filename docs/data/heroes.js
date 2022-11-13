@@ -7267,7 +7267,7 @@ const heroes = {
         rate: 0.2,
         pow: 1,
         flat: () => elements.target_current_hp.value() * 0.1875,
-        flatTip: () => ({ target_current_hp: 0.1875 }),
+        flatTip: () => ({ target_current_hp: 18.75 }),
         penetrate: () => 1,
         noCrit: true,
         single: true,
