@@ -138,7 +138,8 @@ const i18n = {
       sez_explosion: 'Explosion',
       unreleased_hero: '<strong>Notice:</strong> This hero is not yet released, and skill multipliers are subject to change.',
       victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes',
-      yoonryoung_slash: 'Dazzling Slash'
+      yoonryoung_slash: 'Dazzling Slash',
+      zio_disappear: 'Disappear',
     }
   },
   jp: {
