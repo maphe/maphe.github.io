@@ -7245,7 +7245,7 @@ const heroes = {
     name: 'Zio (Unreleased)',
     element: element.dark,
     classType: classType.mage,
-    form: [elements.target_hp_pc],
+    form: [elements.target_current_hp],
     info: infoLabel('unreleased_hero'),
     baseAtk: 1255,
     skills: {
