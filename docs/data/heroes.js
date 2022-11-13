@@ -7245,7 +7245,7 @@ const heroes = {
     name: 'Zio (Unreleased)',
     element: element.dark,
     classType: classType.mage,
-    form: [elements.target_hp_pc],
+    form: [elements.target_current_hp],
     info: infoLabel('unreleased_hero'),
     baseAtk: 1255,
     skills: {
@@ -7266,8 +7266,8 @@ const heroes = {
       s3: {
         rate: 0.2,
         pow: 1,
-        flat: () => elements.target_max_hp.value() * 0.001875,
-        flatTip: () => ({ target_max_hp: 0.1875 }),
+        flat: () => elements.target_current_hp.value() * 0.001875,
+        flatTip: () => ({ target_current_hp: 0.1875 }),
         penetrate: () => 1,
         single: true,
       },

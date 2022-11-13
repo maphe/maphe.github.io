@@ -63,10 +63,23 @@ const elements = {
     value: () => document.getElementById('target-atk-down').checked,
     icon: './assets/debuffs/attack-debuff.png'
   },
+  target_current_hp: { // TODO: Translate to other languages
+    ref: 'target_current_hp',
+    id: 'target-current-hp',
+    label: 'Target\'s Current HP',
+    type: 'slider',
+    min: 1000,
+    max: 50000,
+    default: () => {
+      const defPreset = document.getElementById('def-preset');
+      return defPreset.value ? defPreset.options[defPreset.selectedIndex].dataset.hp : 10000
+    },
+    value: () => Number(document.getElementById('target-current-hp').value)
+  },
   target_max_hp: {
     ref: 'target_max_hp',
     id: 'target-max-hp',
-    label: 'Targets\'s Max HP',
+    label: 'Target\'s Max HP',
     type: 'slider',
     min: 1000,
     max: 50000,
