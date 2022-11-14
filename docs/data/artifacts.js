@@ -308,7 +308,7 @@ const artifacts = {
   },
   sword_of_winter_shadow: {
     id: 'sword_of_winter_shadow',
-    name: 'Sword of Winder Shadow',
+    name: 'Sword of Winter Shadow',
     type: artifactDmgType.attack,
     exclusive: classType.thief,
     value: () => 0.15

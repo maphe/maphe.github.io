@@ -111,6 +111,7 @@ const i18n = {
         per_stack: '{v}% per Stack',
         per_target_debuff: '{v}% per Debuff',
         skill_tree: 'Skill Tree: {v}%',
+        skill_tree_elemental: 'Skill Tree & Elem. Adv.: {v}%', // TODO: Translate
         target_bleed: 'Target Bleed: {v}%',
         target_current_hp: '{v}% Target current HP',
         target_debuff: 'Target Debuff: {v}%',

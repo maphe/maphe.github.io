@@ -5674,6 +5674,7 @@ const heroes = {
     element: element.light,
     classType: classType.thief,
     baseAtk: 1081,
+    form: [elements.skill_tree_completed],
     skills: {
       s1: {
         rate: 1,
@@ -5691,6 +5692,8 @@ const heroes = {
         pow: 1,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         penetrate: () => 0.5,
+        mult: () => elements.skill_tree_completed.value() && document.getElementById(`elem-adv`).checked ? 1.2 : 1,
+        multTip: () => ({ skill_tree_elemental: 20 }),
         single: true,
       },
     }
