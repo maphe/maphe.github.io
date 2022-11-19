@@ -6184,7 +6184,7 @@ const heroes = {
         rate: 1.2,
         pow: 1,
         enhance: [0.05, 0, 0.05, 0, 0.05, 0.15],
-        single: () => elements.s3_on_cooldown.value(),
+        single: () => !elements.s3_on_cooldown.value(),
       },
       s2: {
         enhance: [0.005, 0.01, 0.015],
