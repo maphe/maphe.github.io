@@ -135,6 +135,7 @@ const heroes = {
     name: 'ae-NINGNING',
     element: element.fire,
     classType: classType.soul_weaver,
+    info: infoLabel('unreleased_hero'),
     baseAtk: 785,
     skills: {
       s1: {
@@ -7294,11 +7295,10 @@ const heroes = {
     }
   },
   zio: {
-    name: 'Zio (Unreleased)',
+    name: 'Zio',
     element: element.dark,
     classType: classType.mage,
     form: [elements.target_current_hp],
-    info: infoLabel('unreleased_hero'),
     baseAtk: 1255,
     skills: {
       s1: {
