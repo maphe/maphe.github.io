@@ -2,6 +2,8 @@ const i18n = {
   en: {
     nicknames: {
       adventurer_ras: 'aras a.ras',
+      ae_ningning: 'aeningning',
+      ae_winter: 'aewinter',
       ambitious_tywin: 'aywin ml.tywin mltywin',
       angelic_montmorancy: 'momo amomo a.momo',
       angel_of_light_angelica: 'aol',
@@ -426,6 +428,8 @@ const i18n = {
       zerato: 'ゼラト',
     },
     nicknames: {
+      ae_ningning: 'aeningning',
+      ae_winter: 'aewinter',
     },
     artifacts: {
       no_proc: '遺物効果なし',
@@ -848,6 +852,8 @@ const i18n = {
     },
     nicknames: {
       achates: '火奶',
+      ae_ningning: 'aeningning',
+      ae_winter: 'aewinter',
       aither: '小王子',
       alencia: '姨媽龍 龍姨媽',
       alexa: '小水刺',
@@ -1497,6 +1503,8 @@ const i18n = {
     },
     nicknames: {
       achates: '火奶',
+      ae_ningning: 'aeningning',
+      ae_winter: 'aewinter',
       aither: '小王子',
       alencia: '姨妈龙 龙姨妈',
       alexa: '小水刺',
@@ -2151,6 +2159,8 @@ const i18n = {
     },
     nicknames: {
       adventurer_ras: "모라스",
+      ae_ningning: 'ae닝닝',
+      ae_winter: 'ae윈터',
       alencia: "할매용",
       all_rounder_wanda: "만다",
       ambitious_tywin: '야이윈 야타',
