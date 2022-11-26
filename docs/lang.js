@@ -426,6 +426,7 @@ const i18n = {
       zealot_carmainerose: '伝道師 カーマイン・ローズ',
       zeno: 'ゼノ',
       zerato: 'ゼラト',
+      zio: 'ジオ',
     },
     nicknames: {
       ae_ningning: 'aeningning',
@@ -849,6 +850,7 @@ const i18n = {
       zealot_carmainerose: '傳道者卡麥蘿茲',
       zeno: '傑諾',
       zerato: '杰拉圖',
+      zio: '智武',
     },
     nicknames: {
       achates: '火奶',
@@ -1500,6 +1502,7 @@ const i18n = {
       zealot_carmainerose: '传道者卡麦萝兹',
       zeno: '杰诺',
       zerato: '杰拉图',
+      zio: '智武', // TODO: add simplified translation when possible
     },
     nicknames: {
       achates: '火奶',
@@ -2156,6 +2159,7 @@ const i18n = {
       zealot_carmainerose: '전도자 카마인로즈',
       zeno: '제노',
       zerato: '제라토',
+      zio: '지오',
     },
     nicknames: {
       adventurer_ras: "모라스",
