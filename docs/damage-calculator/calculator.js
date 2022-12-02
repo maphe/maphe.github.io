@@ -109,8 +109,13 @@ const manageSetForms = () => {
 
   const setNumHolder = document.getElementById('set-num-holder');
   if (setForms.length) {
+    const lang = document.getElementById('root').getAttribute('lang');
+    let setLabel = 'Number of Sets';
+    if (lang !== 'en') {
+      setLabel = i18n[lang].form.nb_sets || 'Number of Sets';
+    }
     setNumHolder.style.display = 'block';
-    setNumHolder.innerHTML = `<h4>Number of Sets</h4>
+    setNumHolder.innerHTML = `<h4>${setLabel}</h4>
                               <div id="set-num-block"></div>
                               <hr />`
     const numSetsBlock = document.getElementById('set-num-block');
