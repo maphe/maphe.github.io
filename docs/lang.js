@@ -128,6 +128,9 @@ const i18n = {
         under_threshold: 'Below Threshold: {v}%',
       }
     },
+    form: {
+      nb_sets: "Number of Sets"
+    },
     info: {
       alencia_trample: 'Trample',
       arunka_expose: 'Expose',
@@ -486,6 +489,7 @@ const i18n = {
       link_copied: 'コピーしました!',
       nb_targets: '敵数',
       nb_hits: 'ヒット数',
+      nb_sets: "セット数",
       share: '共有',
       target_max_hp: 'ターゲットのの生命力上限値',
       target_hp_pc: 'ターゲットの生命力割合(%)',
@@ -1092,6 +1096,7 @@ const i18n = {
       link_copied: '鏈接已復制！',
       nb_targets: '敵人數量',
       nb_hits: '攻擊次數',
+      nb_sets: '套裝數',
       share: '分享',
       target_max_hp: '目標最大生命值',
       target_hp_pc: '目標當前生命值(%)',
@@ -1735,6 +1740,7 @@ const i18n = {
       link_copied: '链接已复制！',
       nb_targets: '敌人数量',
       nb_hits: '攻击次数',
+      nb_sets: '套装数',
       share: '分享',
       target_atk_down: '目标攻击力下降',
       target_atk_up_great: '目标攻击力增加（大幅）',
@@ -2322,6 +2328,7 @@ const i18n = {
       link_copied: '링크 복사!',
       nb_targets: '대상 수',
       nb_hits: '히트 수',
+      nb_sets: '세트 수',
       share: '공유',
       target_atk_down: '공격력 감소 버프를 받은 대상',
       target_atk_up_great: '공격력 증가 (대) 버프를 받은 대상',
