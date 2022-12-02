@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html id="root" lang="br">
+    <head>
+        <script>
+            (function(window, document, script, layer, ident) {
+                window[layer] = window[layer] || [];
+                window[layer].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+                var f = document.getElementsByTagName(script)[0],
+                j = document.createElement(script),
+                dataLayer = layer != 'dataLayer' ? '&l=' + layer : '';
+                j.async=true;
+                j.src= 'https://www.googletagmanager.com/gtm.js?id=' + ident + dataLayer;
+                f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-M7H68RW');
+        </script>
+
+        <meta charset="utf-8" />
+        <meta name="keywords" content="epic seven damage calculator, epic 7 damage calculator, e7 damage calculator" />
+        <meta name="description" content="Damage Calculator for Epic Seven for every hero in the game. Enter your hero stats to get their damage potential." />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/css/flag-icon.min.css">
+        <link rel="stylesheet" href="../style.css" />
+        <link rel="stylesheet" href="../flags/flags.css" />
+        <!-- IE -->
+        <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+        <!-- other browsers -->
+        <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+
+        <title>Epic7 Calculadora de HP Efetivo</title>
+    </head>
+    <body class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+            <a class="navbar-brand">Epic 7 Calculadora de HP Efetivo</a>
+            <!-- <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks <i class="fas fa-external-link-alt fa-xs"></i></a>
+                </li>
+            </ul> -->
+        </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 initial-hide fade-in">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Calculadora de Dano</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./speed-tuner.html">Ajustador de Speed (Beta)</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./effectiveness.html">Calculadora de Chance de Eficácia</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto flex-centered">
+                <li class="nav-item nav-link">
+                    <div class="custom-control custom-switch mar-right">
+                        <input type="checkbox" class="custom-control-input" id="dark-switch">
+                        <label class="custom-control-label" for="dark-switch">
+                            <span class="d-none d-sm-inline">Modo Escuro</span>
+                            <i class="fas fa-adjust d-inline d-sm-none mt-1"></i>
+                        </label>
+                    </div>
+                </li>
+                <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
+                    <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">Compartilhar</span>
+                </button>
+            </ul>
+        </nav>
+        <div>
+            <div class="initial-show spinner-holder">
+                <img src="../assets/icons/loading-spinner.svg" alt="Loading spinner...">
+            </div>
+            <form id="stats" class="initial-hide fade-in">
+                <div class="row">
+                    <div class="col-sm-6 half-left">
+                        <div class="stat-block">
+                            <div class="form-group row col-sm-12">
+                                <label for="first-build-def" class="col-md-7 col-form-label form-control-sm">
+                                    <h5>Defesa Primeira Build</h5>
+                                </label>
+                                <div class="input-group input-group-sm col-md-5">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" id="first-build-def-minus" onclick="minus('first-build-def')">&minus;</button>
+                                    </div>
+                                    <input type="number" class="form-control text-center" id="first-build-def" value="1000" onkeyup="update('first-build-def')">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="first-build-def-plus" onclick="plus('first-build-def')">&plus;</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row col-sm-12">
+                                <input type="range" class="custom-range" id="first-build-def-slide" min="200" max="5000" value="1000" oninput="slide('first-build-def')">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="fast-cr-div" class="col-sm-6 half-right">
+                        <div class="stat-block">
+                            <div class="form-group row col-sm-12">
+                                <label for="second-build-def" class="col-md-7 col-form-label form-control-sm">
+                                    <h5>Defesa Segunda Build</h5>
+                                </label>
+                                <div class="input-group input-group-sm col-md-5">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" id="second-build-def-minus" onclick="minus('second-build-def')">&minus;</button>
+                                    </div>
+                                    <input type="number" class="form-control text-center" id="second-build-def" value="1000" onkeyup="update('second-build-def')">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="second-build-def-plus" onclick="plus('second-build-def')">&plus;</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row col-sm-12">
+                                <input type="range" class="custom-range" id="second-build-def-slide" min="200" max="5000" value="1000" oninput="slide('second-build-def')">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6 half-left">
+                        <div class="stat-block">
+                            <div class="form-group row col-sm-12">
+                                <label for="first-build-hp" class="col-md-7 col-form-label form-control-sm">
+                                    <h5>HP Primeira Build</h5>
+                                </label>
+                                <div class="input-group input-group-sm col-md-5">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" id="first-build-hp-minus" onclick="minus('first-build-hp')">&minus;</button>
+                                    </div>
+                                    <input type="number" class="form-control text-center" id="first-build-hp" value="10000" onkeyup="update('first-build-hp')">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="first-build-hp-plus" onclick="plus('first-build-hp')">&plus;</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row col-sm-12">
+                                <input type="range" class="custom-range" id="first-build-hp-slide" min="1000" max="50000" value="10000" oninput="slide('first-build-hp')">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 half-right">
+                        <div class="stat-block">
+                            <div class="form-group row col-sm-12">
+                                <label for="second-build-hp" class="col-md-7 col-form-label form-control-sm">
+                                    <h5>HP Segunda Build</h5>
+                                </label>
+                                <div class="input-group input-group-sm col-md-5">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" id="second-build-hp-minus" onclick="minus('second-build-hp')">&minus;</button>
+                                    </div>
+                                    <input type="number" class="form-control text-center" id="second-build-hp" value="10000" onkeyup="update('second-build-hp')">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="second-build-hp-plus" onclick="plus('second-build-hp')">&plus;</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row col-sm-12">
+                                <input type="range" class="custom-range" id="second-build-hp-slide" min="1000" max="50000" value="10000" oninput="slide('second-build-hp')">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="row text-center initial-hide fade-in">
+                <div class="col-sm-6 half-left">
+                    <div id="first-ehp-box" class="card border-success mb-3">
+                        <div class="card-header">
+                            HP Efetiva da Primeira Build
+                            <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="HP efetivo da primeira build e a porcentagem que difere da segunda build"></i>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <h2><span id="first-build-ehp" class="text-success"></span></h2>
+                            </p>
+                            <span id="first-build-pct" class="corner-info text-success"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 half-right">
+                    <div id="second-ehp-box" class="card border-success">
+                        <div class="card-header">
+                            HP Efetiva da Segunda Build
+                            <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="HP efetivo da segunda build e a porcentagem que difere da primeira build"></i>
+                        </div>
+                            <div class="card-body">
+                            <p class="card-text">
+                                <h2><span id="second-build-ehp" class="text-success"></span></h2>
+                            </p>
+                            <span id="second-build-pct" class="corner-info text-success"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/js/all.min.js"></script>
+        <script src="../lang.js"></script>
+        <script src="../query-params.js"></script>
+        <script src="../ehp-calculator/ehp-calculator.js"></script>
+        <script src="../form.js"></script>
+    </body>
+</html>

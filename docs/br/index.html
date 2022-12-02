@@ -1,4 +1,5 @@
-<html id="root" lang="zhCN">
+<!DOCTYPE html>
+<html id="root" lang="pt">
     <head>
         <script>
             (function(window, document, script, layer, ident) {
@@ -14,8 +15,8 @@
         </script>
 
         <meta charset="utf-8" />
-        <meta name="keywords" content="第七史诗 伤害计算器, 第七史诗 伤害模拟器" />
-        <meta name="description" content="填入第七史诗的角色面板数据, 模拟实际战斗伤害" />
+        <meta name="keywords" content="epic seven damage calculator, epic 7 damage calculator, e7 damage calculator" />
+        <meta name="description" content="Damage Calculator for Epic Seven for every hero in the game. Enter your hero stats to get their damage potential." />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css">
@@ -26,22 +27,25 @@
         <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
         <!-- other browsers -->
         <link rel="icon" type="image/x-icon" href="../favicon.ico" />
-        
-        <title>第七史诗 伤害计算器</title>
+
+        <title>Epic7 Calculadora de Dano</title>
     </head>
     <body class="container">
+        <!-- <a href='https://en.ldplayer.net/games/epic-seven-on-pc.html?n=79369494#utm_source=aff&utm_medium=aff&utm_campaign=aff79369494' target='_blank'
+            id='right-banner'><img src='img/ldplayer_banner.jpeg'></a> -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-            <a class="navbar-brand">第七史诗 伤害计算器</a>
+            <a class="navbar-brand">Epic 7 Calculadora de Dano</a>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" lang="zh-cn">
-                        简体中文 <span class="flag flag-cn"> </span>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" lang="en-us">
+                        Português Brasil <span class="flag flag-br"> </span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../index.html" lang="en-us">English <span class="flag flag-us"> </span></a>
-                        <a class="dropdown-item" href="../jp/index.html" lang="ja">日本语 <span class="flag flag-jp"> </span></a>
+                        <a class="dropdown-item" href="../jp/index.html" lang="ja">日本語 <span class="flag flag-jp"> </span></a>
                         <a class="dropdown-item" href="../kr/index.html" lang="ko">한국어 <span class="flag flag-kr"> </span></a>
                         <a class="dropdown-item" href="../zhTW/index.html" lang="zh-tw">繁體中文 <span class="flag flag-tw"> </span></a>
+                        <a class="dropdown-item" href="../zh/index.html" lang="zh-cn">简体中文 <span class="flag flag-cn"> </span></a>
                     </div>
                 </li>
             </ul>
@@ -52,26 +56,43 @@
                     <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks <i class="fas fa-external-link-alt fa-xs"></i></a>
                 </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="effectiveness.html">效果命中与抵抗计算</a>
+                    <a class="nav-link" href="./speed-tuner.html">Ajustador de Speed (Beta)</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./effectiveness.html">Chance de Eficácia</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./ehp-calculator.html">Calculadora de HP Efetivo</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="ldplayer.html"><b>Play E7 on PC</b></a>
+                </li> -->
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item nav-link">
-                    <a class="nav-link p-0" target="_blank" href="https://www.buymeacoffee.com/tyopoyt" data-toggle="tooltip" title="打赏" data-placement="left">
-                        <i class="fas fa-mug-hot fa-lg"></i>
+                    <a class="btn btn-sm btn-outline-secondary" target="_blank" href="https://www.buymeacoffee.com/tyopoyt" data-toggle="tooltip" title="Buy me a Coffee" data-placement="left">
+                        Doar <i class="fas fa-mug-hot fa-lg"></i>
                     </a>
                 </li>
                 <li class="nav-item nav-link">
-                    <div class="custom-control custom-switch">
+                    <div class="custom-control custom-switch mt-1">
                         <input type="checkbox" class="custom-control-input" id="dark-switch">
                         <label class="custom-control-label" for="dark-switch">
-                            <span class="d-none d-sm-inline">深色模式</span>
+                            <span class="d-none d-sm-inline">Modo Escuro</span>
                             <i class="fas fa-adjust d-inline d-sm-none mt-1"></i>
                         </label>
                     </div>
                 </li>
             </ul>
         </nav>
+        <!-- <div class="alert alert-warning alert-dismissible fade show initial-hide fade-in" role="alert">
+            <strong>Nov. 13 2022 Atualização:</strong> Adicionado Adine de Luz e Zio. Ainda não traduzido para outros idiomas, pois estou viajando.<br>
+
+            <br> Muito obrigado a Maphe por criar e manter esta ferramenta até agora e torná-la fácil de usar para outras pessoas. -tyopoyt
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div> -->
         <div>
             <div class="initial-show spinner-holder">
                 <img src="../assets/icons/loading-spinner.svg" alt="Loading spinner...">
@@ -80,21 +101,23 @@
                 <div id="hero-block">
                     <div class="row">
                         <div class="form-group col-md-4 col-sm-12">
-                            <select id="hero" name="hero" class="form-control custom-select selectpicker" data-live-search="true" data-size="12">
+                            <select id="hero" name="hero" class="form-control custom-select selectpicker"
+                                    data-live-search="true" data-size="12">
                             </select>
                         </div>
                         <div class="form-group col-md-4 col-sm-12">
-                            <select id="artifact" name="artifact" class="form-control custom-select selectpicker" data-live-search="true" data-size="12" data-none-selected-text="Artifact">
+                            <select id="artifact" name="artifact" class="form-control custom-select selectpicker"
+                                    data-live-search="true" data-size="12" data-none-selected-text="Artifact">
                             </select>
                         </div>
                         <div class="form-group col-md-4 col-sm-12">
                             <select id="atk-preset" name="atk-preset" class="form-control custom-select selectpicker" data-size="12" data-show-subtext="true">
-                                <option value="">手动</option>
+                                <option value="">Manual</option>
                                 <option data-divider="true"></option>
-                                <option value="starter" data-atk="2500" data-crit="175" data-subtext="(2500/175%)">基础配置</option>
-                                <option value="attack" data-atk="6500" data-crit="150" data-subtext="(6500/150%)">纯攻击配置</option>
-                                <option value="crit" data-atk="2500" data-crit="350" data-subtext="(2500/350%)">纯暴伤配置</option>
-                                <option value="elite" data-atk="5000" data-crit="300" data-subtext="(5000/300%)">传家宝</option>
+                                <option value="starter" data-atk="2500" data-crit="175" data-subtext="(2500/175%)">Equipamento inicial</option>
+                                <option value="attack" data-atk="6500" data-crit="150" data-subtext="(6500/150%)">Tudo em Ataque</option>
+                                <option value="crit" data-atk="2500" data-crit="350" data-subtext="(2500/350%)">Tudo em Dano Crítico</option>
+                                <option value="elite" data-atk="5000" data-crit="300" data-subtext="(5000/300%)">Elite Balanceado</option>
                             </select>
                         </div>
                     </div>
@@ -103,7 +126,7 @@
 
                     <div class="stat-block">
                         <div class="form-group row col-sm-12">
-                            <label for="atk" class="col-md-9 col-form-label form-control-sm"><h5>攻击力</h5></label>
+                            <label for="atk" class="col-md-9 col-form-label form-control-sm"><h5>Ataque</h5></label>
                             <div class="input-group input-group-sm col-md-3">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" type="button" id="atk-minus" onclick="minus('atk')">&minus;</button>
@@ -124,7 +147,7 @@
                             <div class="stat-block">
                                 <div class="form-group row col-sm-12">
                                     <label for="atk-pc-imprint" class="col-md-7 col-form-label form-control-sm">
-                                        <h5>攻击力%阵型 <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="输入所有自身攻击力%阵型和全队攻击力%阵型的总和; 基于英雄6星满觉醒的数据计算阵型加成"></i></h5>
+                                        <h5>Imprint de Ataque %<i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="Insira a soma de todos os Imprints de Ataque de cada herói aliado. Cálculo é baseado nos status de cada herói despertado 6 estrelas."></i></h5>
                                     </label>
                                     <div class="input-group input-group-sm col-md-5">
                                         <div class="input-group-prepend">
@@ -145,7 +168,7 @@
                             <div class="stat-block">
                                 <div class="form-group row col-sm-12">
                                     <label for="atk-pc-up" class="col-md-7 col-form-label form-control-sm">
-                                        <h5>攻击力%加成 <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="例子：小小奇迹贺年卡的攻击力%加成"></i></h5>
+                                        <h5>Aumento de Ataque % <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="Exemplo: Rosa Hargana, Cartão dos Pequenos Milagres, Super Mega Pistola Dágua"></i></h5>
                                     </label>
                                     <div class="input-group input-group-sm col-md-5">
                                         <div class="input-group-prepend">
@@ -166,7 +189,7 @@
 
                     <div class="stat-block">
                         <div class="form-group row col-sm-12">
-                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>暴击伤害 (%)</h5></label>
+                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>Dano Crítico (%)</h5></label>
                             <div class="input-group input-group-sm col-md-3">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" type="button" id="crit-minus" onclick="minus('crit')">&minus;</button>
@@ -184,7 +207,7 @@
 
                     <div class="stat-block">
                         <div class="form-group row col-sm-12">
-                            <label for="bonus-damage" class="col-md-9 col-form-label form-control-sm"><h5>伤害量提升 (%) <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="例子: 共享弱点, 突破弱点"></i></h5></label>
+                            <label for="bonus-damage" class="col-md-9 col-form-label form-control-sm"><h5>Aumento de Dano (%) <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="Exemplo: Revela Fraqueza (Adine), Ruptura de Fraqueza (Riza Hawkeye)"></i></h5></label>
                             <div class="input-group input-group-sm col-md-3">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" type="button" id="bonus-minus" onclick="minus('bonus-damage')">&minus;</button>
@@ -203,82 +226,77 @@
                     <div class="form-group col-sm-12">
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="elem-adv" value="1.1" onchange="resolve()">
-                            <label class="custom-control-label" for="elem-adv"><span id="elem-adv-icon"></span> 属性克制</label>
+                            <label class="custom-control-label" for="elem-adv"><span id="elem-adv-icon"></span> Vantagem Elemental</label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="atk-down" value="0.5" onchange="resolve()">
                             <label class="custom-control-label" for="atk-down">
-                                <img src="../assets/debuffs/attack-debuff.png" width="20" height="20" /> 攻击力减少
+                                <img src="../assets/debuffs/attack-debuff.png" width="20" height="20" /> Diminuir Ataque
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="atk-up" value="1.5" onchange="resolve()">
                             <label class="custom-control-label" for="atk-up">
-                                <img src="../assets/buffs/attack-buff.png" width="20" height="20" /> 攻击力增加
+                                <img src="../assets/buffs/attack-buff.png" width="20" height="20" /> Aumentar Ataque
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="atk-up-great" value="1.75" onchange="resolve()">
                             <label class="custom-control-label" for="atk-up-great">
-                                <img src="../assets/buffs/greater-attack-buff.png" width="20" height="20" /> 攻击力增加 (大幅)
+                                <img src="../assets/buffs/greater-attack-buff.png" width="20" height="20" /> Aumentar Ataque (Superior)
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="crit-dmg-up" value="0.5" onchange="resolve()">
                             <label class="custom-control-label" for="crit-dmg-up">
-                                <img src="../assets/buffs/critical-hit-damage-buff.png" width="20" height="20" /> 暴击伤害增加
+                                <img src="../assets/buffs/critical-hit-damage-buff.png" width="20" height="20" /> Aumentar Dano Crítico
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="vigor" value="1.3" onchange="resolve()">
                             <label class="custom-control-label" for="vigor">
-                                <img src="../assets/buffs/vigor-buff.png" width="20" height="20" /> 魄力
+                                <img src="../assets/buffs/vigor-buff.png" width="20" height="20" /> Vigor
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="rage-set" value="0.3" onchange="resolve()">
                             <label class="custom-control-label" for="rage-set">
-                                <img src="../assets/sets/rage-set.png" width="20" height="20" /> 愤怒套装
+                                <img src="../assets/sets/rage-set.png" width="20" height="20" /> Set de Raiva
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="pen-set" value="0.15" onchange="resolve()">
                             <label class="custom-control-label" for="pen-set">
-                                <img src="../assets/sets/penetration-set.png" width="20" height="20" /> 穿透套装
+                                <img src="../assets/sets/penetration-set.png" width="20" height="20" /> Set de Penetração
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="torrent-set" value="0.1" onchange="resolve(); torrentSetToggled()">
                             <label class="custom-control-label" for="torrent-set">
-                                <img src="../assets/sets/torrent-set.png" width="20" height="20" /> 激流套装
+                                <img src="../assets/sets/torrent-set.png" width="20" height="20" /> Set de Torrente
                             </label>
                         </div>
                     </div>
 
-                    <!-- <div>
-                        <h4>套装数</h4>
-                        <div id="set-num-block"></div>
-                        <hr />
-                    </div> -->
                     <div id="set-num-holder">
                     </div>
                     <hr />
                 </div>
 
                 <div id="artifact-block">
-                    <h4>神器</h4>
+                    <h4>Artefato</h4>
                     <div id="artifact-info"></div>
                     <div id="artifact-lvl-block" class="stat-block">
                         <div class="form-group row col-sm-12">
-                            <label for="crit" class="col-md-9 col-form-label form-control-sm"><h5>级别</h5></label>
+                            <label for="artifact-lvl" class="col-md-9 col-form-label form-control-sm"><h5>Level</h5></label>
                             <div class="input-group input-group-sm col-md-3">
                                 <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" type="button" id="artifact-lvl-minus" onclick="minus('artifact-lvl')">&minus;</button>
@@ -298,92 +316,98 @@
                 </div>
 
                 <div class="row">
-                    <h4 class="col-md-4">目标</h4>
+                    <h4 class="col-md-4">Alvo</h4>
                     <div class="form-group col-md-4 col-sm-12">
                         <select id="def-preset" name="def-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true" data-live-search="true">
-                            <option value="">手动</option>
+                            <option value="">Manual</option>
                             <option data-divider="true"></option>
-                            <optgroup label="龙 11">
-                                <option value="blaze-dragona-11" data-def="984" data-hp="14158" data-subtext="14158 hp/163 spd">火焰德拉戈纳</option>
-                                <option value="blood-ridge-naga-11" data-def="1183" data-hp="11851" data-subtext="11851 hp/144 spd">血光山脊那伽</option>
-                                <option value="wyvern-11" data-def="1254" data-hp="150452" data-subtext="150452 hp/208 spd" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.3">玛瑙双足飞龙</option>
+                            <optgroup label="Wyvern 11">
+                                <option value="blaze-dragona-11" data-def="984" data-hp="14158" data-subtext="14158 hp/163 spd">Blaze Dragona</option>
+                                <option value="blood-ridge-naga-11" data-def="1183" data-hp="11851" data-subtext="11851 hp/144 spd">Blood Ridge Naga</option>
+                                <option value="wyvern-11" data-def="1254" data-hp="150452" data-subtext="150452 hp/208 spd" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.3">Wyvern</option>
                             </optgroup>
-                            <optgroup label="龙 13">
-                                <option value="blaze-dragona-13" data-def="1392" data-hp="20241" data-subtext="20241 hp/175 spd">火焰德拉戈纳</option>
-                                <option value="blood-ridge-naga-13" data-def="1340" data-hp="13554" data-subtext="13554 hp/154 spd">血光山脊那伽</option>
-                                <option value="wyvern-13" data-def="1940" data-hp="233578" data-subtext="233578 hp/242 spd" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.3">玛瑙双足飞龙</option>
+                            <optgroup label="Wyvern 13">
+                                <option value="blaze-dragona-13" data-def="1392" data-hp="20241" data-subtext="20241 hp/175 spd">Blaze Dragona</option>
+                                <option value="blood-ridge-naga-13" data-def="1340" data-hp="13554" data-subtext="13554 hp/154 spd">Blood Ridge Naga</option>
+                                <option value="wyvern-13" data-def="1940" data-hp="233578" data-subtext="233578 hp/242 spd" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.3">Wyvern</option>
                             </optgroup>
-                            <optgroup label="木 11">
-                                <option value="raqix-flying-troop-11" data-def="891" data-hp="12528" data-subtext="12528 hp">罗奇斯飞行兵</option>
-                                <option value="mossy-testudo-11" data-def="1077" data-hp="15015" data-subtext="15015 hp">青苔陆龟</option>
-                                <option value="golem-11" data-def="1306" data-hp="101983" data-subtext="101983 hp" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.3">杰伦石龙巨像</option>
+                            <optgroup label="Golem 11">
+                                <option value="raqix-flying-troop-11" data-def="891" data-hp="12528" data-subtext="12528 hp">Raqix Flying Troop</option>
+                                <option value="mossy-testudo-11" data-def="1077" data-hp="15015" data-subtext="15015 hp">Mossy Testudo</option>
+                                <option value="golem-11" data-def="1306" data-hp="101983" data-subtext="101983 hp" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.3">Golem</option>
                             </optgroup>
-                            <optgroup label="木 13">
-                                <option value="raqix-flying-troop-13" data-def="1007" data-hp="14743" data-subtext="14743 hp/188 spd">罗奇斯飞行兵</option>
-                                <option value="mossy-testudo-13" data-def="1221" data-hp="17172" data-subtext="17172 hp">青苔陆龟</option>
-                                <option value="golem-13" data-def="1550" data-hp="158553" data-subtext="158553 hp" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.3">杰伦石龙巨像</option>
+                            <optgroup label="Golem 13">
+                                <option value="raqix-flying-troop-13" data-def="1007" data-hp="14743" data-subtext="14743 hp/188 spd">Raqix Flying Troop</option>
+                                <option value="mossy-testudo-13" data-def="1221" data-hp="17172" data-subtext="17172 hp">Mossy Testudo</option>
+                                <option value="golem-13" data-def="1550" data-hp="158553" data-subtext="158553 hp" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.3">Golem</option>
                             </optgroup>
-                            <optgroup label="水 11">
-                                <option value="mystychain-11" data-def="1101" data-hp="9631" data-subtext="9631 hp/154 spd">美丝缇彩</option>
-                                <option value="icy-dark-broom-11" data-def="1101" data-hp="9631" data-subtext="9631 hp/152 spd">寒冰达克布鲁姆</option>
-                                <option value="banshee-11" data-def="1289" data-hp="60624" data-subtext="60624 hp/160 spd" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.3">报丧妖领主史达莱特</option>
+                            <optgroup label="Banshee 11">
+                                <option value="mystychain-11" data-def="1101" data-hp="9631" data-subtext="9631 hp/154 spd">Mystychain</option>
+                                <option value="icy-dark-broom-11" data-def="1101" data-hp="9631" data-subtext="9631 hp/152 spd">Icy Dark Broom</option>
+                                <option value="banshee-11" data-def="1289" data-hp="60624" data-subtext="60624 hp/160 spd" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.3">Banshee</option>
                             </optgroup>
-                            <optgroup label="水 13">
-                                <option value="mystychain-13" data-def="1248" data-hp="11015" data-subtext="11015 hp/174 spd">美丝缇彩</option>
-                                <option value="icy-dark-broom-13" data-def="1248" data-hp="11015" data-subtext="11015 hp/174 spd">寒冰达克布鲁姆</option>
-                                <option value="banshee-13" data-def="1977" data-hp="115703" data-subtext="115703 hp/203 spd" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.3">报丧妖领主史达莱特</option>
+                            <optgroup label="Banshee 13">
+                                <option value="mystychain-13" data-def="1248" data-hp="11015" data-subtext="11015 hp/174 spd">Mystychain</option>
+                                <option value="icy-dark-broom-13" data-def="1248" data-hp="11015" data-subtext="11015 hp/174 spd">Icy Dark Broom</option>
+                                <option value="banshee-13" data-def="1977" data-hp="115703" data-subtext="115703 hp/203 spd" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.3">Banshee</option>
                             </optgroup>
-                            <optgroup label="暗 11">
-                                <option value="striker-raqix-warlord-11" data-def="1030" data-hp="12812" data-subtext="12812 hp/211 spd">一击的罗奇斯战斗君主</option>
-                                <option value="karax-charger-11" data-def="1150" data-hp="20814" data-subtext="20814 hp/149 spd">卡洛斯冲锋兵</option>
-                                <option value="egg-11" data-def="540" data-hp="8098" data-subtext="8098 hp">蛋</option>
-                                <option value="azimanak-11" data-def="1825" data-hp="87729" data-subtext="87729 hp">战争君主阿吉玛隆</option>
+                            <optgroup label="Azimanak 11">
+                                <option value="striker-raqix-warlord-11" data-def="1030" data-hp="12812" data-subtext="12812 hp/211 spd">Striker Warlord</option>
+                                <option value="karax-charger-11" data-def="1150" data-hp="20814" data-subtext="20814 hp/149 spd">Karax Charger</option>
+                                <option value="egg-11" data-def="540" data-hp="8098" data-subtext="8098 hp">Egg</option>
+                                <option value="azimanak-11" data-def="1825" data-hp="87729" data-subtext="87729 hp">Azimanak</option>
                             </optgroup>
-                            <optgroup label="暗 13">
-                                <option value="striker-raqix-warlord-13" data-def="1134" data-hp="14653" data-subtext="14653 hp/218 spd">一击的罗奇斯战斗君主</option>
-                                <option value="karax-charger-13" data-def="1297" data-hp="23805" data-subtext="23805 hp/176 spd">卡洛斯冲锋兵</option>
-                                <option value="egg-13" data-def="600" data-hp="9156" data-subtext="9156 hp">蛋</option>
-                                <option value="azimanak-13" data-def="2822" data-hp="134511" data-subtext="134511 hp">战争君主阿吉玛隆</option>
+                            <optgroup label="Azimanak 13">
+                                <option value="striker-raqix-warlord-13" data-def="1134" data-hp="14653" data-subtext="14653 hp/218 spd">Striker Warlord</option>
+                                <option value="karax-charger-13" data-def="1297" data-hp="23805" data-subtext="23805 hp/176 spd">Karax Charger</option>
+                                <option value="egg-13" data-def="600" data-hp="9156" data-subtext="9156 hp">Egg</option>
+                                <option value="azimanak-13" data-def="2822" data-hp="134511" data-subtext="134511 hp">Azimanak</option>
                             </optgroup>
-                            <optgroup label="光 13">
-                                <option value="converted-symaqus-13" data-def="2698" data-hp="41387" data-subtext="41387 hp/264 spd">洗脑的史托玛库斯</option>
-                                <option value="caides-13" data-def="1456" data-hp="226348" data-subtext="226348 hp/180 spd">卡戴斯</option>
+                            <optgroup label="Caides 13">
+                                <option value="converted-symaqus-13" data-def="2698" data-hp="41387" data-subtext="41387 hp/264 spd">Converted Symaqus</option>
+                                <option value="caides-13" data-def="1456" data-hp="226348" data-subtext="226348 hp/180 spd">Caides</option>
                             </optgroup>
-                            <optgroup label="木属性远征">
-                                <option value="earth-exp-1" data-def="807" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.5">木属性远征 - 1级</option>
-                                <option value="earth-exp-2" data-def="1078" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.5">木属性远征 - 2级</option>
-                                <option value="earth-exp-3" data-def="1324" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.5">木属性远征 - 3级</option>
+                            <optgroup label="Earth Expedition">
+<!--                                <option value="earth-exp-1" data-def="807" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.5" data-single-atk-mult="0.3" data-non-single-atk-mult="1.7">Earth Expedition - Level 1</option>-->
+<!--                                <option value="earth-exp-2" data-def="1078" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.5" data-single-atk-mult="0.3" data-non-single-atk-mult="1.7">Earth Expedition - Level 2</option>-->
+                                <option value="earth-exp-3" data-def="1087" data-elem-extra-dmg="fire" data-extra-dmg-pc="1.5" data-single-atk-mult="0.3" data-non-single-atk-mult="1.7">Expedição de Terra - Level 3</option>
                             </optgroup>
-                            <optgroup label="水属性远征">
-                                <option value="ice-exp-1" data-def="677" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.5">水属性远征 - 1级</option>
-                                <option value="ice-exp-2" data-def="904" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.5">水属性远征 - 2级</option>
-                                <option value="ice-exp-3" data-def="1159" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.5">水属性远征 - 3级</option>
+                            <optgroup label="Ice Expedition">
+<!--                                <option value="ice-exp-1" data-def="677" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.5">Ice Expedition - Level 1</option>-->
+<!--                                <option value="ice-exp-2" data-def="904" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.5">Ice Expedition - Level 2</option>-->
+                                <option value="ice-exp-3" data-def="905" data-elem-extra-dmg="earth" data-extra-dmg-pc="1.5">Expedição de Água - Level 3</option>
                             </optgroup>
-                            <optgroup label="火属性远征">
-                                <option value="fire-exp-1" data-def="783" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.5">火属性远征 - 1级</option>
-                                <option value="fire-exp-2" data-def="1045" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.5">火属性远征 - 2级</option>
-                                <option value="fire-exp-3" data-def="1340" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.5">火属性远征 - 3级</option>
+                            <optgroup label="Fire Expedition">
+<!--                                <option value="fire-exp-1" data-def="783" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.5">Fire Expedition - Level 1</option>-->
+<!--                                <option value="fire-exp-2" data-def="1045" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.5">Fire Expedition - Level 2</option>-->
+                                <option value="fire-exp-3" data-def="1340" data-elem-extra-dmg="ice" data-extra-dmg-pc="1.5">Expedição de Fogo - Level 3</option>
+                            </optgroup>
+                            <optgroup label="Light Expedition">
+                                <option value="light-exp-3" data-def="815">Expedição de Luz - Level 3</option>
                             </optgroup>
                         </select>
                     </div>
                     <div class="form-group col-md-4 col-sm-12">
                         <select id="dmg-reduc-preset" name="dmg-reduc-preset" class="form-control custom-select selectpicker" data-size="10" data-show-subtext="true">
-                            <option value="none" data-reduc="0" data-trans="0" data-defup="0">无减伤 / 无伤害分配</option>
-                            <option value="">手动</option>
+                            <option value="none" data-reduc="0" data-trans="0" data-defup="0">Sem Transfer/Redução de Dano</option>
+                            <option value="">Manual</option>
                             <option data-divider="true"></option>
-                            <optgroup label="减伤">
-                                <option value="proof-of-valor-init" data-reduc="30" data-trans="0" data-defup="0" data-subtext="30%">勇猛证据 (战斗开始时)</option>
-                                <option value="proof-of-valor-down" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">勇猛证据 (效果最低时)</option>
-                                <option value="adamant-shield" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">金刚石盾牌 (满破时)</option>
-                                <option value="draco-plate" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">龙族板甲 (满破时)</option>
-                                <option value="elena" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">艾蕾娜 (被动)</option>
-                                <option value="c-armin" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">红焰亚敏 (被动)</option>
+                            <optgroup label="Damage Reduction">
+                                <option value="proof-of-valor-init" data-reduc="30" data-trans="0" data-defup="0" data-subtext="30%">Prova de Bravura (Início da Batalha)</option>
+                                <option value="proof-of-valor-down" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">Prova de Bravura (Depois de 5 Hits)</option>
+                                <option value="adamant-shield" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">Escudo de Adamantino (Max)</option>
+                                <option value="elena" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">Elena (S2 Passiva)</option>
+                                <option value="c-armin" data-reduc="15" data-trans="0" data-defup="0" data-subtext="15%">Armina Carmesim (S2 Passiva)</option>
+                                <option value="sepulcrum-1" data-reduc="8" data-trans="0" data-defup="0" data-subtext="8%">Sepulcro (Max - 1 stack)</option>
+                                <option value="sepulcrum-2" data-reduc="16" data-trans="0" data-defup="0" data-subtext="16%">Sepulcro (Max - 2 stacks)</option>
+                                <option value="sepulcrum-3" data-reduc="24" data-trans="0" data-defup="0" data-subtext="24%">Sepulcro (Max - 3 stacks)</option>
                             </optgroup>
-                            <optgroup label="伤害分配">
-                                <option value="ss-bellona" data-trans="30" data-trans="0" data-defup="0" data-subtext="30%">海边的维尔萝娜 (被动)</option>
-                                <option value="aurius" data-trans="20" data-trans="0" data-defup="10" data-subtext="20% (+10% 防御力)">亚乌利斯 (满破时)</option>
-                                <option value="t-crozet" data-trans="40" data-trans="0" data-defup="0" data-subtext="40%">不法之徒克罗泽 (被动)</option>
-                                <option value="eaton" data-trans="30" data-trans="0" data-defup="0" data-subtext="30%">伊顿 (被动)</option>
+                            <optgroup label="Damage Transfer">
+                                <option value="ss-bellona" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">Bellona Praieira (S2 Passive)</option>
+                                <option value="escort" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">Buff Escolta</option>
+                                <option value="aurius" data-trans="20" data-defup="10" data-reduc="0" data-subtext="20% (+10% Defense)">Áureo (Max)</option>
+                                <option value="t-crozet" data-trans="40" data-reduc="0" data-defup="0" data-subtext="40%">Crozet Fora-da-Lei (S2 Passiva)</option>
+                                <option value="eaton" data-trans="30" data-reduc="0" data-defup="0" data-subtext="30%">Eaton (S2 Passive)</option>
                             </optgroup>
                         </select>
                     </div>
@@ -393,7 +417,7 @@
                         <div class="col-sm-6 half-left">
                             <div class="stat-block">
                                 <div class="form-group row col-sm-12">
-                                    <label for="def" class="col-md-7 col-form-label form-control-sm"><h5>防御力</h5></label>
+                                    <label for="def" class="col-md-7 col-form-label form-control-sm"><h5>Defesa</h5></label>
                                     <div class="input-group input-group-sm col-md-5">
                                         <div class="input-group-prepend">
                                             <button class="btn btn-outline-secondary" type="button" id="def-minus" onclick="minus('def')">&minus;</button>
@@ -413,7 +437,7 @@
                             <div class="stat-block">
                                 <div class="form-group row col-sm-12">
                                     <label for="def" class="col-md-7 col-form-label form-control-sm">
-                                        <h5>防御力 % 加成 <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="例子: 亚乌利斯, 小小奇迹贺年卡, 《有决心的士兵》系列"></i></h5>
+                                        <h5>Aumento de Defesa %<i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="Exemplo: Áureo, Cartão de Pequenos Milagres, Série do Soldado Decidido"></i></h5>
                                     </label>
                                     <div class="input-group input-group-sm col-md-5">
                                         <div class="input-group-prepend">
@@ -436,7 +460,7 @@
                         <div class="col-sm-6 half-left">
                             <div class="stat-block">
                                 <div class="form-group row col-sm-12">
-                                    <label for="crit" class="col-md-7 col-form-label form-control-sm"><h5>减伤 (%)</h5></label>
+                                    <label for="dmg-reduc" class="col-md-7 col-form-label form-control-sm"><h5>Redução de Dano (%)</h5></label>
                                     <div class="input-group input-group-sm col-md-5">
                                         <div class="input-group-prepend">
                                             <button class="btn btn-outline-secondary" type="button" id="dmg-reduc-minus" onclick="minus('dmg-reduc')">&minus;</button>
@@ -455,7 +479,7 @@
                         <div class="col-sm-6 half-right">
                             <div class="stat-block">
                                 <div class="form-group row col-sm-12">
-                                    <label for="crit" class="col-md-7 col-form-label form-control-sm"><h5>伤害分配 (%)</h5></label>
+                                    <label for="dmg-trans" class="col-md-7 col-form-label form-control-sm"><h5>Transferên. de Dano (%)</h5></label>
                                     <div class="input-group input-group-sm col-md-5">
                                         <div class="input-group-prepend">
                                             <button class="btn btn-outline-secondary" type="button" id="dmg-trans-minus" onclick="minus('dmg-trans')">&minus;</button>
@@ -477,28 +501,28 @@
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="def-up" value="0.6" onchange="resolve()">
                             <label class="custom-control-label" for="def-up">
-                                <img src="../assets/buffs/defense-buff.png" width="20" height="20" /> 防御力增加
+                                <img src="../assets/buffs/defense-buff.png" width="20" height="20" /> Aumentar Defesa
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="target-vigor" value="0.3" onchange="resolve()">
                             <label class="custom-control-label" for="target-vigor">
-                                <img src="../assets/buffs/vigor-buff.png" width="20" height="20" /> 魄力
+                                <img src="../assets/buffs/vigor-buff.png" width="20" height="20" /> Vigor
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="def-down" value="-0.7" onchange="resolve()">
                             <label class="custom-control-label" for="def-down">
-                                <img src="../assets/debuffs/defense-debuff.png" width="20" height="20" /> 防御力减少
+                                <img src="../assets/debuffs/defense-debuff.png" width="20" height="20" /> Diminuir Defesa
                             </label>
                         </div>
 
                         <div class="custom-control custom-checkbox custom-control-inline buff-block">
                             <input class="custom-control-input" type="checkbox" id="target" value="1.15" onchange="resolve()">
                             <label class="custom-control-label" for="target">
-                                <img src="../assets/debuffs/target-debuff.png" width="20" height="20" /> 标靶
+                                <img src="../assets/debuffs/target-debuff.png" width="20" height="20" /> Alvo
                             </label>
                         </div>
                     </div>
@@ -507,30 +531,30 @@
                 <hr />
 
                 <div>
-                    <h4>角色 特性</h4>
+                    <h4>Herói Específico</h4>
                     <div id="custom-block"></div>
                     <hr />
                 </div>
 
 
-                <h4>强化技能</h4>
+                <h4>Melhoria de Habilidade</h4>
                 <div id="molagora-block"></div>
             </form>
         </div>
 
         <div id="damage-block" class="initial-hide fade-in">
             <h4>
-                伤害计算
-                <div class="btn-group" role="group" aria-label="Basic example">
+                Dano Final
+                <div class="btn-group" role="group">
                     <button id="compare-add-open" type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#compareAddModal">
-                        <i class="fas fa-save"></i> <span class="d-none d-md-inline">保存</span>
+                        <i class="fas fa-save"></i> <span class="d-none d-md-inline">Salvar</span>
                     </button>
                     <button id="compare-open" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#compareModal">
-                        <i class="fas fa-exchange-alt"></i> <span class="d-none d-md-inline">比较</span>
+                        <i class="fas fa-exchange-alt"></i> <span class="d-none d-md-inline">Comparar</span>
                         <span id="compare-pool-size" class="badge badge-light">0</span>
                     </button>
                     <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
-                        <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">分享</span>
+                        <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">Compartilhar</span>
                     </button>
                 </div>
                 <span id="barrier-block" class="badge badge-light float-right">
@@ -547,43 +571,46 @@
                 </span>
                 <span id="artifact-dmg-block" class="badge badge-light float-right">
                     <i class="fas fa-cocktail"></i> <span id="artifact-dmg"></span>
-                    <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="神器的追加伤害, 已经包含在下方的表格里"></i>
+                    <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="Damage coming from Artifact, already included in the table below"></i>
                 </span>
             </h4>
             <div>
                 <table class="table table-bordered table-sm col-sm-12">
                     <thead class="table-secondary">
                         <tr>
-                            <th>技能</th>
-                            <th>暴击</th>
-                            <th>强击</th>
-                            <th>普通</th>
-                            <th>闪避</th>
+                            <th>Skill</th>
+                            <th>Dano Crítico</th>
+                            <th>Dano Cinza Maior</th>
+                            <th>Dano Normal</th>
+                            <th>Falhou</th>
                         </tr>
                     </thead>
                     <tbody id="damage"></tbody>
                 </table>
             </div>
         </div>
-
-        <footer class="page-footer pt-3 mt-5 initial-hide fade-in">
+    
+        <footer class="page-footer pt-3 mt-5 initial-hide">
             <div class="container-fluid text-center text-md-left">
                 <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
-                        <h5 class="text-uppercase">制作人员</h5>
+                        <h5 class="text-uppercase">Credits</h5>
                         <p>
-                            主作者(Discord): tyopoyt#1365<br>
-                            原创者: Maphe<br/>
-                            致谢: okloio, haie<br/>
-                            翻译: Rano / TriATK <span class="flag-icon flag-icon-cn"></span> / <i class="fas fa-user-secret"></i> <span class="flag-icon flag-icon-kr"></span> / Tagle <span class="flag-icon flag-icon-jp"></span>
+                            Discord: tyopoyt#1365<br>
+                            Thanks to the original creator, Maphe<br/>
+                            Thanks for the help: okloio, haie<br/>
+                            Translation: Rano / TriATK <span class="flag-icon flag-icon-cn"></span> / <i class="fas fa-user-secret"></i> <span class="flag-icon flag-icon-kr"></span> / Tagle <span class="flag-icon flag-icon-jp"></span>
                         </p>
                     </div>
                     <hr class="clearfix w-100 d-md-none pb-3">
                     <div class="col-md-3 mb-md-0 mb-3">
-                        <h5 class="text-uppercase">参考资料</h5>
+                        <h5 class="text-uppercase">Reference</h5>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="https://docs.google.com/spreadsheets/d/1aqL0Uj26PRW_jAUj8pYaSls_DOuFq30fvwQh8ol74-E/htmlview">技能倍率表(Google文档)</a>
+                                <a href="https://docs.google.com/spreadsheets/d/1aqL0Uj26PRW_jAUj8pYaSls_DOuFq30fvwQh8ol74-E/htmlview">Planilha de Multiplicadores</a>
+                            </li>
+                            <li>
+                                <a href="https://www.epicseventools.com/DamageCalculator">Budandan Calculator</a>
                             </li>
                             <li>
                                 <a href="https://epic7x.com">Epic 7x</a>
@@ -591,22 +618,22 @@
                         </ul>
                     </div>
                     <div class="col-md-3 mb-md-0 mb-3">
-                        <h5 class="text-uppercase">意见建议</h5>
+                        <h5 class="text-uppercase">Contribua</h5>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="https://github.com/tyopoyt/epic7-damage-calc/issues">提交bug</a>
+                                <a href="https://github.com/tyopoyt/epic7-damage-calc/issues">Encontrou um bug?</a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </footer>
-        
+
         <div id="compareAddModal" class="modal fade" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">伤害比较</h5>
+                        <h5 class="modal-title">Compare Danos</h5>
                         <button type="button" class="close close-modal" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -614,18 +641,18 @@
                     <div class="modal-body">
                         <form>
                             <div class="form-group">
-                                <label for="damage-mem-name" class="col-form-label">配装名称</label>
-                                <input type="text" class="form-control" id="damage-mem-name" placeholder="输入配装名称">
+                                <label for="damage-mem-name" class="col-form-label">Nome da Build</label>
+                                <input type="text" class="form-control" id="damage-mem-name" placeholder="Enter your build name">
                             </div>
                         </form>
-                        <span class="text-muted font-italic">为同一个英雄保存配装时会覆盖同名的配装</span>
+                        <span class="text-muted font-italic">Salvar uma build com um nome existente para o mesmo herói substituirá a build antiga</span>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">
-                            <i class="fas fa-window-close"></i> 取消
+                            <i class="fas fa-window-close"></i> Cancelar
                         </button>
                         <button type="button" class="btn btn-primary btn-sm" id="compare-add">
-                            <i class="fas fa-save"></i> 添加至对比列表
+                            <i class="fas fa-save"></i> Adicionar na lista
                         </button>
                     </div>
                 </div>
@@ -636,7 +663,7 @@
             <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">伤害比较</h5>
+                        <h5 class="modal-title">Comparar Dano</h5>
                         <button type="button" class="close close-modal" data-dismiss="modal" onclick="compareClosed()" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -645,7 +672,7 @@
                         <img src="../assets/icons/loading-spinner.svg" alt="Loading spinner...">
                     </div>
                     <div class="modal-body compare-hide">
-                        <p id="compare-splash" style="display: none">目前这个英雄没有已保存的配装</p>
+                        <p id="compare-splash" style="display: none">Nenhuma build foi salva ainda para este herói</p>
                         <div id="damage-comparison-block">
                             <table class="table table-bordered table-sm col-sm-12">
                                 <thead class="table-secondary">
@@ -653,21 +680,21 @@
                                 </thead>
                                 <tbody id="damage-comparison"></tbody>
                             </table>
-                            <span class="text-muted font-italic compare-hide">此处默认比较的是暴击伤害，在技能无法触发暴击的情况下会比较普通伤害</span>
+                            <span class="text-muted font-italic compare-hide">Isso está comparando dano de acerto crítico ou acerto normal se uma habilidade não puder desencadear um acerto crítico</span>
                         </div>
                     </div>
                     <div class="modal-footer compare-hide">
                         <button id="clear-compare" type="button" class="btn btn-danger btn-sm">
-                            <i class="fas fa-trash-alt"></i> 清除全部
+                            <i class="fas fa-trash-alt"></i> Limpar Tudo
                         </button>
                         <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" onclick="compareClosed()">
-                            <i class="fas fa-window-close"></i> 关闭
+                            <i class="fas fa-window-close"></i> Fechar
                         </button>
                     </div>
                 </div>
             </div>
         </div>
-
+        
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
