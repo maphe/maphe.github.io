@@ -961,10 +961,11 @@ const refreshArtifactList = (hero) => {
 
 const buildElement = (elem, parent) => {
   if (elem.type === 'slider') {
+    //TODO: fix the ugly elem.icon lines
     $(parent).append(`<div id="${elem.id}-block" class="stat-block">
                         <div class="form-group row col-sm-12">
                             <label for="crit" class="col-md-9 col-form-label form-control-sm">
-                                <h5>${elem.icon ? '<img src="'+elem.icon+'" width="20" height="20" /> ' : ''}${formLabel(elem.ref)}</h5>
+                                <h5>${elem.icon ? '<img src="'+ (['jp', 'kr', 'zh', 'zhTW', 'br'].some(locale => window.location.href.includes(locale)) ? '.' : '') + elem.icon+'" width="20" height="20" /> ' : ''}${formLabel(elem.ref)}</h5>
                             </label>
                             <div class="input-group input-group-sm col-md-3">
                                 <div class="input-group-prepend">
@@ -985,7 +986,7 @@ const buildElement = (elem, parent) => {
                               <div class="custom-control custom-checkbox custom-control-inline buff-block">
                                   <input class="custom-control-input" type="checkbox" id="${elem.id}" value="1" onchange="resolve()" ${elem.default === true ? 'checked' : ''}>
                                   <label class="custom-control-label" for="${elem.id}">
-                                    ${elem.icon ? '<img src="'+elem.icon+'" width="20" height="20" />' : ''} ${formLabel(elem.ref)}
+                                    ${elem.icon ? '<img src="'+ (['jp', 'kr', 'zh', 'zhTW', 'br'].some(locale => window.location.href.includes(locale)) ? '.' : '') + elem.icon +'" width="20" height="20" />' : ''} ${formLabel(elem.ref)}
                                   </label>
                               </div>
                         </div>`);
