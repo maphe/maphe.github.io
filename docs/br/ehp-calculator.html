@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="root" lang="en">
+<html id="root" lang="br">
     <head>
         <script>
             (function(window, document, script, layer, ident) {
@@ -28,11 +28,11 @@
         <!-- other browsers -->
         <link rel="icon" type="image/x-icon" href="../favicon.ico" />
 
-        <title>Epic7 Effective HP Calculator</title>
+        <title>Epic7 Calculadora de HP Efetivo</title>
     </head>
     <body class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-            <a class="navbar-brand">Epic 7 Effective HP Calculator</a>
+            <a class="navbar-brand">Epic 7 Calculadora de HP Efetivo</a>
             <!-- <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks <i class="fas fa-external-link-alt fa-xs"></i></a>
@@ -41,10 +41,10 @@
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" lang="en-us">
-                        English <span class="flag flag-us"> </span>
+                        Português Brasil <span class="flag flag-br"> </span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="../br/ehp-calculator.html" lang="pt">Português Brasil <span class="flag flag-br"> </span></a>
+                        <a class="dropdown-item" href="../ehp-calculator/ehp-calculator.html" lang="en">English <span class="flag flag-us"> </span></a>
                         <!-- <a class="dropdown-item" href="../jp/effectiveness.html" lang="ja">日本語 <span class="flag flag-jp"> </span></a>
                         <a class="dropdown-item" href="../kr/effectiveness.html" lang="ko">한국어 <span class="flag flag-kr"> </span></a>
                         <a class="dropdown-item" href="../zhTW/effectiveness.html" lang="zh-tw">繁體中文 <span class="flag flag-tw"> </span></a>
@@ -56,13 +56,13 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 initial-hide fade-in">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="../index.html">Damage Calculator</a>
+                    <a class="nav-link" href="./index.html">Calculadora de Dano</a>
                 </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="./speed-tuner.html">Ajustador de Speed (Beta)</a>
+                </li> -->
                 <li class="nav-item">
-                    <a class="nav-link" href="../speed-tuner/speed-tuner.html">Speed Tuner (Beta)</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="../effectiveness/effectiveness.html">Effectiveness Checker</a>
+                    <a class="nav-link" href="./effectiveness.html">Calculadora de Chance de Eficácia</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto flex-centered">
@@ -70,13 +70,13 @@
                     <div class="custom-control custom-switch mar-right">
                         <input type="checkbox" class="custom-control-input" id="dark-switch">
                         <label class="custom-control-label" for="dark-switch">
-                            <span class="d-none d-sm-inline">Dark Mode</span>
+                            <span class="d-none d-sm-inline">Modo Escuro</span>
                             <i class="fas fa-adjust d-inline d-sm-none mt-1"></i>
                         </label>
                     </div>
                 </li>
                 <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
-                    <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">Share</span>
+                    <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">Compartilhar</span>
                 </button>
             </ul>
         </nav>
@@ -90,7 +90,7 @@
                         <div class="stat-block">
                             <div class="form-group row col-sm-12">
                                 <label for="first-build-def" class="col-md-7 col-form-label form-control-sm">
-                                    <h5>First Build Defense</h5>
+                                    <h5>Defesa Primeira Build</h5>
                                 </label>
                                 <div class="input-group input-group-sm col-md-5">
                                     <div class="input-group-prepend">
@@ -111,7 +111,7 @@
                         <div class="stat-block">
                             <div class="form-group row col-sm-12">
                                 <label for="second-build-def" class="col-md-7 col-form-label form-control-sm">
-                                    <h5>Second Build Defense</h5>
+                                    <h5>Defesa Segunda Build</h5>
                                 </label>
                                 <div class="input-group input-group-sm col-md-5">
                                     <div class="input-group-prepend">
@@ -135,7 +135,7 @@
                         <div class="stat-block">
                             <div class="form-group row col-sm-12">
                                 <label for="first-build-hp" class="col-md-7 col-form-label form-control-sm">
-                                    <h5>First Build HP</h5>
+                                    <h5>HP Primeira Build</h5>
                                 </label>
                                 <div class="input-group input-group-sm col-md-5">
                                     <div class="input-group-prepend">
@@ -156,7 +156,7 @@
                         <div class="stat-block">
                             <div class="form-group row col-sm-12">
                                 <label for="second-build-hp" class="col-md-7 col-form-label form-control-sm">
-                                    <h5>Second Build HP</h5>
+                                    <h5>HP Segunda Build</h5>
                                 </label>
                                 <div class="input-group input-group-sm col-md-5">
                                     <div class="input-group-prepend">
@@ -179,8 +179,8 @@
                 <div class="col-sm-6 half-left">
                     <div id="first-ehp-box" class="card border-success mb-3">
                         <div class="card-header">
-                            First Build Effective HP
-                            <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="The first build's Effective HP and the percentage it differs from the second build"></i>
+                            HP Efetiva da Primeira Build
+                            <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="HP efetivo da primeira build e a porcentagem que difere da segunda build"></i>
                         </div>
                         <div class="card-body">
                             <p class="card-text">
@@ -194,8 +194,8 @@
                 <div class="col-sm-6 half-right">
                     <div id="second-ehp-box" class="card border-success">
                         <div class="card-header">
-                            Second build Effective HP
-                            <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="The second build's Effective HP and the percentage it differs from the first build"></i>
+                            HP Efetiva da Segunda Build
+                            <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="HP efetivo da segunda build e a porcentagem que difere da primeira build"></i>
                         </div>
                             <div class="card-body">
                             <p class="card-text">
@@ -215,7 +215,7 @@
         <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/js/all.min.js"></script>
         <script src="../lang.js"></script>
         <script src="../query-params.js"></script>
-        <script src="ehp-calculator.js"></script>
+        <script src="../ehp-calculator/ehp-calculator.js"></script>
         <script src="../form.js"></script>
     </body>
 </html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html id="root" lang="br">
+    <head>
+        <script>
+            (function(window, document, script, layer, ident) {
+                window[layer] = window[layer] || [];
+                window[layer].push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+                var f = document.getElementsByTagName(script)[0],
+                j = document.createElement(script),
+                dataLayer = layer != 'dataLayer' ? '&l=' + layer : '';
+                j.async=true;
+                j.src= 'https://www.googletagmanager.com/gtm.js?id=' + ident + dataLayer;
+                f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-M7H68RW');
+        </script>
+
+        <meta charset="utf-8" />
+        <meta name="keywords" content="epic seven damage calculator, epic 7 damage calculator, e7 damage calculator, epic seven speed tuner, epic 7 speed tuner, e7 speed tuner" />
+        <meta name="description" content="Damage Calculator for Epic Seven for every hero in the game. Enter your hero stats to get their damage potential." />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css@3.5.0/css/flag-icon.min.css">
+        <link rel="stylesheet" href="../style.css" />
+        <link rel="stylesheet" href="../flags/flags.css" />
+        <!-- IE -->
+        <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico" />
+        <!-- other browsers -->
+        <link rel="icon" type="image/x-icon" href="../favicon.ico" />
+
+        <title>Epic7 Ajustador de Speed (Beta)</title>
+    </head>
+    <body class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
+            <a class="navbar-brand">Epic 7 Ajustador de Speed (Beta)</a>
+            <!-- <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks <i class="fas fa-external-link-alt fa-xs"></i></a>
+                </li>
+            </ul> -->
+        </nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 initial-hide fade-in">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">Calculadora de Dano</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./effectiveness.html">Calculadora de Chance de Eficácia</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./ehp-calculator.html">Calculadora de HP Efetivo</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto flex-centered">
+                <li class="nav-item nav-link">
+                    <div class="custom-control custom-switch mar-right">
+                        <input type="checkbox" class="custom-control-input" id="dark-switch">
+                        <label class="custom-control-label" for="dark-switch">
+                            <span class="d-none d-sm-inline">Modo Escuro</span>
+                            <i class="fas fa-adjust d-inline d-sm-none mt-1"></i>
+                        </label>
+                    </div>
+                </li>
+                <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
+                    <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">Compartilhar</span>
+                </button>
+            </ul>
+        </nav>
+        <div class="alert alert-info alert-dismissible fade show initial-hide fade-in" role="alert">
+            Para usar o Ajustador de Velocidade, insira a velocidade atual do herói mais lento e/ou mais rápida, bem como qualquer aumento de prontidão de combate que será aplicado.
+            <br>O Ajustador calculará como as velocidades das unidades precisam ser ajustadas para garantir a ordem dos turnos.
+            <br><br>No modo O MAIS RÁPIDO EMPURRA O MAIS LENTO, defina a velocidade da unidade mais lenta e/ou mais rápida e o CR push para calcular a velocidade necessária para a próxima unidade mais lenta se mover.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div>
+            <div class="initial-show spinner-holder">
+                <img src="../assets/icons/loading-spinner.svg" alt="Loading spinner...">
+            </div>
+            <div class="form-group col-sm-12 has-share initial-hide fade-in no-pad-sides">
+                <div class="custom-control custom-switch mt-1">
+                    <input type="checkbox" class="custom-control-input" id="faster-pushes-switch" onchange="resolve(); fasterPushesToggled()">
+                    <label class="custom-control-label" for="faster-pushes-switch">
+                        <strong>O MAIS RÁPIDO EMPURRA O MAIS LENTO</strong>
+                    </label>
+                </div>
+            </div>
+            <form id="stats" class="initial-hide fade-in">
+                <div class="row">
+                    <div class="col-sm-6 half-left">
+                        <div class="stat-block">
+                            <div class="form-group row col-sm-12">
+                                <label for="slow-unit-speed" class="col-md-7 col-form-label form-control-sm">
+                                    <h5>Speed Herói Mais Lento<i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="A velocidade da unidade que deve se mover em segundo"></i></h5>
+                                </label>
+                                <div class="input-group input-group-sm col-md-5">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" id="slow-unit-speed-minus" onclick="minus('slow-unit-speed')">&minus;</button>
+                                    </div>
+                                    <input type="number" class="form-control text-center" id="slow-unit-speed" value="200" onkeyup="update('slow-unit-speed')">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="slow-unit-speed-plus" onclick="plus('slow-unit-speed')">&plus;</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row col-sm-12">
+                                <input type="range" class="custom-range" id="slow-unit-speed-slide" min="90" max="400" value="200" oninput="slide('slow-unit-speed')">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 half-right">
+                        <div class="stat-block">
+                            <div class="form-group row col-sm-12">
+                                <label for="fast-unit-speed" class="col-md-7 col-form-label form-control-sm">
+                                    <h5>Speed Herói Mais Rápido<i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="A velocidade do herói que deve se mover primeiro"></i></h5>
+                                </label>
+                                <div class="input-group input-group-sm col-md-5">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" id="fast-unit-speed-minus" onclick="minus('fast-unit-speed')">&minus;</button>
+                                    </div>
+                                    <input type="number" class="form-control text-center" id="fast-unit-speed" value="220" onkeyup="update('fast-unit-speed')">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="fast-unit-speed-plus" onclick="plus('fast-unit-speed')">&plus;</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row col-sm-12">
+                                <input type="range" class="custom-range" id="fast-unit-speed-slide" min="90" max="400" value="220" oninput="slide('fast-unit-speed')">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row initial-hide fade-in">
+                    <div class="col-sm-6 half-left">
+                        <div class="stat-block">
+                            <div class="form-group row col-sm-12">
+                                <label for="slow-unit-push" class="col-md-7 col-form-label form-control-sm">
+                                    <h5>Herói Mais Lento CR Push (%) <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="A quantidade de aumento de prontidão de combate concedida ao herói mais lenta"></i></h5>
+                                </label>
+                                <div class="input-group input-group-sm col-md-5">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" id="slow-unit-push-minus" onclick="minus('slow-unit-push')">&minus;</button>
+                                    </div>
+                                    <input type="number" class="form-control text-center" id="slow-unit-push" value="0" onkeyup="update('slow-unit-push')">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="slow-unit-push-plus" onclick="plus('slow-unit-push')">&plus;</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row col-sm-12">
+                                <input type="range" class="custom-range" id="slow-unit-push-slide" min="0" max="100" value="0" oninput="slide('slow-unit-push')">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="fast-cr-div" class="col-sm-6 half-right">
+                        <div class="stat-block">
+                            <div class="form-group row col-sm-12">
+                                <label for="fast-unit-push" class="col-md-7 col-form-label form-control-sm">
+                                    <h5>Herói Mais Rápido CR Push (%) <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="A quantidade de aumento de prontidão de combate concedida ao herói mais rápida antes que a unidade mais lenta faça um turno"></i></h5>
+                                </label>
+                                <div class="input-group input-group-sm col-md-5">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" id="fast-unit-push-minus" onclick="minus('fast-unit-push')">&minus;</button>
+                                    </div>
+                                    <input type="number" class="form-control text-center" id="fast-unit-push" value="0" onkeyup="update('fast-unit-push')">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="fast-unit-push-plus" onclick="plus('fast-unit-push')">&plus;</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row col-sm-12">
+                                <input type="range" class="custom-range" id="fast-unit-push-slide" min="0" max="100" value="0" oninput="slide('fast-unit-push')">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row initial-hide fade-in">
+                    <div class="col-sm-6 half-left"></div>
+                    <div id="fast-turns-div" class="col-sm-6 half-right">
+                        <div class="stat-block">
+                            <div class="form-group row col-sm-12">
+                                <label for="fast-unit-turns" class="col-md-7 col-form-label form-control-sm">
+                                    <h5>Turnos que o Herói Mais Rápido Precisa<i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="O número de voltas que a unidade mais rápida deve fazer antes que a unidade mais lenta dê sua primeira volta. Exemplo: Vivian precisa de 2 voltas para S3 -> S2 antes da próxima unidade na onda Banshee 1"></i></h5>
+                                </label>
+                                <div class="input-group input-group-sm col-md-5">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-outline-secondary" type="button" id="fast-unit-turns-minus" onclick="minus('fast-unit-turns')">&minus;</button>
+                                    </div>
+                                    <input type="number" class="form-control text-center" id="fast-unit-turns" value="1" onkeyup="update('fast-unit-turns')">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" type="button" id="fast-unit-turns-plus" onclick="plus('fast-unit-turns')">&plus;</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row col-sm-12">
+                                <input type="range" class="custom-range" id="fast-unit-turns-slide" min="1" max="3" value="1" oninput="slide('fast-unit-turns')">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="form-group col-sm-12 initial-hide fade-in">
+                <div class="custom-control custom-checkbox custom-control-inline buff-block">
+                    <input class="custom-control-input" type="checkbox" id="stigma-or-politis" onchange="resolve(); stigmaPolitisToggled()">
+                    <label class="custom-control-label" for="stigma-or-politis">
+                        <img src="../assets/debuffs/stigma-debuff.png" width="20" height="20" /> Estigma / <img src="../assets/heroes/politis-icon.png" width="20" height="20" /> Inimigo Politis
+                    </label>
+                </div>
+            </div>
+            
+            
+            <div class="row text-center initial-hide fade-in">
+                <div class="col-sm-6 half-left">
+                    <div id="slow-max-speed-box" class="card border-success mb-3">
+                        <div id="slow-output-label" class="card-header">
+                            Speed Máxima do Herói Mais Lento
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <h2><span id="slow-max-speed" class="text-success"></span></h2>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 half-right">
+                        <div id="fast-min-speed-box" class="card border-success">
+                            <div id="fast-output-label" class="card-header">
+                                Speed Mínimo do Herói Mais Rápido
+                            </div>
+                                <div class="card-body">
+                                <p class="card-text">
+                                    <h2><span id="fast-min-speed" class="text-success"></span></h2>
+                                </p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="card border-info text-center initial-hide fade-in">
+                <div class="card-header">
+                    Recomendação
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <h2><span id="recommendation"></span></h2>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/js/bootstrap-select.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.1/js/all.min.js"></script>
+        <script src="../lang.js"></script>
+        <script src="../query-params.js"></script>
+        <script src="../speed-tuner/speed-tuner.js"></script>
+        <script src="../form.js"></script>
+    </body>
+</html>

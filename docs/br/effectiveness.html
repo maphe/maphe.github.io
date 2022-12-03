@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="root" lang="zhTW">
+<html id="root" lang="br">
     <head>
         <script>
             (function(window, document, script, layer, ident) {
@@ -15,8 +15,8 @@
         </script>
 
         <meta charset="utf-8" />
-        <meta name="keywords" content="第七史詩 傷害計算器, 第七史詩 傷害模擬器" />
-        <meta name="description" content="填入第七史詩的角色面板數據, 模擬實際戰鬥傷害" />
+        <meta name="keywords" content="epic seven damage calculator, epic 7 damage calculator, e7 damage calculator" />
+        <meta name="description" content="Damage Calculator for Epic Seven for every hero in the game. Enter your hero stats to get their damage potential." />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.18/dist/css/bootstrap-select.min.css">
@@ -28,11 +28,11 @@
         <!-- other browsers -->
         <link rel="icon" type="image/x-icon" href="../favicon.ico" />
 
-        <title>第七史詩效果命中與抵抗計算</title>
+        <title>Epic7 Calculadora de Chance de Eficácia</title>
     </head>
     <body class="container">
         <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
-            <a class="navbar-brand">第七史詩效果命中與抵抗計算</a>
+            <a class="navbar-brand">Epic 7 Calculadora de Chance de Eficácia</a>
             <!-- <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="https://www.e7leaks.com/" target="_blank">e7leaks <i class="fas fa-external-link-alt fa-xs"></i></a>
@@ -40,15 +40,15 @@
             </ul> -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" lang="zh-tw">
-                        繁體中文 <span class="flag flag-tw"> </span>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" lang="en-us">
+                        Português Brasil <span class="flag flag-br"> </span>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="../effectiveness/effectiveness.html" lang="en">English <span class="flag flag-us"> </span></a>
-                        <a class="dropdown-item" href="../jp/effectiveness.html" lang="jp">日本語 <span class="flag flag-jp"> </span></a>
+                        <a class="dropdown-item" href="../jp/effectiveness.html" lang="ja">日本語 <span class="flag flag-jp"> </span></a>
                         <a class="dropdown-item" href="../kr/effectiveness.html" lang="ko">한국어 <span class="flag flag-kr"> </span></a>
+                        <a class="dropdown-item" href="../zhTW/effectiveness.html" lang="zh-tw">繁體中文 <span class="flag flag-tw"> </span></a>
                         <a class="dropdown-item" href="../zh/effectiveness.html" lang="zh-cn">简体中文 <span class="flag flag-cn"> </span></a>
-                        <a class="dropdown-item" href="../br/effectiveness.html" lang="pt">Português Brasil <span class="flag flag-br"> </span></a>
                     </div>
                 </li>
             </ul>
@@ -56,7 +56,13 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3 initial-hide fade-in">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html"><i class="fas fa-angle-double-left"></i> 傷害計算器</a>
+                    <a class="nav-link" href="./index.html">Calculadora de Dano</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="./speed-tuner.html">Ajustador de Speed (Beta)</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="./ehp-calculator.html">Calculadora de HP Efetivo</a>
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto flex-centered">
@@ -64,13 +70,13 @@
                     <div class="custom-control custom-switch mar-right">
                         <input type="checkbox" class="custom-control-input" id="dark-switch">
                         <label class="custom-control-label" for="dark-switch">
-                            <span class="d-none d-sm-inline">深色模式</span>
+                            <span class="d-none d-sm-inline">Modo Escuro</span>
                             <i class="fas fa-adjust d-inline d-sm-none mt-1"></i>
                         </label>
                     </div>
                 </li>
                 <button id="link-share" type="button" class="btn btn-success btn-sm" onclick="copyLinkToClipboard()">
-                    <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">分享</span>
+                    <img class="icon" src="../assets/icons/share-nodes-solid.svg"> <span id="share-button-text" class="d-none d-md-inline">Compartilhar</span>
                 </button>
             </ul>
         </nav>
@@ -81,7 +87,7 @@
             <form id="stats" class="initial-hide fade-in">
                 <div class="stat-block">
                     <div class="form-group row col-sm-12">
-                        <label for="hit-chance" class="col-md-9 col-form-label form-control-sm"><h5>攻擊命中機率 (%)</h5></label>
+                        <label for="hit-chance" class="col-md-9 col-form-label form-control-sm"><h5>Chance de Acerto (%)</h5></label>
                         <div class="input-group input-group-sm col-md-3">
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-secondary" type="button" id="hit-chance-minus" onclick="minus('hit-chance')">&minus;</button>
@@ -98,7 +104,7 @@
                 </div>
                 <div class="stat-block">
                     <div class="form-group row col-sm-12">
-                        <label for="effect-chance" class="col-md-9 col-form-label form-control-sm"><h5>技能發動概率 (%)</h5></label>
+                        <label for="effect-chance" class="col-md-9 col-form-label form-control-sm"><h5>Chance de Efeito da Habilidade (%)</h5></label>
                         <div class="input-group input-group-sm col-md-3">
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-secondary" type="button" id="effect-chance-minus" onclick="minus('effect-chance')">&minus;</button>
@@ -115,7 +121,7 @@
                 </div>
                 <div class="stat-block">
                     <div class="form-group row col-sm-12">
-                        <label for="effectiveness" class="col-md-9 col-form-label form-control-sm"><h5>施術者效果命中</h5></label>
+                        <label for="effectiveness" class="col-md-9 col-form-label form-control-sm"><h5>Eficácia do Herói</h5></label>
                         <div class="input-group input-group-sm col-md-3">
                             <div class="input-group-prepend">
                                     <button class="btn btn-outline-secondary" type="button" id="effectiveness-minus" onclick="minus('effectiveness')">&minus;</button>
@@ -132,7 +138,7 @@
                 </div>
                 <div class="stat-block">
                     <div class="form-group row col-sm-12">
-                        <label for="effect-resistance" class="col-md-9 col-form-label form-control-sm"><h5>目標效果抵抗</h5></label>
+                        <label for="effect-resistance" class="col-md-9 col-form-label form-control-sm"><h5>Resistência do Alvo</h5></label>
                         <div class="input-group input-group-sm col-md-3">
                             <div class="input-group-prepend">
                                 <button class="btn btn-outline-secondary" type="button" id="effect-resistance-minus" onclick="minus('effect-resistance')">&minus;</button>
@@ -154,8 +160,8 @@
                     <div class="col-sm-3">
                         <div class="card border-success mb-3">
                             <div class="card-header">
-                                總體技能命中率
-                                <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="此處計算了技能發動機率和攻擊命中機率"></i>
+                                Chance de Infligir Efeito
+                                <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="Está considerando chance de acerto e chance de efeito de habilidade"></i>
                             </div>
                             <div class="card-body text-success">
                                 <p class="card-text">
@@ -168,8 +174,8 @@
                         <div class="card-group">
                             <div class="card border-info">
                                 <div class="card-header">
-                                    技能發動後命中率
-                                    <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="這是技能發動後命中機率, 也就是計算了目標的效果抵抗但不計算攻擊命中機率和技能效果發動機率"></i>
+                                    Chance de Procar Debuff
+                                    <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="Esta é a chance de conseguir o efeito, também conhecido como. passar no teste de resistência, independentemente da chance de efeito da habilidade ou chance de acerto."></i>
                                 </div>
                                 <div class="card-body text-info">
                                     <p class="card-text">
@@ -179,8 +185,8 @@
                             </div>
                             <div class="card border-danger">
                                 <div class="card-header">
-                                    技能被抵抗概率
-                                    <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="攻擊命中並且技能效果發動後目標抵抗的機率"></i>
+                                    Chance do Alvo Resistir
+                                    <i class="far fa-question-circle fa-xs text-muted" data-toggle="tooltip" title="Chance para o alvo resistir ao efeito se for atingido e o efeito da habilidade for ativado"></i>
                                 </div>
                                 <div class="card-body text-danger">
                                     <p class="card-text">
