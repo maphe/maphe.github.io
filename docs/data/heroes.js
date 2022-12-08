@@ -131,6 +131,31 @@ const heroes = {
       },
     }
   },
+  ae_giselle: {
+    name: 'ae-GISELLE',
+    element: element.earth,
+    classType: classType.mage,
+    info: infoLabel('unreleased_hero'),
+    form: [elements.target_hp_pc],
+    baseAtk: 1286,
+    skills: {
+      s1: {
+        mult: () => 1 + elements.target_hp_pc.value() * 0.002,
+        multTip: () => ({ target_current_hp: 0.2 }),
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.7 : 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 2,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      }
+    }
+  },
   ae_ningning: {
     name: 'ae-NINGNING',
     element: element.fire,

@@ -1900,6 +1900,7 @@ const i18n = {
       adin: '아딘',
       adlay: '아들라이',
       adventurer_ras: '모험가 라스',
+      ae_giselle: 'ae-지젤',
       ae_ningning: 'ae-닝닝',
       ae_winter: 'ae-윈터',
       ains: '에인즈',
