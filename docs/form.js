@@ -99,7 +99,7 @@ const elements = {
   target_hp_pc: {
     ref: 'target_hp_pc',
     id: 'target-hp-pc',
-    label: 'Targets\'s HP %',
+    label: 'Target\'s HP %',
     type: 'slider',
     percent: true,
     min: 1,

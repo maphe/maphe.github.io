@@ -1,5 +1,6 @@
 ## Changelog
 
+<strong>Dec. 8 2022 Update:</strong> Added ae-GISELLE.<br>
 <strong>Dec. 2 2022 Update:</strong> Added Português Brasil translation.  Thanks to RenanCrimininBR for providing the translations.<br>
 <strong>Nov. 25 2022 Update:</strong> Added ae-WINTER and ae-NINGNING. Added translations for Savior Adin and Zio.<br>
 <strong>Nov. 19 2022 Update:</strong> Small bugfix: S.Tene's s1 getting set to single on the wrong condition.<br>
