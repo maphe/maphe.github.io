@@ -153,6 +153,7 @@ const heroes = {
         pow: 1,
         enhance: [0.05, 0.05, 0, 0.1, 0.1],
         single: true,
+        noTrans: true,
       }
     }
   },
