@@ -135,7 +135,6 @@ const heroes = {
     name: 'ae-GISELLE',
     element: element.earth,
     classType: classType.mage,
-    info: infoLabel('unreleased_hero'),
     form: [elements.target_hp_pc],
     baseAtk: 1286,
     skills: {
@@ -155,6 +154,32 @@ const heroes = {
         single: true,
         noTrans: true,
       }
+    }
+  },
+  ae_karina: {
+    name: 'ae-KARINA',
+    element: element.ice,
+    classType: classType.knight,
+    baseAtk: 821,
+    form: [elements.caster_defense],
+    skills: {
+      s1: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_defense.value() * 1.0,
+        flatTip: () => ({ caster_defense: 100 }),
+        enhance: [0.05, 0.05, 0, 0.05, 0, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_defense.value() * 0.5,
+        flatTip: () => ({ caster_defense: 50 }),
+        afterMath: (hitType) => (hitType !== hitTypes.miss) ? { defPercent: 1.4, penetrate: 0.7 } : null,
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1, 0.1],
+        single: true,
+      },
     }
   },
   ae_ningning: {
