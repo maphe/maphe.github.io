@@ -245,6 +245,15 @@ const artifacts = {
     exclusive: classType.ranger,
     applies: (skill) => getSkillType(skill) === skillTypes.aoe
   },
+  rocket_punch_gauntlet: {
+    id: 'rocket_punch_gauntlet',
+    name: 'Rocket Punch Gauntlet',
+    type: artifactDmgType.aftermath,
+    defPercent: 1.0,
+    penetrate: 0.3,
+    exclusive: classType.knight,
+    applies: (skill) => getSkillType(skill) === skillTypes.single,
+  },
   severed_horn_wand: {
     id: 'severed_horn_wand',
     name: 'Severed Horn Wand',

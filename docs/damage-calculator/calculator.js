@@ -473,7 +473,11 @@ class Hero {
 
     const artiMultipliers = this.artifact.getAfterMathMultipliers(skill, skillId);
     if (artiMultipliers !== null) {
-      return this.getAtk()*artiMultipliers.atkPercent*dmgConst*this.target.defensivePower({ penetrate: () => artiMultipliers.penetrate }, true);
+      if (artiMultipliers.atkPercent) {
+        return this.getAtk() * artiMultipliers.atkPercent * dmgConst * this.target.defensivePower({ penetrate: () => artiMultipliers.penetrate }, true);
+      } else if (artiMultipliers.defPercent) {
+        return elements.caster_defense.value() * artiMultipliers.defPercent * dmgConst * this.target.defensivePower({ penetrate: () => artiMultipliers.penetrate }, true);
+      }
     }
 
     return null;
@@ -576,11 +580,12 @@ class Artifact {
 
   getAfterMathMultipliers(skill, skillId) {
     if(!this.applies(skill, skillId)) return null;
-    if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.aftermath || artifacts[this.id].atkPercent === undefined || artifacts[this.id].penetrate === undefined) {
+    if (this.id === undefined || artifacts[this.id].type !== artifactDmgType.aftermath || (artifacts[this.id].atkPercent === undefined && artifacts[this.id].defPercent === undefined) || artifacts[this.id].penetrate === undefined) {
       return null;
     }
     return {
       atkPercent: artifacts[this.id].atkPercent,
+      defPercent: artifacts[this.id].defPercent,
       penetrate: artifacts[this.id].penetrate,
     }
   }
