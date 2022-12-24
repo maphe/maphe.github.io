@@ -89,6 +89,16 @@ const elements = {
     },
     value: () => Number(document.getElementById('target-max-hp').value)
   },
+  target_injuries: {
+    ref: 'target_injuries',
+    id: 'target-injuries',
+    label: 'Target\'s Injuries',
+    type: 'slider',
+    min: 0,
+    max: 50000,
+    default: () => 0,
+    value: () => Number(document.getElementById('target-injuries').value)
+  },
   target_is_highest_max_hp: {
     ref: 'target_is_highest_max_hp',
     id: 'target-is-highest-max-hp',
@@ -199,6 +209,14 @@ const elements = {
     type: 'checkbox',
     value: () => document.getElementById('target-is-stunned').checked,
     icon: './assets/debuffs/stun-debuff.png'
+  },
+  target_silenced: {
+    ref: 'target_silenced',
+    id: 'target-silenced',
+    label: 'Target is Silenced',
+    type: 'checkbox',
+    value: () => document.getElementById('target-silenced').checked,
+    icon: './assets/debuffs/silence-debuff.png'
   },
   target_has_barrier: {
     ref: 'target_has_barrier',
