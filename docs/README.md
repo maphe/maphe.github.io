@@ -1,5 +1,6 @@
 ## Changelog
 
+<strong>Dec. 23 2022 Update:</strong> Added ae-KARINA and Rocket Punch Gauntlet. Updated heroes and artifacts included in Balance patch. Added Death Dealer Ray.<br>
 <strong>Dec. 8 2022 Update:</strong> Added ae-GISELLE and Frame of Light.<br>
 <strong>Dec. 2 2022 Update:</strong> Added Português Brasil translation.  Thanks to RenanCrimininBR for providing the translations.<br>
 <strong>Nov. 25 2022 Update:</strong> Added ae-WINTER and ae-NINGNING. Added translations for Savior Adin and Zio.<br>

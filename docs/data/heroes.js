@@ -2224,6 +2224,7 @@ const heroes = {
     classType: classType.soul_weaver,
     baseAtk: 621,
     form: [elements.target_injuries],
+    info: infoLabel('unreleased_hero'),
     skills: {
       s1: {
         rate: 1,
