@@ -200,6 +200,14 @@ const elements = {
     value: () => document.getElementById('target-is-stunned').checked,
     icon: './assets/debuffs/stun-debuff.png'
   },
+  target_silenced: {
+    ref: 'target_silenced',
+    id: 'target-silenced',
+    label: 'Target is Silenced',
+    type: 'checkbox',
+    value: () => document.getElementById('target-silenced').checked,
+    icon: './assets/debuffs/silence-debuff.png'
+  },
   target_has_barrier: {
     ref: 'target_has_barrier',
     id: 'target-has-barrier',

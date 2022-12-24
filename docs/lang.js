@@ -138,6 +138,7 @@ const i18n = {
       balance_op_sigret: 'Balance Update: Added Speed scaling, lowered Attack scaling: S2: 0.8 -> 0.75 / S3 1.1 -> 1',
       lqc_s3_splash: 'S3 Splash',
       ml_celine_nimble_sword: 'Nimble Sword',
+      sez_encroach: 'Encroach',
       s1_extra_attack: 'S1 Extra Attack',
       s1_soulburn: 'S1 Soulburn',
       s2_wave_2: 'S2 Wave 2',
@@ -154,10 +155,10 @@ const i18n = {
     heroes: {
       // Unreleased units: (未発表)
       // Pre-Balance versions: (前のバージョン)
-      hwayoung_old: 'フィナス (前のバージョン)',
-      vildred_old: 'ヴィルドレッド (前のバージョン)',
-      bad_cat_armin_old: 'バッドキャット アーミン (前のバージョン)',
-      jena_old: 'ジェナ (前のバージョン)',
+      briar_witch_iseria_old: '灰森のイセリア (前のバージョン)',
+      celine_old: 'セリン (前のバージョン)',
+      sez_old: 'セズ (前のバージョン)',
+      yufine_old: 'ユピネ (前のバージョン)',
       // End Pre-Balance
       achates: 'アカテス',
       adin: 'アーディン',
@@ -581,10 +582,10 @@ const i18n = {
     heroes: {
       // Unreleased units: (未發布)
       // Pre-Balance versions: (以前的版本)
-      hwayoung_old: '和英 (以前的版本)',
-      vildred_old: '維德瑞 (以前的版本)',
-      bad_cat_armin_old: '壞壞貓亞敏 (以前的版本)',
-      jena_old: '捷娜 (以前的版本)',
+      briar_witch_iseria_old: '灰光森林的伊賽麗亞 (以前的版本)',
+      celine_old: '瑟琳 (以前的版本)',
+      sez_old: '賽茲 (以前的版本)',
+      yufine_old: '優芬妮 (以前的版本)',
       // End Pre-Balance
       achates: '雅卡泰絲',
       adin: '艾庭',
@@ -1237,10 +1238,10 @@ const i18n = {
     heroes: {
       // Unreleased units: (未发布)
       // Pre-Balance versions: (以前的版本)
-      hwayoung_old: '和英 (以前的版本)',
-      vildred_old: '维德瑞 (以前的版本)',
-      bad_cat_armin_old: '坏坏猫亚敏 (以前的版本)',
-      jena_old: '捷娜 (以前的版本)',
+      briar_witch_iseria_old: '灰光森林的伊赛丽亚 (以前的版本)',
+      celine_old: '瑟琳 (以前的版本)',
+      sez_old: '赛兹 (以前的版本)',
+      yufine_old: '优芬妮 (以前的版本)',
       // End Pre-Balance
       achates: '雅卡泰丝',
       adin: '艾庭',
@@ -1897,10 +1898,10 @@ const i18n = {
     heroes: {
       // Unreleased units: (미공개)
       // Pre-Balance versions: (이전 버전)
-      hwayoung_old: '화영 (이전 버전)',
-      vildred_old: '빌트레드 (이전 버전)',
-      bad_cat_armin_old: '배드캣 아밍 (이전 버전)',
-      jena_old: '제나 (이전 버전)',
+      briar_witch_iseria_old: '잿빛 숲의 이세리아 (이전 버전)',
+      celine_old: '셀린 (이전 버전)',
+      sez_old: '세즈 (이전 버전)',
+      yufine_old: '유피네 (이전 버전)',
       // End Pre-Balance
       achates: '아카테스',
       adin: '아딘',
@@ -2485,10 +2486,10 @@ const i18n = {
     heroes: {
       // Unreleased units: (Unidades) (Não Lançadas)
       // Pre-Balance versions: (Versão) (Pré-Balanceamento)
-      hwayoung_old: 'Hwa Young (Pré-Balanceamento)',
-      vildred_old: 'Vildred (Pré-Balanceamento)',
-      bad_cat_armin_old: 'Armina Gatinha Malvada (Pré-Balanceamento)',
-      jena_old: 'Jena (Pré-Balanceamento)',
+      briar_witch_iseria_old: 'Bruxa do Espinheiro Iséria (Pré-Balanceamento)',
+      celine_old: 'Celine (Pré-Balanceamento)',
+      sez_old: 'Sez (Pré-Balanceamento)',
+      yufine_old: 'Yufina (Pré-Balanceamento)',
       // End Pre-Balance
       achates: 'Acates',
       adin: 'Adine',
