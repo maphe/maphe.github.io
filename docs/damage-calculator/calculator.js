@@ -244,7 +244,7 @@ const getModTooltip = (hero, skillId, soulburn = false) => {
   if (values.detonation != null) content += `${skillLabel('detonation')}: <b class="float-right">+${Math.round(values.detonation*100)}%</b><br/>`;
   if (values.exEq != null) content += `${skillLabel('exEq')}: <b class="float-right">+${Math.round(values.exEq*100)}%</b><br/>`;
   if (values.elemAdv !== null) content += `${skillLabel('elemAdv')}: <i class="fas ${values.elemAdv ? 'fa-check-square' : 'fa-times-circle'} float-right"></i><br/>`;
-  if (values.afterMathFormula !== null) content += `${skillLabel('afterMathFormula')}/${values.afterMathFormula.defPercent ? skillLabel('def_rate'): skillLabel('att_rate')}: <b class="float-right">${Math.round((values.afterMathFormula.atkPercent || values.afterMathFormula.defPercent)*100)}%</b><br/>`;
+  if (values.afterMathFormula !== null) content += `${skillLabel('afterMathFormula')}/${values.afterMathFormula.defPercent ? skillLabel('def_rate') : values.afterMathFormula.injuryPercent ? skillLabel('injury_rate'): skillLabel('att_rate')}: <b class="float-right">${Math.round((values.afterMathFormula.atkPercent || values.afterMathFormula.defPercent || values.afterMathFormula.injuryPercent)*100)}%</b><br/>`;
   if (values.afterMathFormula !== null) content += `${skillLabel('afterMathFormula')}/${skillLabel('pen')}: <b class="float-right">${Math.round(values.afterMathFormula.penetrate*100)}%</b><br/>`;
   if (values.afterMathDmg !== null) content += `${skillLabel('afterMathDmg')}: <b class="float-right">${Math.round(values.afterMathDmg)}</b><br/>`;
   if (values.extraDmg != null) content += `${skillLabel('extraDmg')}: <span class="float-right">${values.extraDmgTip} <b>${Math.round(values.extraDmg)}</b><br/>`;
@@ -462,6 +462,8 @@ class Hero {
         skillDamage = this.getAtk(skillId)*skillMultipliers.atkPercent*dmgConst*this.target.defensivePower({ penetrate: () => skillMultipliers.penetrate }, true);
       } else if (skillMultipliers.defPercent) {
         skillDamage = elements.caster_defense.value()*skillMultipliers.defPercent*dmgConst*this.target.defensivePower({ penetrate: () => skillMultipliers.penetrate }, true);
+      } else if (skillMultipliers.injuryPercent) {
+        skillDamage = elements.target_injuries.value()*skillMultipliers.injuryPercent*dmgConst*this.target.defensivePower({ penetrate: () => skillMultipliers.penetrate }, true);
       }
     }
 

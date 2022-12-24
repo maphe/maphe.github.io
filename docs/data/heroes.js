@@ -2218,6 +2218,29 @@ const heroes = {
       }
     }
   },
+  death_dealer_ray: {
+    name: 'Death Dealer Ray',
+    element: element.dark,
+    classType: classType.soul_weaver,
+    baseAtk: 621,
+    form: [elements.target_injuries],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s3: {
+        noCrit: true,
+        noMiss: true,
+        rate: 0,
+        pow: 0,
+        afterMath: () => ({ injuryPercent: 0.8, penetrate: 0.7 }),
+        single: true,
+      }
+    }
+  },
   desert_jewel_basar: {
     name: 'Desert Jewel Basar',
     element: element.light,
