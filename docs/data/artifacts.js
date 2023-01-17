@@ -271,6 +271,13 @@ const artifacts = {
     exclusive: classType.warrior,
     applies: (skill) => getSkillType(skill) === skillTypes.single,
   },
+  scroll_of_shadows: {
+    id: 'scroll_of_shadows',
+    name: 'Scroll of Shadows',
+    scale: [0.08, 0.088, 0.096, 0.104, 0.112, 0.12, 0.128, 0.136, 0.144, 0.152, 0.16],
+    type: artifactDmgType.damage,
+    exclusive: classType.mage
+  },
   severed_horn_wand: {
     id: 'severed_horn_wand',
     name: 'Severed Horn Wand',
