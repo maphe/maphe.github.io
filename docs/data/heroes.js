@@ -5930,6 +5930,29 @@ const heroes = {
       }
     }
   },
+  shepherd_jena: {
+    name: 'Shepherd Jena',
+    element: element.ice,
+    classType: classType.mage,
+    form: [elements.skill_tree_completed],
+    baseAtk: 1063,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0.1, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 0.85,
+        pow: 0.95,
+        mult: () => elements.skill_tree_completed.value() ? 1.05 : 1,
+        multTip: () => (elements.skill_tree_completed.value() ? {skill_tree: 5} : null),
+        enhance: [0.05, 0.05, 0, 0, 0.1, 0, 0.15],
+        aoe: true,
+      }
+    }
+  },
   shooting_star_achates: {
     name: 'Shooting Star Achates',
     element: element.dark,
@@ -6536,7 +6559,7 @@ const heroes = {
         rate: 1,
         pow: 1,
         mult: () => 1 + (elements.skill_tree_completed.value() ? 0.1 : 0),
-        multTip: () => ({skill_tree: 5}),
+        multTip: () => ({skill_tree: 10}),
         enhance: [0.05, 0, 0, 0.1, 0, 0.15],
         single: true,
       },

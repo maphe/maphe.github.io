@@ -1,5 +1,6 @@
 ## Changelog
 
+<strong>Jan. 16 2023 Update:</strong> Added P.O.S and Scroll of shadows. Added Shepherd Jena. I am aware of some other artifacts that have been missing and will add a few at at time as when I can.<br>
 <strong>Dec. 23 2022 Update:</strong> Added ae-KARINA and Rocket Punch Gauntlet. Updated heroes and artifacts included in Balance patch. Added Death Dealer Ray.<br>
 <strong>Dec. 8 2022 Update:</strong> Added ae-GISELLE and Frame of Light.<br>
 <strong>Dec. 2 2022 Update:</strong> Added Português Brasil translation.  Thanks to RenanCrimininBR for providing the translations.<br>

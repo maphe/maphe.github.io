@@ -621,6 +621,17 @@ const elements = {
     readonly: true,
     value: () => Number(document.getElementById('turn-stack-3').value)
   },
+  turn_stack_10: {
+    ref: 'turn_stack_10',
+    id: 'turn-stack-10',
+    label: 'Turn Stack',
+    type: 'slider',
+    min: 0,
+    max: 10,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('turn-stack-10').value)
+  },
   aoe_stack_5: {
     ref: 'aoe_stack_5',
     id: 'aoe-stack-5',
