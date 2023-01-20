@@ -999,6 +999,34 @@ const heroes = {
       }
     }
   },
+  beehoo: {
+    name: 'Beehoo',
+    element: element.fire,
+    classType: classType.ranger,
+    info: infoLabel('unreleased_hero'),
+    form: [elements.target_burn_detonate],
+    baseAtk: 1203,
+    dot: [dot.burn],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        noCrit: true,
+        single: true,
+      },
+      s1_rock_smash: {
+        name: 'S1 Incinerate',
+        rate: 1.2,
+        pow: 0.9,
+        enhance_from: 's1',
+        detonate: dot.burn,
+        detonation: () => 1,
+        noCrit: true,
+        single: true,
+      }
+    }
+  },
   belian: {
     name: 'Belian',
     element: element.light,
@@ -2224,7 +2252,6 @@ const heroes = {
     classType: classType.soul_weaver,
     baseAtk: 621,
     form: [elements.target_injuries],
-    info: infoLabel('unreleased_hero'),
     skills: {
       s1: {
         rate: 1,
@@ -3260,7 +3287,12 @@ const heroes = {
     name: 'Hwayoung',
     element: element.fire,
     classType: classType.warrior,
+    info: "<strong>Notice:</strong> Hwayoung's S1 additional damage penetration has been set back to 0.7 in the calculator.  It was presumed" +
+          " to have been removed because it did not show up when the skill data spreadsheet datamined.  However, as of now it is presumed all" +
+          " additional damage of this kind has 0.7 def pen due to other heroes' additional damage penetration similarly being absent in datamines.",
     baseAtk: 1342,
+    innateAtkUp: () => 0.3,
+    dot: [dot.burn],
     form: [elements.caster_has_buff, elements.caster_max_hp, elements.target_max_hp],
     barrier: (hero) => hero.getAtk()*0.45,
     innateAtkUp: () => {
@@ -3274,7 +3306,7 @@ const heroes = {
       s1: {
         rate: 0.8,
         pow: 1,
-        afterMath: (hitType) => elements.caster_has_buff.value() && hitType !== hitTypes.miss ? ({ atkPercent: 0.25, penetrate: 0 }) : null,
+        afterMath: (hitType) => elements.caster_has_buff.value() && hitType !== hitTypes.miss ? ({ atkPercent: 0.25, penetrate: 0.7 }) : null,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
         noCrit: true,

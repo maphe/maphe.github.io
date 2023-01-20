@@ -14,3 +14,7 @@ const battleConstants = {
     'targetVigor': 0.3,
     'target': 1.15
 }
+
+const heroConstants = {
+    'beehooBurnMult': 1.3
+}

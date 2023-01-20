@@ -781,6 +781,15 @@ const elements = {
     readonly: true,
     value: () => Number(document.getElementById('torrent-set-stack').value)
   },
+  beehoo_passive: {
+    ref: 'beehoo_passive',
+    id: 'beehoo-passive',
+    label: 'Beehoo on team',
+    type: 'checkbox',
+    default: () => hero.value === 'beehoo',
+    value: () => document.getElementById('beehoo-passive').checked,
+    icon: './assets/heroes/beehoo-icon.png'
+  },
 };
 
 elements.caster_speed.sub_elements = [elements.caster_speed_up];
@@ -899,6 +908,13 @@ const showHeroInfo = (hero) => {
 const build = (hero) => {
   showHeroInfo(hero);
   const specificBlock = document.getElementById('custom-block');
+  if (hero.dot?.includes(dot.burn)) {
+    if (hero.form) {
+      hero.form.push(elements.beehoo_passive);
+    } else {
+      hero.form = [elements.beehoo_passive];
+    }
+  }
   if (hero.form) {
     specificBlock.innerHTML = '';
     for (let elem of hero.form) {
@@ -1013,7 +1029,7 @@ const buildElement = (elem, parent) => {
   } else if (elem.type === 'checkbox') {
     $(parent).append(`<div class="form-group col-sm-12">
                               <div class="custom-control custom-checkbox custom-control-inline buff-block">
-                                  <input class="custom-control-input" type="checkbox" id="${elem.id}" value="1" onchange="resolve()" ${elem.default === true ? 'checked' : ''}>
+                                  <input class="custom-control-input" type="checkbox" id="${elem.id}" value="1" onchange="resolve()" ${(typeof elem.default === 'function' ? elem.default() : elem.default === true) ? 'checked' : ''}>
                                   <label class="custom-control-label" for="${elem.id}">
                                     ${elem.icon ? '<img src="'+ (['jp', 'kr', 'zh', 'zhTW', 'br'].some(locale => window.location.href.includes(locale)) ? '.' : '') + elem.icon +'" width="20" height="20" />' : ''} ${formLabel(elem.ref)}
                                   </label>

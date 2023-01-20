@@ -3098,5 +3098,5 @@ const infoLabel = (key) => {
   let lang = document.getElementById('root').getAttribute('lang');
   if (i18n[lang].info === undefined) lang = 'en';
 
-  return i18n[lang].info[key] || i18n['en'].info[key] || '';
+  return i18n[lang].info[key] || i18n['en'].info[key] || key || '';
 }
