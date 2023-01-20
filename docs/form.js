@@ -971,6 +971,15 @@ const buildArtifact = (artifact) => {
     specificBlock.innerHTML = '';
   }
 
+  // add beehoo passive to arti if not already going to be added to hero
+  if (!heroes[hero.value].dot?.includes(dot.burn) && artifact.dot?.includes(dot.burn)) {
+    if (artifact.form) {
+      artifact.form.push(elements.beehoo_passive);
+    } else {
+      artifact.form = [elements.beehoo_passive];
+    }
+  }
+
   if (!artifact || (!artifact.scale && !artifact.form && !artifact.info)) {
     document.getElementById('artifact-block').style.display = 'none';
     return;

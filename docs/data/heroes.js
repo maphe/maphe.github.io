@@ -1006,6 +1006,13 @@ const heroes = {
     info: infoLabel('unreleased_hero'),
     form: [elements.target_burn_detonate],
     baseAtk: 1203,
+    innateAtkUp: () => {
+      let boost = 0.20;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        boost += heroes.beehoo.skills.s2.enhance[i];
+      }
+      return boost;
+    },
     dot: [dot.burn],
     skills: {
       s1: {
@@ -1015,7 +1022,7 @@ const heroes = {
         noCrit: true,
         single: true,
       },
-      s1_rock_smash: {
+      s1_incinerate: {
         name: 'S1 Incinerate',
         rate: 1.2,
         pow: 0.9,
@@ -1024,7 +1031,10 @@ const heroes = {
         detonation: () => 1,
         noCrit: true,
         single: true,
-      }
+      },
+      s2: {
+        enhance: [0.01, 0.01, 0.01, 0.01, 0.02, 0.02, 0.02],
+      },
     }
   },
   belian: {
@@ -3291,7 +3301,6 @@ const heroes = {
           " to have been removed because it did not show up when the skill data spreadsheet datamined.  However, as of now it is presumed all" +
           " additional damage of this kind has 0.7 def pen due to other heroes' additional damage penetration similarly being absent in datamines.",
     baseAtk: 1342,
-    innateAtkUp: () => 0.3,
     dot: [dot.burn],
     form: [elements.caster_has_buff, elements.caster_max_hp, elements.target_max_hp],
     barrier: (hero) => hero.getAtk()*0.45,
