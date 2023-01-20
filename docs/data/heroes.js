@@ -3636,6 +3636,27 @@ const heroes = {
       }
     }
   },
+  juni: {
+    name: 'Juni',
+    element: element.fire,
+    classType: classType.warrior,
+    form: [elements.caster_perception],
+    baseAtk: 1000,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 1,
+        pow: 1.1,
+        enhance: [0.05, 0, 0.05, 0, 0.1],
+        aoe: true,
+      }
+    }
+  },
   kanna: {
     name: 'Kanna',
     element: element.fire,
@@ -4214,6 +4235,26 @@ const heroes = {
         pow: 0.95,
         exEq: () => elements.exclusive_equipment_3.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.15],
+        single: true,
+      }
+    }
+  },
+  lilka: {
+    name: 'Lilka',
+    element: element.earth,
+    classType: classType.ranger,
+    baseAtk: 1005,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.05, 0.05, 0.1,],
+        single: true,
+      },
+      s3: {
+        rate: 1.9,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.15],
         single: true,
       }
     }
@@ -6709,6 +6750,38 @@ const heroes = {
       },
     }
   },
+  suthan: {
+    name: 'Suthan',
+    element: element.dark,
+    classType: classType.mage,
+    form: [elements.attack_skill_stack_10],
+    atkUp: () => {
+      let boost = 0.025;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        boost += heroes.suthan.skills.s2.enhance[i];
+      }
+      return 1 + (boost * elements.attack_skill_stack_10.value());
+    },
+    dot: [dot.burn],
+    baseAtk: 1144,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s2: {
+        enhance: [0.005, 0.005, 0.005, 0.005, 0.005],
+      },
+      s3: {
+        rate: 1.5,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.15],
+        aoe: true,
+      }
+    }
+  },
   sven: {
     name: 'Sven',
     element: element.dark,
@@ -6801,6 +6874,50 @@ const heroes = {
         enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1, 0.1],
         aoe: true,
       },
+    }
+  },
+  talaz: {
+    name: 'Talaz',
+    element: element.ice,
+    classType: classType.warrior,
+    form: [elements.target_has_provoke],
+    baseAtk: 1144,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 1.5,
+        pow: 0.9,
+        mult: () => 1 + (elements.target_has_provoke.value() ? 0.2 : 0),
+        multTip: () => ({ target_has_provoke: 20 }), // TODO: translate target_has_provoke
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.15],
+        single: true,
+      }
+    }
+  },
+  talia: {
+    name: 'Talia',
+    element: element.light,
+    classType: classType.thief,
+    barrier: (hero) => hero.getAtk() * 0.7,
+    baseAtk: 903,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.05, 0.05, 0.1,],
+        single: true,
+      },
+      s3: {
+        rate: 1.5,
+        pow: 1,
+        enhance: [0.05, 0, 0, 0, 0.05, 0.1, 0.15],
+        single: true,
+      }
     }
   },
   tamarinne: {

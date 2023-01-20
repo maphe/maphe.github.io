@@ -598,6 +598,17 @@ const elements = {
     readonly: true,
     value: () => Number(document.getElementById('stack-attack-skill-5').value)
   },
+  attack_skill_stack_10: {
+    ref: 'attack_skill_stack_10',
+    id: 'stack-attack-skill-10',
+    label: 'Attack Stack',
+    type: 'slider',
+    min: 0,
+    max: 10,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('stack-attack-skill-10').value)
+  },
   non_attack_skill_stack_3: {
     ref: 'non_attack_skill_stack_3',
     id: 'stack-non-attack-skill-3',
