@@ -331,7 +331,9 @@ const elements = {
     max: 5000,
     default: 750,
     value: () => Number(document.getElementById('caster-defense').value)
-        * (1 + (elements.caster_defense_up.value() ? 0.6 : 0) + (document.getElementById('vigor').checked ? 0.3 : 0)),
+        * (1 + (elements.caster_defense_up.value() ? battleConstants.defUp : 0)
+           + (document.getElementById('vigor').checked ? battleConstants.vigor - 1 : 0)
+           + (document.getElementById('caster-fury').checked ? battleConstants['caster-fury'] - 1 : 0)),
   },
   caster_defense_up: {
     ref: 'caster_defense_up',
@@ -471,6 +473,14 @@ const elements = {
     label: 'Caster has Rage',
     type: 'checkbox',
     value: () => document.getElementById('caster-enrage') ? document.getElementById('caster-enrage').checked : false,
+    icon: './assets/buffs/rage-buff.png'
+  },
+  caster_fury: {
+    ref: 'caster_fury',
+    id: 'caster-fury',
+    label: 'Caster has Fury',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-fury') ? document.getElementById('caster-fury').checked : false,
     icon: './assets/buffs/rage-buff.png'
   },
   caster_immense_power: {

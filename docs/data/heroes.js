@@ -5131,6 +5131,33 @@ const heroes = {
       }
     }
   },
+  peacemaker_furious: {
+    name: 'Peacemaker Furious',
+    element: element.dark,
+    classType: classType.ranger,
+    baseAtk: 970,
+    form: [elements.caster_defense, elements.caster_fury],
+    info: infoLabel('unreleased_hero') + "<br><br> Peacemaker Furious' S3 defense penetration scaling is currently unknown. For now the calculator will default to the max of 60% penetration.",
+    skills: {
+      s1: {
+        rate: 0.5,
+        pow: 0.9,
+        flat: () => elements.caster_defense.value()*0.8,
+        flatTip: () => ({ caster_defense: 80 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 0.5,
+        pow: 0.9,
+        flat: () => elements.caster_defense.value()*1.3,
+        flatTip: () => ({ caster_defense: 130 }),
+        penetrate: () => 0.6,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
+    }
+  },
   pearlhorizon: {
     name: 'Pearlhorizon',
     element: element.earth,
