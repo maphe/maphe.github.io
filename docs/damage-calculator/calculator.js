@@ -308,7 +308,6 @@ class Hero {
     this.atk = inputValues.atk;
     this.crit = inputValues.crit;
     this.bonus = inputValues.bonusDamage;
-    this.burnMult = heroes[id];
     this.skills = heroes[id].skills;
     this.baseAtk = heroes[id].baseAtk || 0;
     this.dot = [...(heroes[id].dot || []), ...(artifact?.getDoT() || [])];
