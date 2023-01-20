@@ -1003,7 +1003,7 @@ const heroes = {
     name: 'Beehoo',
     element: element.fire,
     classType: classType.ranger,
-    info: infoLabel('unreleased_hero'),
+    info: infoLabel('unreleased_hero') + "<br><br> Beehoo's detonation may have a differnt multiplier upon release.",
     form: [elements.target_burn_detonate],
     baseAtk: 1203,
     innateAtkUp: () => {
@@ -6880,6 +6880,9 @@ const heroes = {
     element: element.ice,
     classType: classType.warrior,
     form: [elements.target_has_provoke],
+    info: "<strong>Notice:</strong> Talaz's soulburn modifier is not present on the spreadsheet, and his additional damage on S3 has "
+          + "a different value in the spreadsheet than Reddit post.  For now the spreadsheet soulburn modifier is used.  Talaz will be updated"
+          + " when more info is available.",
     baseAtk: 1144,
     skills: {
       s1: {
