@@ -331,7 +331,9 @@ const elements = {
     max: 5000,
     default: 750,
     value: () => Number(document.getElementById('caster-defense').value)
-        * (1 + (elements.caster_defense_up.value() ? 0.6 : 0) + (document.getElementById('vigor').checked ? 0.3 : 0)),
+        * (1 + (elements.caster_defense_up.value() ? battleConstants.defUp : 0)
+           + (document.getElementById('vigor').checked ? battleConstants.vigor - 1 : 0)
+           + (document.getElementById('caster-fury').checked ? battleConstants['caster-fury'] - 1 : 0)),
   },
   caster_defense_up: {
     ref: 'caster_defense_up',
@@ -473,6 +475,14 @@ const elements = {
     value: () => document.getElementById('caster-enrage') ? document.getElementById('caster-enrage').checked : false,
     icon: './assets/buffs/rage-buff.png'
   },
+  caster_fury: {
+    ref: 'caster_fury',
+    id: 'caster-fury',
+    label: 'Caster has Fury',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-fury') ? document.getElementById('caster-fury').checked : false,
+    icon: './assets/buffs/rage-buff.png'
+  },
   caster_immense_power: {
     ref: 'caster_immense_power',
     id: 'caster-immense-power',
@@ -587,6 +597,17 @@ const elements = {
     default: 0,
     readonly: true,
     value: () => Number(document.getElementById('stack-attack-skill-5').value)
+  },
+  attack_skill_stack_10: {
+    ref: 'attack_skill_stack_10',
+    id: 'stack-attack-skill-10',
+    label: 'Attack Stack',
+    type: 'slider',
+    min: 0,
+    max: 10,
+    default: 0,
+    readonly: true,
+    value: () => Number(document.getElementById('stack-attack-skill-10').value)
   },
   non_attack_skill_stack_3: {
     ref: 'non_attack_skill_stack_3',
@@ -781,6 +802,15 @@ const elements = {
     readonly: true,
     value: () => Number(document.getElementById('torrent-set-stack').value)
   },
+  beehoo_passive: {
+    ref: 'beehoo_passive',
+    id: 'beehoo-passive',
+    label: 'Beehoo on team',
+    type: 'checkbox',
+    default: () => hero.value === 'beehoo',
+    value: () => document.getElementById('beehoo-passive').checked,
+    icon: './assets/heroes/beehoo-icon.png'
+  },
 };
 
 elements.caster_speed.sub_elements = [elements.caster_speed_up];
@@ -899,6 +929,13 @@ const showHeroInfo = (hero) => {
 const build = (hero) => {
   showHeroInfo(hero);
   const specificBlock = document.getElementById('custom-block');
+  if (hero.dot?.includes(dot.burn)) {
+    if (hero.form) {
+      hero.form.push(elements.beehoo_passive);
+    } else {
+      hero.form = [elements.beehoo_passive];
+    }
+  }
   if (hero.form) {
     specificBlock.innerHTML = '';
     for (let elem of hero.form) {
@@ -953,6 +990,15 @@ const buildArtifact = (artifact) => {
   const specificBlock = document.getElementById('artifact-custom-block');
   if (artifact && !artifact.form && !artifact.info) {
     specificBlock.innerHTML = '';
+  }
+
+  // add beehoo passive to arti if not already going to be added to hero
+  if (!heroes[hero.value].dot?.includes(dot.burn) && artifact.dot?.includes(dot.burn)) {
+    if (artifact.form) {
+      artifact.form.push(elements.beehoo_passive);
+    } else {
+      artifact.form = [elements.beehoo_passive];
+    }
   }
 
   if (!artifact || (!artifact.scale && !artifact.form && !artifact.info)) {
@@ -1013,7 +1059,7 @@ const buildElement = (elem, parent) => {
   } else if (elem.type === 'checkbox') {
     $(parent).append(`<div class="form-group col-sm-12">
                               <div class="custom-control custom-checkbox custom-control-inline buff-block">
-                                  <input class="custom-control-input" type="checkbox" id="${elem.id}" value="1" onchange="resolve()" ${elem.default === true ? 'checked' : ''}>
+                                  <input class="custom-control-input" type="checkbox" id="${elem.id}" value="1" onchange="resolve()" ${(typeof elem.default === 'function' ? elem.default() : elem.default === true) ? 'checked' : ''}>
                                   <label class="custom-control-label" for="${elem.id}">
                                     ${elem.icon ? '<img src="'+ (['jp', 'kr', 'zh', 'zhTW', 'br'].some(locale => window.location.href.includes(locale)) ? '.' : '') + elem.icon +'" width="20" height="20" />' : ''} ${formLabel(elem.ref)}
                                   </label>

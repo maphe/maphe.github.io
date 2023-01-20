@@ -12,5 +12,10 @@ const battleConstants = {
     'defUp': 0.6,
     'defDown': -0.7,
     'targetVigor': 0.3,
-    'target': 1.15
+    'target': 1.15,
+    'caster-fury': 1.3
+}
+
+const heroConstants = {
+    'beehooBurnMult': 1.3
 }

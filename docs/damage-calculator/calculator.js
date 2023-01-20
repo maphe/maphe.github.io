@@ -501,11 +501,11 @@ class Hero {
   getDotDamage(type) {
     switch (type) {
       case dot.bleed:
-        return this.getAtk()*0.3*dmgConst*this.target.defensivePower({ penetrate: () => 0.7 }, true);
+        return this.getAtk() * 0.3 * dmgConst * this.target.defensivePower({ penetrate: () => 0.7 }, true);
       case dot.burn:
-        return this.getAtk()*0.6*dmgConst*this.target.defensivePower({ penetrate: () => 0.7 }, true);
+        return this.getAtk() * 0.6 * dmgConst * (elements.beehoo_passive.value() ? heroConstants.beehooBurnMult : 1) * this.target.defensivePower({ penetrate: () => 0.7 }, true);
       case dot.bomb:
-        return this.getAtk()*1.5*dmgConst*this.target.defensivePower({ penetrate: () => 0.7 }, true);
+        return this.getAtk() * 1.5 * dmgConst * this.target.defensivePower({ penetrate: () => 0.7 }, true);
       default: return 0;
     }
   }

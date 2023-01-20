@@ -999,6 +999,44 @@ const heroes = {
       }
     }
   },
+  beehoo: {
+    name: 'Beehoo',
+    element: element.fire,
+    classType: classType.ranger,
+    info: infoLabel('unreleased_hero') + "<br><br> Beehoo's detonation may have a differnt multiplier upon release.",
+    form: [elements.target_burn_detonate],
+    baseAtk: 1203,
+    innateAtkUp: () => {
+      let boost = 0.20;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        boost += heroes.beehoo.skills.s2.enhance[i];
+      }
+      return boost;
+    },
+    dot: [dot.burn],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        noCrit: true,
+        single: true,
+      },
+      s1_bis: {
+        name: infoLabel('beehoo_incinerate'),
+        rate: 1.2,
+        pow: 0.9,
+        enhance_from: 's1',
+        detonate: dot.burn,
+        detonation: () => 1,
+        noCrit: true,
+        single: true,
+      },
+      s2: {
+        enhance: [0.01, 0.01, 0.01, 0.01, 0.02, 0.02, 0.02],
+      },
+    }
+  },
   belian: {
     name: 'Belian',
     element: element.light,
@@ -2224,7 +2262,6 @@ const heroes = {
     classType: classType.soul_weaver,
     baseAtk: 621,
     form: [elements.target_injuries],
-    info: infoLabel('unreleased_hero'),
     skills: {
       s1: {
         rate: 1,
@@ -3260,6 +3297,9 @@ const heroes = {
     name: 'Hwayoung',
     element: element.fire,
     classType: classType.warrior,
+    info: "<strong>Notice:</strong> Hwayoung's S1 additional damage penetration has been set back to 0.7 in the calculator.  It was presumed" +
+          " to have been removed because it did not show up when the skill data spreadsheet datamined.  However, as of now it is presumed all" +
+          " additional damage of this kind has 0.7 def pen due to other heroes' additional damage penetration similarly being absent in datamines.",
     baseAtk: 1342,
     form: [elements.caster_has_buff, elements.caster_max_hp, elements.target_max_hp],
     barrier: (hero) => hero.getAtk()*0.45,
@@ -3274,7 +3314,7 @@ const heroes = {
       s1: {
         rate: 0.8,
         pow: 1,
-        afterMath: (hitType) => elements.caster_has_buff.value() && hitType !== hitTypes.miss ? ({ atkPercent: 0.25, penetrate: 0 }) : null,
+        afterMath: (hitType) => elements.caster_has_buff.value() && hitType !== hitTypes.miss ? ({ atkPercent: 0.25, penetrate: 0.7 }) : null,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
         noCrit: true,
@@ -3592,6 +3632,27 @@ const heroes = {
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
         single: true,
+      }
+    }
+  },
+  juni: {
+    name: 'Juni',
+    element: element.fire,
+    classType: classType.warrior,
+    form: [elements.caster_perception],
+    baseAtk: 1000,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 1,
+        pow: 1.1,
+        enhance: [0.05, 0, 0.05, 0, 0.1],
+        aoe: true,
       }
     }
   },
@@ -4173,6 +4234,26 @@ const heroes = {
         pow: 0.95,
         exEq: () => elements.exclusive_equipment_3.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.15],
+        single: true,
+      }
+    }
+  },
+  lilka: {
+    name: 'Lilka',
+    element: element.earth,
+    classType: classType.ranger,
+    baseAtk: 1005,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.05, 0.05, 0.1,],
+        single: true,
+      },
+      s3: {
+        rate: 1.9,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.15],
         single: true,
       }
     }
@@ -5088,6 +5169,33 @@ const heroes = {
         noTrans: true,
         single: true,
       }
+    }
+  },
+  peacemaker_furious: {
+    name: 'Peacemaker Furious',
+    element: element.dark,
+    classType: classType.ranger,
+    baseAtk: 970,
+    form: [elements.caster_defense, elements.caster_fury],
+    info: infoLabel('unreleased_hero') + "<br><br> Peacemaker Furious' S3 defense penetration scaling is currently unknown. For now the calculator will default to the max of 60% penetration.",
+    skills: {
+      s1: {
+        rate: 0.5,
+        pow: 0.9,
+        flat: () => elements.caster_defense.value()*0.8,
+        flatTip: () => ({ caster_defense: 80 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 0.5,
+        pow: 0.9,
+        flat: () => elements.caster_defense.value()*1.3,
+        flatTip: () => ({ caster_defense: 130 }),
+        penetrate: () => 0.6,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
     }
   },
   pearlhorizon: {
@@ -6641,6 +6749,38 @@ const heroes = {
       },
     }
   },
+  suthan: {
+    name: 'Suthan',
+    element: element.dark,
+    classType: classType.mage,
+    form: [elements.attack_skill_stack_10],
+    atkUp: () => {
+      let boost = 0.025;
+      for (let i = 0; i < Number(document.getElementById(`molagora-s2`).value); i++) {
+        boost += heroes.suthan.skills.s2.enhance[i];
+      }
+      return 1 + (boost * elements.attack_skill_stack_10.value());
+    },
+    dot: [dot.burn],
+    baseAtk: 1144,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s2: {
+        enhance: [0.005, 0.005, 0.005, 0.005, 0.005],
+      },
+      s3: {
+        rate: 1.5,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.15],
+        aoe: true,
+      }
+    }
+  },
   sven: {
     name: 'Sven',
     element: element.dark,
@@ -6733,6 +6873,53 @@ const heroes = {
         enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1, 0.1],
         aoe: true,
       },
+    }
+  },
+  talaz: {
+    name: 'Talaz',
+    element: element.ice,
+    classType: classType.warrior,
+    form: [elements.target_has_provoke],
+    info: "<strong>Notice:</strong> Talaz's soulburn modifier is not present on the spreadsheet, and his additional damage on S3 has "
+          + "a different value in the spreadsheet than Reddit post.  For now the spreadsheet soulburn modifier is used.  Talaz will be updated"
+          + " when more info is available.",
+    baseAtk: 1144,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 1.5,
+        pow: 0.9,
+        mult: () => 1 + (elements.target_has_provoke.value() ? 0.2 : 0),
+        multTip: () => ({ target_has_provoke: 20 }), // TODO: translate target_has_provoke
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.15],
+        single: true,
+      }
+    }
+  },
+  talia: {
+    name: 'Talia',
+    element: element.light,
+    classType: classType.thief,
+    barrier: (hero) => hero.getAtk() * 0.7,
+    baseAtk: 903,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.05, 0, 0.05, 0.05, 0.1,],
+        single: true,
+      },
+      s3: {
+        rate: 1.5,
+        pow: 1,
+        enhance: [0.05, 0, 0, 0, 0.05, 0.1, 0.15],
+        single: true,
+      }
     }
   },
   tamarinne: {
