@@ -1022,8 +1022,8 @@ const heroes = {
         noCrit: true,
         single: true,
       },
-      s1_incinerate: {
-        name: 'S1 Incinerate',
+      s1_bis: {
+        name: infoLabel('beehoo_incinerate'),
         rate: 1.2,
         pow: 0.9,
         enhance_from: 's1',

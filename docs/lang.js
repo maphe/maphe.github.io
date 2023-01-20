@@ -137,6 +137,7 @@ const i18n = {
       alencia_trample: 'Trample',
       arunka_expose: 'Expose',
       balance_op_sigret: 'Balance Update: Added Speed scaling, lowered Attack scaling: S2: 0.8 -> 0.75 / S3 1.1 -> 1',
+      beehoo_incinerate: 'Incinerate',
       lqc_s3_splash: 'S3 Splash',
       ml_celine_nimble_sword: 'Nimble Sword',
       sez_encroach: 'Encroach',
@@ -195,6 +196,7 @@ const i18n = {
       basar: 'バサール',
       bask: 'バスク',
       batisse: 'バータス',
+      beehoo: 'リフ',
       belian: 'ヴェリアン', 
       bellona: 'ヴェローナ',
       benevolent_romann: '慈愛のローマン',
@@ -570,6 +572,7 @@ const i18n = {
     info: {
       alencia_trample: '圧殺',
       arunka_expose: 'えぐり',
+      beehoo_incinerate: '焼却',
       lqc_s3_splash: 'S3 スプラッシュダメージ',
       ml_celine_nimble_sword: '快剣',
       s1_extra_attack: 'S1 追加攻撃',
@@ -626,6 +629,7 @@ const i18n = {
       basar: '巴薩爾',
       bask: '巴思克',
       batisse: '巴托斯',
+      beehoo: '雨脩',
       belian: '伯里安',
       bellona: '維爾蘿娜',
       benevolent_romann: '仁慈的洛曼',
@@ -1232,6 +1236,7 @@ const i18n = {
     info: {
       alencia_trample: '扼殺',
       arunka_expose: '揭露',
+      beehoo_incinerate: '焚燒',
       lqc_s3_splash: 'S3 濺射傷害',
       ml_celine_nimble_sword: '快劍',
       s1_extra_attack: 'S1 追加攻擊',
@@ -1287,6 +1292,7 @@ const i18n = {
       basar: '巴萨尔',
       bask: '巴思克',
       batisse: '巴托斯',
+      beehoo: '雨脩', // simplified when available
       belian: '伯里安',
       bellona: '维尔萝娜',
       benevolent_romann: '仁慈的洛曼',
@@ -1895,6 +1901,7 @@ const i18n = {
     info: {
       alencia_trample: '扼杀',
       arunka_expose: '揭露',
+      beehoo_incinerate: '焚燒', // update with simplified when available
       lqc_s3_splash: 'S3 溅射伤害',
       ml_celine_nimble_sword: '快剑',
       s1_extra_attack: 'S1 追加攻击',
@@ -1955,6 +1962,7 @@ const i18n = {
       basar: '바사르',
       bask: '바스크',
       batisse: '바터스',
+      beehoo: '비후',
       bellona: '벨로나',
       belian: '벨리안',
       benevolent_romann: '자애의 로만',
@@ -2488,6 +2496,7 @@ const i18n = {
     info: {
       alencia_trample: '압살',
       arunka_expose: '파헤치기',
+      beehoo_incinerate: '소각',
       lqc_s3_splash: '스킬 3 스플래시',
       ml_celine_nimble_sword: '쾌검',
       s1_extra_attack: '스킬 1 추가 공격',
@@ -2544,6 +2553,7 @@ const i18n = {
       basar: 'Bassar',
       bask: 'Bask',
       batisse: 'Batisse',
+      beehoo: 'Beehoo', // update when available
       bellona: 'Bellona',
       belian: 'Belian',
       benevolent_romann: 'Romann Benevolente',
@@ -2998,6 +3008,7 @@ const i18n = {
     info: {
       alencia_trample: 'Pisotear',
       arunka_expose: 'Carcomere',
+      beehoo_incinerate: 'Incinerar', // double check when he's out
       lqc_s3_splash: 'S3 Splash',
       ml_celine_nimble_sword: 'Fulgor',
       s1_extra_attack: 'S1 Ataque Extra',
