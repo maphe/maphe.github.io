@@ -6880,9 +6880,6 @@ const heroes = {
     element: element.ice,
     classType: classType.warrior,
     form: [elements.target_has_provoke],
-    info: "<strong>Notice:</strong> Talaz's soulburn modifier is not present on the spreadsheet, and his additional damage on S3 has "
-          + "a different value in the spreadsheet than Reddit post.  For now the spreadsheet soulburn modifier is used.  Talaz will be updated"
-          + " when more info is available.",
     baseAtk: 1144,
     skills: {
       s1: {
@@ -6892,10 +6889,11 @@ const heroes = {
         single: true,
       },
       s3: {
-        rate: 1.5,
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.8 : 1.5,
         pow: 0.9,
-        mult: () => 1 + (elements.target_has_provoke.value() ? 0.2 : 0),
-        multTip: () => ({ target_has_provoke: 20 }), // TODO: translate target_has_provoke
+        mult: () => 1 + (elements.target_has_provoke.value() ? 0.5 : 0),
+        multTip: () => ({ target_has_provoke: 50 }), // TODO: translate target_has_provoke
         enhance: [0.05, 0.05, 0.05, 0.1, 0.15],
         single: true,
       }
