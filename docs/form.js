@@ -333,7 +333,7 @@ const elements = {
     value: () => Number(document.getElementById('caster-defense').value)
         * (1 + (elements.caster_defense_up.value() ? battleConstants.defUp : 0)
            + (document.getElementById('vigor').checked ? battleConstants.vigor - 1 : 0)
-           + (document.getElementById('caster-fury').checked ? battleConstants['caster-fury'] - 1 : 0)),
+           + (document.getElementById('caster-fury')?.checked ? battleConstants['caster-fury'] - 1 : 0)),
   },
   caster_defense_up: {
     ref: 'caster_defense_up',
