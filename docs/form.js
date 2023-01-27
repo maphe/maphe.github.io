@@ -322,6 +322,16 @@ const elements = {
     value: () => document.getElementById('caster-hp-above-50pc').checked,
     default: true,
   },
+  target_defense: {
+    ref: 'target_defense',
+    id: 'def',
+    label: 'Defense',
+    type: 'slider',
+    min: 200,
+    max: 5000,
+    default: 750,
+    value: () => Number(document.getElementById('def').value) * (getGlobalDefMult() + inputValues.defPcUp / 100),
+  },
   caster_defense: {
     ref: 'caster_defense',
     id: 'caster-defense',

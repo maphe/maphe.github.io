@@ -1003,7 +1003,6 @@ const heroes = {
     name: 'Beehoo',
     element: element.fire,
     classType: classType.ranger,
-    info: infoLabel('unreleased_hero') + "<br><br> Beehoo's detonation may have a differnt multiplier upon release.",
     form: [elements.target_burn_detonate],
     baseAtk: 1203,
     innateAtkUp: () => {
@@ -1028,7 +1027,7 @@ const heroes = {
         pow: 0.9,
         enhance_from: 's1',
         detonate: dot.burn,
-        detonation: () => 1,
+        detonation: () => 1.3,
         noCrit: true,
         single: true,
       },
@@ -3157,8 +3156,6 @@ const heroes = {
           }
         },
         multTip: () => ({ per_fewer_target: 50 }),
-        detonate: dot.bleed,
-        detonation: () => document.getElementById('elem-adv').checked ? 1.05 : 0,
         enhance: [0.15, 0, 0, 0, 0.15],
         aoe: true,
       }
@@ -5177,7 +5174,6 @@ const heroes = {
     classType: classType.ranger,
     baseAtk: 970,
     form: [elements.caster_defense, elements.caster_fury],
-    info: infoLabel('unreleased_hero') + "<br><br> Peacemaker Furious' S3 defense penetration scaling is currently unknown. For now the calculator will default to the max of 60% penetration.",
     skills: {
       s1: {
         rate: 0.5,
@@ -5193,6 +5189,17 @@ const heroes = {
         flat: () => elements.caster_defense.value()*1.3,
         flatTip: () => ({ caster_defense: 130 }),
         penetrate: () => 0.6,
+        penetrate: () => {
+          const targetDef = elements.target_defense.value();
+          const casterDef = elements.caster_defense.value();
+          console.log(casterDef - targetDef)
+
+          const penDiffMult = (casterDef - targetDef) * 0.00032;
+          console.log(Math.min(Math.max(0, penDiffMult), 0.6))
+
+          return Math.min(Math.max(0, penDiffMult), 0.6);
+        },
+        penetrateTip: () => ({caster_target_atk_diff: 0.035}),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
         aoe: true,
       },
