@@ -5187,7 +5187,6 @@ const heroes = {
         pow: 0.9,
         flat: () => elements.caster_defense.value()*1.3,
         flatTip: () => ({ caster_defense: 130 }),
-        penetrate: () => 0.6,
         penetrate: () => {
           const targetDef = elements.target_defense.value();
           const casterDef = elements.caster_defense.value();
@@ -5198,7 +5197,7 @@ const heroes = {
 
           return Math.min(Math.max(0, penDiffMult), 0.6);
         },
-        penetrateTip: () => ({caster_target_atk_diff: 0.035}),
+        penetrateTip: () => ({caster_target_atk_diff: 0.032}),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
         aoe: true,
       },
