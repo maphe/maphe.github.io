@@ -1515,7 +1515,6 @@ const heroes = {
         pow: 1,
         exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
-        noTrans: true,
         single: true,
       },
       s3: {
