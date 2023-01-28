@@ -1,5 +1,6 @@
 ## Changelog
 
+<strong>Jan. 28 2023 Update:</strong> Updated Peacemaker Furious and Beehoo multipliers.  Removed Celine's S2 ignore transfer, and Haste's S3 detonate.<br>
 <strong>Jan. 20 2023 Update:</strong> Added Beehoo, Peacemaker Furious, Lilka, Juni, Talia, Suthan, and Talaz. Some of these heroes have caveats listed as a notice on their page and will be updated/corrected in the future.<br>
 <strong>Jan. 16 2023 Update:</strong> Added P.O.S and Scroll of shadows. Added Shepherd Jena. I am aware of some other artifacts that have been missing and will add a few at at time as when I can.<br>
 <strong>Dec. 23 2022 Update:</strong> Added ae-KARINA and Rocket Punch Gauntlet. Updated heroes and artifacts included in Balance patch. Added Death Dealer Ray.<br>

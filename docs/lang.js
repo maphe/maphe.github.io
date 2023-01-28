@@ -93,6 +93,7 @@ const i18n = {
       custom: {
         caster_target_atk_diff: '{v}% Attack Difference',
         caster_target_spd_diff: '{v}% Speed Difference',
+        caster_target_def_diff: '{v}% Defense Difference',
         all_fire: '{v}% Team Fire',
         allies_buff: '+{v} per Buff',
         caster_defense: '{v}% Defense',
@@ -1213,6 +1214,7 @@ const i18n = {
       custom: {
         caster_target_atk_diff: '攻擊力差異 {v}%',
         caster_target_spd_diff: '速度差異 {v}%',
+        caster_target_def_diff: '防禦力差異 {v}%',
         all_fire: '{v}% 全體我軍火屬性',
         allies_buff: '+{v} 我軍每個Buff數量',
         caster_defense: '{v}% 自身防禦力',
@@ -1884,6 +1886,7 @@ const i18n = {
       custom: {
         caster_target_atk_diff: '{v}% 攻击力差距',
         caster_target_spd_diff: '{v}% 速度差距',
+        caster_target_def_diff: '{v}% 防御力差距',
         all_fire: '{v}% 全体我军火属性',
         allies_buff: '+{v} 我军每个Buff数量',
         caster_defense: '{v}% 自身防御力',
@@ -2489,6 +2492,7 @@ const i18n = {
         allies_buff: '버프 개수당 +{v}',
         caster_target_atk_diff: '공격력 차이당 {v}%',
         caster_target_spd_diff: '속도 차이당 {v}%',
+        caster_target_spd_diff: '방어력의 차이당 {v}%',
         caster_defense: '시전자 방어력의 {v}%',
         caster_left_hp_pc: '시전자 남은 체력% {v}%',
         caster_lost_hp: '시전자 남은 체력 {v}%',
@@ -3008,6 +3012,7 @@ const i18n = {
         allies_buff: '+{v} por Buff',
         caster_target_atk_diff: '{v}% Diferença de Ataque',
         caster_target_spd_diff: '{v}% Diferença de Speed',
+        caster_target_def_diff: '{v}% Diferença de Defesa',
         caster_defense: '{v}% Defesa',
         caster_left_hp_pc: '{v}% Vida Restante',
         caster_lost_hp: '{v}% Vida Perdida',
