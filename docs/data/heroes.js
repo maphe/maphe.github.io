@@ -5190,10 +5190,8 @@ const heroes = {
         penetrate: () => {
           const targetDef = elements.target_defense.value();
           const casterDef = elements.caster_defense.value();
-          console.log(casterDef - targetDef)
 
           const penDiffMult = (casterDef - targetDef) * 0.00032;
-          console.log(Math.min(Math.max(0, penDiffMult), 0.6))
 
           return Math.min(Math.max(0, penDiffMult), 0.6);
         },
