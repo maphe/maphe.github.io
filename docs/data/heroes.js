@@ -4319,6 +4319,7 @@ const heroes = {
     element: element.dark,
     classType: classType.warrior,
     form: [elements.caster_has_buff, elements.attack_skill_stack_5],
+    info: infoLabel('unreleased_hero'),
     baseAtk: 1208,
     atkUp: () => 1 + elements.attack_skill_stack_5.value() * 0.1,
     skills: {
