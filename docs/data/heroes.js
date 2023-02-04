@@ -4312,6 +4312,36 @@ const heroes = {
       }
     }
   },
+  lone_crescent_bellona: {
+    name: 'Lone Crescent Bellona',
+    element: element.dark,
+    classType: classType.warrior,
+    form: [elements.caster_has_buff, elements.attack_skill_stack_5],
+    baseAtk: 1208,
+    atkUp: () => 1 + elements.attack_skill_stack_5.value() * 0.1,
+    skills: {
+      s1: {
+        rate: 0.9,
+        pow: 0.95,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 0.6,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      },
+      s3: {
+        rate: 1.5,
+        pow: 1,
+        mult: () => 1 + (elements.caster_has_buff.value() ? 0.3 : 0),
+        multTip: () => ({ caster_has_buff: 30 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      }
+    }
+  },
   lorina: {
     name: 'Lorina',
     element: element.dark,

@@ -91,6 +91,7 @@ const i18n = {
       extraDmg: 'Extra Dmg',
       fixed: 'Fixed Dmg',
       custom: {
+        caster_has_buff: 'Caster has Buff: {v}%', // TODO: Translate
         caster_target_atk_diff: '{v}% Attack Difference',
         caster_target_spd_diff: '{v}% Speed Difference',
         caster_target_def_diff: '{v}% Defense Difference',
@@ -124,6 +125,7 @@ const i18n = {
         target_has_barrier: 'Target has Barrier: {v}%',
         target_has_debuff: 'Target has Debuff: {v}%',
         target_has_no_buff: 'Target has no Buff: {v}%',
+        target_has_provoke: 'Target is Provoked: {v}%', // TODO: Translate
         target_lost_hp_pc: '{v}% Target lost HP%',
         target_magic_nail: 'Magic Nail: {v}%',
         target_max_hp: '{v}% Target max HP',
@@ -319,6 +321,7 @@ const i18n = {
       lilka: 'リルカ',
       lionheart_cermia: '獅子王 チェルミア',
       little_queen_charlotte: '若き女王 シャルロッテ',
+      lone_crescent_bellona: '孤月のヴェローナ',
       lorina: 'ロリーナ',
       lots: 'ラッツ',
       lua: 'ルア',
@@ -759,6 +762,7 @@ const i18n = {
       lilka: '莉珈',
       lionheart_cermia: '獅心王潔若米亞',
       little_queen_charlotte: '年輕的女王夏綠蒂',
+      lone_crescent_bellona: '一輪孤月維爾蘿娜',
       lorina: '蘿里娜',
       lots: '拉茲',
       lua: '路雅',
@@ -1430,6 +1434,7 @@ const i18n = {
       lilka: '莉珈',
       lionheart_cermia: '狮心王洁若米亚',
       little_queen_charlotte: '年轻的女王夏绿蒂',
+      lone_crescent_bellona: '一輪孤月維爾蘿娜', // TODO: simplified when available
       lorina: '萝里娜',
       lots: '拉兹',
       lua: '路雅',
@@ -2108,6 +2113,7 @@ const i18n = {
       lilka: '릴카',
       lionheart_cermia: '사자왕 체르미아',
       little_queen_charlotte: '어린 여왕 샬롯',
+      lone_crescent_bellona: '일편고월 벨로나',
       lorina: '로리나',
       lots: '랏츠',
       lua: '루아',
@@ -2707,6 +2713,7 @@ const i18n = {
       lilka: 'Lilka',
       lionheart_cermia: 'Cérmia Coração de Leão',
       little_queen_charlotte: 'Jovem Rainha Charlotte',
+      lone_crescent_bellona: 'Lone Crescent Bellona', //TODO: update when available
       lorina: 'Lorina',
       lots: 'Lots',
       lua: 'Lua',
