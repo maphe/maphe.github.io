@@ -1770,12 +1770,14 @@ const heroes = {
     baseAtk: 1134,
     skills: {
       s1: {
+        onlyCrit: true,
         rate: 0.9,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
         aoe: true,
       },
       s3: {
+        onlyCrit: true,
         rate: 1.4,
         pow: 0.9,
         enhance: [0.05, 0.05, 0.05, 0.1, 0.15],
