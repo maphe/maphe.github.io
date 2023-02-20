@@ -160,10 +160,10 @@ const i18n = {
     heroes: {
       // Unreleased units: (未発表)
       // Pre-Balance versions: (前のバージョン)
-      briar_witch_iseria_old: '灰森のイセリア (前のバージョン)',
-      celine_old: 'セリン (前のバージョン)',
-      sez_old: 'セズ (前のバージョン)',
-      yufine_old: 'ユピネ (前のバージョン)',
+      chaos_sect_axe_old: 'カオス教団 重斧総長 (前のバージョン)',
+      kise_old: 'キセ (前のバージョン)',
+      melissa_old: 'メリッサ (前のバージョン)',
+      mui_old: 'ミュイ (前のバージョン)',
       // End Pre-Balance
       achates: 'アカテス',
       adin: 'アーディン',
@@ -176,6 +176,7 @@ const i18n = {
       alexa: 'アレクサ',
       all_rounder_wanda: '万能解決士 ワンダ',
       ambitious_tywin: '野心家 タイウィン',
+      amid: 'アミド',
       angel_of_light_angelica: '光の天使 アンジェリカ',
       angelic_montmorancy: '守護天使 モンモランシー',
       angelica: 'アンジェリカ',
@@ -601,10 +602,10 @@ const i18n = {
     heroes: {
       // Unreleased units: (未發布)
       // Pre-Balance versions: (以前的版本)
-      briar_witch_iseria_old: '灰光森林的伊賽麗亞 (以前的版本)',
-      celine_old: '瑟琳 (以前的版本)',
-      sez_old: '賽茲 (以前的版本)',
-      yufine_old: '優芬妮 (以前的版本)',
+      chaos_sect_axe_old: '混沌教巨斧大將軍 (以前的版本)',
+      kise_old: '綺世 (以前的版本)',
+      melissa_old: '梅麗莎 (以前的版本)',
+      mui_old: '繆伊 (以前的版本)',
       // End Pre-Balance
       achates: '雅卡泰絲',
       adin: '艾庭',
@@ -617,6 +618,7 @@ const i18n = {
       alexa: '雅莉莎',
       all_rounder_wanda: '疑難雜症專家汪達',
       ambitious_tywin: '野心份子泰溫',
+      amid: '雅咪德',
       angel_of_light_angelica: '光之天使安潔莉卡',
       angelic_montmorancy: '守護天使蒙茉朗西',
       angelica: '安潔莉卡',
@@ -1273,10 +1275,10 @@ const i18n = {
     heroes: {
       // Unreleased units: (未发布)
       // Pre-Balance versions: (以前的版本)
-      briar_witch_iseria_old: '灰光森林的伊赛丽亚 (以前的版本)',
-      celine_old: '瑟琳 (以前的版本)',
-      sez_old: '赛兹 (以前的版本)',
-      yufine_old: '优芬妮 (以前的版本)',
+      chaos_sect_axe_old: '混沌教巨斧大将军 (以前的版本)',
+      kise_old: '绮世 (以前的版本)',
+      melissa_old: '梅丽莎 (以前的版本)',
+      mui_old: '缪伊 (以前的版本)',
       // End Pre-Balance
       achates: '雅卡泰丝',
       adin: '艾庭',
@@ -1289,6 +1291,7 @@ const i18n = {
       alexa: '雅莉莎',
       all_rounder_wanda: '疑难杂症专家汪达',
       ambitious_tywin: '野心份子泰温',
+      amid: '雅咪德', // TODO: simplified translation
       angel_of_light_angelica: '光之天使安洁莉卡',
       angelic_montmorancy: '守护天使蒙茉朗西',
       angelica: '安洁莉卡',
@@ -1948,10 +1951,10 @@ const i18n = {
     heroes: {
       // Unreleased units: (미공개)
       // Pre-Balance versions: (이전 버전)
-      briar_witch_iseria_old: '잿빛 숲의 이세리아 (이전 버전)',
-      celine_old: '셀린 (이전 버전)',
-      sez_old: '세즈 (이전 버전)',
-      yufine_old: '유피네 (이전 버전)',
+      chaos_sect_axe_old: '카오스교 도끼 대장군 (이전 버전)',
+      kise_old: '키세 (이전 버전)',
+      melissa_old: '멜리사 (이전 버전)',
+      mui_old: '뮤이 (이전 버전)',
       // End Pre-Balance
       achates: '아카테스',
       adin: '아딘',
@@ -1968,6 +1971,7 @@ const i18n = {
       alexa: '알렉사',
       all_rounder_wanda: '만능 해결사 완다',
       ambitious_tywin: '야심가 타이윈',
+      amid: '아미드',
       angel_of_light_angelica: '빛의 천사 안젤리카',
       angelic_montmorancy: '수호천사 몽모랑시',
       angelica: '안젤리카',
@@ -2552,10 +2556,10 @@ const i18n = {
     heroes: {
       // Unreleased units: (Unidades) (Não Lançadas)
       // Pre-Balance versions: (Versão) (Pré-Balanceamento)
-      briar_witch_iseria_old: 'Bruxa do Espinheiro Iséria (Pré-Balanceamento)',
-      celine_old: 'Celine (Pré-Balanceamento)',
-      sez_old: 'Sez (Pré-Balanceamento)',
-      yufine_old: 'Yufina (Pré-Balanceamento)',
+      chaos_sect_axe_old: 'Machadeiro da Seita do Caos (Pré-Balanceamento)',
+      kise_old: 'Kise (Pré-Balanceamento)',
+      melissa_old: 'Melissa (Pré-Balanceamento)',
+      mui_old: 'Mui (Pré-Balanceamento)',
       // End Pre-Balance
       achates: 'Acates',
       adin: 'Adine',
@@ -2568,6 +2572,7 @@ const i18n = {
       alexa: 'Alexa',
       all_rounder_wanda: 'Wanda Quebra-Galho',
       ambitious_tywin: 'Tywin Ambicioso',
+      amid: 'Amid', //TODO: translation?
       angel_of_light_angelica: 'Angélica Anjo da Luz',
       angelic_montmorancy: 'Montmorancy Angelical',
       angelica: 'Angélica',
