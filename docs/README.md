@@ -1,5 +1,6 @@
 ## Changelog
 
+<strong>Feb. 20 2023 Update:</strong> Added Amid. Updated heroes from balance patch.<br>
 <strong>Feb. 4 2023 Update:</strong> Added Lone Crescent Bellona.<br>
 <strong>Jan. 28 2023 Update:</strong> Updated Peacemaker Furious and Beehoo multipliers.  Removed Celine's S2 ignore transfer, and Haste's S3 detonate.<br>
 <strong>Jan. 20 2023 Update:</strong> Added Beehoo, Peacemaker Furious, Lilka, Juni, Talia, Suthan, and Talaz. Some of these heroes have caveats listed as a notice on their page and will be updated/corrected in the future.<br>
