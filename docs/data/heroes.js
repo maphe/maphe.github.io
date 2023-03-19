@@ -73,7 +73,7 @@ const heroes = {
       s3: {
         rate: 1.8,
         pow: 1.05,
-        enhance: [0.1, 0.1, 0, 0.15, 0.15],
+        enhance: [0.1, 0, 0, 0, 0.15],
         single: true,
       },
     }
@@ -1125,7 +1125,7 @@ const heroes = {
       s1: {
         rate: 0.8,
         pow: 0.9,
-        enhance: [0.05, 0.05, 0.05, 0.1, 0.1],
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.15],
         single: true,
       },
       mana_burst: {
@@ -1455,7 +1455,7 @@ const heroes = {
         pow: 1.05,
         flat: () => elements.caster_max_hp.value()*0.12,
         flatTip: () => ({ caster_max_hp: 12 }),
-        enhance: [0.05, 0, 0, 0, 0.15],
+        enhance: [0.1, 0, 0, 0, 0.15],
         aoe: true,
       }
     }
@@ -3918,7 +3918,7 @@ const heroes = {
         pow: 1,
         flat: () => elements.caster_defense.value()*0.7,
         flatTip: () => ({ caster_defense: 70 }),
-        enhance: [0.05, 0, 0.05, 0, 0.05],
+        enhance: [0.05, 0, 0.1, 0, 0.15],
         single: true,
       },
       s3: {
@@ -5120,7 +5120,7 @@ const heroes = {
       s2: {
         rate: 0.7,
         pow: 1,
-        enhance: [0.05, 0.05, 0.1, 0.1, 0.15],
+        enhance: [0.05, 0, 0, 0.1, 0.15],
         aoe: true,
       },
       s3: {
@@ -5147,7 +5147,7 @@ const heroes = {
       s2: {
         rate: 1,
         pow: 0.9,
-        enhance: [0.05, 0.05, 0.1, 0.1, 0.15],
+        enhance: [0.05, 0, 0, 0.1, 0.15],
         aoe: true,
       },
       s3: {
@@ -5677,7 +5677,7 @@ const heroes = {
         rate: 0.85,
         pow: 0.95,
         penetrate: () => 0.5,
-        enhance: [0.05, 0.05, 0, 0.05, 0.05],
+        enhance: [0.05, 0.05, 0, 0.1, 0.15],
         aoe: true,
       }
     }
@@ -7216,7 +7216,7 @@ const heroes = {
         soulburn: true,
         rate: (soulburn) => soulburn ? 1.35 : 1.1,
         pow: 1.05,
-        enhance: [0.05, 0, 0, 0.1, 0.15],
+        enhance: [0.1, 0, 0, 0, 0.15],
         aoe: true,
       }
     }
@@ -7736,7 +7736,7 @@ const heroes = {
           return mult;
         },
         multTip: () => ({ caster_speed: 0.075, per_fewer_target: 20 }),
-        enhance: [0.05, 0.05, 0.05, 0.1, 0.1, 0.1],
+        enhance: [0.05, 0.05, 0.05, 0.1, 0.1, 0.15],
         aoe: true,
       },
       s3: {
