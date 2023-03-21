@@ -1,5 +1,6 @@
 ## Changelog
 
+<strong>Mar. 21 2023 Update:</strong> Added Eligos and An Offer You Can't Refuse.<br>
 <strong>Feb. 20 2023 Update:</strong> Added Amid. Updated heroes from balance patch.<br>
 <strong>Feb. 4 2023 Update:</strong> Added Lone Crescent Bellona.<br>
 <strong>Jan. 28 2023 Update:</strong> Updated Peacemaker Furious and Beehoo multipliers.  Removed Celine's S2 ignore transfer, and Haste's S3 detonate.<br>
