@@ -1,6 +1,6 @@
 ## Changelog
 
-<strong>Mar. 21 2023 Update:</strong> Added Eligos and An Offer You Can't Refuse.<br>
+<strong>Mar. 21 2023 Update:</strong> Added Eligos and An Offer You Can't Refuse. Fixed skillups for Adin S3, Benevolent Romann S1, Cecilia S3, Kikirat v2 S1, Mui S2, Ravi S3, Tenebria S3, Yuna S1 (Thanks to zacjl for those fixes)<br>
 <strong>Feb. 20 2023 Update:</strong> Added Amid. Updated heroes from balance patch.<br>
 <strong>Feb. 4 2023 Update:</strong> Added Lone Crescent Bellona.<br>
 <strong>Jan. 28 2023 Update:</strong> Updated Peacemaker Furious and Beehoo multipliers.  Removed Celine's S2 ignore transfer, and Haste's S3 detonate.<br>
