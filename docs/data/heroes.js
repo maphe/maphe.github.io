@@ -2625,6 +2625,39 @@ const heroes = {
       }
     }
   },
+  eligos: {
+    name: 'Eligos',
+    element: element.fire,
+    classType: classType.ranger,
+    form: [elements.caster_speed, elements.caster_perception, elements.target_speed],
+    baseAtk: 1283,
+    skills: {
+      s1: {
+        rate: 0.95,
+        pow: 0.9,
+        mult: () => 1 + elements.caster_speed.value()*0.00075,
+        multTip: () => ({ caster_speed: 0.075 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 0.7,
+        pow: 1.3,
+        mult: () => {
+          const spdDiff = (elements.caster_speed.value()-elements.target_speed.value())*0.025;
+          return 1 + Math.min(Math.max(0, spdDiff), 2);
+        },
+        multTip: () => ({ caster_target_spd_diff: 0.25 }),
+        single: true,
+      },
+      s3: {
+        rate: 1.5,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.1],
+        single: true,
+      }
+    }
+  },
   elphelt_valentine: {
     name: 'Elphelt Valentine',
     element: element.fire,
