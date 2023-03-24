@@ -409,7 +409,6 @@ const heroes = {
     name: 'Amid',
     element: element.ice,
     classType: classType.soul_weaver,
-    info: infoLabel('unreleased_hero'),
     baseAtk: 694,
     skills: {
       s1: {
@@ -572,6 +571,32 @@ const heroes = {
         rate: 1,
         pow: 1,
         enhance: [0.05, 0, 0.1, 0, 0.15],
+        aoe: true,
+      }
+    }
+  },
+  architect_laika: {
+    name: 'Architect Laika',
+    element: element.light,
+    classType: classType.mage,
+    info: infoLabel('unreleased_hero'),
+    baseAtk: 1306,
+    form: [elements.caster_speed],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 0.9,
+        pow: 0.9,
+        penetrate: () => elements.target_has_target.value() ? 0.8 : 0,
+        mult: () => 1 + elements.caster_speed.value() * 0.001125,
+        multTip: () => ({ caster_speed: 0.1125 }),
+        enhance: [0.05, 0.05, 0.05, 0, 0.1, 0.15],
+        noTrans: true,
         aoe: true,
       }
     }
