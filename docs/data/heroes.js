@@ -7435,7 +7435,7 @@ const heroes = {
         pow: 1.05,
         mult: () => elements.skill_tree_completed.value() ? 1.1 : 1,
         multTip: () => (elements.skill_tree_completed.value() ? { skill_tree: 10 } : null),
-        enhance: [0.1, 0.1, 0, 0.15, 0.15],
+        enhance: [0.1, 0, 0, 0, 0.15],
         single: true,
       },
     }
