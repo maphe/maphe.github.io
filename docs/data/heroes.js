@@ -1411,7 +1411,7 @@ const heroes = {
         enhance: [0.15, 0.15]
       },
       s3: {
-        rate: 1.1,
+        rate: 1,
         pow: 1,
         enhance: [0.05, 0, 0, 0, 0.1, 0, 0.15],
         aoe: true,
@@ -1877,8 +1877,8 @@ const heroes = {
         single: true,
       },
       s2: {
-        rate: 0.9,
-        pow: 1.2,
+        rate: 1.2,
+        pow: 0.9,
         enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
         single: true,
       },
@@ -3036,7 +3036,7 @@ const heroes = {
       s2: {
         soulburn: true,
         rate: (soulburn) => soulburn ? 2.2 : 1.5,
-        pow: 1,
+        pow: 0.9,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
       }
@@ -3325,7 +3325,7 @@ const heroes = {
       },
       s2: {
         rate: 1.55,
-        pow: 0.9,
+        pow: 0.95,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
       }
@@ -4576,7 +4576,7 @@ const heroes = {
     skills: {
       s1: {
         rate: 1,
-        pow: 0.9,
+        pow: 0.95,
         enhance: [0.05, 0.05, 0, 0.05, 0, 0.1, 0.1],
         single: true,
       },
@@ -4969,7 +4969,7 @@ const heroes = {
       },
       s2: {
         rate: 1.55,
-        pow: 0.9,
+        pow: 0.95,
         mult: () => 1 + (elements.skill_tree_completed.value() ? 0.05 : 0),
         multTip: () => ({ skill_tree: 5 }),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
@@ -5843,7 +5843,7 @@ const heroes = {
         enhance: [0.15, 0.15]
       },
       s3: {
-        pow: 1.1,
+        pow: 1,
         rate: 1,
         enhance: [0.05, 0, 0, 0, 0.1, 0, 0.15],
         aoe: true,
@@ -7463,7 +7463,7 @@ const heroes = {
         rate: (soulburn) => soulburn ? 2.2 : 1.5,
         mult: () => elements.skill_tree_completed.value() && document.getElementById(`elem-adv`).checked ? 1.25 : 1,
         multTip: () => ({ elemental_advantage: 25 }),
-        pow: 1,
+        pow: 0.9,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
         single: true,
       }
