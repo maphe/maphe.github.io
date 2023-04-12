@@ -1,5 +1,6 @@
 ## Changelog
 
+<strong>Apr. 12 2023 Update:</strong> Added Ainos 2.0 and added translations for Architect Laika. Updated spreadsheet link. Added some missing translations for Português (BR). Ainos 2.0 is exactly the same as Ainos in terms of damage, but she's there.<br>
 <strong>Mar. 25 2023 Update: Fixed some pows.  Not adding to banner cause it's small.<br>
 <strong>Mar. 24 2023 Update:</strong> Added Architect Laika (Unreleased).<br>
 <strong>Mar. 21 2023 Update:</strong> Added Eligos and An Offer You Can't Refuse. Fixed skillups for Adin S3, Benevolent Romann S1, Cecilia S3, Kikirat v2 S1, Mui S2, Ravi S3, Tenebria S3, Yuna S1 (Thanks to zacjl for those fixes)<br>
