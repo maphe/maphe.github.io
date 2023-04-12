@@ -244,6 +244,25 @@ const heroes = {
       }
     }
   },
+  ainos_2_0: {
+    name: 'Ainos 2.0',
+    element: element.dark,
+    classType: classType.soul_weaver,
+    baseAtk: 804,
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 1,
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 0.9,
+        pow: 1,
+        aoe: true,
+      }
+    }
+  },
   ains: {
     name: 'Ains',
     element: element.earth,
