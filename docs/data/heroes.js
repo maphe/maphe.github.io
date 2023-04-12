@@ -6303,6 +6303,32 @@ const heroes = {
       }
     }
   },
+  shadow_knight_pyllis: {
+    name: 'Shadow Knight Pyllis',
+    element: element.dark,
+    classType: classType.knight,
+    baseAtk: 685,
+    form: [elements.caster_defense, elements.caster_attacked_stack_3],
+    barrier: () => elements.caster_defense.value()*(1+elements.caster_attacked_stack_3.value()*0.1) * 0.6,
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 1,
+        flat: () => elements.caster_defense.value()*(1+elements.caster_attacked_stack_3.value()*0.1) * 0.5,
+        flatTip: () => ({ caster_defense: 50, per_stack: 10 }),
+        enhance: [0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 1.3,
+        pow: 0.95,
+        flat: () => elements.caster_defense.value()*(1+elements.caster_attacked_stack_3.value()*0.1) * 0.7,
+        flatTip: () => ({ caster_defense: 70, per_stack: 10 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.15],
+        single: true,
+      }
+    }
+  },
   shepherd_jena: {
     name: 'Shepherd Jena',
     element: element.ice,
