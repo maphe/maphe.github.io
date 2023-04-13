@@ -598,7 +598,31 @@ const heroes = {
     name: 'Architect Laika',
     element: element.light,
     classType: classType.mage,
-    info: infoLabel('unreleased_hero'),
+    baseAtk: 1306,
+    form: [elements.caster_speed],
+    skills: {
+      s1: {
+        rate: 1,
+        pow: 0.9,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 0.95,
+        pow: 0.9,
+        penetrate: () => elements.target_has_target.value() ? 0.8 : 0,
+        mult: () => 1 + elements.caster_speed.value() * 0.001125,
+        multTip: () => ({ caster_speed: 0.1125 }),
+        enhance: [0.05, 0.05, 0.05, 0, 0.1, 0.15],
+        noTrans: true,
+        aoe: true,
+      }
+    }
+  },
+  architect_laika_old: {
+    name: 'Architect Laika (Pre-Balance)',
+    element: element.light,
+    classType: classType.mage,
     baseAtk: 1306,
     form: [elements.caster_speed],
     skills: {
@@ -1785,42 +1809,42 @@ const heroes = {
       }
     }
   },
-  chaos_sect_axe_old: {
-    name: 'Chaos Sect Axe (Pre-Balance)',
-    element: element.dark,
-    classType: classType.warrior,
-    baseAtk: 1144,
-    form: [elements.caster_max_hp, elements.caster_attacked_stack_5],
-    dot: [dot.bleed],
-    atkUp: () => 1 + elements.caster_attacked_stack_5.value()*0.06,
-    skills: {
-      s1: {
-        rate: 0.85,
-        pow: 0.95,
-        flat: () => elements.caster_max_hp.value()*0.04,
-        flatTip: () => ({ caster_max_hp: 4 }),
-        enhance: [0.05, 0.05, 0.1, 0.15],
-        single: true,
-      },
-      s2: {
-        rate: 0.75,
-        pow: 0.95,
-        flat: () => elements.caster_max_hp.value()*0.05,
-        flatTip: () => ({ caster_max_hp: 5 }),
-        enhance: [0.05, 0.05, 0.1, 0.15],
-        aoe: true,
-      },
-      s3: {
-        rate: 1.2,
-        pow: 0.9,
-        flat: () => elements.caster_max_hp.value()*0.1,
-        flatTip: () => ({ caster_max_hp: 10 }),
-        penetrate: () => document.getElementById(`elem-adv`).checked ? 0.4 : 0,
-        enhance: [0.05, 0.05, 0.05, 0, 0, 0.1, 0.15],
-        single: true,
-      }
-    }
-  },
+  // chaos_sect_axe_old: {
+  //   name: 'Chaos Sect Axe (Pre-Balance)',
+  //   element: element.dark,
+  //   classType: classType.warrior,
+  //   baseAtk: 1144,
+  //   form: [elements.caster_max_hp, elements.caster_attacked_stack_5],
+  //   dot: [dot.bleed],
+  //   atkUp: () => 1 + elements.caster_attacked_stack_5.value()*0.06,
+  //   skills: {
+  //     s1: {
+  //       rate: 0.85,
+  //       pow: 0.95,
+  //       flat: () => elements.caster_max_hp.value()*0.04,
+  //       flatTip: () => ({ caster_max_hp: 4 }),
+  //       enhance: [0.05, 0.05, 0.1, 0.15],
+  //       single: true,
+  //     },
+  //     s2: {
+  //       rate: 0.75,
+  //       pow: 0.95,
+  //       flat: () => elements.caster_max_hp.value()*0.05,
+  //       flatTip: () => ({ caster_max_hp: 5 }),
+  //       enhance: [0.05, 0.05, 0.1, 0.15],
+  //       aoe: true,
+  //     },
+  //     s3: {
+  //       rate: 1.2,
+  //       pow: 0.9,
+  //       flat: () => elements.caster_max_hp.value()*0.1,
+  //       flatTip: () => ({ caster_max_hp: 10 }),
+  //       penetrate: () => document.getElementById(`elem-adv`).checked ? 0.4 : 0,
+  //       enhance: [0.05, 0.05, 0.05, 0, 0, 0.1, 0.15],
+  //       single: true,
+  //     }
+  //   }
+  // },
   charles: {
     name: 'Charles',
     element: element.earth,
@@ -3527,6 +3551,41 @@ const heroes = {
     element: element.fire,
     classType: classType.knight,
     baseAtk: 957,
+    form: [elements.caster_max_hp, elements.target_injuries],
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value() * 0.1,
+        flatTip: () => ({ caster_max_hp: 10 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s2: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.4 : 1,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value() * 0.18,
+        flatTip: () => ({ caster_max_hp: 18 }),
+        afterMath: () => ({ injuryPercent: 0.5, penetrate: 0.7 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 0.7,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.15,
+        flatTip: () => ({ caster_max_hp: 15 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
+      }
+    }
+  },
+  ilynav_old: {
+    name: 'Ilynav (Pre-Balance)',
+    element: element.fire,
+    classType: classType.knight,
+    baseAtk: 957,
     form: [elements.caster_max_hp],
     skills: {
       s1: {
@@ -3901,6 +3960,42 @@ const heroes = {
     element: element.fire,
     classType: classType.warrior,
     baseAtk: 966,
+    info: infoLabel('ken_change'),
+    form: [elements.caster_max_hp],
+    dot: [dot.burn],
+    skills: {
+      s1: {
+        rate: 0.5,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.1,
+        flatTip: () => ({ caster_max_hp: 10 }),
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 1.2,
+        pow: 1,
+        flat: () => elements.caster_max_hp.value()*0.1,
+        flatTip: () => ({ caster_max_hp: 10 }),
+        enhance: [0.05, 0.1, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 1.5,
+        pow: 0.9,
+        flat: () => elements.caster_max_hp.value()*0.3,
+        flatTip: () => ({ caster_max_hp: 30 }),
+        enhance: [0.05, 0.05, 0, 0.05, 0.1, 0.15],
+        single: true,
+      }
+    }
+  },
+  ken_old: {
+    name: 'Ken (Pre-Balance)',
+    element: element.fire,
+    classType: classType.warrior,
+    baseAtk: 966,
+    info: infoLabel('ken_change'),
     form: [elements.caster_max_hp],
     dot: [dot.burn],
     skills: {
@@ -4068,45 +4163,45 @@ const heroes = {
       }
     }
   },
-  kise_old: {
-    name: 'Kise (Pre-Balance)',
-    element: element.ice,
-    classType: classType.thief,
-    baseAtk: 1283,
-    barrier: (hero) => hero.getAtk() * 0.5,
-    form: [elements.target_has_buff, elements.caster_stealth, elements.caster_hp_pc, elements.exclusive_equipment_2],
-    skills: {
-      s1: {
-        soulburn: true,
-        rate: (soulburn) => soulburn ? 1.4 : 1.1,
-        pow: 1,
-        enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
-        mult: (soulburn) => {
-          if (!elements.target_has_buff.value()) return 1;
+  // kise_old: {
+  //   name: 'Kise (Pre-Balance)',
+  //   element: element.ice,
+  //   classType: classType.thief,
+  //   baseAtk: 1283,
+  //   barrier: (hero) => hero.getAtk() * 0.5,
+  //   form: [elements.target_has_buff, elements.caster_stealth, elements.caster_hp_pc, elements.exclusive_equipment_2],
+  //   skills: {
+  //     s1: {
+  //       soulburn: true,
+  //       rate: (soulburn) => soulburn ? 1.4 : 1.1,
+  //       pow: 1,
+  //       enhance: [0.05, 0.05, 0.1, 0.1, 0.1],
+  //       mult: (soulburn) => {
+  //         if (!elements.target_has_buff.value()) return 1;
 
-          return soulburn ? 2 : 1.7;
-        },
-        multTip: (soulburn) => ({ target_debuff: soulburn ? 100 : 70 }),
-        single: true,
-      },
-      s2: {
-        rate: 0.8,
-        pow: 1,
-        penetrate: () => elements.caster_stealth.value() ? 0.6 : 0.3,
-        exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
-        enhance: [0.05, 0.05, 0, 0.1, 0.1],
-        aoe: true,
-      },
-      s3: {
-        rate: 1.6,
-        pow: 1,
-        mult: () => 1 + elements.caster_hp_pc.value()*0.0035,
-        multTip: () => ({ caster_left_hp_pc: 0.35 }),
-        enhance: [0.05, 0.05, 0, 0.1, 0.1],
-        single: true,
-      }
-    }
-  },
+  //         return soulburn ? 2 : 1.7;
+  //       },
+  //       multTip: (soulburn) => ({ target_debuff: soulburn ? 100 : 70 }),
+  //       single: true,
+  //     },
+  //     s2: {
+  //       rate: 0.8,
+  //       pow: 1,
+  //       penetrate: () => elements.caster_stealth.value() ? 0.6 : 0.3,
+  //       exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
+  //       enhance: [0.05, 0.05, 0, 0.1, 0.1],
+  //       aoe: true,
+  //     },
+  //     s3: {
+  //       rate: 1.6,
+  //       pow: 1,
+  //       mult: () => 1 + elements.caster_hp_pc.value()*0.0035,
+  //       multTip: () => ({ caster_left_hp_pc: 0.35 }),
+  //       enhance: [0.05, 0.05, 0, 0.1, 0.1],
+  //       single: true,
+  //     }
+  //   }
+  // },
   kitty_clarissa: {
     name: 'Kitty Clarissa',
     element: element.dark,
@@ -4243,6 +4338,40 @@ const heroes = {
     element: element.light,
     classType: classType.knight,
     baseAtk: 839,
+    form: [elements.caster_max_hp, elements.attack_skill_stack_3, elements.caster_speed],
+    barrier: () => elements.caster_max_hp.value()*0.1,
+    barrierEnhance: 's2',
+    skills: {
+      s1: {
+        rate: 0.7,
+        pow: 1,
+        flat: () => 0.1*elements.caster_max_hp.value(),
+        flatTip: () => ({ caster_max_hp: 10 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s2: {
+        enhance: [0.05, 0.1, 0.1, 0.1, 0.15]
+      },
+      s3: {
+        noCrit: true,
+        rate: 0.3,
+        pow: 1,
+        flat: () => 0.06*elements.caster_max_hp.value(),
+        flatTip: () => ({ caster_max_hp: 6 }),
+        mult: () => 1 + (elements.attack_skill_stack_3.value() * 0.2) + (elements.caster_speed.value() * 0.001125),
+        multTip: () => ({ per_stack: 20, caster_speed: 0.1125 }),
+        penetrate: () => 1.0,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
+      }
+    }
+  },
+  last_rider_krau_old: {
+    name: 'Last Rider Krau (Pre-Balance)',
+    element: element.light,
+    classType: classType.knight,
+    baseAtk: 839,
     form: [elements.caster_max_hp, elements.attack_skill_stack_3],
     barrier: () => elements.caster_max_hp.value()*0.07,
     barrierEnhance: 's2',
@@ -4350,6 +4479,31 @@ const heroes = {
   },
   lilias: {
     name: 'Lilias',
+    element: element.fire,
+    classType: classType.knight,
+    baseAtk: 821,
+    form: [elements.caster_max_hp, elements.highest_ally_attack],
+    skills: {
+      s1: {
+        rate: 0.8,
+        pow: 0.95,
+        flat: () => elements.caster_max_hp.value()*0.12,
+        flatTip: () => ({ caster_max_hp: 12 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 1,
+        pow: 1,
+        atk: () =>  elements.highest_ally_attack.value(),
+        noBuff: true,
+        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1],
+        aoe: true,
+      }
+    }
+  },
+  lilias_old: {
+    name: 'Lilias (Pre-Balance)',
     element: element.fire,
     classType: classType.knight,
     baseAtk: 821,
@@ -4885,36 +5039,36 @@ const heroes = {
       }
     }
   },
-  melissa_old: {
-    name: 'Melissa (Pre-Balance)',
-    element: element.fire,
-    classType: classType.mage,
-    baseAtk: 1412,
-    form: [elements.caster_hp_pc, elements.exclusive_equipment_2],
-    skills: {
-      s1: {
-        rate: 1,
-        pow: 1.1,
-        mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0035,
-        multTip: () => ({ caster_lost_hp_pc: 0.35 }),
-        enhance: [0.05, 0, 0.05, 0, 0.1],
-        single: true,
-      },
-      s2: {
-        rate: 1.5,
-        pow: 0.95,
-        enhance: [0.05, 0.05, 0.05, 0.1, 0.1],
-        exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
-        single: true,
-      },
-      s3: {
-        rate: 1.2,
-        pow: 1,
-        enhance: [0.05, 0.05, 0, 0.1, 0.1],
-        single: true,
-      }
-    }
-  },
+  // melissa_old: {
+  //   name: 'Melissa (Pre-Balance)',
+  //   element: element.fire,
+  //   classType: classType.mage,
+  //   baseAtk: 1412,
+  //   form: [elements.caster_hp_pc, elements.exclusive_equipment_2],
+  //   skills: {
+  //     s1: {
+  //       rate: 1,
+  //       pow: 1.1,
+  //       mult: () => 1 + (100-elements.caster_hp_pc.value())*0.0035,
+  //       multTip: () => ({ caster_lost_hp_pc: 0.35 }),
+  //       enhance: [0.05, 0, 0.05, 0, 0.1],
+  //       single: true,
+  //     },
+  //     s2: {
+  //       rate: 1.5,
+  //       pow: 0.95,
+  //       enhance: [0.05, 0.05, 0.05, 0.1, 0.1],
+  //       exEq: () => elements.exclusive_equipment_2.value() ? 0.1 : 0,
+  //       single: true,
+  //     },
+  //     s3: {
+  //       rate: 1.2,
+  //       pow: 1,
+  //       enhance: [0.05, 0.05, 0, 0.1, 0.1],
+  //       single: true,
+  //     }
+  //   }
+  // },
   mercedes: {
     name: 'Mercedes',
     element: element.fire,
@@ -5208,33 +5362,33 @@ const heroes = {
       }
     }
   },
-  mui_old: {
-    name: 'Mui (Pre-Balance)',
-    element: element.earth,
-    classType: classType.warrior,
-    baseAtk: 1039,
-    dot: [dot.bleed],
-    skills: {
-      s1: {
-        rate: 1,
-        pow: 1,
-        enhance: [0.05, 0.05, 0, 0.1, 0.1],
-        single: true,
-      },
-      s2: {
-        rate: 1,
-        pow: 0.9,
-        enhance: [0.05, 0, 0, 0.1, 0.15],
-        aoe: true,
-      },
-      s3: {
-        rate: 1,
-        pow: 0.95,
-        enhance: [0.05, 0.05, 0, 0.1, 0.15],
-        aoe: true,
-      }
-    }
-  },
+  // mui_old: {
+  //   name: 'Mui (Pre-Balance)',
+  //   element: element.earth,
+  //   classType: classType.warrior,
+  //   baseAtk: 1039,
+  //   dot: [dot.bleed],
+  //   skills: {
+  //     s1: {
+  //       rate: 1,
+  //       pow: 1,
+  //       enhance: [0.05, 0.05, 0, 0.1, 0.1],
+  //       single: true,
+  //     },
+  //     s2: {
+  //       rate: 1,
+  //       pow: 0.9,
+  //       enhance: [0.05, 0, 0, 0.1, 0.15],
+  //       aoe: true,
+  //     },
+  //     s3: {
+  //       rate: 1,
+  //       pow: 0.95,
+  //       enhance: [0.05, 0.05, 0, 0.1, 0.15],
+  //       aoe: true,
+  //     }
+  //   }
+  // },
   muse_rima: {
     name: 'Muse Rima',
     element: element.ice,
@@ -7393,6 +7547,32 @@ const heroes = {
   },
   tywin: {
     name: 'Tywin',
+    element: element.ice,
+    classType: classType.knight,
+    baseAtk: 821,
+    form: [elements.caster_max_hp],
+    barrier: () => elements.caster_max_hp.value()*0.2,
+    skills: {
+      s1: {
+        rate: 0.8,
+        pow: 0.95,
+        flat: () => elements.caster_max_hp.value()*0.04,
+        flatTip: () => ({ caster_max_hp: 4 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0, 0.15],
+        single: true,
+      },
+      s3: {
+        rate: 0.5,
+        pow: 0.95,
+        flat: () => elements.caster_max_hp.value()*0.1,
+        flatTip: () => ({ caster_max_hp: 10 }),
+        enhance: [0.05, 0.05, 0, 0, 0, 0.1, 0.15],
+        aoe: true,
+      }
+    }
+  },
+  tywin_old: {
+    name: 'Tywin (Pre-Balance)',
     element: element.ice,
     classType: classType.knight,
     baseAtk: 821,
