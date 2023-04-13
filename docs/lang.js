@@ -151,6 +151,7 @@ const i18n = {
       s2_wave_3: 'S2 Wave 3',
       sez_explosion: 'Explosion',
       unreleased_hero: '<strong>Notice:</strong> This hero is not yet released, and skill multipliers are subject to change.',
+      ken_change: "<strong>Notice:</strong> Ken's S1 multiplier changed on the sheet but it is not certain if this was a new multiplier change or if the sheet was outdated before.",
       victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes',
       yoonryoung_slash: 'Dazzling Slash',
       zio_disappear: 'Disappear',
@@ -160,10 +161,12 @@ const i18n = {
     heroes: {
       // Unreleased units: (未発表)
       // Pre-Balance versions: (前のバージョン)
-      chaos_sect_axe_old: 'カオス教団 重斧総長 (前のバージョン)',
-      kise_old: 'キセ (前のバージョン)',
-      melissa_old: 'メリッサ (前のバージョン)',
-      mui_old: 'ミュイ (前のバージョン)',
+      architect_laika_old: '設計者 ライカ (前のバージョン)',
+      last_rider_krau_old: 'ラストライダー クラウ (前のバージョン)',
+      ken_old: 'ケン (前のバージョン)',
+      lilias_old: 'リリアス (前のバージョン)',
+      tywin_old: 'タイウィン (前のバージョン)',
+      ilynav_old: 'イリーナブ (前のバージョン)',
       // End Pre-Balance
       achates: 'アカテス',
       adin: 'アーディン',
@@ -606,10 +609,12 @@ const i18n = {
     heroes: {
       // Unreleased units: (未發布)
       // Pre-Balance versions: (以前的版本)
-      chaos_sect_axe_old: '混沌教巨斧大將軍 (以前的版本)',
-      kise_old: '綺世 (以前的版本)',
-      melissa_old: '梅麗莎 (以前的版本)',
-      mui_old: '繆伊 (以前的版本)',
+      architect_laika_old: '策畫者萊伊卡 (以前的版本)',
+      last_rider_krau_old: '最後的騎士克勞烏 (以前的版本)',
+      ken_old: '肯恩 (以前的版本)',
+      lilias_old: '莉莉亞斯 (以前的版本)',
+      tywin_old: '泰溫 (以前的版本)',
+      ilynav_old: '伊莉娜芙 (以前的版本)',
       // End Pre-Balance
       achates: '雅卡泰絲',
       adin: '艾庭',
@@ -1283,10 +1288,12 @@ const i18n = {
     heroes: {
       // Unreleased units: (未发布)
       // Pre-Balance versions: (以前的版本)
-      chaos_sect_axe_old: '混沌教巨斧大将军 (以前的版本)',
-      kise_old: '绮世 (以前的版本)',
-      melissa_old: '梅丽莎 (以前的版本)',
-      mui_old: '缪伊 (以前的版本)',
+      architect_laika_old: '策划者莱伊卡 (以前的版本)',
+      last_rider_krau_old: '最后的骑士克劳乌 (以前的版本)',
+      ken_old: '肯恩 (以前的版本)',
+      lilias_old: '莉莉亚斯 (以前的版本)',
+      tywin_old: '泰温 (以前的版本)',
+      ilynav_old: '伊莉娜芙 (以前的版本)',
       // End Pre-Balance
       achates: '雅卡泰丝',
       adin: '艾庭',
@@ -1963,10 +1970,12 @@ const i18n = {
     heroes: {
       // Unreleased units: (미공개)
       // Pre-Balance versions: (이전 버전)
-      chaos_sect_axe_old: '카오스교 도끼 대장군 (이전 버전)',
-      kise_old: '키세 (이전 버전)',
-      melissa_old: '멜리사 (이전 버전)',
-      mui_old: '뮤이 (이전 버전)',
+      architect_laika_old: '설계자 라이카 (이전 버전)',
+      last_rider_krau_old: '라스트 라이더 크라우 (이전 버전)',
+      ken_old: '켄 (이전 버전)',
+      lilias_old: '릴리아스 (이전 버전)',
+      tywin_old: '타이윈 (이전 버전)',
+      ilynav_old: '일리나브 (이전 버전)',
       // End Pre-Balance
       achates: '아카테스',
       adin: '아딘',
@@ -2573,10 +2582,12 @@ const i18n = {
     heroes: {
       // Unreleased units: (Unidades) (Não Lançadas)
       // Pre-Balance versions: (Versão) (Pré-Balanceamento)
-      chaos_sect_axe_old: 'Machadeiro da Seita do Caos (Pré-Balanceamento)',
-      kise_old: 'Kise (Pré-Balanceamento)',
-      melissa_old: 'Melissa (Pré-Balanceamento)',
-      mui_old: 'Mui (Pré-Balanceamento)',
+      architect_laika_old: 'Planejadora Laika (Pré-Balanceamento)',
+      last_rider_krau_old: 'Último Paladino Krato (Pré-Balanceamento)',
+      ken_old: 'Ken (Pré-Balanceamento)',
+      lilias_old: 'Lilias (Pré-Balanceamento)',
+      tywin_old: 'Tywin (Pré-Balanceamento)',
+      ilynav_old: 'Ilynav (Pré-Balanceamento)',
       // End Pre-Balance
       achates: 'Acates',
       adin: 'Adine',
