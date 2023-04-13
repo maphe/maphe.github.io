@@ -3960,42 +3960,6 @@ const heroes = {
     element: element.fire,
     classType: classType.warrior,
     baseAtk: 966,
-    info: infoLabel('ken_change'),
-    form: [elements.caster_max_hp],
-    dot: [dot.burn],
-    skills: {
-      s1: {
-        rate: 0.5,
-        pow: 1,
-        flat: () => elements.caster_max_hp.value()*0.1,
-        flatTip: () => ({ caster_max_hp: 10 }),
-        enhance: [0.05, 0.05, 0, 0.05, 0.05, 0.1],
-        single: true,
-      },
-      s2: {
-        rate: 1.2,
-        pow: 1,
-        flat: () => elements.caster_max_hp.value()*0.1,
-        flatTip: () => ({ caster_max_hp: 10 }),
-        enhance: [0.05, 0.1, 0.15],
-        single: true,
-      },
-      s3: {
-        rate: 1.5,
-        pow: 0.9,
-        flat: () => elements.caster_max_hp.value()*0.3,
-        flatTip: () => ({ caster_max_hp: 30 }),
-        enhance: [0.05, 0.05, 0, 0.05, 0.1, 0.15],
-        single: true,
-      }
-    }
-  },
-  ken_old: {
-    name: 'Ken (Pre-Balance)',
-    element: element.fire,
-    classType: classType.warrior,
-    baseAtk: 966,
-    info: infoLabel('ken_change'),
     form: [elements.caster_max_hp],
     dot: [dot.burn],
     skills: {

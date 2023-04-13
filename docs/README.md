@@ -1,6 +1,6 @@
 ## Changelog
 
-<strong>Apr. 13 2023 Update:</strong> Updated Architect Laika, Last Rider Krau, Ken, Lilias, Ilynav, and Tywin for the 4/13 balance patch.<br>
+<strong>Apr. 13 2023 Update:</strong> Updated Architect Laika, Last Rider Krau, Lilias, Ilynav, and Tywin for the 4/13 balance patch.<br>
 <strong>Apr. 12 2023 Update:</strong> Added Ainos 2.0 and Shadow Knight Pyllis and added translations for Architect Laika. Updated spreadsheet link. Added some missing translations for Português (BR). Ainos 2.0 and Shadow Knight Pyllis are exactly the same as the regular versions in terms of damage, but they're there now.<br>
 <strong>Mar. 25 2023 Update: Fixed some pows.  Not adding to banner cause it's small.<br>
 <strong>Mar. 24 2023 Update:</strong> Added Architect Laika (Unreleased).<br>

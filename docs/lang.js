@@ -151,7 +151,6 @@ const i18n = {
       s2_wave_3: 'S2 Wave 3',
       sez_explosion: 'Explosion',
       unreleased_hero: '<strong>Notice:</strong> This hero is not yet released, and skill multipliers are subject to change.',
-      ken_change: "<strong>Notice:</strong> Ken's S1 multiplier changed on the sheet but it is not certain if this was a new multiplier change or if the sheet was outdated before.",
       victorious_flag: 'Elemental advantage must be enabled to see benefits from this artifact; doesn\'t apply to light and dark heroes',
       yoonryoung_slash: 'Dazzling Slash',
       zio_disappear: 'Disappear',
