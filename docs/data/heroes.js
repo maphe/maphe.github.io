@@ -1778,9 +1778,7 @@ const heroes = {
     element: element.dark,
     classType: classType.warrior,
     baseAtk: 1144,
-    form: [elements.caster_max_hp, elements.caster_attacked_stack_5],
-    dot: [dot.bleed],
-    atkUp: () => 1 + elements.caster_attacked_stack_5.value()*0.06,
+    form: [elements.caster_max_hp, elements.skill_tree_completed],
     skills: {
       s1: {
         rate: 0.7,
@@ -1793,6 +1791,8 @@ const heroes = {
       s2: {
         rate: 0.7,
         pow: 0.95,
+        mult: () => elements.skill_tree_completed.value() ? 1.1 : 1,
+        multTip: () => (elements.skill_tree_completed.value() ? { skill_tree: 10 } : null),
         flat: () => elements.caster_max_hp.value()*0.08,
         flatTip: () => ({ caster_max_hp: 8 }),
         enhance: [0.05, 0.05, 0.1, 0.15],
