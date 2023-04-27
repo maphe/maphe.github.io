@@ -7509,6 +7509,40 @@ const heroes = {
     }
 
   },
+  twisted_eidolon_kayron: { //TODO: translate when available
+    name: 'Twisted Eidolon Kayron',
+    element: element.light,
+    classType: classType.thief,
+    baseAtk: 1228,
+    info: infoLabel('unreleased_hero'),
+    barrier: () => elements.caster_max_hp.value() * 0.12,
+    form: [elements.target_hp_pc, elements.caster_enrage, elements.caster_max_hp],
+    skills: {
+      s1: {
+        rate: (soulburn) => soulburn ? 1.7 : 1,
+        pow: 1,
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        mult: () => 1 + (100 - elements.target_hp_pc.value()) * 0.3,
+        multTip: () => ({ target_lost_hp_pc: 30 }),
+        single: true,
+      },
+      s1_bis: {
+        name: infoLabel('ml_kayron_flash_slash'),
+        rate: 0.85,
+        pow: 1,
+        enhance_from: 's1',
+        aoe: true,
+      },
+      s3: {
+        rate: 0.9,
+        pow: 1,
+        fixed: (hitType) => (hitType !== hitTypes.miss) ? ((elements.caster_enrage.value()) ? 10000 : 2000) : 0,
+        fixedTip: () => ({ caster_rage_flat: 10000 }),
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        aoe: true,
+      },
+    }
+  },
   tywin: {
     name: 'Tywin',
     element: element.ice,

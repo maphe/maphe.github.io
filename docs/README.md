@@ -1,5 +1,6 @@
 ## Changelog
 
+<strong>Apr. 27 2023 Update:</strong> Added Twisted Eidolon Kayron (Unreleased).<br>
 <strong>Apr. 17 2023 Update:</strong> Fixed some errors with Chaos Sect Axe's skills.<br>
 <strong>Apr. 13 2023 Update:</strong> Updated Architect Laika, Last Rider Krau, Lilias, Ilynav, and Tywin for the 4/13 balance patch.<br>
 <strong>Apr. 12 2023 Update:</strong> Added Ainos 2.0 and Shadow Knight Pyllis and added translations for Architect Laika. Updated spreadsheet link. Added some missing translations for Português (BR). Ainos 2.0 and Shadow Knight Pyllis are exactly the same as the regular versions in terms of damage, but they're there now.<br>
