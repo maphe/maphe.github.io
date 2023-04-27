@@ -7522,7 +7522,7 @@ const heroes = {
         rate: (soulburn) => soulburn ? 1.7 : 1,
         pow: 1,
         enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
-        mult: () => 1 + (100 - elements.target_hp_pc.value()) * 0.3,
+        mult: () => 1 + (1-(elements.target_hp_pc.value() / 100)) * 0.3,
         multTip: () => ({ target_lost_hp_pc: 30 }),
         single: true,
       },
