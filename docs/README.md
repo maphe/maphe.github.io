@@ -1,5 +1,6 @@
 ## Changelog
 
+<strong>May 15 2023 Update:</strong> Added Benimaru.<br>
 <strong>Apr. 27 2023 Update:</strong> Added Twisted Eidolon Kayron (Unreleased).<br>
 <strong>Apr. 17 2023 Update:</strong> Fixed some errors with Chaos Sect Axe's skills.<br>
 <strong>Apr. 13 2023 Update:</strong> Updated Architect Laika, Last Rider Krau, Lilias, Ilynav, and Tywin for the 4/13 balance patch.<br>

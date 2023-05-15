@@ -1210,6 +1210,35 @@ const heroes = {
       }
     }
   },
+  benimaru: {
+    name: 'Benimaru',
+    element: element.fire,
+    classType: classType.warrior,
+    form: [elements.caster_has_multilayer_barrier],
+    baseAtk: 1177,
+    skills: {
+      s1: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.7 : 1,
+        pow: 1,
+        mult: () => 1 + (elements.caster_has_multilayer_barrier.value() ? 0.3 : 0),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s2: {
+        rate: 1.2,
+        pow: 1,
+        penetrate: () => elements.caster_has_multilayer_barrier.value() ? 0.6 : 0.3,
+        aoe: true,
+      },
+      s3: {
+        rate: 2,
+        pow: 1,
+        enhance: [0.05, 0.05, 0, 0.1, 0.1],
+        single: true,
+      },
+    }
+  },
   blaze_dingo: {
     name: 'Blaze Dingo',
     element: element.light,
@@ -7514,7 +7543,6 @@ const heroes = {
     element: element.light,
     classType: classType.thief,
     baseAtk: 1228,
-    info: infoLabel('unreleased_hero'),
     barrier: () => elements.caster_max_hp.value() * 0.12,
     form: [elements.target_hp_pc, elements.caster_enrage, elements.caster_max_hp],
     skills: {
