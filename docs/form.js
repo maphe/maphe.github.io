@@ -419,7 +419,16 @@ const elements = {
     id: 'caster-has-flame-alchemist',
     label: 'Caster has Flame Alchemist',
     type: 'checkbox',
-    value: () => document.getElementById('caster-has-flame-alchemist').checked
+    value: () => document.getElementById('caster-has-flame-alchemist').checked,
+    icon: './assets/buffs/flame-alchemist-buff.png'
+  },
+  caster_has_multilayer_barrier: {
+    ref: 'caster_has_multilayer_barrier',
+    id: 'caster-has-multilayer-barrier',
+    label: 'Caster has Multilayer Barrier',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-has-multilayer-barrier').checked,
+    icon: './assets/buffs/multilayer-barrier-buff.png'
   },
   caster_full_focus: {
     ref: 'caster_full_focus',
