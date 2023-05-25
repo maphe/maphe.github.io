@@ -430,6 +430,14 @@ const elements = {
     value: () => document.getElementById('caster-has-multilayer-barrier').checked,
     icon: './assets/buffs/multilayer-barrier-buff.png'
   },
+  caster_has_neo_phantom_sword: {
+    ref: 'caster_has_neo_phantom_sword',
+    id: 'caster-has-neo-phantom-sword',
+    label: 'Caster has Neo Phantom Sword',
+    type: 'checkbox',
+    value: () => document.getElementById('caster-has-neo-phantom-sword').checked,
+    icon: './assets/buffs/neo-phantom-sword-buff.png'
+  },
   caster_full_focus: {
     ref: 'caster_full_focus',
     id: 'caster-full-focus',
@@ -1220,7 +1228,7 @@ window.addEventListener('DOMContentLoaded', () => {
       window.dataLayer.push({
         'event': 'select_artifact',
         'artifact': artifact.name,
-        'hero': heroes[heroSelector.value]?.name === 'Achates' ? 'None' : heroes[heroSelector.value]?.name || 'None' // Nobody's actually calculating for Achates damage...
+        'hero': heroes[heroSelector.value]?.name || 'None'
       });
     };
 

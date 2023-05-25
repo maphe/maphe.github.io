@@ -28,6 +28,31 @@ const element = {
 };
 
 const heroes = {
+  abigail: {
+    name: 'Abigail',
+    element: element.fire,
+    classType: classType.warrior,
+    baseAtk: 984,
+    form: [elements.caster_max_hp],
+    skills: {
+      s1: {
+        rate: 0.8,
+        pow: 0.9,
+        flat: () => elements.caster_max_hp.value() * 0.12,
+        flatTip: () => ({caster_max_hp: 12}),
+        enhance: [0.05, 0.05, 0.05, 0, 0.05, 0.05, 0.1],
+        single: true,
+      },
+      s3: {
+        rate: 1.2,
+        pow: 0.95,
+        flat: () => elements.caster_max_hp.value() * 0.2,
+        flatTip: () => ({caster_max_hp: 20}),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        aoe: true,
+      }
+    }
+  },
   achates: {
     name: 'Achates',
     element: element.fire,
@@ -4323,6 +4348,37 @@ const heroes = {
         pow: 1,
         penetrate: () => elements.caster_full_fighting_spirit.value() ? 0.5 : 0,
         enhance: [0.05, 0.05, 0, 0.1, 0.1]
+      }
+    }
+  },
+  last_piece_karin: {
+    name: 'Last Piece Karin',
+    element: element.light,
+    classType: classType.thief,
+    baseAtk: 1029,
+    barrier: (hero) => hero.getAtk() * 0.65,
+    form: [elements.caster_speed, elements.target_max_hp, elements.caster_has_neo_phantom_sword],
+    skills: {
+      s1: {
+        soulburn: true,
+        rate: (soulburn) => soulburn ? 1.5 : 0.9,
+        pow: 1,
+        mult: () => 1 + elements.caster_speed.value() * 0.00075,
+        multTip: () => ({ caster_speed: 0.075 }),
+        flat: () => elements.caster_has_neo_phantom_sword.value() ? elements.target_max_hp.value() * 0.2 : 0,
+        flatTip: () => ({ target_max_hp: 20 }),
+        enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1],
+        single: true
+      },
+      s2: {
+        rate: 1.5,
+        pow: 0.9,
+        mult: () => 1 + elements.caster_speed.value() * 0.0015,
+        multTip: () => ({ caster_speed: 0.15 }),
+        flat: () => elements.caster_has_neo_phantom_sword.value() ? elements.target_max_hp.value() * 0.2 : 0,
+        flatTip: () => ({ target_max_hp: 20 }),
+        enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
+        snigle: true,
       }
     }
   },

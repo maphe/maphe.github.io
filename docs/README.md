@@ -1,5 +1,6 @@
 ## Changelog
 
+<strong>May 25 2023 Update:</strong> Added Abigail, Golden Rose, and Last Piece Karin.<br>
 <strong>May 15 2023 Update:</strong> Added Benimaru.<br>
 <strong>Apr. 27 2023 Update:</strong> Added Twisted Eidolon Kayron (Unreleased).<br>
 <strong>Apr. 17 2023 Update:</strong> Fixed some errors with Chaos Sect Axe's skills.<br>

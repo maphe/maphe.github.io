@@ -148,6 +148,13 @@ const artifacts = {
     exclusive: classType.mage,
     applies: (skill) => getSkillType(skill) === skillTypes.single,
   },
+  golden_rose: {
+    id: 'golden_rose',
+    name: 'Golden Rose',
+    scale: [0.08, 0.088, 0.096, 0.104, 0.112, 0.12, 0.128, 0.136, 0.144, 0.152, 0.16],
+    type: artifactDmgType.damage,
+    exclusive: classType.warrior
+  },
   hell_cutter: {
     id: 'hell_cutter',
     name: 'Hell Cutter',
