@@ -34,6 +34,7 @@ const heroes = {
     classType: classType.warrior,
     baseAtk: 984,
     form: [elements.caster_max_hp],
+    info: infoLabel('unreleased_hero'),
     skills: {
       s1: {
         rate: 0.8,
@@ -4358,6 +4359,7 @@ const heroes = {
     baseAtk: 1029,
     barrier: (hero) => hero.getAtk() * 0.65,
     form: [elements.caster_speed, elements.target_max_hp, elements.caster_has_neo_phantom_sword],
+    info: infoLabel('unreleased_hero'),
     skills: {
       s1: {
         soulburn: true,
