@@ -169,6 +169,7 @@ const i18n = {
       tywin_old: 'タイウィン (前のバージョン)',
       ilynav_old: 'イリーナブ (前のバージョン)',
       // End Pre-Balance
+      abigail: 'アビゲイル',
       achates: 'アカテス',
       adin: 'アーディン',
       adlay: 'アドレー',
@@ -321,6 +322,7 @@ const i18n = {
       kluri: 'クルリ',
       krau: 'クラウ',
       landy: 'ランディ',
+      last_piece_karin: 'ラストピース カリン',
       last_rider_krau: 'ラストライダー クラウ',
       lena: 'レナ',
       leo: 'レオ',
@@ -479,6 +481,7 @@ const i18n = {
       els_fist: 'エルの拳',
       exorcist_tonfa: '闘鬼の戦具',
       elyha_knife: 'エリハの短剣',
+      golden_rose: 'ゴールデンローズ',
       frame_of_light: '光之框架',
       hell_cutter: '地獄のチェーンソー',
       ignition_cloth_gloves: '発火布の手袋',
@@ -619,6 +622,7 @@ const i18n = {
       tywin_old: '泰溫 (以前的版本)',
       ilynav_old: '伊莉娜芙 (以前的版本)',
       // End Pre-Balance
+      abigail: '雅碧凱',
       achates: '雅卡泰絲',
       adin: '艾庭',
       adlay: '亞迪賴',
@@ -771,6 +775,7 @@ const i18n = {
       kluri: '可露莉',
       krau: '克勞烏',
       landy: '蘭蒂',
+      last_piece_karin: '最後的碎片卡琳',
       last_rider_krau: '最後的騎士克勞烏',
       lena: '雷娜',
       leo: '雷歐',
@@ -1110,6 +1115,7 @@ const i18n = {
       els_fist: '艾爾之拳',
       elyha_knife: '埃里哈刀',
       exorcist_tonfa: '鬥鬼的拐棍',
+      golden_rose: '金玫瑰',
       frame_of_light: '光之框架',
       hell_cutter: '地獄切割機',
       ignition_cloth_gloves: '發火布手套',
@@ -1179,6 +1185,8 @@ const i18n = {
       caster_speed: '自身速度',
       caster_speed_up: '速度提升',
       caster_nb_buff: '自身Buff數量',
+      caster_has_flame_alchemist: '自身有焰之炼金术师BUFF',
+      caster_has_neo_phantom_sword: '真·幻影劍BUFF',
       caster_full_fighting_spirit: '鬥志最大值',
       caster_full_focus: '專注力最大值',
       caster_nb_focus: '專注力',
@@ -1301,6 +1309,7 @@ const i18n = {
       tywin_old: '泰温 (以前的版本)',
       ilynav_old: '伊莉娜芙 (以前的版本)',
       // End Pre-Balance
+      abigail: '雅碧凱',
       achates: '雅卡泰丝',
       adin: '艾庭',
       adlay: '亚迪赖',
@@ -1453,7 +1462,8 @@ const i18n = {
       kluri: '可露莉',
       krau: '克劳乌',
       landy: '兰蒂',
-      last_rider_krau:'最后的骑士克劳乌',
+      last_piece_karin: '最後的碎片卡琳', // TODO: simplified when available
+      last_rider_krau: '最后的骑士克劳乌',
       lena: '雷娜',
       leo: '雷欧',
       lidica: '丽迪卡',
@@ -1783,6 +1793,7 @@ const i18n = {
       els_fist: '艾尔之拳',
       elyha_knife: '埃里哈刀',
       exorcist_tonfa: '斗鬼的拐棍',
+      golden_rose: '金玫瑰', // TODO: update simplified when available
       frame_of_light: '光之框架', // update with simplified when available
       hell_cutter: '地狱切割机',
       ignition_cloth_gloves: '发火布手套',
@@ -1861,6 +1872,7 @@ const i18n = {
       caster_turn: '自身回合数',
       caster_has_debuff: '自身有Debuff',
       caster_has_flame_alchemist: '自身有焰之炼金术师BUFF',
+      caster_has_neo_phantom_sword: '真·幻影劍BUFF',
       caster_full_fighting_spirit: '斗志最大值',
       caster_full_focus: '专注力最大值',
       caster_nb_focus: '专注力',
@@ -1986,6 +1998,7 @@ const i18n = {
       tywin_old: '타이윈 (이전 버전)',
       ilynav_old: '일리나브 (이전 버전)',
       // End Pre-Balance
+      abigail: '아비게일',
       achates: '아카테스',
       adin: '아딘',
       adlay: '아들라이',
@@ -2142,6 +2155,7 @@ const i18n = {
       kluri: '쿠루리',
       krau: '크라우',
       landy: '랑디',
+      last_piece_karin: '라스트 피스 카린',
       last_rider_krau: '라스트 라이더 크라우',
       lena: '레나',
       leo: '레오',
@@ -2400,6 +2414,7 @@ const i18n = {
       els_fist: '엘의 주먹',
       elyha_knife: '엘리하 나이프',
       exorcist_tonfa: '투귀의 톤파',
+      golden_rose: '골든 로즈',
       frame_of_light: '빛의 프레임',
       hell_cutter: '지옥 절단기',
       ignition_cloth_gloves: '발화포 장갑',
@@ -2480,6 +2495,7 @@ const i18n = {
       caster_turn: '시전자의 턴',
       caster_has_debuff: '시전자에게 약화효과가 있음',
       caster_has_flame_alchemist: '불꽃의 연금술사 버프가 있음',
+      caster_has_neo_phantom_sword: '진 환영검 버프가 있음',
       caster_full_focus: '풀 집중',
       //caster_full_fighting_spirit: '斗志最大值', // TODO: korean translation for this
       caster_nb_focus: '집중',
@@ -2601,6 +2617,7 @@ const i18n = {
       tywin_old: 'Tywin (Pré-Balanceamento)',
       ilynav_old: 'Ilynav (Pré-Balanceamento)',
       // End Pre-Balance
+      abigail: 'Abigail', // TODO: translate when available
       achates: 'Acates',
       adin: 'Adine',
       adlay: 'Adlay',
@@ -2753,6 +2770,7 @@ const i18n = {
       kluri: 'Kluri',
       krau: 'Krato',
       landy: 'Landy',
+      last_piece_karin: 'Last Piece Karin', // TODO: translate when available
       last_rider_krau: 'Último Paladino Krato',
       lena: 'Lena',
       leo: 'Léo',
@@ -2926,6 +2944,8 @@ const i18n = {
       els_fist: 'Punho de El',
       elyha_knife: 'Faca de Elyha',
       exorcist_tonfa: 'Tonfas do Exorcista',
+      golden_rose: 'Golden Roase', // TODO: translate when available
+      frame_of_light: 'Frame of Light', // TODO: translate next time
       hell_cutter: 'Lâmina do Inferno',
       ignition_cloth_gloves: 'Luva de Ignição',
       iron_fan: 'Leque de Ferro',
@@ -3009,6 +3029,7 @@ const i18n = {
       caster_turn: 'Próprio Turno do Herói',
       caster_has_debuff: 'Tem Debuff no Herói',
       caster_has_flame_alchemist: 'Alquimista das Chamas no Herói',
+      caster_has_neo_phantom_sword: 'Neo Phantom Sword no Herói', // TODO: translate when available
       caster_immense_power: 'Herói tem Poder Grandioso',
       caster_full_focus: 'Foco Completo do Herói',
       caster_full_fighting_spirit: 'Espírito de Luta Completo',
