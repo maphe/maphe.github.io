@@ -50,7 +50,7 @@ const heroes = {
         flat: () => elements.caster_max_hp.value() * 0.2,
         flatTip: () => ({caster_max_hp: 20}),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
-        aoe: true,
+        single: true,
       }
     }
   },
