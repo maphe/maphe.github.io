@@ -4370,7 +4370,8 @@ const heroes = {
         flat: () => elements.caster_has_neo_phantom_sword.value() ? elements.target_max_hp.value() * 0.2 : 0,
         flatTip: () => ({ target_max_hp: 20 }),
         enhance: [0.05, 0, 0.05, 0, 0.1, 0, 0.1],
-        single: true
+        single: true,
+        // noTrans: elements.caster_has_neo_phantom_sword.value() ? true : false
       },
       s2: {
         rate: 1.5,
@@ -4380,7 +4381,8 @@ const heroes = {
         flat: () => elements.caster_has_neo_phantom_sword.value() ? elements.target_max_hp.value() * 0.2 : 0,
         flatTip: () => ({ target_max_hp: 20 }),
         enhance: [0.05, 0.05, 0.05, 0.05, 0.05, 0.05, 0.1],
-        snigle: true,
+        single: true,
+        // noTrans: elements.caster_has_neo_phantom_sword.value()
       }
     }
   },
